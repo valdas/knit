@@ -1,0 +1,52 @@
+#summary Motivation
+
+Henry Spencer [wrote in 1991](http://awk.info/?awksys) that:
+
+ *  There is no fundamental reason why AWK programs have to be small "glue" programs.
+ *  Even the "old" AWK is a powerful programming language in its own right.
+ *  Effective use of its data structures and its stream-oriented structure takes some adjustment for C programmers, but the results can be quite striking.
+
+To prove the point, he offers an AWK version of the [Bell Labs NROFF
+tool](http://awk.info/?tools/awf).  Sadly, apart from Spencer's
+work there are suspiciously few examples of large AWK programs.
+
+Since early 2009, I've been the [awk.info](http://AWK.info) webmaster.  Based on that
+experience I diagnose the problem as follows. Certain key tools are 
+missing from the AWK-verse. Specifically, there is: 
+
+ # No standard for source code library management . Without a library of parts, you can't build larger assemblies;
+ #  No standard for unit tests and regression tests. Without a way to exercise the code, you are reluctant to work as a team since you can't tell if someone else's latest change breaks your code.  Worse, outsiders can't understands the code since you can't show off what it can do. 
+ #  No standard for documentation.  Without documentation tools, no one outside the team can see what you've done  
+
+Various tools addressed point (1), but there are no AWK tools that
+handle (1) and (2) and (3) in an integrated manner.
+
+Hence, I built _Knit_.  I won't presume to call Knit a "standard", yet. But 
+I plan to use it for some Awk documentation projects and if it catches on, 
+it would then become a "candidate standard".
+
+Knit is based around a new type of file.  These files are a mixture of
+Markdown and AWK code.  Knit converts these
+files to executable AWK and browseable HTML:
+{{{
+    AWK <---- tim ----> html
+}}}
+Also, Knit can find the support code used
+by some _main_ file and bundlle them all together into one standalone
+executable:
+{{{
+  main.tim uses        ----->  AWK/main.AWK  --\ 
+             1. a.tim  ----->  AWK/a.AWK     ---\---->  app/main
+             2. b.tim  ----->  AWK/b.AWK     --/ 
+}}}
+While I was about it, I also added:
+
+ # Support for literate programming (mixing code and documentation in one file);
+ #   Hyperlink navigation around the source code (just click on a function name, and you can jump to its definition);
+ #  Some SUBVERSION support (no more messy shared directories);
+ #  Quick application of GAWK's debugging tools (profiling, finding stray local variables);
+ #  Siimple specification of both usage strings and  defaults for command-line options (these are all automatically extracted from the documentation).
+
+If this
+looks interesting to you, I invite you to join the "Cooking with AWK" project
+that uses Knit to documents standard solutions to common programming problems. 
