@@ -1,0 +1,17 @@
+#summary So, you want to write cookbook entries...
+
+= Standard Sections =
+ * Synopsis
+ * Problem
+ * Solution
+ * Usage
+ * Discussion
+ * See Also
+
+= Markdown Syntax =
+
+Notes on the syntax used in the cookbook.
+
+= Sharing =
+
+Notes on the on-line repository for cookbook entries.
