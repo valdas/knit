@@ -2,23 +2,20 @@
 
 <wiki:toc max_depth="4" />
 
-Introduction
-============
+= Introduction =
 
  * [Why]
  * [HowToWriteCookbookEntries How]
 
 Credits: the structure of this cookbook comes from the excellent [http://docstore.mik.ua/orelly/webprog/pcook/index.htm PHP cookbook] by  David Sklar and Adam Trachtenberg.
 
-Test Suites
-============
+= Test Suites = 
 
 Writing test cases
 Running large regression suites
 Generating documentation from Awk Code
 
-Strings
-=======
+= Strings =
 
  * Accessing Substrings
  * Replacing Substrings
@@ -40,7 +37,7 @@ Strings
  * Word-wrapping Lines of Text
  * Validating an Email Address
 
-Chapter 2: Numbers
+= Numbers =
 
  * Checking Whether a String Contains a Valid Number
  * Comparing Floating-Point Numbers
@@ -77,7 +74,7 @@ Chapter 2: Numbers
  * Using Non-Gregorian Calendars
  * Program: Calendar
 
-Arrays
+= Arrays =
 
  * Specifying an Array Not Beginning at Element 0
  * Storing Multiple Elements per Key in an Array
@@ -222,4 +219,3 @@ Making New Directories
 Removing a Directory and Its Contents
 Program: Web Server Directory Listing
 Program: Site Search
-
