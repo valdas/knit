@@ -1,0 +1,1 @@
+BEGIN { bad("oh dear...") }

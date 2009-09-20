@@ -1,0 +1,37 @@
+#awktoc h1 { color: black; font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 3px;}
+#awktoc h2 { color: black; font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 20px;}
+#awktoc h3 { color: black;  font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 50px;}
+#awktoc h4 { color: black;  font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 80px;}
+#awktoc h5 { color: black;  font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 110px;}
+#awktoc h6 { color: black;  font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 140px;}
+#awktoc h7 { color: black;  font-size: small; font-weight: normal; 
+             margin: 0 0 0 0; margin-left: 170px; }
+
+#awktoc  a {
+color:#D96107;
+text-decoration:underline;
+}
+
+#awktoc  a:link {
+color:#D96107;
+text-decoration:underline;
+}
+
+#awktoc  a:visited {
+color:#D96107;
+text-decoration:underline;
+}
+#awktoc a:hover {
+color:#999999;
+text-decoration:none;
+}
+#awktoc {
+	position:relative;
+ 	top:10px;
+}	
