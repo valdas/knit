@@ -1,110 +1,110 @@
 #summary list of menus
 
+<wiki:toc max_depth="4" />
+
 Introduction
 ============
 
  * [Why]
  * [HowToWriteCookbookEntries How]
 
-How to Write Cookbook Entries
-==============================
+Credits: the structure of this cookbook comes from the excellent [http://docstore.mik.ua/orelly/webprog/pcook/index.htm PHP cookbook] by  David Sklar and Adam Trachtenberg.
 
-problem
-solution
-discussion
-see also
+Test Suites
+============
 
-Chapter 0: test suites
-(need some way to run the following code in a regression suite)
-hardwired set of files passed to a sub-routine. later on, auto-generate that list
+Writing test cases
+Running large regression suites
+Generating documentation from Awk Code
 
-Chapter 1: Strings
+Strings
+=======
 
-Accessing Substrings
-Replacing Substrings
-Processing a String One Character at a Time
-Reversing a String by Word or Character
-Expanding and Compressing Tabs
-Controlling Case
-Interpolating Functions and Expressions Within Strings
-Trimming Blanks from a String
-Parsing Comma-Separated Data
-Parsing Fixed-Width Delimited Data
-Taking Strings Apart
-Wrapping Text at a Certain Line Length
-Storing Binary Data in Strings
-) 1.40 2 4 1 23/23 7732 1. Building a String From Parts
-Substituting Variables Into Strings
-Converting Between Characters and Values
-Managing Whitespace
-Word-wrapping Lines of Text
-Validating an Email Address
+ * Accessing Substrings
+ * Replacing Substrings
+ * Processing a String One Character at a Time
+ * Reversing a String by Word or Character
+ * Expanding and Compressing Tabs
+ * Controlling Case
+ * Interpolating Functions and Expressions Within Strings
+ * Trimming Blanks from a String
+ * Parsing Comma-Separated Data
+ * Parsing Fixed-Width Delimited Data
+ * Taking Strings Apart
+ * Wrapping Text at a Certain Line Length
+ * Storing Binary Data in Strings
+ * Building a String From Parts
+ * Substituting Variables Into Strings
+ * Converting Between Characters and Values
+ * Managing Whitespace
+ * Word-wrapping Lines of Text
+ * Validating an Email Address
 
 Chapter 2: Numbers
 
-Checking Whether a String Contains a Valid Number
-Comparing Floating-Point Numbers
-Rounding Floating-Point Numbers
-Operating on a Series of Integers
-Generating Random Numbers Within a Range
-Generating Biased Random Numbers
-Taking Logarithms
-Calculating Exponents
-Formatting Numbers
-Printing Correct Plurals
-Calculating Trigonometric Functions
-Doing Trigonometry in Degrees, not Radians
-Handling Very Large or Very Small Numbers
-Converting Between Bases
-Calculating Using Numbers in Bases Other Than Decimal
+ * Checking Whether a String Contains a Valid Number
+ * Comparing Floating-Point Numbers
+ * Rounding Floating-Point Numbers
+ * Operating on a Series of Integers
+ * Generating Random Numbers Within a Range
+ * Generating Biased Random Numbers
+ * Taking Logarithms
+ * Calculating Exponents
+ * Formatting Numbers
+ * Printing Correct Plurals
+ * Calculating Trigonometric Functions
+ * Doing Trigonometry in Degrees, not Radians
+ * Handling Very Large or Very Small Numbers
+ * Converting Between Bases
+ * Calculating Using Numbers in Bases Other Than Decimal
 
-Chapter 3: Dates and Times
+= Dates and Times =
 
-Finding the Current Date and Time
-Converting Time and Date Parts to an Epoch Timestamp
-Converting an Epoch Timestamp to Time and Date Parts
-Printing a Date or Time in a Specified Format
-Finding the Difference of Two Dates
-Finding the Difference of Two Dates with Julian Days
-Finding the Day in a Week, Month, Year, or the Week Number in a Year
-Validating a Date
-Parsing Dates and Times from Strings
-Adding to or Subtracting from a Date
-Calculating Time with Time Zones
-Accounting for Daylight Saving Time
-Generating a High-Precision Time
-Generating Time Ranges
-Using Non-Gregorian Calendars
-Program: Calendar
+ * Finding the Current Date and Time
+ * Converting Time and Date Parts to an Epoch Timestamp
+ * Converting an Epoch Timestamp to Time and Date Parts
+ * Printing a Date or Time in a Specified Format
+ * Finding the Difference of Two Dates
+ * Finding the Difference of Two Dates with Julian Days
+ * Finding the Day in a Week, Month, Year, or the Week Number in a Year
+ * Validating a Date
+ * Parsing Dates and Times from Strings
+ * Adding to or Subtracting from a Date
+ * Calculating Time with Time Zones
+ * Accounting for Daylight Saving Time
+ * Generating a High-Precision Time
+ * Generating Time Ranges
+ * Using Non-Gregorian Calendars
+ * Program: Calendar
 
-Chapter 4: Arrays
+Arrays
 
-Specifying an Array Not Beginning at Element 0
-Storing Multiple Elements per Key in an Array
-Initializing an Array to a Range of Integers
-Iterating Through an Array
-Deleting Elements from an Array
-Changing Array Size
-Appending One Array to Another
-Turning an Array into a String
-Printing an Array with Commas
-Checking if a Key Is in an Array
-Checking if an Element Is in an Array
-Finding the Position of an Element in an Array
-Finding Elements That Pass a Certain Test
-Finding the Largest or Smallest Valued Element in an Array
-Reversing an Array
-Sorting an Array
-Sorting an Array by a Computable Field
-Sorting Multiple Arrays
-Sorting an Array Using a Method Instead of a Function
-Randomizing an Array
-Shuffling a Deck of Cards
-Removing Duplicate Elements from an Array
-Finding the Union, Intersection, or Difference of Two Arrays
-Finding All Element Combinations of an Array
-Finding All Permutations of an Array
-Program: Printing an Array in a Horizontally Columned HTML Table
+ * Specifying an Array Not Beginning at Element 0
+ * Storing Multiple Elements per Key in an Array
+ * Initializing an Array to a Range of Integers
+ * Iterating Through an Array
+ * Deleting Elements from an Array
+ * Changing Array Size
+ * Appending One Array to Another
+ * Turning an Array into a String
+ * Printing an Array with Commas 
+ * Checking if a Key Is in an Array
+ * Checking if an Element Is in an Array
+ * Finding the Position of an Element in an Array
+ * Finding Elements That Pass a Certain Test
+ * Finding the Largest or Smallest Valued Element in an Array
+ * Reversing an Array
+ * Sorting an Array
+ * Sorting an Array by a Computable Field
+ * Sorting Multiple Arrays
+ * Sorting an Array Using a Method Instead of a Function
+ * Randomizing an Array
+ * Shuffling a Deck of Cards
+ * Removing Duplicate Elements from an Array
+ * Finding the Union, Intersection, or Difference of Two Arrays
+ * Finding All Element Combinations of an Array
+ * Finding All Permutations of an Array
+ * Program: Printing an Array in a Horizontally Columned HTML Table
 
 Hashes
 
@@ -222,6 +222,4 @@ Making New Directories
 Removing a Directory and Its Contents
 Program: Web Server Directory Listing
 Program: Site Search
-
-
 
