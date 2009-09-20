@@ -7,6 +7,13 @@
  * Usage
  * Discussion
  * See Also
+ * Status
+    * TIN: Descriptive, 
+    * BRONZE: Sample outputs included in text
+    * SILVER: Sample programs in this repository
+    * GOLD: Test suite in this repository
+    * DIAMOND: Test suites, with expected outputs, in this repository
+ * Author
 
 = Markdown Syntax =
 
