@@ -1,0 +1,321 @@
+<a name="1"><h1>Knit: an Integrated Development Enviornment for AWK</h1></a>
+
+<p><a href="ttp://www.learn2knit.co.uk/knitting/images/LearnToKnit<em>Fig063.gif">
+<img src="ttp://www.learn2knit.co.uk/knitting/images/LearnToKnit</em>Fig063.gif" 
+align=right width=400></a></p>
+
+<p>This paper introduces Knit, an IDE for AWK that supports
+source code libraries, literature programming, and test-driven development.  The entire
+system is less than 400 lines of code:</p>
+
+<ul>
+<li> About 100 lines of GNU make;
+<li> Several short AWK scripts (dozens of lines, or less);
+<li> One larger AWK script that implements Markdown (about 150 lines)
+</ul>
+
+<p>Knit is (nearly) generic to multiple languages- there are only ten
+lines that are specific to calling AWK code (and these could easily
+be customised to other languages).  So while IDEs like Eclipse are certainly valuable,
+I offer Knit
+as an example of how a lazy person might quickly roll their own particular IDE.</p>
+
+<a name="2"><h2>Introduction</h2></a>
+
+<p>Henry Spencer <a href="http://awk.info/?awksys">wrote in 1991</a> that:</p>
+
+<ul>
+<li>  There is no fundamental reason why AWK programs have 
+   to be small "glue" programs.
+<li>  Even the "old" AWK is a powerful programming language in its own right. 
+<li>  Effective use of its data structures and its stream-oriented structure 
+   takes some adjustment for C programmers, but the results can be quite striking.
+</ul>
+
+<p>To prove the point, he offers an AWK version of the [Bell Labs NROFFtool<a href="http://awk.info/?tools/awf"></a>.  Sadly, apart from Spencer's
+work there are suspiciously few examples of large AWK programs.</p>
+
+<p>Since early 2009, I've been the <a href="http://AWK.info">awk.info</a> webmaster.  Based on that
+experience I diagnose the problem as follows. Certain key tools are
+missing from the AWK-verse. Specifically, there is:</p>
+
+<ol>
+<li>	No standard for source code library management . Without a library of parts, you can't build larger assemblies;</li>
+<li>	No standard for unit tests and regression tests. Without a way to exercise the code, you are reluctant to work as a team since you can't tell if someone else's latest change breaks your code.  Worse, outsiders can't understands the code since you can't show off what it can do.</li>
+<li>	No standard for documentation.  Without documentation tools, no one outside the team can see what you've done  </li>
+</ol>
+
+<p>Various tools addressed point (1), but there are no AWK tools that
+handle (1) and (2) and (3) in an integrated manner.</p>
+
+<p>Hence, I built <em>Knit</em>. 
+I won't presume to call Knit a "standard", yet. But
+I plan to use it for some Awk documentation projects and if it catches on,
+it would then become a "candidate standard".</p>
+
+<p>Knit is based around a new type of file.  These <em>*.tim</em> files are a mixture of
+Markdown and AWK code.  Knit converts <em>*.tim</em>
+files to executable AWK and browseable HTML:</p>
+
+<pre>    AWK &lt;---- tim ----> html</pre>
+
+<p>Also, Knit can find the support code used
+by some <em>main</em> file and bundlle them all together into one standalone
+executable:</p>
+
+<pre>  main.tim uses        ----->  AWK/main.AWK  --\
+             1. a.tim  ----->  AWK/a.AWK     ---\---->  app/main
+             2. b.tim  ----->  AWK/b.AWK     --/</pre>
+
+<p>While I was about it, I also added:</p>
+
+<ul>
+<li>	Support for literate programming (mixing code and documentation in one file);
+<li>	Hyperlink navigation around the source code (just click on a function name, and you can jump to its definition);
+<li>	Some SUBVERSION support (no more messy shared directories);
+<li>	Quick application of GAWK's debugging tools (profiling, finding stray local variables);
+<li>	Siimple specification of both usage strings and 
+    defaults for command-line options (these are all automatically extracted from the documentation).
+</ul>
+
+<p>The rest of this paper describes how to use Knit. If this
+looks interesting to you, I invite you to join the "Cooking with AWK" project
+that uses Knit to documents standard solutions to common programming problems. </p>
+
+<a name="3"><h2>A Quick Overview</h2></a>
+
+<a name="4"><h3>.tim Files</h3></a>
+
+<p>In a manner similar to Perl POD files, Knit lets the code author mix up
+source code and documentation:</p>
+
+<ul>
+<li>	<em>Code</em> paragraphs start with exactly one whitespace character;
+<li>	<em>Verbatim</em> paragraphs start with two or more whitespace characters;
+<li>	<em>Text</em> paragraphs, which is everything else, start with no whitespace.
+</ul>
+
+<p>Two other special paragraphs are:</p>
+
+<ul>
+<li> <em>Usage</em> paragraphs are those  that follow a <em>Usage</em> heading. 
+<li> <em>Uses</em> paragraphs contain lines of the form <em>@uses x.tim</em>. 
+  These lines list  the libraries required  to execute the current file.
+</ul>
+
+<a name="5"><h2>Converting from .tim to .AWK </h2></a>
+
+<p>To buiild executable  <em>*.AWK</em> files, Knit converts a <em>*.tim</em> file as
+follows:</p>
+
+<ul>
+<li>	<em>Vertabtim</em> lines and <em>text</em> paragraphs are commented out;
+<li>	The AWK source <em>code</em> files are left uncommented;
+<li>	All the <em>*@uses</em> files are loaded before loading this file;
+<li>	The "usage" paragraphs are converted to an AWK function that 
+    can return a usage string;
+<li>   The "usage" paragraph is parsed to define default values
+    for command-line arguments.
+</ul>
+
+<a name="6"><h2>Converting from .tim to .html </h2></a>
+
+<p>In order to support documentation, Knit can also 
+generate <em>*.html</em> files from <em>*.tim</em> files as follows:</p>
+
+<ul>
+<li>	<em>Vertabtim</em> lines and <em>code</em> paragraphs are wrapped 
+    in &lt;pre>...&lt;/pre>;
+<li>	The <em>text</em> paragraphs are formatted as HTML code using the
+	Markdown conventions.
+</ul>
+
+<p>The conversion process collects together all the headings and prints
+them at the end of the file inside a special div.  Note that each
+of these entries links back to the original heading in the file:</p>
+
+<pre>	&lt;div id="AWKtoc">
+	&lt;h1> &lt;a href=#1>Download&lt;/a>&lt;/h2>
+	&lt;h2> &lt;a href=#2>General Information&lt;/a>&lt;/h2>
+	&lt;/div></pre>
+
+<p>To turn this end-of-page div into a top-of-page table of contents:</p>
+
+<ul>
+<li> Reduce the font sizes for the headings in <em>awktow</em>
+<li> Position the div at top of page.
+</ul>
+
+<p>This can be done using CSS; e.g.</p>
+
+<pre>	#AWKtoc {
+		position:relative;
+ 		top:10px;
+	}	
+	#AWKtoc h1 { color: black; font-size: small; font-weight: normal; 
+                 margin: 0 0 0 0; margin-left: 3px;}</pre>
+
+<a name="7"><h2>Building Stand-alone Executables</h2></a>
+
+<p>Knit requires the standard Unix tools (make, sed, chmod, ls, etc)and can be used on LINUX, OS/X or Windows (once <a href="http://cygwin.com">Cygwin</a>
+is installed).  In order to suppprt other platforms, Knit can generate
+one *.AWK* file that bundles up the <em>@uses</em> files into one file
+begining with</p>
+
+<pre>	#!/usr/bin/GAWK -f</pre>
+
+<p>so it can be very simply downloaded and exectuted as one file.</p>
+
+<a name="8"><h2>Testing and Debugging</h2></a>
+
+<p>Before code is bundled, it needs to be debugged.  </p>
+
+<ul>
+<li>	Knit allows the programmer to quickly enable the GAWK
+    debugging tools (profiling, looking for stray globals).
+<li>	The Knit test engine supports test cases definition, 
+    execution and scoring.  
+</ul>
+
+<a name="9"><h2>Editing Code</h2></a>
+
+<p>Knit is intergrated with the VIM editor:</p>
+
+<ul>
+<li>	Knit tells VIM to edit "*.tim" files using the
+    same syntax highlighting as ".AWK*" files.
+<li>	Knit enables <em>ctags</em> which turns VIM into a hyperlinked 
+    browser of the source code. If you
+    click on a function name, then <em>Control-]</em> jumps you to
+    the definition (and <em>Control-t</em> takes you back).
+</ul>
+
+<p>(I'm not an EMACS expert  but according the <a href="http://ctags.sourceforge.net/ctags.html#HOW%20TO%20USE%20WITH%20GNU%20EMACS">Sourceforge</a>, the same hyperlink trick is avilable in EMACS (
+<tt>M-.</tt> 
+finds the definition of the identifier under the cursor and
+<tt>M-*</tt>
+pops back to where you previously invoked <tt>M-.</tt>).</p>
+
+<a name="10"><h2>SUBVERSION Support</h2></a>
+
+<p>Knit disables VIM writing backup files into the same files as the
+source code. This means that code repositories do not get messed
+up with temporary files.</p>
+
+<p>Also, Knit uses a "var" sub-directory to hold its auto-generated
+code. Knit takes care to tell SUBVERSION to  ignore this directory.</p>
+
+<p>(BTW, I'd be interested
+in working with, say, a MECURIAL or a GIT  guru to make this work  for other version control systems..)</p>
+
+<a name="11"><h2>Features </h2></a>
+
+<a name="12"><h3>Documentation</h3></a>
+
+<p>Knit extends the standard</p>
+
+<a name="13"><h3>Source Code Library Management</h3></a>
+
+<p>Borrowing form </p>
+
+<pre>	@uses file.tim</pre>
+
+<a name="14"><h2>Installation</h2></a>
+
+<a name="15"><h3>Before you begin</h3></a>
+
+<p>You need a working version of</p>
+
+<ul>
+ GAWK, PGAWK
+<li> CTAGS
+<li> SVN
+<li> VIM 
+<li> standard UNIX shell tools (sed, echo, chmod, ls, make,...)
+</ul>
+
+<a name="16"><h3>Getting the Code </h3></a>
+
+<p>Create a working directory (e.g.)</p>
+
+<pre>	mkdir ~/svns 	# for example</pre>
+
+<p>Change to that directory</p>
+
+<pre>	cd ~/svns
+	svn export http://unbox.org/lawker/block/timm/tim tim</pre>
+
+<p>(But if you have write access to <em>LAWKER</em> you might replace the last line with:)</p>
+
+<pre>	svn checkout http://unbox.org/lawker/block/timm/tim tim --username yourUserName</pre>
+
+<p>Then edit <tt>~/.bashrc</tt> and <em>~/.vimrc</em>.</p>
+
+<a name="17"><h3>Edits to ~/.bashrc</h3></a>
+
+<pre>	PATH="$PATH:~/snvs/tim/var/bash</pre>
+
+<a name="18"><h3>Edits to ~/.vimrc</h3></a>
+
+<p>This line enable hypertext navigation of the source code:</p>
+
+<pre>	set tags="~/.vim/tags/tim"</pre>
+
+<p>This line enables syntac highlighting:</p>
+
+<pre>	set background=light
+	set syntax=on
+	syntax enable</pre>
+
+<p>These lines enable source code indentation:</p>
+
+<pre>	set smarttab
+	set noexpandtab
+	set tabstop=4
+	set shiftwidth=4</pre>
+
+<p>When sharing files in a version control system, it is a bad idea to
+have auto-generate files in directories that might be used by multiple
+users (since then the version control system will declare conflicts
+on those files). So it is a <em>very</em> good idea to save temporary files to other
+directories:</p>
+
+<pre>	set backup
+	set backupdir=~/tmp" where to store opt/tmp/backup</pre>
+
+<p>The following lines are not required for <em>Knit</em>, but I still swear by them:</p>
+
+<pre>	set mouse=a 				"ascii mouse
+	set title 					"place buffer name into window title
+	set number  				"show line numbers
+	autocmd BufEnter * cd %:p:h "auto-change to the file's directory
+	set showmatch 				"show matching brackets
+	set matchtime=15</pre>
+
+<pre>	"----- stuff for incremental search
+	set ignorecase
+	set incsearch
+	set smartcase</pre>
+
+<a name="19"><h2>Author</h2></a>
+
+<p>Tim Menzies did most of the coding.</p>
+
+<p>Knit uses <a href="http://awk.info/?dsl/markdown">Jesus Galan's implementation of Markdown</a>, with  several modifications.</p>
+
+<a name="20"><h2>To do</h2></a>
+
+<ul>
+<li> make the toc a seperate file
+<li> use %.got to control the looping
+<li> write tiny tutorials (hiding the details) on making AWK ; unit tests in AWK
+  debugging with the AWK tools (and my global conventions), optional globals.
+<li> make the .vimrc stuff easy to cut and paste
+<li> there is a ug in multi-line list entries
+<li> get the usage parser going
+<li> softlink vim tags to a local file called tags.
+<li> explain whey everything in one direcory (no package system, accept it)
+= define menu tools for finding all the XXX of thing
+<li> add a line to demso #demo make me laugh
+</ul>
+

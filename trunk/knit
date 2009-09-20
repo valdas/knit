@@ -1,0 +1,40 @@
+#-*- bash -*-
+
+ main() {
+	local file=$1
+	shift
+ 	local stem=${file%.*}
+ 	local ext=${file#${stem}.}
+ 	echo "make -f lib/${ext}/make.mk Ext=${ext} Main=${file} $*"
+ 	make -f lib/${ext}/make.mk Ext=${ext} Main="${file}" $*
+ }
+ demo() {
+	case $1 in
+	4) ./knit -x 001 -c bad.awk;;
+	3) ./knit -x 001 -t bad.awk;;
+	2) ./knit -x 001 -c s2a.awk;;
+	1) ./knit -x 001 -r s2a.awk;;
+	0) for x in 1 2 3 4 5 6 7 8; do ./knit -X $x; done;;
+	*) echo "usage: ./knit  -X [s0-8]";;
+	esac  
+ }
+ usage() {
+ 	 echo usage: ./k -[rxh] mainFile
+ }
+ opt() {
+   case $1 in
+	D) set -x;;
+ 	c) main $2 it=${Eg}-$2 cache;;
+ 	r) main $2 it=${Eg}-$2 run;;
+ 	s) make -f lib/$2/make.mk Ext=$2 score;;
+ 	t) main $2  tests;;
+ 	x) Eg=$2;;
+ 	X) demo $2;;
+ 	h) usage;;
+	*)  usage;;
+   esac
+ }
+
+ while getopts "Dhc:r:s:t:x:X:" opt; do 
+	opt $opt "$OPTARG"
+ done
