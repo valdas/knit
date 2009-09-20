@@ -1,4 +1,4 @@
-#summary list of menus
+#summary What have we got here?
 
 <wiki:toc max_depth="4" />
 
