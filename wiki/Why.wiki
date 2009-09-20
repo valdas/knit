@@ -1,16 +1,16 @@
 #summary Motivation
 
-Henry Spencer [wrote in 1991](http://awk.info/?awksys) that:
+Henry Spencer [http://awk.info/?awksys wrote in 1991] that:
 
  *  There is no fundamental reason why AWK programs have to be small "glue" programs.
  *  Even the "old" AWK is a powerful programming language in its own right.
  *  Effective use of its data structures and its stream-oriented structure takes some adjustment for C programmers, but the results can be quite striking.
 
-To prove the point, he offers an AWK version of the [Bell Labs NROFF
-tool](http://awk.info/?tools/awf).  Sadly, apart from Spencer's
+To prove the point, he offers an AWK version of the 
+[http://awk.info/?tools/awf Bell Labs NROFF tool].  Sadly, apart from Spencer's
 work there are suspiciously few examples of large AWK programs.
 
-Since early 2009, I've been the [awk.info](http://AWK.info) webmaster.  Based on that
+Since early 2009, I've been the [http://awk.info awk.info] webmaster.  Based on that
 experience I diagnose the problem as follows. Certain key tools are 
 missing from the AWK-verse. Specifically, there is: 
 
