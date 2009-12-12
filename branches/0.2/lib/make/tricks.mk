@@ -1,0 +1,20 @@
+MAKEFLAGS= -s
+
+include $(Knit)/dirs.mk
+include $(Knit)/test.mk
+
+Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
+Hi   = printf "\n----| $@ |--------------\n\n"
+
+help: about #: help
+	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
+	@grep -h '^[a-zA-Z].*#:' $(Knit)/*.mk Makefile  \
+        | gawk -F: '{print "\t" $$1 "\t" $$3}' | sort
+
+all : $(Egs) #: run all examples
+
+installDir : 
+	@$(foreach d, $(Dirs),\
+		 if [ ! -d $d ]; then echo mkdir -p $d; mkdir -p $d; fi; )
+
+install: installDir    # ensure everything is installed. warning: may be slow.
