@@ -6,10 +6,10 @@ $0          { P[N]=$0;
      	      if (N==1) N++; # make room for toc
 	      N++;
 }
-END {   markup(1,"h1");
+END {   M[1] = markup(1,P[1],"h1");
         for(I=3;I<N;I++)
-	  markup(I,Is[I],Is[I-1]);
-	markup(2,"ul","h1");
+	  M[I] = markup(I,P[I],Is[I],Is[I-1]);
+	M[2] = markup(2,P[2],"ul","h1");
 	for(I=1;I<N;I++)
            print M[I]
 }
@@ -26,8 +26,8 @@ function kind(s) {
   if ($2 ~ /^\+\+/)           return "H4"; 
   return "p"
 }
-function markup(i,now,b4,str, pretty) {
-  str = prune(now,P[i]);
+function markup(i,str,now,b4, pretty) {
+  str = prune(now,str);
   str = (now = "pre") ? pre(str) : text(str);
   if (now=="h1") {
     toc(1,str);
@@ -57,12 +57,15 @@ function pre(x) {
 function text(x) {
   gsub("\\*","!!StAr!!",x);
   gsub("\\_","!!DaSh!!",x);
+  gsub("\\`","!!TiCk!!",x);
   x = gensub(/__([^_]*)__/,     "<strong>\\1</strong>","g",x);
   x = gensub(/\*\*([^\*])*\*\*/, "<strong>\\1</strong>","g",x);
   x = gensub(/_([^_]*)_/,       "<em>\\1</em>",        "g",x);
   x = gensub(/\*([^\*]*)\*/,    "<em>\\1</em>",        "g",x);
+  x = gensub(/`([^`]*)`/,       "<tt>\\1</tt>",        "g",x);
   gsub("!!StAr!!!","\\*",x);
   gsub("!!DaSd!!!","_",x);
+  gsub("!!TiCk!!!","`",x);
   return x
 }
 function toc(n,str) {

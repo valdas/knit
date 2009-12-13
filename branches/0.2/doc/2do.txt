@@ -1,9 +1,14 @@
 speed up slots
 
 markdown
+url
+images
+table of contents
+
 numbered lists
 ordinal lists
 headers
+
 footnotes
 pre ("<") replace in pre
 table of contents
