@@ -24,9 +24,9 @@ function myrss1(feed,max,  between,  n,all,sep,out,date,url,txt,seen) {
   for(i=1;i<=n; i++) {
     if (all[i] ~ /^<pubDate/) 
       date = myDate(all[i+1])
-    else if (all[i] ~ /<description/) 
+    else if (all[i] ~ /^<description/) 
       txt = myText(all[i+1])
-    else if (all[i] ~ /<enclosure/) {
+    else if (all[i] ~ /^<enclosure/) {
       url = myUrl(all[i]);
       out = out sep myReport(url,date,txt);
       sep = between ? between : "\n";

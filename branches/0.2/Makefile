@@ -26,3 +26,6 @@ eg4 : $(Html)/penny.html
 eg5 :        #: how to load the fillers
 	@$a loadFillers("dat/filler.txt",out); \
             o(out,"fillers","cat") $z
+
+eg6 : 
+	gawk -f $(Knit)/awk/markup.awk doc/markup.wak
