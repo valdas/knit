@@ -1,3 +1,6 @@
+# indenting lists
+# catching the stuff that is not started by "+" and moivng it to the line above
+
 BEGIN       { RS=""; FS="\n";N=1; Is[2]="ul"}
 N==1 && 
 /^[ \t]*\#/ { next }
@@ -31,9 +34,8 @@ function markup(i,str,now,b4, pretty) {
   str = (now = "pre") ? pre(str) : text(str);
   if (now=="h1") {
     toc(1,str);
-    str="<join>" str "</join>";
-  } 
-  if (now ~ /^[hH]) {
+    pretty ="<h1><join>" str "</join></h1>";
+  } else if (now ~ /^[hH]) {
     level = gensub(/[hH]/,"","g",str) + 0;
     toc(level,str);
     pretty = "<h" level ">" str "</h" level ">";
