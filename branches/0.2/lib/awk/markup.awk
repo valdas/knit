@@ -60,26 +60,27 @@ function text(x) {
   gsub("\\*","!!StAr!!",x);
   gsub("\\_","!!DaSh!!",x);
   gsub("\\`","!!TiCk!!",x);
-  x = gensub(/__([^_]*)__/,     "<strong>\\1</strong>","g",x);
-  x = gensub(/\*\*([^\*])*\*\*/, "<strong>\\1</strong>","g",x);
-  x = gensub(/_([^_]*)_/,       "<em>\\1</em>",        "g",x);
-  x = gensub(/\*([^\*]*)\*/,    "<em>\\1</em>",        "g",x);
-  x = gensub(/`([^`]*)`/,       "<tt>\\1</tt>",        "g",x);
-  gsub("!!StAr!!!","\\*",x);
+  x = gensub(/__([^_]+)__/,     "<strong>\\1</strong>","g",x);
+  x = gensub(/\*\*([^\*])+\*\*/,"<strong>\\1</strong>","g",x);
+  x = gensub(/_([^_]+)_/,       "<em>\\1</em>",        "g",x);
+  x = gensub(/\*([^\*]+)\*/,    "<em>\\1</em>",        "g",x);
+  x = gensub(/`([^`]+)`/,       "<tt>\\1</tt>",        "g",x);
+  gsub("!!StAr!!!","*",x);
   gsub("!!DaSd!!!","_",x);
   gsub("!!TiCk!!!","`",x);
   return x
 }
-function toc(n,str) {
-  while(n--) > 1 out = out " ";
-  out= out "+" str;
-  P[2] = P[2] "\n" out
+function toc(n,str, pad) {
+  if (P[2])
+  	P[2] = P[2] "\n"
+  while(n-- > 1) 
+  	pad = pad " ";
+  P[2] = P[2]  pad "+" str 
 }
 function prefix(b4,now) {
-  if (b4=="pre")
-    return now=="pre" ? "\n" : "</pre>\n<p>";
-  else 
-    return now=="pre" ? "</p>\n<pre>"  : "</p>\n<p>"
+  if (b4 ~ /^[hH]/) return "<" now ">"
+  if (b4=="pre")    return now=="pre" ? "\n" : "</pre>\n<p>";
+  return now=="pre" ? "</p>\n<pre>"  : "</p>\n<p>"
 }
 function o(a, str,n,   i) {
   if(n)
