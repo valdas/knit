@@ -6,8 +6,9 @@ about:       #: describe this software
 
 #################################################
 Code ?= penny.awk                                # where is your code?
-Knit ?= /home/stuff/menzies.us/wave/knit/0.2/lib# where is knit?
-include $(Knit)/make/awk.mk
+#Knit ?= /home/stuff/menzies.us/wave/knit/0.2/lib# where is knit?
+Knit ?= /Users/timm/svns/knit/branches/0.2
+#include $(Knit)/make/awk.mk
 ##################################################
 
 eg1 : $(Lib)/one.awk       #: check that the code does not crash
@@ -28,4 +29,4 @@ eg5 :        #: how to load the fillers
             o(out,"fillers","cat") $z
 
 eg6 : 
-	gawk -f $(Knit)/awk/markup.awk doc/markup.wak
+	@gawk -f $(Knit)/lib/awk/markup.awk doc/markup.wak
