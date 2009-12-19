@@ -1,54 +1,64 @@
-# list indents are causing a problem
 # tables
-# numbered lists
+# now we're just done to in-line chars
 
 BEGIN       { RS=""; FS="\n";N=1; Is[2]="ul"}
 N==1 && 
-/^[ \t]*\#/ { next }
+/^[\#";]/ { next }
 $0          { P[N]=$0;
               Is[N]= kind($0,N,$2);
      	      if (N==1) N++; # make room for toc
 	      N++;
 }
-END {   M[1] = markup(1,P[1],"h1");
-        M[N]= complete(Is[N-1])
-	for(I=3;I<N;I++)  
-	    M[I] = markup(I,P[I],Is[I],Is[I-1]);
-	M[2] = markup(2,P[2],"ul","h1");
-	#o(Is,"Is",N);
-	for(I=1;I<=5;I++) 
-	    print (Is[I] ~ /l$/) ? list(M[I]) : M[I]
+END { main(P,N,Is) }
+
+function main(p,n,is,  m,i) {
+    m[1] = markup(1,p[1],"h1");
+    m[n] = complete(n-1)
+    for(i=3;i<n;i++)   
+	m[i] = markup(i,p[i],is[i],is[i-1]);
+    m[2] = markup(2,p[2],"ul","h1");
+    print m[1];
+    for(i=2;i<=n;i++)  {
+	if (listp(i)) 
+	    m[i]= list(m[i]);
+	print prefix(is[i-1],is[i]);	
+	print m[i];
+    }
 }
+function listp(i)    { return Is[i] ~ /l$/ }
+function headingp(i) { return Is[i] ~ /[hH]/ }
+
 function kind(all,n,line2) {
-  if (n==1)                  return "h1"
-  if (all   ~ /^ [\*\+\-]/)      return "ul";
-  if (all   ~ /^ [0-9]\./)       return "ol";
+  if (n==1)                      return "h1"
   if (all   ~ /^[ /t]/)          return "pre";
   if (all   ~ /^===== /)         return "h2";      
   if (all   ~ /^==== /)          return "h3";      
   if (all   ~ /^=== /)           return "h4";  
+  if (all   ~ /^== /)            return "h5";  
   if (line2 ~ /^==/)             return "H2";    
   if (line2 ~ /^--/)             return "H3";    
   if (line2 ~ /^\+\+/)           return "H4"; 
+  if (line2 ~ /^__/)             return "H5"; 
+  if (all   ~ /^[\*\+\-]/)       return "ul";
+  if (all   ~ /^[0-9]\./)        return "ol";
   return "p"
 }
-function complete(is) {
-    return  (is ~ /hH/) ? "" : "</" is ">"
+function complete(i) {
+    return  headingp(i)  ? "" : "</" Is[i] ">"
 }
-function markup(i,str,now,b4, pretty) {
-  str = prune(now,str);
-  if (now=="h1") 
-    return "<h1><join>" str "</join></h1>"; 
-  str = (now == "pre") ? pre(str) : text(str);
-  if (now ~ /^[hH]/) {
-      sub(/[hH]/,"",now)
-      level = now + 0;
-      toc(level,str);
-      pretty = "<h" level ">" str "</h" level ">";
-  }
-  else 
-    pretty = prefix(b4,now) str 
-  return pretty;
+function markup(i,str,now,b4) {
+    str = prune(now,str);
+    if (now=="h1") 
+	return "<h1><join>" str "</join></h1>"; 
+    str = (now == "pre") ? pre(str) : text(str);  
+    if (headingp(i)) { 
+	sub(/[hH]/,"",now)
+	level = now + 0;
+	toc(level,str,++L);
+	return "<a name=\"" L "\"><h" level ">" str "</h" level ">";
+    }
+    else 
+	return str 
 }
 function prune(now,str) {
   if(now ~ /^h/) {
@@ -82,48 +92,46 @@ function text(x) {
   return x
 # test escape chars
 }
-function toc(n,str, pad) {
+function toc(n,str, l, pad) {
   if (P[2])
   	P[2] = P[2] "\n"
   while(n-- > 2) 
   	pad = pad " ";
-  P[2] = P[2]  pad "+ " str
+  P[2] = P[2]  pad "+ <a href=\"#" l "\">" str "</a>"
 }
 function prefix(b4,now) {
-    if (now ~ /l$/) 
+    if (now ~ /(^[hH]|l$)/) 
 	return  (b4 ~/(pre|p)/) ? "</" b4 ">" : ""
-    else {
-	if (b4 ~ /^[hH]/) 
-	    return "<!" now ">";
-	if (b4=="pre")    
-	    return now=="pre" ? "\n" : "</pre>\n<p>";
-	return now=="pre" ? "</p>\n<pre>"  : "</p>\n<p>"
-    }
+    if (b4 ~ /(l$|^[hH])/)
+	return "<" now ">";
+    if (b4=="pre")    
+	return now=="pre" ? "\n" : "</pre>\n<" now ">";
+    return now=="pre" ? "</" b4 ">\n<pre>"  : "</" b4 ">\n<p>"
 }
-# test paras in strings
-function list(str,  line,n, i,b4,now,out,item) {   
+function list(str,  line,n, i,b4,now,out,item,j,k,line0,tmp,what) {   
     b4 = 0
+    what = (str ~ /^[ \t]*[0-9]/) ? "ol" : "ul"
     gsub(/\n[ \t]+$\n/,"<p>\n",str)
     n = split(str,line0,/\n/);
     for(i=1;i<=n;i++) {
-	item = line0[i]
-	if (sub(/[ \t]*[\+\*-][ \t]/,"<li>",item))
-	    j++;
-        line[j] = line[j] (j in line ? "\n" : "") item;
+	item     = line0[i]
+	j       += item ~ /[ \t]*([0-9]*\.|[\+\*-])[ \t]/
+        line[j]  = line[j]  item ;
     }
     for(i=1;i<=j;i++) {
-	now = gsub(/[ \t]/,"",line[i]) + 1
-	if (b4 > now)
-	    for(i=now;i<now;i++)
-		out = out  "\n</ul>";
-	if (now > b4)
-	    for(i=b4;i<now;i++)
-		out = out "\n<ul>";
-	out = out  line[i]
+	item = line[i]
+	split(item,tmp,/([\+\*-]|[0-9])/)
+	now = int(length(tmp[1]) /2) + 1
+	sub(/^[ \t]*([0-9]*\.|[\+\*\-])/,"",item)
+	for(k=b4;k>now;k--) 
+	    out = out "</" what ">\n";
+	for(k=b4;k<now;k++) 
+	    out = out "<" what ">\n";
+	out = out  "<li>" item "\n"
 	b4 = now
     }
     for(i=b4;i>=1;i--) 
-	out = out  "</ul>";
+	out = out  "</" what ">";
     return out;
 }
 function trim(s) {
@@ -136,9 +144,7 @@ function o(a, str,n,   i) {
     for(i=1;i<=n;i++)
       print str "[" i "] = [" a[i] "]"
   else  
-    for(i in n)
+    for(i in a)
       print str "[ " i " ] = [ " a[i] " ]" | "sort -k 2"
 }
-
-
 

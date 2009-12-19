@@ -30,3 +30,6 @@ eg5 :        #: how to load the fillers
 
 eg6 : 
 	@gawk -f $(Knit)/lib/awk/markup.awk doc/markup.wak
+
+eg7 : 
+	@gawk -f $(Knit)/lib/awk/markup.awk doc/markup1.wak
