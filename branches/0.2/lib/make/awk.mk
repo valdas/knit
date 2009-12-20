@@ -1,17 +1,15 @@
 include $(Knit)/make/tricks.mk
 
-
-
 Loads = -f $(Lib)/$(subst .awk ,.awk -f $(Lib)/,$(Code))
 
 debug :
 	echo lib $(Lib)
 
 $(Lib)/%.awk : %.wak
-	gawk -f $(Knit)/awk/comment.awk $< > $@
+	gawk -f $(Knit)/lib/awk/comment.awk $< > $@
 
 $(Html)/%.html : %.wak
-	gawk -f $(Knit)/awk/markdown.awk $< > $@
+	gawk -f $(Knit)/lib/awk/markup.awk $< > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out

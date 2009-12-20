@@ -1,3 +1,5 @@
+test nested includes over vpath
+
 speed up slots
 
 markdown

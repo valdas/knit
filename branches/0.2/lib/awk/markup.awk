@@ -75,22 +75,20 @@ function pre(x) {
   return x;
 }
 function text(x) {
-  #gsub("\\*","!!StAr!!",x);
-  #gsub("\\_","!!DaSh!!",x);
-  #gsub("\\`","!!TiCk!!",x);
-  x = gensub(/__([^_]+)__/,     "<strong>\\1</strong>","g", x);
-  x = gensub(/\*\*([^\*])+\*\*/,"<strong>\\1</strong>","g", x);
+  gsub(/\\\*/,"!!StAr!!",x);
+  gsub(/\\_/,"!!DaSh!!",x);
+  gsub(/\\`/,"!!TiCk!!",x);
   x = gensub(/_([^_]+)_/,       "<em>\\1</em>",        "g", x);
-  x = gensub(/\*([^\*]+)\*/,    "<em>\\1</em>",        "g", x);
+  x = gensub(/\*([^\*]+)\*/,    "<strong>\\1</strong>",        "g", x);
   x = gensub(/`([^`]+)`/,       "<tt>\\1</tt>",        "g", x);
   x = gensub(/\[(http:[^ ]+(jpg|gif|png)) ([^\]]+)\]/,  "<img \\3 src=\\1>","g",x)
-  x = gensub(/(http:[^ \n\t]+(jpg|gif|png))/,  "<img src=\\1>","g",x)
-  x = gensub(/\[[^ ]+) ([^\]]+)\])/,  "<a href=\"\\1>\\2</a>", "g", x);
-  #gsub("!!StAr!!","*",x);
-  #gsub("!!DaSh!!","_",x);
-  #gsub("!!TiCk!!","`",x);
+  x = gensub(/\[(http:[^ ]+(jpg|gif|png))\]/,  "<img     src=\\1>","g",x)
+  x = gensub(/\[([^ ]+) ([^\]]+)\]/,"<a href=\"\\1\">\\2</a>", "g", x);
+  x = gensub(/\[([^ ]+)\]/,"<a href=\"\\1\">\\1</a>", "g", x);
+  gsub(/!!StAr!!/,"*",x);
+  gsub(/!!DaSh!!/,"_",x);
+  gsub(/!!TiCk!!/,"`",x);
   return x
-# test escape chars
 }
 function toc(n,str, l, pad) {
   if (P[2])
