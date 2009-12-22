@@ -1,4 +1,4 @@
-include $(Knit)/make/tricks.mk
+include $(Knit)/lib/make/tricks.mk
 
 Loads = -f $(Lib)/$(subst .awk ,.awk -f $(Lib)/,$(Code))
 

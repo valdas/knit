@@ -8,7 +8,7 @@ about:       #: describe this software
 Code ?= penny.awk                                # where is your code?
 #Knit ?= /home/stuff/menzies.us/wave/knit/0.2/lib# where is knit?
 Knit ?= /Users/timm/svns/knit/branches/0.2
-#include $(Knit)/make/awk.mk
+include $(Knit)/lib/make/awk.mk
 ##################################################
 
 eg1 : $(Lib)/one.awk       #: check that the code does not crash
@@ -33,3 +33,6 @@ eg6 :
 
 eg7 : 
 	@gawk -f $(Knit)/lib/awk/markup.awk doc/markup1.wak
+
+eg8 : 
+	@gawk -f $(Knit)/lib/awk/uses.awk

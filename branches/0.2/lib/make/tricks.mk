@@ -1,14 +1,14 @@
 #MAKEFLAGS= -s
 
-include $(Knit)/make/dirs.mk
-include $(Knit)/make/test.mk
+include $(Knit)/lib/make/dirs.mk
+include $(Knit)/lib/make/test.mk
 
 Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
 Hi   = printf "\n----| $@ |--------------\n\n"
 
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
-	@grep -h '^[a-zA-Z].*#:' $(Knit)/make/*.mk Makefile  \
+	@grep -h '^[a-zA-Z].*#:' $(Knit)/lib/make/*.mk Makefile  \
         | gawk -F: '{print "\t" $$1 "\t" $$3}' | sort
 
 all : $(Egs) #: run all examples
