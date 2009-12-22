@@ -1,41 +1,43 @@
 # search for woks. convert them to $HOME/lib/var
 
- BEGIN   { setup(Paths);
-           Ext = Ext ? Ext : ".awk";
-           Base=FILENAME }
+ BEGIN   { setup(Paths) }
          { uses($0)      } 
  END     { print FILENAME }
 
  function setup(paths, str,n) {
-     str=ENVIRON["Knitting"];
+     Base=FILENAME;
+     str=ENVIRON["AWKPATH"];
      str = str ? ".:" str : ".";
      n=split(str,paths,/:/);
      paths[0] = n
  }
- function uses(line,  path,   file,x,a) {
-     path = path ? path "/" : ""
+ function uses(line,    file,x,a) {
+     #print FNR " " line;
      if ( line ~ /^@uses/ ) { 
 	 split(line,a);
 	 file=a[2];
-	 gsub(/\"/,"",name);
+	 gsub(/\"/,"",file);
          uses1(file);
-	 print path line Ext
+	 print "{" file "," line "}"
         }
  } 
- function uses1(file0,    i,x,found) {
-    for(i=1;i<=paths[0];i++) {
-	file = paths[i] "/" file0;
-	while ((getline x < file) > 0)  {
+ function uses1(file0,    i,line,found) {
+    for(i=1;i<=Paths[0];i++) {
+	file = Paths[i] "/" file0;
+	while ((getline line < file) > 0)  {
 	    found++;
-	    uses(x, paths[i]);
+	    print found " [" line "]"
+	    uses(line);
 	}
         close(file)
 	if (found) 
 	    return 0
     }
-    return found
+    if (! found) 
+	barph(file0 " not found")
 }
- function fname(f) {
-     split(f,tmp,".");
-     return Dir "/" tmp[1] "." Ext;
+ function barph(str) {
+     print "# ERROR: " str  >> "/dev/stderr"
+     fflush("/dev/stderr")
+     exit 1
  }
