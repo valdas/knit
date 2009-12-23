@@ -21,7 +21,7 @@
 	 print "{" file "," line "}"
         }
  } 
- function uses1(file0,    i,line,found) {
+ function uses1(file0,    file,i,line,found) {
     for(i=1;i<=Paths[0];i++) {
 	file = Paths[i] "/" file0;
 	while ((getline line < file) > 0)  {
