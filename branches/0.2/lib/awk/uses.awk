@@ -1,8 +1,7 @@
- BEGIN   { setup(Paths,ENVIRON["AWKPATH"]) }
+ BEGIN   { usesSetup(Paths,ENVIRON["AWKPATH"]) }
          { uses($0)      } 
- END     { print FILENAME }
 
- function setup(paths, str, sep,n) {
+ function usesSetup(paths, str, sep,n) {
      Base=FILENAME;
      sep = str ? ":" : ""
      str = "." sep str 
@@ -34,13 +33,8 @@
 	     return 1
      }}
      # if never found, die screaming
-     assert(found, file0 " not found")
- }
- function assert(check, str) { 
-     if (! check) barph(str) 
- }
- function barph(str) {
-     print "# ERROR: " str   >> "/dev/stderr";
-     fflush("/dev/stderr");
-     exit 1; 
- }
+     if (! found) {
+	 print "# ERROR: " file0   >> "/dev/stderr";
+	 fflush("/dev/stderr");
+	 exit 1; 
+ }}

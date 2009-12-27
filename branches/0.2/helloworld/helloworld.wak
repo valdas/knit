@@ -1,0 +1,16 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+@uses options assert
+
+Hello World
+
+Introduction
+============
+
+In the all the world, there has never been a hello like 'hello
+world'.  First seen in the famous K&R book on 'C', it has introduced
+a billion people to their first program.
+
+ BEGIN { 
+     assert(opt("Who"), "no one to say hello too")
+     print "Hello " opt("Who") ", my name is world."
+ }

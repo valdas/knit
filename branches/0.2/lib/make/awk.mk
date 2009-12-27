@@ -1,6 +1,5 @@
+# must be first
 include $(Knit)/lib/make/tricks.mk
-
-Loads = -f $(Lib)/$(subst .awk ,.awk -f $(Lib)/,$(Code))
 
 debug :
 	echo lib $(Lib)
@@ -21,4 +20,6 @@ z    = ; exit}'
 A    = $(Spy) -v Test=1  --source 'BEGIN {#
 Z    = ; exit}'
 
-
+# must be last
+Needs := $(shell gawk -f $(Knit)/lib/awk/uses.awk $(Code)) $(Code)#
+Loads := -f $(Lib)/$(subst  .wak ,.awk -f $(Lib)/,$(Needs))

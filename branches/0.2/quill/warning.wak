@@ -1,0 +1,6 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+ function warning(str) {
+     print "# ERROR: " str   >> "/dev/stderr";
+     fflush("/dev/stderr");
+ }

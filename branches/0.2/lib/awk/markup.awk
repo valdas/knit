@@ -3,7 +3,7 @@
 
 BEGIN       { RS=""; FS="\n";N=1; Is[2]="ul"}
 N==1 && 
-/^[\#";]/ { next }
+/^[\@\#";]/ { next }
 $0          { P[N]=$0;
               Is[N]= kind($0,N,$2);
      	      if (N==1) N++; # make room for toc

@@ -1,0 +1,13 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+@uses barph
+
+assert
+
+If some check fails, print an error message and die.
+
+ function assert(check,str) {
+     if (! check)
+     	barph(str)
+ }
+
+by Tim Menzies
