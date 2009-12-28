@@ -1,6 +1,6 @@
 Expect ?= etc/expect#
-Tmp    ?= $(HOME)/tmp
-Html   ?= $(HOME)/var/html
-Lib    ?= $(HOME)/lib/var
+Tmp    ?= $(HOME)/tmp#
+Html   ?= $(HOME)/var/html#
+Lib    ?= $(HOME)/var/lib#
 
-Dirs ?= etc $(Expect) $(Tmp) $(Html) $(Lib)
+Dirs ?= etc $(HOME)/var $(Expect) $(Tmp) $(Html) $(Lib)

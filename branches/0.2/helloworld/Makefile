@@ -1,7 +1,6 @@
 ### config
 This    = helloworld#
 Version = 0.1#
-Code    = helloworld.wak#                       
 
 about: 
 	@echo "$(This) v$(Version): a very small demo KNIT program"
@@ -14,7 +13,8 @@ include $(Knit)/lib/make/awk.mk
 ### examples
 eg0 : about
 
-eg1 :      #: check that the code does not crash
-	@echo $(Needs)
-	@echo $(Loads)
+eg1 : #: check that the code does not crash
+	@echo lib $(Lib)
+	#@echo $(Awks)
+	#@echo $(Loads)
 
