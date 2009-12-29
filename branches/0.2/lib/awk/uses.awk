@@ -1,6 +1,7 @@
- BEGIN   { usesSetup(Paths,ENVIRON["AWKPATH"]) }
+ NR==1   { usesSetup(Paths,ENVIRON["VPATH"]) }
          { uses($0)      } 
-
+ END     { print Base }
+ 
  function usesSetup(paths, str, sep,n) {
      Base=FILENAME;
      sep = str ? ":" : ""
