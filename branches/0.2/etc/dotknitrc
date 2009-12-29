@@ -1,0 +1,2 @@
+export Knit=$HOME/svns/knit/branches/0.2
+export VPATH=$HOME/svns/knit/branches/0.2/quill
