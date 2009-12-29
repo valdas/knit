@@ -1,7 +1,7 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
-@uses options assert
+@uses options prints
 
-Hello World
+Hello World!  
 
 Introduction
 ============
@@ -10,7 +10,39 @@ In the all the world, there has never been a hello like 'hello
 world'.  First seen in the famous K&R book on 'C', it has introduced
 a billion people to their first program.
 
+Code
+====
+
+Main
+----
+
  BEGIN { 
-     assert(opt("Who"), "no one to say hello too")
-     print "Hello " opt("Who") ", my name is world."
+     if (! ok2go(Opt,
+		 "What=Hello World;Why=saying hi!;"  \
+		 "When=2010;Who=Tim Menzies;"	     \
+		 "To=world;Say=hello"))
+	  help();
+     else
+	 print opt("Say") " " opt("To") 
  }
+
+Support
+-------
+ 
+ function help() {
+    prints("-a          About",
+	   "-To Who     Address the greeting to 'Who'",
+	   "-Say What   Start the greeting with 'Say'",
+	   "-c          Copyright",
+	   "-h          Help")
+ }
+
+To do
+=====
+
+Get the about string into the program.
+
+Author
+======
+
+Tim Menzies
