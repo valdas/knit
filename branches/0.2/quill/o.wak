@@ -1,0 +1,34 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+o
+
+Print an array.
+
+Synopsis
+========
+
+   o(array [,string,control])
+
+* If _string_ is supplied, it is printed as a prefix to each list item.
+* If _control_ is an integer, then print  array contents from one to _control_.
+* If _control_ is a string, it is passed to as an argument to a UNIX sort command.
+
+Code 
+====
+
+ function o(a, str,control,   i) {
+     if (control ~ /^[0-9]/) 
+	 for(i=1;i<=control;i++)
+	     print str "[ " i " ]\t=\t [ " a[i] " ]"
+     else  {
+	 com = control ? control : " -n -k 2" 
+	 com = "sort " com  " #" rand(); # ensure com is unique
+	 for(i in a)
+	     print str "[ " i " ]\t=\t [ " a[i] " ]" | com;
+	 close(com); }
+ }
+
+Author
+======
+
+Tim Menzies
