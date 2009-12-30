@@ -4,7 +4,7 @@ include $(Knit)/lib/make/dirs.mk
 include $(Knit)/lib/make/test.mk
 
 Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
-Hi   = printf "\n----| $@ |--------------\n\n"
+I    = printf "\n----| $@ |--------------\n\n"
 
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
