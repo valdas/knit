@@ -35,7 +35,7 @@
      }}
      # if never found, die screaming
      if (! found) {
-	 print "# ERROR: " file0   >> "/dev/stderr";
+	 print "# ERROR: not found : " file0   >> "/dev/stderr";
 	 fflush("/dev/stderr");
 	 exit 1; 
  }}
