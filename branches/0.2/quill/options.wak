@@ -1,5 +1,5 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
-@uses copyleft barph s2a 
+@uses copyleft barph s2a
 
  function opt(x) {
      return (x in Opt) ? Opt[x] : barph(Opt["What"] " option ["x"] unknown")
