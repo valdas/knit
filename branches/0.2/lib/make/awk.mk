@@ -31,10 +31,10 @@ $(Html)/%.html : %.wak
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
-Spy  = $(Hi); pgawk --dump-variables="$(Vars)" \
+Spy  = pgawk --dump-variables="$(Vars)" \
                     --profile="$(Profile)" $(Loads) #
 Dump = cat $(Profile); cat $(Vars) | egrep -v '^[A-Z]+:'
-Run  = $(Hi); gawk  $(Loads)#
+Run  = gawk  $(Loads)#
 a    = $(Run) -v Test=1 --source 'BEGIN {#
 z    = ; exit}'
 A    = $(Spy) -v Test=1  --source 'BEGIN {#
