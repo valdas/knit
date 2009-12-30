@@ -13,28 +13,34 @@ a billion people to their first program.
 Code
 ====
 
-Main
+Main 
 ----
 
- BEGIN { 
-     if (! ok2go(Opt,
-		 "What=Hello World;Why=saying hi!;"  \
-		 "When=2010;Who=Tim Menzies;"	     \
-		 "To=world;Say=hello"))
-	  help();
-     else
+ BEGIN { start() }
+       { print opt("Say") " " opt("To") ", you " $0 "." }
+
+ function start() {
+     if (! ok2go(Opt,"What=Hello World;Why=saying hi!;"  \
+		 "When=2010;Who=Tim Menzies;"		 \
+		 "To=world;Say=hello;i=")) 
+	 exit help()
+     if (! opt("i")) {
 	 print opt("Say") " " opt("To") 
+	 exit
+     }
  }
 
 Support
 -------
  
  function help() {
-    prints("-a          About",
-	   "-To Who     Address the greeting to 'Who'",
-	   "-Say What   Start the greeting with 'Say'",
-	   "-c          Copyright",
-	   "-h          Help")
+    prints(" -a          About",
+	   " -i          Interactive mode. Prints hello, plus",
+           "             one qualifier per line of input.",
+	   " -To Who     Address the greeting to 'Who'",
+	   " -Say What   Start the greeting with 'Say'",
+	   " -c          Copyright",
+	   " -h          Help");
  }
 
 To do
