@@ -1,5 +1,4 @@
 # tables
-# now we're just done to in-line chars
 
 BEGIN       { RS=""; FS="\n";N=1; Is[2]="ul"}
 N==1 && 
@@ -19,15 +18,16 @@ function main(p,n,is,  m,i) {
     m[2] = markup(2,p[2],"ul","h1");
     print m[1];
     for(i=2;i<=n;i++)  {
-	if (listp(i)) 
-	    m[i]= list(m[i]);
-	print prefix(is[i-1],is[i]);	
-	print m[i];
+	if (m[i] && Is[i]) {
+	    if (listp(i)) 
+		m[i]= list(m[i]);
+	    print prefix(is[i-1],is[i]);	
+	    print m[i];
+	}
     }
 }
 function listp(i)    { return Is[i] ~ /l$/ }
 function headingp(i) { return Is[i] ~ /[hH]/ }
-
 function kind(all,n,line2) {
   if (n==1)                      return "h1"
   if (all   ~ /^[ /t]/)          return "pre";
@@ -47,7 +47,7 @@ function complete(i) {
     return  headingp(i)  ? "" : "</" Is[i] ">"
 }
 function markup(i,str,now,b4) {
-    str = prune(now,str);
+    str = prep(now,str);
     if (now=="h1") 
 	return "<h1><join>" str "</join></h1>"; 
     str = (now == "pre") ? pre(str) : text(str);  
@@ -60,13 +60,18 @@ function markup(i,str,now,b4) {
     else 
 	return str 
 }
-function prune(now,str) {
+function prep(now,str,   n,i,tmp) {
   if(now ~ /^h/) {
     gsub(/^=*/,"",str);
     gsub(/=*$/,"",str);
-  } else  if(now ~/^H/) {
+  } else if(now ~/^H/) {
       str = trim(str);
       gsub(/\n.*/,"",str);
+  } else if (sub(/^@uses[ \t]/,"",str)) {
+      n=split(str,tmp,/[ \t]+/);
+      str=""
+      for(i=1;i<=n;i++)
+	  str = str "[" tmp[i] ".html " tmp[i] "] "
   }
   return str;
 }
@@ -78,9 +83,9 @@ function text(x) {
   gsub(/\\\*/,"!!StAr!!",x);
   gsub(/\\_/,"!!DaSh!!",x);
   gsub(/\\`/,"!!TiCk!!",x);
-  x = gensub(/_([^_]+)_/,       "<em>\\1</em>",        "g", x);
-  x = gensub(/\*([^\*]+)\*/,    "<strong>\\1</strong>",        "g", x);
-  x = gensub(/`([^`]+)`/,       "<tt>\\1</tt>",        "g", x);
+  x = gensub(/_([^_]+)_/, "<em>\\1</em>", "g", x);
+  x = gensub(/\*([^\*]+)\*/, "<strong>\\1</strong>", "g", x);
+  x = gensub(/`([^`]+)`/, "<tt>\\1</tt>", "g", x);
   x = gensub(/\[(http:[^ ]+(jpg|gif|png)) ([^\]]+)\]/,  "<img \\3 src=\\1>","g",x)
   x = gensub(/\[(http:[^ ]+(jpg|gif|png))\]/,  "<img     src=\\1>","g",x)
   x = gensub(/\[([^ ]+) ([^\]]+)\]/,"<a href=\"\\1\">\\2</a>", "g", x);
@@ -106,7 +111,8 @@ function prefix(b4,now) {
 	return now=="pre" ? "\n" : "</pre>\n<" now ">";
     return now=="pre" ? "</" b4 ">\n<pre>"  : "</" b4 ">\n<p>"
 }
-function list(str,  line,n, i,b4,now,out,item,j,k,line0,tmp,what) {   
+function list(str,  line,n, i,b4,now,out,item,j,k,line0,tmp,what) { 
+    #print "str " str
     b4 = 0
     what = (str ~ /^[ \t]*[0-9]/) ? "ol" : "ul"
     gsub(/\n[ \t]+$\n/,"<p>\n",str)
@@ -119,7 +125,8 @@ function list(str,  line,n, i,b4,now,out,item,j,k,line0,tmp,what) {
     for(i=1;i<=j;i++) {
 	item = line[i]
 	split(item,tmp,/([\+\*-]|[0-9])/)
-	now = int(length(tmp[1]) /2) + 1
+	now = length(tmp[1]) + 1
+	#print "i " i " item " item " tmp2 [" tmp[1] "] now " now
 	sub(/^[ \t]*([0-9]*\.|[\+\*\-])/,"",item)
 	for(k=b4;k>now;k--) 
 	    out = out "</" what ">\n";
