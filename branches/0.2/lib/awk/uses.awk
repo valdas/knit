@@ -1,9 +1,7 @@
  NR==1   { usesSetup(Paths,ENVIRON["VPATH"]) }
          { uses($0)      } 
- END     { print Base }
- 
+
  function usesSetup(paths, str, sep,n) {
-     Base=FILENAME;
      sep = str ? ":" : ""
      str = "." sep str 
      n=split(str,paths,/:/);
