@@ -1,7 +1,7 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
-@uses options prints
 
 Hello World!  
+
 
 Introduction
 ============
@@ -13,26 +13,31 @@ a billion people to their first program.
 Code
 ====
 
+Requires
+--------
+
+@uses options prints
+
 Main 
 ----
 
- BEGIN { start() }
-       { print opt("Say") " " opt("To") ", you " $0 "." }
-
- function start() {
-     if (! ok2go(Opt,"What=Hello World;Why=saying hi!;"  \
-		 "When=2010;Who=Tim Menzies;"		 \
-		 "To=world;Say=hello;i=")) 
-	 exit help()
+ BEGIN {      
+     ok2go(Opt, 
+	   "What=Hello World;Why=saying hi!;When=2010;Who=Tim Menzies;"\
+	   "To=world;Say=hello;i=") 
      if (! opt("i")) {
-	 print opt("Say") " " opt("To") 
+	 print opt("Say") " " opt("To");
 	 exit
-     }
- }
+ }}
+
+If running in interactive mode, print hello and a qualifier for
+every line of input.
+
+ { print opt("Say") " " opt("To") ", you " $0 "." }
 
 Support
 -------
- 
+
  function help() {
     prints(" -a          About",
 	   " -i          Interactive mode. Prints hello, plus",
@@ -43,10 +48,6 @@ Support
 	   " -h          Help");
  }
 
-To do
-=====
-
-Get the about string into the program.
 
 Author
 ======
