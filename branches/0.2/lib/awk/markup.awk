@@ -80,20 +80,24 @@ function pre(x) {
   return x;
 }
 function text(x) {
-  gsub(/\\\*/,"!!StAr!!",x);
-  gsub(/\\_/,"!!DaSh!!",x);
-  gsub(/\\`/,"!!TiCk!!",x);
-  x = gensub(/_([^_]+)_/, "<em>\\1</em>", "g", x);
-  x = gensub(/\*([^\*]+)\*/, "<strong>\\1</strong>", "g", x);
-  x = gensub(/`([^`]+)`/, "<tt>\\1</tt>", "g", x);
-  x = gensub(/\[(http:[^ ]+(jpg|gif|png)) ([^\]]+)\]/,  "<img \\3 src=\\1>","g",x)
-  x = gensub(/\[(http:[^ ]+(jpg|gif|png))\]/,  "<img     src=\\1>","g",x)
-  x = gensub(/\[([^ ]+) ([^\]]+)\]/,"<a href=\"\\1\">\\2</a>", "g", x);
-  x = gensub(/\[([^ ]+)\]/,"<a href=\"\\1\">\\1</a>", "g", x);
-  gsub(/!!StAr!!/,"*",x);
-  gsub(/!!DaSh!!/,"_",x);
-  gsub(/!!TiCk!!/,"`",x);
-  return x
+    gsub(/\\\[/,"!!OpEn!!",x);
+    gsub(/\\]/,"!!ClOsE!!",x);
+    gsub(/\\\*/,"!!StAr!!",x);
+    gsub(/\\_/,"!!DaSh!!",x);
+    gsub(/\\`/,"!!TiCk!!",x);
+    x = gensub(/_([^_]+)_/, "<em>\\1</em>", "g", x);
+    x = gensub(/\*([^\*]+)\*/, "<strong>\\1</strong>", "g", x);
+    x = gensub(/`([^`]+)`/, "<tt>\\1</tt>", "g", x);
+    x = gensub(/\[(http:[^ ]+(jpg|gif|png)) ([^\]]+)\]/,  "<img \\3 src=\\1>","g",x)
+    x = gensub(/\[(http:[^ ]+(jpg|gif|png))\]/,  "<img     src=\\1>","g",x)
+    x = gensub(/\[([^ ]+) ([^\]]+)\]/,"<a href=\"\\1\">\\2</a>", "g", x);
+    x = gensub(/\[([^ ]+)\]/,"<a href=\"\\1\">\\1</a>", "g", x);
+    gsub(/!!OpEn!!/,"[",x);
+    gsub("!!ClOsE!!","]",x);
+    gsub(/!!StAr!!/,"*",x);
+    gsub(/!!DaSh!!/,"_",x);
+    gsub(/!!TiCk!!/,"`",x);
+    return x
 }
 function toc(n,str, l, pad) {
   if (P[2])
