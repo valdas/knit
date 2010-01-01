@@ -1,15 +1,26 @@
-This    = penny# name
-Version = 0.1#   number
-about:       #: describe this software
-	@echo "$(This) v$(Version): a 100 line(ish) content management system"
-	@echo "copyright (c) GPL 3.0 2009 Tim Menzies, (tim AT menzies DOT us)"
+#---------------------------------------------------------------------------
+This    = penny#
+Version = 0.1#
 
-#################################################
-Code ?= penny.awk                                # where is your code?
-#Knit ?= /home/stuff/menzies.us/wave/knit/0.2/lib# where is knit?
-Knit ?= /Users/timm/svns/knit/branches/0.2
-include $(Knit)/lib/make/awk.mk
-##################################################
+about: 
+	@echo "$(This) v$(Version): a very small content management system"
+	@echo "copyright (c) GPL 3.0 2010 Tim Menzies, (tim AT menzies DOT us)"
+
+include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
+#---------------------------------------------------------------------------
+
+Download=$(Tags)/$(This)/$(Version)
+
+tag : build
+	if [ ! -d "$(Download)" ]; then \
+		mkdir -p $(Download) ;   \
+		svn add $(This)      ;    \
+	fi
+	cd $(Download)
+	cp  $(LatestBuild) $(This)
+	svn add --quiet $(This)
+	cd ../..
+	svn commit -m "added : new version of $(This) $(Version)" 
 
 eg1 : $(Lib)/one.awk       #: check that the code does not crash
 	@$(Run)  > /dev/null
