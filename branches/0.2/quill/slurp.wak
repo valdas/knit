@@ -1,0 +1,36 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+slurp
+
+Synopsis
+========
+ 
+  slurp(commmand,array  [,sep])
+
+Grab the output of a shell _command_ into an _array_, divided by a _seperator_ (defaults to
+newline).
+
+Code
+====
+
+Uses
+----
+
+@uses deShell
+
+Main
+----
+
+ function slurp(com,all,   sep) { 
+    return split(slurp0(deShell(com)), 
+                 all,
+                 sep ? sep : "\n") 
+ }
+ function slurp0(com,    txt) { 
+     RS=""; FS="\n"; 
+     com | getline txt ; 
+     close(com); 
+     return txt
+ }
+
+
