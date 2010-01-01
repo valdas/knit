@@ -8,7 +8,7 @@ Does some cool things
  BEGIN { 
   Sep="``"; 
   if (!Test) 
-    main("dat/filler.txt"); 
+    main("slots.txt"); 
  }
 
 Support Stuff
