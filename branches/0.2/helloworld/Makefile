@@ -28,4 +28,7 @@ eg9  : ; @$I; $(LatestBuild) -i $(Tests)/qualifiers.eg
 eg10 : ; @$I; cat $(Tests)/qualifiers.eg | $(LatestBuild) -i 
 
 eg11 : 
-	$(foreach h,$(HtmlHtmls), echo $h;)
+	@$a help() $z
+
+eg12 : 
+	@$A help() $Z; $(Dump)
