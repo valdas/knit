@@ -21,14 +21,16 @@ Requires
 Main 
 ----
 
- BEGIN {      
+ BEGIN { if (!Test) main() }
+
+ function main() {
      ok2go(Opt, 
-	   "What=Hello World;Why=saying hi!;When=2010;Who=Tim Menzies;"\
-	   "To=world;Say=hello;i=") 
+	   "What=Hello World;Why=saying hi!;When=2010;Who=Tim Menzies;"	\
+	   "To=world;Say=hello;i="); 
      if (! opt("i")) {
 	 print opt("Say") " " opt("To");
-	 exit
- }}
+	 exit }
+ }
 
 If running in interactive mode, print hello and a qualifier for
 every line of input.
