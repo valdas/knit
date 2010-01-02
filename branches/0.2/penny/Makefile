@@ -9,18 +9,6 @@ about:
 include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #---------------------------------------------------------------------------
 
-Download=$(Tags)/$(This)/$(Version)
-
-tag : build
-	if [ ! -d "$(Download)" ]; then \
-		mkdir -p $(Download) ;   \
-		svn add $(This)      ;    \
-	fi
-	cd $(Download)
-	cp  $(LatestBuild) $(This)
-	svn add --quiet $(This)
-	cd ../..
-	svn commit -m "added : new version of $(This) $(Version)" 
 
 eg1 : $(Lib)/one.awk       #: check that the code does not crash
 	@$(Run)  > /dev/null
