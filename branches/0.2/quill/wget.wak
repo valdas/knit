@@ -21,13 +21,22 @@ Code
 Uses
 ----
 
-@uses slurp
+@uses slurp o
+
+Demo
+----
+
+ function demoWget(   n,all,url) {
+     url="knit.googlecode.com/svn/branches/0.2/quill/etc/tests/demoWget.rss"
+     n=wget(url,all,">")
+     o(all,"wget",n)
+ }
 
 Main
 ----
 
- function wget(com,all,sep) { 
-    return slurp("wget -q -O http://" url,all,sep) 
+ function wget(url,all,sep) { 
+    return slurp("wget -q -O - http://" url,all,sep) 
  }
 
 Author
