@@ -5,7 +5,7 @@ noShellComs
 Prune characters that cause shell exection.
 
  function deShell(str) {
-     gsub(/["`\$;\|/&><]/,"",str);
+     gsub(/["`\$;\|&><]/,"",str);
      return str
  }
 
