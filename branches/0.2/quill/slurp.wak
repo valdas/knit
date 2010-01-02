@@ -21,16 +21,20 @@ Uses
 Main
 ----
 
- function slurp(com,all,   sep) { 
-    return split(slurp0(deShell(com)), 
-                 all,
-                 sep ? sep : "\n") 
+ function slurp(com,all,   sep,tmp) { 
+     sep = sep ? sep : "\n"
+     tmp=slurp0(com)
+     return split(tmp,all, sep) 
  }
- function slurp0(com,    txt) { 
-     RS=""; FS="\n"; 
+ function slurp0(com0,    com,txt) { 
+     RS="\r\r\n"; FS="\r\r\n"; 
+     com = deShell(com0)
      com | getline txt ; 
      close(com); 
      return txt
  }
 
+Author
+======
 
+Tim Menzies
