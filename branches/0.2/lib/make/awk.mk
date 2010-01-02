@@ -3,13 +3,11 @@ include $(Knit)/lib/make/tricks.mk
 
 Uses    := $(shell gawk -f $(Knit)/lib/awk/uses.awk $(This).wak)#
 Awks    := $(subst .wak,.awk,$(Uses))
-LibAwks :=  $(subst $(Lib)/ ,,$(Lib)/$(subst .awk ,.awk $(Lib)/,$(Awks)) $(Lib)/$(This).awk)#
+LibAwks   :=  $(subst $(Lib)/ ,,$(Lib)/$(subst .awk ,.awk $(Lib)/,$(Awks)) $(Lib)/$(This).awk)#
 Loads   := -f $(subst .awk ,.awk -f ,$(LibAwks))
-Htmls   := $(subst .wak,.html,$(Uses))
-HtmlHtmls :=  $(subset $(Html)/ ,,$(Html)/$(subst .html ,.html $(Html)/,$(Htmls)) $(Html)/$(This).html)#
 
-debug :
-	echo uses $(Uses)
+Htmls   := $(subst .wak,.html,$(Uses))
+HtmlHtmls :=  $(subst $(Html)/ ,,$(Html)/$(subst .html ,.html $(Html)/,$(Htmls)) $(Html)/$(This).html)#
 
 OldBuild = $(Old)/$(This).$(Build)
 LatestBuild = $(Lib)/$(This)
@@ -34,7 +32,7 @@ $(Lib)/%.awk : %.wak
 	@gawk -f $(Knit)/lib/awk/comment.awk $< > $@
 
 $(Html)/%.html : %.wak
-	@gawk -f $(Knit)/lib/awk/markup.awk $< > $@
+	gawk -f $(Knit)/lib/awk/markup.awk $< > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
