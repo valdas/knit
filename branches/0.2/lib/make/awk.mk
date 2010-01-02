@@ -3,14 +3,13 @@ include $(Knit)/lib/make/tricks.mk
 
 Uses    := $(shell gawk -f $(Knit)/lib/awk/uses.awk $(This).wak)#
 Awks    := $(subst .wak,.awk,$(Uses))
-LibAwks :=  $(Lib)/$(subst .awk ,.awk $(Lib)/,$(Awks)) $(Lib)/$(This).awk#
+LibAwks :=  $(subst $(Lib)/ ,,$(Lib)/$(subst .awk ,.awk $(Lib)/,$(Awks)) $(Lib)/$(This).awk)#
 Loads   := -f $(subst .awk ,.awk -f ,$(LibAwks))
-
 Htmls   := $(subst .wak,.html,$(Uses))
-HtmlHtmls :=  $(Html)/$(subst .html ,.html $(Html)/,$(Htmls)) $(Html)/$(This).html#
+HtmlHtmls :=  $(subset $(Html)/ ,,$(Html)/$(subst .html ,.html $(Html)/,$(Htmls)) $(Html)/$(This).html)#
 
 debug :
-	echo lib $(Lib)
+	echo uses $(Uses)
 
 OldBuild = $(Old)/$(This).$(Build)
 LatestBuild = $(Lib)/$(This)
@@ -35,7 +34,7 @@ $(Lib)/%.awk : %.wak
 	@gawk -f $(Knit)/lib/awk/comment.awk $< > $@
 
 $(Html)/%.html : %.wak
-	gawk -f $(Knit)/lib/awk/markup.awk $< > $@
+	@gawk -f $(Knit)/lib/awk/markup.awk $< > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
@@ -43,8 +42,10 @@ Spy  = pgawk --dump-variables="$(Vars)" \
                     --profile="$(Profile)" $(Loads) #
 Dump = cat $(Profile) | sed '1d' ; cat $(Vars) | egrep -v '^[A-Z]+:'
 Run  = gawk  $(Loads)#
-a    = $(Run) -v Test=1 --source 'BEGIN {#
-z    = ; exit}'
 A    = $(Spy) -v Test=1  --source 'BEGIN {#
 Z    = ; exit}'
+a    = $(Run) -v Test=1 --source 'BEGIN {#
+z    = ; exit}'
 
+one :
+	@$a $(One) $z
