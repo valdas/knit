@@ -1,48 +1,119 @@
-#.H1 Reader RSS Feeds
-#.H2
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
 
-# gawk -f blat.awk --source 'BEGIN {print myrss("rss;lawker.blogspot.com/feeds/posts/default?alt=rss;5","\n")'}
-# wget -q -O - http://lawker.blogspot.com/feeds/posts/default?alt=rss
-# <a href="http://lawker.blogspot.com/2009/12/awkinfo-now-top-20-website.html">Dec 02</a>Awk.info now a top-20 website.
-# <a href="http://lawker.blogspot.com/2009/12/zork-in-awk.html">Dec 02</a>Praveen Puri offers a Zork-clone, in Awk.
-# <a href="http://lawker.blogspot.com/2009/12/sorting-in-awk.html">Dec 01</a>Ed Morton sorts out everything (using Awk)
-# <a href="http://lawker.blogspot.com/2009/12/smallest-formatter-ever.html">Dec 01</a>Is this the smartest (smallest) formatter ever written?
-# <a href="http://lawker.blogspot.com/2009/11/norvigs-spell-checker-in-awk.html">Nov 30</a>Gregory Grefenstette implements Norvig's spell checker.
+myrss
 
-# note speed tricks: 
-# reading from wget -O - is about twice as fast as wget -O file; cat file
-# getline with FS="\n" is ten times faster than if you give a regualr expression
-# split is 2-3 times faster on multi-char than single char (depending on the expression)
-# the exact speed up is data set dependent but the above tricks reduced the time for
-# this rss generation from 0.9 seconds to 0.088 seconds. which is pretty good
-# since the wget fetch time is 0.08 seconds
+Simple formatter of an RSS stream.
 
-function myrss(rss, between, tmp) {
-  split(rss,tmp,";");
-  return myrss1(tmp[2],tmp[3],between);
-}
+Synopsis
+========
 
-function myrss1(feed,max,  between,  n,all,sep,out,date,url,txt,seen) {
-  n = slurp("wget -q -O - http://" feed,">",all);
-  for(i=1;i<=n; i++) {
-    if (all[i] ~ /^<pubDate/) 
-      date = myDate(all[i+1])
-    else if (all[i] ~ /^<description/) 
-      txt = myText(all[i+1])
-    else if (all[i] ~ /^<enclosure/) {
-      url = myUrl(all[i]);
-      out = out sep myReport(url,date,txt);
-      sep = between ? between : "\n";
-      if (++seen >= max) 
-          return out;
-    }}
-  return out;
-}
+    myrss("rss:url;N"  [,between])
 
-function slurp(com,sep,all) { return split(slurp0(com), all,sep)     }
-function slurp0(com, txt)   { RS=""; FS="\n"; com | getline txt ; close(com); return txt }
+Returns the first _N_ items from an rss feed at _url_. 
 
-function myDate(str, tmp)       { split(str,tmp," ");   return tmp[3]  " " tmp[2] } 
-function myText(str)            { sub(/&lt;.*/,"",str); return str }
-function myUrl(str)             { sub(/<.*/,"",str);    return str }
-function myReport(url,date,txt) { return "<a href=\"" url "\">" date "</a>" txt}
+The functional optionally accepts a between string that is printed 
+between each item. The following example prints a "<li>" between each RSS 
+item; i.e. it converts a text string into an HTML list.
+
+The code includes a generic loop for reading the stream and a set of _formatting
+functions_ that lets a programmer change the presentation of the stream.
+
+Tips
+====
+
+When formatting an RSS feed, it it useful to view its
+structure. The following command will show that structure. Note that
+_myRss_ imports the following structure into an array _all_, one
+entry per line.
+
+  wget -q -O - url2RssFeed |  
+  gawk 'BEGIN {RS="";FS=">"; getline; 
+        for(i=1;i<=NF;i++) print $i}'
+
+Code
+====
+
+Demo
+----
+
+ function myRssDemo() {  
+     print "<ul>"
+     print myrss("rss;lawker.blogspot.com/feeds/posts/default?alt=rss;5","<li>\n")
+     print "</ul>"
+ }
+
+Outputs:
+
+Uses
+----
+
+@uses wget
+
+Main 
+----
+
+ function myrss(rss, between, tmp) {
+     split(rss,tmp,";");
+     return myrss1(tmp[2],tmp[3],between);
+ }
+
+ function myrss1(feed,max,between,              \
+                 date,url,link,description,title,\
+                 n,all,sep,out,,seen) {
+     n = wget(feed,">",all);
+     for(i=1;i<=n; i++) {
+	 if (all[i] ~ /^<pubDate/ ) 
+	     date = myDate(all,i)
+	 else if (all[i] ~ /^<description/) 
+	     description = myText(all,i)
+	 else if (all[i] ~ /^<title/) 
+	     title = mySlot(all,i)
+	 else if (all[i] ~ /^<link/) 
+	     link = mySlot(all,i)
+	 else if (all[i] ~ /^<enclosure/) 
+	     url = mySlot(all,i);
+	 if (date && description && title && link && url) {
+	     out = out sep myReport(url,date,title,link,description);
+	     sep = between ? between : "\n";
+	     date = description = title = link = url = ""
+	     if (++seen >= max) 
+		 return out;
+	 }}
+     return out;
+ }
+
+Formatting
+-----------
+
+Modify the following formatting functions to change the appearance of each field.
+
+_MySlot_ is the simplet formatter.
+ 
+function mySlot(all,i,    str) {
+     str = all[i] 
+     sub(/<.*/,"",str);    
+     return str 
+ }
+
+The other formatters handle special kinds of fields.
+
+ function myDate(all,i, tmp) {
+    split(all[i+1],tmp," ");   
+    return tmp[3]  " " tmp[2] 
+ } 
+ function myText(all,i,    str) {
+     str = all[i+1] 
+     sub(/&lt;.*/,"",str); 
+     return str 
+ }
+
+Reporter
+--------
+
+Modify the following reporting function to change the final output of
+the itenm. Note that every field found by _myrss1_ is passed to the function. 
+Feel free to ignore all the arguments except the ones you want to display.
+
+ function myReport(url,date,title,link,description);
+     return "<a href=\"" url "\">" date "</a>" description
+ }
