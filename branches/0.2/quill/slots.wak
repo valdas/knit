@@ -1,0 +1,86 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+slots 
+
+About
+=====
+
+_Slots_ is  simple macro langauage- no recursive macros, no macro arguments.
+It processes two files: 
+
++ A _slots_ file that defines a set of name/value pairs.
++ A _frame_ file with a set of names slots. 
+
+At runtime, the slot values replace the slot names in the _frame_ file or
+from a set of plugins. 
+
+Example
+-------
+
+Here is a slots file:
+
+  ``name``   Tim Menzies
+  ``office`` 841a
+  ``phone``  28361
+
+And here is a frame file
+
+   Dear ``name``,
+ 
+   When the pizza arrives, I will call you on ``phone`` and send
+   it around to ``office``.  
+  
+   Bon Appetit!
+
+   p.s. Fyi: here are the latest updates to our menu: ``rss;tinyurl/pizza.rss;5``
+
+About Plugins
+-------------
+
+Note that the last slot in the frame contains the _";"_ plug-in character. This
+slot will be filled in by passing the slot label to the _slotsPlugIns_ function.
+
+Code
+====
+
+Uses
+----
+
+@uses cat trim
+
+Assumed Functions
+-----------------
+
+This code assumes that _slotsPlugIns_ has been defined.
+
+The _slotsPlugIns_ function accepts only one argument (which is
+the slot string). _Slots_ prints whatever that function returns. That is,
+the above string gets replaced by:
+
+  print slotsPlugIns("rss;tinyurl/pizza.rss;5")
+
+Main
+----
+      
+ function slots(slots,frames) {
+     loadSlots(slots,values)
+     fillFrame(frame,values)
+ }
+     
+Workers
+-------
+
+ function loadSlots(slots,values,   n,all) {
+     n=slurp(slots,all)
+     for(i=2; i<=n; i += 2) 
+	 values[trim(all[i])] = trim(all[i+1]);
+ }
+ function fillFrames(frame,values,   n,) {
+     n=slurp(frame,all);
+     printf("~s",all[1])
+     for(i=1; i<=n; i++)  
+	 printf("~s", i % 2 ? plugins(all[i],values) : all[i]) 
+ }
+ function plugins(str,values) {
+     return (str ~ /;/ ? slotPlugIns(str,values) : str)
+ }
