@@ -6,6 +6,8 @@ include $(Knit)/lib/make/test.mk
 Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
 I    = printf "\n----| $@ |--------------\n\n"
 
+demo :
+	 @$(MAKE) -s This=$u build One="$(shell $(Demo))" one
 
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
