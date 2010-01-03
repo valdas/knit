@@ -1,0 +1,22 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+slotsDemo
+
+A small program to demonstrate _slots_
+
+ function demoSlots() {
+    get = "wget -q -O - "
+    data = "http://knit.googlecode.com/svn/branches/0.2/quill/etc/tests/" 
+    frame1= get data "frame1.txt"
+    slots1= get data "slots1.txt"
+    slots(frame1,slots1)
+ }
+ function slotsPlugIns(string,values) {
+    return 1
+ }
+
+Todo
+====
+
+Get the slots demo working
+
