@@ -63,12 +63,7 @@ Uses
 
 Main 
 ----
-
- function myrss(rss, between, tmp) {
-     split(rss,tmp,";");
-     return myrss1(tmp[2],tmp[3],between);
- }
- function myrss1(feed,max,between,              \
+ function myrss(feed,max,between,              \
                  date,url,author,link,txt,title,	\
                  n,all,sep,out,seen,x) {
      n = wget(feed,all,">");
@@ -95,7 +90,8 @@ Main
 Formatting
 -----------
 
-Modify the following formatting functions to change the appearance of each field.
+Modify the following formatting functions to change the appearance of
+each field.
 
 _MyField_ is the simplest formatter and will suffice for many fields.
 
@@ -105,11 +101,10 @@ _MyField_ is the simplest formatter and will suffice for many fields.
      return str 
  }
 
-The other formatters handle  special kinds of fields.  Note that the
-folowing code handles the fields seen  in the feed I was processing when I wrote this script.
-You
-may need something else to handle the quirks of the feeds you are
-processing.
+The other formatters handle special kinds of fields.  Note that the
+folowing code handles the fields seen in the feed I was processing
+when I wrote this script.  You may need something else to handle the
+quirks of the feeds you are processing.
 
  function myDate(all,i, tmp) {
     split(all[i+1],tmp," ");   
