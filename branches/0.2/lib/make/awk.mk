@@ -45,5 +45,8 @@ Z    = ; exit}'
 a    = $(Run) -v Test=1 --source 'BEGIN {#
 z    = ; exit}'
 
+Demo=gawk 'BEGIN                     { FS="[ \t(]" } \
+           /^[ \t]function[ \t].*\(/ {print $$3"();"; exit}' $u.wak
+
 one :
 	@$a $(One) $z
