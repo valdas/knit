@@ -9,5 +9,5 @@ about:
 include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #---------------------------------------------------------------------------
 
-egWget:; @$(MAKE) -s This=wget build One="demoWget()" one #: wget demo
-egRss :; @$(MAKE) -s This=rss  build One="demoRss()"  one #: rss demo
+
+egRss :; @$(MAKE) -s This=myrss  build One="demoMyRss()"  one #: rss demo
