@@ -9,9 +9,11 @@ Synopsis
 
    o(array [,string,control])
 
-* If _string_ is supplied, it is printed as a prefix to each list item.
-* If _control_ is an integer, then print  array contents from one to _control_.
-* If _control_ is a string, it is passed to as an argument to a UNIX sort command.
+* If _string_ is given,  print it before each item.
+* If _control_ is an integer, then print from 1 to _control_.
+* Else, if the size of the _array_ is stored at location _array[0]_ then print from one to size.
+* Else, if _control_ is a string, use it as  an  argument to a UNIX sort command (otherwise,
+  just sort numerically by the _array_ values.
 
 Code 
 ====
@@ -20,7 +22,10 @@ Code
      if (control ~ /^[0-9]/) 
 	 for(i=1;i<=control;i++)
 	     print str "[ " i " ]\t=\t [ " a[i] " ]"
-     else  {
+     else
+	 if (0 in a)
+	     o(a,str,a[0])
+     else {
 	 com = control ? control : " -n -k 2" 
 	 com = "sort " com  " #" rand(); # ensure com is unique
 	 for(i in a)
