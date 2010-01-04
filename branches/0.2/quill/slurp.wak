@@ -7,8 +7,8 @@ Synopsis
  
   slurp(commmand,array  [,sep])
 
-Grab the output of a shell _command_ into an _array_, divided by a _seperator_ (defaults to
-newline).
+Grab the output of a shell _command_ into an _array_, divided by a
+_seperator_ (defaults to newline).
 
 Code
 ====
@@ -16,22 +16,24 @@ Code
 Uses
 ----
 
-@uses deShell
+@uses deShell 
 
 Main
 ----
 
- function slurp(com,all,   sep,tmp) { 
-     sep = sep ? sep : "\n"
-     tmp=slurp0(com)
-     return split(tmp,all, sep) 
+ function slurp(com,all, sep) { 
+     return split(slurp0(com),
+		  all, 
+		  (sep ? sep : "\n")) 
  }
- function slurp0(com0,    com,txt) { 
-     RS="\r\r\n"; FS="\r\r\n"; 
-     com = deShell(com0)
-     com | getline txt ; 
-     close(com); 
-     return txt
+ function slurp0(com0,    com,txt,rs0,fs0) {
+     rs0=RS; fs0=FS;           # save globals
+     RS="\r\r\n"; FS="\r\r\n"; # change globals 
+     com = deShell(com0)       # make 'com0' safe
+     com | getline txt ;       # everything is in 'txt'
+     close(com);               # close pipe
+     RS=rs0; FS=fs0;           # restore globals
+     return txt                # the end
  }
 
 Author
