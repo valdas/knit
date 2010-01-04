@@ -1,0 +1,85 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+bias
+
+Count how often things appear in a sample, then randomly generate
+those symbols, biased by those counts.
+
+
+Code
+==== 
+
+
+a2best
+------
+
+If "_a_" is an array of numbers,  then sort them in ascending order.
+If _max_ is supplied, return no more than the first _max_ number of values. 
+
+
+ function a2best(a,best,  max,    sorted,n,i,j) {
+                #must     opt     local
+     n = asort(a,sorted);
+     if (max && n >= max) {
+	 for(i = n - max + 1; i<=n; i++)
+	     best[++j] = sorted[i];
+	 n= max;
+     } 
+     else 
+	 for(i in sorted)
+	     best[i]=sorted[i];
+     return n;
+ }
+
+sorted2cdf
+----------
+
+From
+[http://www.aiaccess.net/English/Glossaries/GlosMod/e_gm_distribution_function.htm
+aiaccess.net]: A _cdf_ (or "cumulative distribtion function") is the
+proportion of the population whose value is less than x.  The _cdf_ of
+a random variable is clearly a monotonously increasing (or more
+precisely, non decreasing) function from 0 to 1.
+
+In Awk, we can represent this as an array of  "_n_" symbols stored at
+locations 1,2,3..n and a set of increasing probabilities  locations
+-1,-2,-3,...-n (where -i is the probability of symbol i).
+For convenience, we store "_n_" at  _array[0]_
+
+ function sorted2cdf(n,sorted,cdf,    i,j,sum) {
+     sum = cdf[1] = sorted[1];
+     for(i=2;i<=n;i++) { 
+	 sum += sorted[i];
+	 cdf[i] = cdf[i-1] + sorted[i];
+     }
+     for(i in cdf)  
+	 cdf[i] = cdf[i] / sum;
+     for(i=1;i<=n;i++)
+	 cdf[-1*i] = sorted[i]
+     return n
+ }
+
+Pick
+----
+
+Return one symbol from a _cdf_, biased by the _cdf_ probabilities. 
+If _skew_ is provided, bias the selection towards one end of the
+distribtion.
+
+ function pick(cdf,n,  skew,   i) {
+               #must   opt     local
+     i = pick1(cdf,n,skew)
+     return cdf[-1*i]
+ }
+ function pick1(cdf,n,  skew,u,i) {
+     u = bias ? rand()^skew : rand();
+     for(i=n-1;i>=1;i--) 
+	 if (u > cdf[i] ) 
+	     return i+1;
+     return n;
+ }
+    
+Author
+======
+
+Tim Menzies
