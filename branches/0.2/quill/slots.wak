@@ -59,28 +59,33 @@ the above string gets replaced by:
 
   print slotsPlugIns("rss;tinyurl/pizza.rss;5")
 
+Uses
+----
+
+@uses math
+
 Main
 ----
       
- function slots(slots,frames) {
-     loadSlots(slots,values)
-     fillFrame(frame,values)
+ function slots(slotsFile,frameFile,      value,sep) {
+     sep="``"
+     loadSlots(slotsFile,sep,values)   
+     fillFrame(frameFile,sep,values)
  }
      
 Workers
 -------
 
- function loadSlots(slots,values,   n,all) {
-     n=slurp(slots,all)
+ function loadSlots(slots,sep,values,   n,i,all) {
+     n=slurp(slots,all,sep)
      for(i=2; i<=n; i += 2) 
 	 values[trim(all[i])] = trim(all[i+1]);
  }
- function fillFrames(frame,values,   n,) {
-     n=slurp(frame,all);
-     printf("~s",all[1])
+ function fillFrame(frame,sep,values,   all,n,i) {
+     n=slurp(frame,all,sep);
      for(i=1; i<=n; i++)  
-	 printf("~s", i % 2 ? plugins(all[i],values) : all[i]) 
+	 printf("%s", (oddp(i) ? all[i] : plugins(all[i],values)))
  }
  function plugins(str,values) {
-     return (str ~ /;/ ? slotPlugIns(str,values) : str)
+     return (str ~ /;/ ? slotsPlugIns(str,values) : values[str])
  }
