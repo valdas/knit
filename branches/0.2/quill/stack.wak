@@ -1,0 +1,19 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+stack
+
+Stack functions in Awk. 
+
+ function push(a,x,  i) { 
+     i=length(a)+1
+     a[i] = x
+     return i 
+ }
+ function pop(a, i,x) { 
+     i=length(a)
+     x=a[i]
+     delete a[i]
+     return x
+ }
+
+by Tim Menzies
