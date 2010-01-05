@@ -1,5 +1,6 @@
 #MAKEFLAGS= -s
 
+include $(Knit)/lib/make/local.mk
 include $(Knit)/lib/make/dirs.mk
 include $(Knit)/lib/make/test.mk
 
@@ -7,12 +8,12 @@ Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
 I    = printf "\n----| $@ |--------------\n\n"
 
 demo :
-	 @$(MAKE) -s This=$u build One="$(shell $(Demo))" one
+	 @time $(MAKE) -s This=$u build One="$(shell $(Demo))" one
 
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
 	@grep -h '^[a-zA-Z].*#:' $(Knit)/lib/make/*.mk Makefile  \
-        | gawk -F: '{print "\t" $$1 "\t" $$3}' | sort
+        | $(Gawk) -F: '{print "\t" $$1 "\t" $$3}' | sort
 
 all : $(Egs) #: run all examples
 
