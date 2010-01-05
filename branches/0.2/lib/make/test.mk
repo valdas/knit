@@ -20,4 +20,4 @@ tests : build #: run 'test' on all egs
 
 score : #: run 'test' on all egs, collect the scores
 	@$(MAKE) tests | egrep '(PASSED|FAILED)' \
-         | gawk '{print $$1}' | uniq -c
+         | $(Gawk) '{print $$1}' | uniq -c
