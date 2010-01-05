@@ -2,20 +2,95 @@
 
 bias
 
-Count how often things appear in a sample, then randomly generate
-those symbols, biased by those counts.
-
+Given a set of numbers representing frequency counts,
+generate numbers biased by those frequencies.
 
 Code
 ==== 
 
+Uses
+----
+
+@uses o math
+
+Example
+-------
+ 
+ function demoBias() {
+     numericBiasDemo()
+     discreteBiasDemo()
+ }
+ function numericBiasDemo(   n,a,sorted,cdf,max,r,i,count,com) {
+     n=split("100,10,1",a,",")
+     a2best(a,sorted)
+     sorted2cdf(n,sorted,cdf)
+     com = "sort -n"
+     max=r=1000; 
+     while(--r)
+	 count[pick(cdf,n)]++
+     for(i in count)
+	 print i " " count[i] " ( = " round(100*count[i]/max) "%)" | "sort -n"
+     close(com)
+ }
+ function discreteBiasDemo(       a,cdf,memo,max,r,i,com) {
+        split("apple,banana,carrot,duck,apple,banana,carrot,apple,banana,apple",a,",")
+	o(a,"a")
+	n=sample(a,cdf,memo)
+	o(cdf,"cdf")
+	com = "sort -n"
+	max=r=1000; 
+	while(--r)
+	    count[memo[pick(cdf,n)]]++
+	for(i in count)
+	    print i " " count[i] " ( = " round(100*count[i]/max) "%)" | "sort -n"
+	close(com)
+ }
+
+Sample
+------
+
+Given a list of things, prepare the cdf and memos required to sample from that list.
+
+ function sample(population,cdf,memo,   f,sum,one,n) {
+     n=10 #length(population)
+     for(one in population) 
+	 count[population[one]]++
+     o(count,"count")
+     for(one in count) {
+	 n = (1000*count[one]/n)+ rand()/100
+	 f[one]= n
+	 memo[n] = one
+     }
+     o(memo,"memo")
+     return a2cdf(f,cdf)
+     
+ }
+
+a2cdf
+-----
+
+Prepare an array of numbers, prior to picking. 
+Internally, this code 
+converts an array of numbers into a cdf. From
+[http://www.aiaccess.net/English/Glossaries/GlosMod/e_gm_distribution_function.htm
+aiaccess.net]: 
+
++ A _cdf_ (or "cumulative distribtion function") is the
+  proportion of the population whose value is less than x.  The _cdf_ of
+  a random variable is clearly a monotonously increasing (or more
+  precisely, non decreasing) function from 0 to 1.
+
+    
+ function a2cdf(a,cdf, sorted,n) {
+     n= a2best(a,sorted)
+     return sorted2cdf(n,sorted,cdf)
+ }
 
 a2best
 ------
 
 If "_a_" is an array of numbers,  then sort them in ascending order.
 If _max_ is supplied, return no more than the first _max_ number of values. 
-
 
  function a2best(a,best,  max,    sorted,n,i,j) {
                 #must     opt     local
@@ -34,17 +109,10 @@ If _max_ is supplied, return no more than the first _max_ number of values.
 sorted2cdf
 ----------
 
-From
-[http://www.aiaccess.net/English/Glossaries/GlosMod/e_gm_distribution_function.htm
-aiaccess.net]: A _cdf_ (or "cumulative distribtion function") is the
-proportion of the population whose value is less than x.  The _cdf_ of
-a random variable is clearly a monotonously increasing (or more
-precisely, non decreasing) function from 0 to 1.
 
 In Awk, we can represent this as an array of  "_n_" symbols stored at
 locations 1,2,3..n and a set of increasing probabilities  locations
 -1,-2,-3,...-n (where -i is the probability of symbol i).
-For convenience, we store "_n_" at  _array[0]_
 
  function sorted2cdf(n,sorted,cdf,    i,j,sum) {
      sum = cdf[1] = sorted[1];
@@ -73,9 +141,13 @@ distribtion.
  }
  function pick1(cdf,n,  skew,u,i) {
      u = bias ? rand()^skew : rand();
-     for(i=n-1;i>=1;i--) 
-	 if (u > cdf[i] ) 
-	     return i+1;
+     for(i=n-1;i>=0;i--) {
+	 if (i==0) 
+	     return i
+	 else 
+	     if (u > cdf[i] ) 
+		 return i+1;
+     }
      return n;
  }
     
