@@ -9,5 +9,6 @@ Standard maths stuff.
        }
  function oddp(x)  { return (x % 2) }
  function evenp(x) { return (! oddp(x)) }
+ function round(x) { return int(x + 0.5) }
 
 by Tim Menzies
