@@ -4,6 +4,7 @@ website
 	plugins
 		random quote
 			bias
-				sample <<= make demo u=bias all f-ed up
+				rework the demos with simpler examples
+				get the rss randomizer working
 	slot filling
 	
