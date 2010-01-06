@@ -1,3 +1,63 @@
-  ``name``   Tim Menzies
-  ``office`` 841a
-  ``phone``  28361
+``name``   Tim Menzies
+``office`` 841a
+``phone``  28361
+``quotes``
+
+10
+Murphy's laws of combat. 
+If it's stupid, and it works, it isn't stupid.
+
+1
+William of Ockham
+Plurality should not be assumed without necessity.
+
+2
+Henry Thoreau
+Our life is frittered away by detail... simplify, simplify.
+
+1
+Hans Hofmann
+Simplify means to eliminate the unnecessary
+
+2
+Antoine de Saint-Exupery
+Perfection: when there is nothing left to take away.
+
+1
+Albert Einstein
+Out of clutter, find simplicity
+
+1
+Leonardo da Vinci
+Simplicity is the ultimate sophistication.
+
+2
+Alan Perlis
+Simplicity does not precede complexity, but follows it.
+
+
+1
+Colin Chapman
+Simplify, then add lightness.
+
+3
+Anon
+Thank you for turning a simple transaction into a bizarre ritual.
+
+1
+Malek's Law
+Any simple idea will be worded in the most complicated way.
+
+1
+Anon
+Truth is shorter than fiction...
+
+1
+Ronald Loui
+Because easy is not wrong.
+
+10
+Good design is as little design as possible.
+-- Dieter Rams
+
+
