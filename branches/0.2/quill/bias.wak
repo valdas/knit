@@ -13,61 +13,55 @@ Uses
 
 @uses o math
 
-Example
--------
- 
- function demoBias() {
-     numericBiasDemo()
-     discreteBiasDemo()
- }
- function numericBiasDemo(   n,a,sorted,cdf,max,r,i,count,com) {
-     n=split("100,10,1",a,",")
-     a2best(a,sorted)
-     sorted2cdf(n,sorted,cdf)
-     com = "sort -n"
-     max=r=1000; 
-     while(--r)
-	 count[pick(cdf,n)]++
-     for(i in count)
-	 print i " " count[i] " ( = " round(100*count[i]/max) "%)" | "sort -n"
-     close(com)
- }
- function discreteBiasDemo(       a,cdf,memo,max,r,i,com) {
-        split("apple,banana,carrot,duck,apple,banana,carrot,apple,banana,apple",a,",")
-	o(a,"a")
-	n=sample(a,cdf,memo)
-	o(cdf,"cdf")
-	com = "sort -n"
-	max=r=1000; 
-	while(--r)
-	    count[memo[pick(cdf,n)]]++
-	for(i in count)
-	    print i " " count[i] " ( = " round(100*count[i]/max) "%)" | "sort -n"
-	close(com)
- }
+
+Top-level Drivers
+-----------------
 
 Sample
-------
+++++++
 
 Given a list of things, prepare the cdf and memos required to sample from that list.
+The _population_ array holds the "_n_"  inputs and _cdf_ and _memo_ are the output. The standard
+idiom for running this code is:
+    
+    collect( pop )   # somehow, collect data
+    n=sample(pop,cdf,memo) # set up
+    while(repeats--)
+	use( memo[pick(cdf,n)] ) # use one item
 
- function sample(population,cdf,memo,   f,sum,one,n) {
-     n=10 #length(population)
+ function sample(population,cdf,memo,   n,count) { 
+     n=length(population)
      for(one in population) 
 	 count[population[one]]++
-     o(count,"count")
-     for(one in count) {
-	 n = (1000*count[one]/n)+ rand()/100
-	 f[one]= n
-	 memo[n] = one
+     return sampleCounts(n,count,cdf,memo)
+  }
+
+SampleCounts
+++++++++++++
+
+Given an arary of thing/frequency pairs, prepare the cdf and memos required to sample from that list.
+The standard idiom for running this code is as follows
+
+    collect( counts )   # somehow, collect data
+    n=sampleCounts(counts,cdf,memo) # set up
+    while(repeats--)
+	use( pick(cdf,n) ) # use one item
+
+ function sampleCounts(counts,n,cdf,memo,   one,x,f,i) {
+     for(one in counts) {
+	 x = (1000*counts[one]/n)+ rand()/100
+	 f[++i]= x
+	 memo[x] = one
      }
-     o(memo,"memo")
-     return a2cdf(f,cdf)
-     
+     a2cdf(f,cdf)
+     return i
  }
 
+Under the Hood
+--------------
+
 a2cdf
------
++++++
 
 Prepare an array of numbers, prior to picking. 
 Internally, this code 
@@ -87,7 +81,7 @@ aiaccess.net]:
  }
 
 a2best
-------
+++++++
 
 If "_a_" is an array of numbers,  then sort them in ascending order.
 If _max_ is supplied, return no more than the first _max_ number of values. 
@@ -107,8 +101,7 @@ If _max_ is supplied, return no more than the first _max_ number of values.
  }
 
 sorted2cdf
-----------
-
+++++++++++
 
 In Awk, we can represent this as an array of  "_n_" symbols stored at
 locations 1,2,3..n and a set of increasing probabilities  locations
@@ -128,7 +121,7 @@ locations 1,2,3..n and a set of increasing probabilities  locations
  }
 
 Pick
-----
+++++
 
 Return one symbol from a _cdf_, biased by the _cdf_ probabilities. 
 If _skew_ is provided, bias the selection towards one end of the
@@ -140,15 +133,63 @@ distribtion.
      return cdf[-1*i]
  }
  function pick1(cdf,n,  skew,u,i) {
-     u = bias ? rand()^skew : rand();
+     skew = skew ? skew : 1
+     u = rand()^skew 
      for(i=n-1;i>=0;i--) {
-	 if (i==0) 
-	     return i
-	 else 
-	     if (u > cdf[i] ) 
-		 return i+1;
+	 if (u > cdf[i] ) 
+	     return i+1;
      }
      return n;
+ }
+
+Demos
+-----
+
+These demos generate values from the same distribution. We pick at random from a space
+of four apples, three  bananas, two carrots and one durian. In the _numericBiasDemo_ 
+we already have those counts, while in the _discreateBiasDemo_ we compute them
+from a sample. 
+
+ function demoBias() {
+     srand(1)
+     print "\n---| numericBiasDemo |--------"
+     numericBiasDemo("1,3,2,4")
+     print "\n---| discreteBiasDemo |--------"
+     discreteBiasDemo("apple,banana,carrot,durian,"\
+                      "apple,banana,carrot,apple,banana,apple")
+ }
+ function numericBiasDemo(frequencies,  \
+                          n,a,sorted,cdf,max,r,i,count,com) {
+     n=split(frequencies,a,",")
+     #set up
+     a2best(a,sorted)
+     sorted2cdf(n,sorted,cdf)
+     # generating
+     max=r=10000; 
+     while(--r)
+	 count[pick(cdf,n)]++
+     # reporting
+     com = "sort -n"
+     for(i in count)
+	 print i " " count[i] " (" round(100*count[i]/max) "%)" | com
+     close(com)
+ }
+ function discreteBiasDemo(things,       a,cdf,memo,max,r,i,com) {
+     split(things,a,",")
+     #set up
+     n=sample(a,cdf,memo)
+     # digression: showing off some internals
+     o(cdf,"cdf")          
+     o(memo,"memo")
+     # generating
+     max=r=10000; 
+     while(--r)
+	 count[memo[pick(cdf,n)]]++ # memo maps numbers to symbols
+     # reporting
+     com = "sort -n -k 2"
+     for(i in count)
+	 print i " " count[i] " (" round(100*count[i]/max) "%)" | com
+     close(com)     
  }
     
 Author
