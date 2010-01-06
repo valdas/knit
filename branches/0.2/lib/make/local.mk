@@ -1,4 +1,4 @@
-ifeq ($(MACHTYPE),i386-apple-darwin9.0)
+ifeq (,$(findstring appele, $(MACHTYPE)))
 	Gawk=/opt/local/bin/gawk
 	Pgawk=/opt/local/bin/gawk
 else	
