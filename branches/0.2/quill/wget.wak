@@ -1,8 +1,8 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
 
-wget
+wget     
 
-Synopsis
+Synopsis   
 ========
  
   wget(url,array,seperator)
@@ -10,10 +10,10 @@ Synopsis
 Split the contents of _url_ into an  _array_, divided by a _seperator_.
 Note that this code prepends "http://" onto the url.
 
-Example
+Example  
 =======
 
-  wget("menzies.us",contents,"\n")
+  wget("menzies.us",contents,"\n") 
 
 Code
 ====
@@ -29,7 +29,7 @@ Demo
  function demoWget(   n,all,url) {
      url="knit.googlecode.com/svn/branches/0.2/quill/etc/tests/demoWget.rss"
      n=wget(url,all,">")
-     o(all,"wget",n)
+     o(all,"wget",n) 
  }
 
 Main
