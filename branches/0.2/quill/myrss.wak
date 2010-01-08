@@ -61,7 +61,7 @@ Outputs:
     Peter Ivanyi and Roman Putanowicz generate Latex doco from program comments.
   </ul>
 
-Uses
+Uses 
 ----
 
 @uses wget trim
