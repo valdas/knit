@@ -1,9 +1,7 @@
 ``name``   Tim Menzies
 ``office`` 841a
 ``phone``  28361
-``quotes``
-
-10
+``quotes``10
 Murphy's laws of combat. 
 If it's stupid, and it works, it isn't stupid.
 
