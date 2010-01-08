@@ -18,18 +18,21 @@ buildAwks: $(Tmp)/knit.tmp $(OldBuild) $(LatestBuild)
 
 buildHtmls: $(HtmlHtmls)
 
-$(Tmp)/knit.tmp : $(LibAwks)
-	@echo "#!$(Gawk) -f " > $@
+$(Tmp)/knit.tmp : $(LibAwks)	
+	@echo $(LibAwks)
+	@echo "#!$(Gawk) -f " > $@ 
 	@(cat $(Knit)/etc/copyrite.txt; cat $(Knit)/etc/knit.txt) >> $@
+	@echo "# Built on `date` by $(USER). " >> $@
 	@$(foreach f,$^,\
-   	       (printf "\n#==== $f =============\n\n"; cat $f) >> $@;)
+ 	       (printf "\n# $(shell basename $f) \n"; \
+               $(Gawk) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
 	@chmod a+rx $@
 
 $(OldBuild)    : $(Tmp)/knit.tmp; @cp $< $@
 $(LatestBuild) : $(Tmp)/knit.tmp; @cp $< $@
 
 $(Lib)/%.awk : %.wak
-	@$(Gawk) -f $(Knit)/lib/awk/comment.awk $< > $@
+	 $(Gawk) -f $(Knit)/lib/awk/comment.awk $< > $@
 
 $(Html)/%.html : %.wak
 	$(Gawk) -f $(Knit)/lib/awk/markup.awk $< > $@
@@ -46,7 +49,7 @@ a    = $(Run) -v Test=1 --source 'BEGIN {#
 z    = ; exit}'
 
 Demo=$(Gawk) 'BEGIN                     { FS="[ \t(]" } \
-           /^[ \t]function[ \t].*\(/ {print $$3"();"; exit}' $u.wak
+           /^[ \t]function[ \t]*demo.*\(/ {print $$3"();"; exit}' $u.wak
 
 one :
 	@$a $(One) $z
