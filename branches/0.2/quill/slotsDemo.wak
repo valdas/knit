@@ -10,7 +10,7 @@ Code
 Uses
 ----
 
-@uses slots  myrss
+@uses slots  myrss anythings
 
 Main
 ----
@@ -22,11 +22,14 @@ Main
     slots1 = get data "slots1.txt"
     slots(slots1,frame1)
  }
- function slotsPlugIns(string,values,      tmp) { 
+ function slotsPlugIns(string,values,      tmp) {   
     split(string,tmp,";")
     if (tmp[1]=="rss")
        return myrss(tmp[2],tmp[3])
-    barph("(" string ") ???")
+     print "\n\n\n3432343435\n\n\n\n"
+    if (tmp[1]="any")
+        return anythings(values[tmp[2]],tmp[3],10)
+    barph("(" string ") ???") 
  }
 
 Todo
