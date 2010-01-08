@@ -2,8 +2,8 @@
 
 bias
 
-Given a set of numbers representing frequency counts,
-generate numbers biased by those frequencies.
+Given a frequency counts of a population, generate numbers biased by those frequencies.
+For demo of this code, see [demoBias].
 
 Code
 ==== 
@@ -11,54 +11,40 @@ Code
 Uses
 ----
 
-@uses o math
-
+@uses o math s2a
 
 Top-level Drivers
 -----------------
 
-Sample
+sample
 ++++++
 
-Given a list of things, prepare the cdf and memos required to sample from that list.
-The _population_ array holds the "_n_"  inputs and _cdf_ and _memo_ are the output. The standard
-idiom for running this code is:
-    
-    collect( pop )   # somehow, collect data
-    n=sample(pop,cdf,memo) # set up
-    while(repeats--)
-	use( memo[pick(cdf,n)] ) # use one item
+Sample from population of things.
 
  function sample(population,cdf,memo,   n,count) { 
      n=length(population)
      for(one in population) 
-	 count[population[one]]++
-     return sampleCounts(n,count,cdf,memo)
+         count[population[one]]++
+     return sampleCounts(count,n,cdf,memo)
   }
 
-SampleCounts
+sampleCounts
 ++++++++++++
 
-Given an arary of thing/frequency pairs, prepare the cdf and memos required to sample from that list.
-The standard idiom for running this code is as follows
+Sample of a list of counted things.
 
-    collect( counts )   # somehow, collect data
-    n=sampleCounts(counts,cdf,memo) # set up
-    while(repeats--)
-	use( pick(cdf,n) ) # use one item
-
- function sampleCounts(counts,n,cdf,memo,   one,x,f,i) {
+ function sampleCounts(counts,all,cdf,memo,   one,x,f,i) {
      for(one in counts) {
-	 x = (1000*counts[one]/n)+ rand()/100
-	 f[++i]= x
-	 memo[x] = one
+         x = (1000*counts[one]/all)+ rand()/100
+         f[++i]= x
+         memo[x] = one
      }
      a2cdf(f,cdf)
      return i
  }
 
-Under the Hood
---------------
+Workers
+-------
 
 a2cdf
 +++++
@@ -66,15 +52,15 @@ a2cdf
 Prepare an array of numbers, prior to picking. 
 Internally, this code 
 converts an array of numbers into a cdf. From
-[http://www.aiaccess.net/English/Glossaries/GlosMod/e_gm_distribution_function.htm
-aiaccess.net]: 
+[http://www.aiaccess.net/English/Glossaries/GlosMod/e_gm_distribution_function.htm aiaccess.net]: 
 
-+ A _cdf_ (or "cumulative distribtion function") is the
-  proportion of the population whose value is less than x.  The _cdf_ of
-  a random variable is clearly a monotonously increasing (or more
-  precisely, non decreasing) function from 0 to 1.
+* A _cdf_ (or "cumulative distribtion function") is the proportion of the population whose value is less than x.  The _cdf_ of
+  a random variable is clearly a monotonously increasing (or more precisely, non decreasing) function from 0 to 1.
 
-    
+In Awk, we can represent this as an array of  "_n_" symbols stored at
+locations 1,2,3..n and a set of increasing probabilities  locations
+-1,-2,-3,...-n (where -i is the probability of symbol i). 
+
  function a2cdf(a,cdf, sorted,n) {
      n= a2best(a,sorted)
      return sorted2cdf(n,sorted,cdf)
@@ -90,33 +76,29 @@ If _max_ is supplied, return no more than the first _max_ number of values.
                 #must     opt     local
      n = asort(a,sorted);
      if (max && n >= max) {
-	 for(i = n - max + 1; i<=n; i++)
-	     best[++j] = sorted[i];
-	 n= max;
+         for(i = n - max + 1; i<=n; i++)
+             best[++j] = sorted[i];
+         n= max;
      } 
      else 
-	 for(i in sorted)
-	     best[i]=sorted[i];
+         for(i in sorted)
+             best[i]=sorted[i];
      return n;
  }
 
 sorted2cdf
 ++++++++++
 
-In Awk, we can represent this as an array of  "_n_" symbols stored at
-locations 1,2,3..n and a set of increasing probabilities  locations
--1,-2,-3,...-n (where -i is the probability of symbol i).
-
  function sorted2cdf(n,sorted,cdf,    i,j,sum) {
      sum = cdf[1] = sorted[1];
      for(i=2;i<=n;i++) { 
-	 sum += sorted[i];
-	 cdf[i] = cdf[i-1] + sorted[i];
+         sum += sorted[i];
+         cdf[i] = cdf[i-1] + sorted[i];
      }
      for(i in cdf)  
-	 cdf[i] = cdf[i] / sum;
+         cdf[i] = cdf[i] / sum;
      for(i=1;i<=n;i++)
-	 cdf[-1*i] = sorted[i]
+         cdf[-1*i] = sorted[i]
      return n
  }
 
@@ -132,66 +114,15 @@ distribtion.
      i = pick1(cdf,n,skew)
      return cdf[-1*i]
  }
- function pick1(cdf,n,  skew,u,i) {
+ function pick1(cdf,n,  skew,u,i,here) {
      skew = skew ? skew : 1
      u = rand()^skew 
-     for(i=n-1;i>=0;i--) {
-	 if (u > cdf[i] ) 
-	     return i+1;
-     }
-     return n;
+     for(i=n-1;i>=1;i--) 
+         if (u > cdf[i] ) 
+             return i+1;
+     return 1;
  }
 
-Demos
------
-
-These demos generate values from the same distribution. We pick at random from a space
-of four apples, three  bananas, two carrots and one durian. In the _numericBiasDemo_ 
-we already have those counts, while in the _discreateBiasDemo_ we compute them
-from a sample. 
-
- function demoBias() {
-     srand(1)
-     print "\n---| numericBiasDemo |--------"
-     numericBiasDemo("1,3,2,4")
-     print "\n---| discreteBiasDemo |--------"
-     discreteBiasDemo("apple,banana,carrot,durian,"\
-                      "apple,banana,carrot,apple,banana,apple")
- }
- function numericBiasDemo(frequencies,  \
-                          n,a,sorted,cdf,max,r,i,count,com) {
-     n=split(frequencies,a,",")
-     #set up
-     a2best(a,sorted)
-     sorted2cdf(n,sorted,cdf)
-     # generating
-     max=r=10000; 
-     while(--r)
-	 count[pick(cdf,n)]++
-     # reporting
-     com = "sort -n"
-     for(i in count)
-	 print i " " count[i] " (" round(100*count[i]/max) "%)" | com
-     close(com)
- }
- function discreteBiasDemo(things,       a,cdf,memo,max,r,i,com) {
-     split(things,a,",")
-     #set up
-     n=sample(a,cdf,memo)
-     # digression: showing off some internals
-     o(cdf,"cdf")          
-     o(memo,"memo")
-     # generating
-     max=r=10000; 
-     while(--r)
-	 count[memo[pick(cdf,n)]]++ # memo maps numbers to symbols
-     # reporting
-     com = "sort -n -k 2"
-     for(i in count)
-	 print i " " count[i] " (" round(100*count[i]/max) "%)" | com
-     close(com)     
- }
-    
 Author
 ======
 
