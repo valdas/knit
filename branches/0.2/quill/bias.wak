@@ -21,11 +21,11 @@ sample
 
 Sample from population of things.
 
- function sample(population,cdf,memo,   n,count) { 
-     n=length(population)
+ function sample(population,cdf,memo,   count) { 
+     length(population)
      for(one in population) 
          count[population[one]]++
-     return sampleCounts(count,n,cdf,memo)
+     return sampleCounts(count,cdf,memo)
   }
 
 sampleCounts
@@ -33,7 +33,9 @@ sampleCounts
 
 Sample of a list of counted things.
 
- function sampleCounts(counts,all,cdf,memo,   one,x,f,i) {
+ function sampleCounts(counts,cdf,memo,   all, one,x,f,i) {
+     for(one in counts)
+         all += counts[one]
      for(one in counts) {
          x = (1000*counts[one]/all)+ rand()/100
          f[++i]= x
@@ -99,6 +101,7 @@ sorted2cdf
          cdf[i] = cdf[i] / sum;
      for(i=1;i<=n;i++)
          cdf[-1*i] = sorted[i]
+     cdf[0]=n
      return n
  }
 
@@ -107,11 +110,13 @@ Pick
 
 Return one symbol from a _cdf_, biased by the _cdf_ probabilities. 
 If _skew_ is provided, bias the selection towards one end of the
-distribtion.
+distribtion. The larger the _skew_ (above one), the more we favor
+things with higher probabilities. It _skew_ is one, the just
+draw from the supplied distribution.
 
- function pick(cdf,n,  skew,   i) {
+ function pick(cdf,  skew,   i) {
                #must   opt     local
-     i = pick1(cdf,n,skew)
+     i = pick1(cdf,cdf[0],skew)
      return cdf[-1*i]
  }
  function pick1(cdf,n,  skew,u,i,here) {
