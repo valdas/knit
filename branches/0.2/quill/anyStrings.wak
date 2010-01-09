@@ -1,0 +1,26 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+anyStrings
+
+@uses bias trim
+
+ function anyStrings(string,skew,repeats,   sep,                         \
+                    pmax, paras,para,lmax,lines,line,f,thing,pairs,cdf,memo,out,between) {
+     pmax = split(string,paras,/\n\n/)     
+     out  = ""
+     for(para=1; para<=pmax; para++) {
+         lmax= split(paras[para],lines,/\n/)       
+         f = (lines[1] + 0)
+         thing = lines[2] 
+         for(line=3;line<=lmax;line++)
+             thing = thing "\n" lines[line]
+         pairs[trim(thing)] = f
+     }
+     sampleCounts(pairs,cdf,memo)
+     sep = sep ? sep : "\n"
+     while(repeats--) {
+         out = out  between  memo[pick(cdf,skew)]
+         between ="\n"
+     }
+     return out
+ }
