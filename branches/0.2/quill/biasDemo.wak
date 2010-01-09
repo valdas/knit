@@ -14,24 +14,23 @@ Given a list of things, prepare the cdf and memos required to sample from that l
 The _population_ array holds the "_n_"  inputs and _cdf_ and _memo_ are the output. The standard
 idiom for running this code is:
     
-    collect( pop )   # somehow, collect data
-    all = sample(pop,cdf,memo) # set up
+    collect( pop )   # somehow, collect a list of thins
+    sample(pop,cdf,memo) # set up
     while(repeats--)
-        use( memo[pick(cdf,all)] ) # use one item
+        use( memo[pick(cdf)] ) # use one item
 
 Sample from a pairs of symbols/frequencies
 ------------------------------------------
 
-Given symbols a,b,c,... with frequency counts fa,fb,fc,... and an
-array of symbols/f pairs, prepare the cdf and memos required
+Given things a,b,c,... with frequency counts fa,fb,fc,... and an
+array of {thing/f}+ pairs, prepare the cdf and memos required
 to sample those symbols from those frequencies. The standard idiom for
 running this scenario is as follows:
 
-  for(i in pairs)
-      all += pairs[i]
-  sampleCounts(pairs,all,cdf,memo)
+  collect( pairs ) # somehow, collect pairs of {thing/freq}+
+  sampleCounts(pairs,cdf,memo)
   while(repeats--)
-      use( memo[pick(cdf,all)] )
+      use( memo[pick(cdf)] )
 
 Sample from indexed frequencies
 -------------------------------
@@ -41,10 +40,10 @@ of item/f pairs, prepare the cdf required to sample
 from that list.  The standard idiom for running this use case is as
 follows
 
-    all= collect( pairs )   # somehow, collect data
+    collect( pairs )   # somehow, collect data
     a2cdf(pairs,cdf) # set up
     while(repeats--)
-        use( pick(cdf,all) ) # use one item 
+        use( pick(cdf) ) # use one item 
 
 Code
 ====
@@ -72,14 +71,13 @@ from a sample.
      discreteBiasDemo("apple,banana,carrot,durian,"\
                       "apple,banana,carrot,apple,banana,apple")
  }
- function pairsBiasDemo(data,  pairs,i,all,cdf,count,memo,max,r,com) {
-     split(data,pairs,",")
-     for(i in pairs)
-     all += pairs[i]
-     sampleCounts(pairs,all,cdf,memo)
+ function pairsBiasDemo(data,  n,pairs,i,all,cdf,count,memo,max,r,com) {
+ 	  print data
+     n= s2a(data,pairs,",")
+     sampleCounts(pairs,cdf,memo)
      max=r=10000; 
      while(--r)
-         count[memo[pick(cdf,n)]]++
+         count[memo[pick(cdf)]]++
      # reporting
      com = "sort -n"
      for(i in count)
@@ -94,7 +92,7 @@ from a sample.
      # generating
      max=r=10000; 
      while(--r)
-         count[pick(cdf,n)]++
+         count[pick(cdf)]++
      # reporting
      com = "sort -n"
      for(i in count)
@@ -111,7 +109,7 @@ from a sample.
      # generating
      max=r=10000;  
      while(--r)
-         count[memo[pick(cdf, all)]]++ # memo maps numbers to symbols
+         count[memo[pick(cdf)]]++ # memo maps numbers to symbols
      # reporting
      com = "sort -n -k 2"
      for(i in count)
