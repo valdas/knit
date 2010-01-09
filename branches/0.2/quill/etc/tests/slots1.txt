@@ -1,61 +1,60 @@
 ``name``   Tim Menzies
 ``office`` 841a
 ``phone``  28361
-``quotes``10
-Murphy's laws of combat. 
-If it's stupid, and it works, it isn't stupid.
+``quotes``
+10
+"If it's stupid, and it works, it isn't stupid."
+-- Murphy's laws of combat. 
 
 1
-William of Ockham
-Plurality should not be assumed without necessity.
+"Plurality should not be assumed without necessity."
+-- William of Ockham
 
 2
-Henry Thoreau
-Our life is frittered away by detail... simplify, simplify.
+"Our life is frittered away by detail... simplify, simplify."
+-- Henry Thoreau
 
 1
-Hans Hofmann
-Simplify means to eliminate the unnecessary
+"Simplify means to eliminate the unnecessary"
+-- Hans Hoffman
 
 2
-Antoine de Saint-Exupery
-Perfection: when there is nothing left to take away.
+"Perfection: when there is nothing left to take away."
+-- Antoine de Saint-Exupery
 
 1
-Albert Einstein
-Out of clutter, find simplicity
+"Out of clutter, find simplicity"
+-- Albert Einstein
 
 1
-Leonardo da Vinci
-Simplicity is the ultimate sophistication.
+"Simplicity is the ultimate sophistication."
+-- Leonardo da Vinci
 
 2
-Alan Perlis
-Simplicity does not precede complexity, but follows it.
-
+"Simplicity does not precede complexity, but follows it."
+-- Alan Perlis
 
 1
-Colin Chapman
-Simplify, then add lightness.
+"Simplify, then add lightness."
+-- Colin Chapman
 
 3
-Anon
-Thank you for turning a simple transaction into a bizarre ritual.
+"Thank you for turning a simple transaction into a bizarre ritual."
+-- Anon
 
 1
-Malek's Law
-Any simple idea will be worded in the most complicated way.
+"Any simple idea will be worded in the most complicated way."
+-- Malek's Law
 
 1
-Anon
-Truth is shorter than fiction...
+"Truth is shorter than fiction..."
+-- Anon
 
 1
-Ronald Loui
-Because easy is not wrong.
+"Because easy is not wrong."
+-- Ronald Loui
 
 10
-Good design is as little design as possible.
+"Good design is as little design as possible."
 -- Dieter Rams
-
 
