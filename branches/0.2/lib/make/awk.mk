@@ -9,7 +9,7 @@ Loads   := -f $(subst .awk ,.awk -f ,$(LibAwks))
 Htmls   := $(subst .wak,.html,$(Uses))
 HtmlHtmls :=  $(subst $(Html)/ ,,$(Html)/$(subst .html ,.html $(Html)/,$(Htmls)) $(Html)/$(This).html)#
 
-OldBuild = $(Old)/$(This).$(Build)
+OldBuild = $(Old)/$(This).$(Version)
 LatestBuild = $(Lib)/$(This)
 
 build : buildAwks buildHtmls #: Build executables and htmls
