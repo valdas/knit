@@ -1,0 +1,64 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+tags
+
+Reads a _tags file_, once, describing a set of web pages. Adds those tags to the top of the tagged pages.
+
+Synopsis
+========
+
+Load a tags file and build the working memory.
+
+    loadTags(tagFile,file,title,tags,sgat)
+
+Print the tags for a web page. Uses the working memory buit above.
+
+    print tag(page,file,title,tags,sgat)
+
+Working memory
+--------------
+
+file[stem] : return the full _path_ of the file whose's stem is _stem_.
+
+title\[path\] : returns the title of file at _path_.
+
+tags[path,n\] :holds the _n_-th tag of a file at _path_.
+
+sgat[tags,n\] : reverse of _tags_. holds the _n_-th file of  a _tag_.
+
+Code
+====
+
+Uses 
+----
+
+@uses basename phrases
+
+Main
+----
+
+function loadTags(file,file,title,tags,sgat,   oldRS,oldFS,line,items,ni) {
+     oldRS=RS; oldFS=FS;
+     RS="\n"; FS=";";
+     while((getline line < file) > 0) 
+         if (NF > 1) {
+             n = pharses(line,FS,items)
+             tagLine(items,n,file,title,tags,sgat); 
+         }
+     RS=oldRS; FS=oldFS
+ }
+ function tagLine(items,n,file,title,tags,sgat,  dirname,file,i,n) {
+   dirname = items[1]
+   f    = basename(dirname)
+   file[change(/\..*/,"",f)] = $1; 
+   for(i=2;i<n;i++) {
+     push2(tags,dir,items[i]); # files to cats
+     push2(sgat,items[i],dir); # cats to files
+   }
+   title[dirname] = items[n];
+ }
+
+Author
+======
+
+Tim Menzies
