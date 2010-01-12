@@ -51,5 +51,10 @@ z    = ; exit}'
 Demo=$(Gawk) 'BEGIN                     { FS="[ \t(]" } \
            /^[ \t]function[ \t]*demo.*\(/ {print $$3"();"; exit}' $u.wak
 
+awk :
+	@echo "gawk $(Gawk)"
+	@echo "run $(Run)"
+	@echo "spy $(Spy)"
+
 one :
 	@$a $(One) $z
