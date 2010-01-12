@@ -38,8 +38,11 @@ Code
                  print o1(str,i,a) | com;
              close(com); }
  }
- function o1(str,i,a) {
-     return str "[ " i " ]\t=\t [ " a[i] " ]"
+
+ function o1(str,i,a,  j) {
+     j=i
+     gsub(SUBSEP,",",j) 
+     return str "[ " j " ]\t=\t [ " a[i] " ]"
  }
 
 Author
