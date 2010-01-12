@@ -35,3 +35,6 @@ eg7 :
 
 eg8 : 
 	@gawk -f $(Knit)/lib/awk/uses.awk
+
+eg9 :
+	@$a print 2222; loadTags("etc/tests/tags.txt") $z

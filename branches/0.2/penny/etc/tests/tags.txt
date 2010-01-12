@@ -1,225 +1,225 @@
 
 
-doc/topics.html				;Admin	;2009	;Apr	;Sitemap ;|Topics
-doc/var/toc.html		;Admin	;2009	;Apr	;Sitemap ;|Table of Contents
-doc/var/tags.html		;Admin	;2009	;Apr	;Sitemap ;|List of Tags
-doc/awk100.html					;Admin	;2009	;Jan	;Awk100	;|Awk100
-doc/sysadmin.html			;Admin	;2009	;Oct	;SysAdmin			;|Sys Admin tricks in Awk
+doc/topics.html				;Admin	;2009	;Apr	;Sitemap ;Topics
+doc/var/toc.html		;Admin	;2009	;Apr	;Sitemap ;Table of Contents
+doc/var/tags.html		;Admin	;2009	;Apr	;Sitemap ;List of Tags
+doc/awk100.html					;Admin	;2009	;Jan	;Awk100	;Awk100
+doc/sysadmin.html			;Admin	;2009	;Oct	;SysAdmin			;Sys Admin tricks in Awk
 
-doc/top10.html				;Admin ;  2009; Mar	;Top10		;|Top 10 pages
-doc/credits.html			;Admin	;2009	;Feb	;Who	;|Credits
-doc/who/jimh.html			;Jimh	;2009	;Feb	;Who	;|Jim Hart
-doc/who/ronl.html			;Ronl	;2009	;Feb	;Who	;|Ronald Loui
-doc/who/timm.html			;Timm	;2009	;Feb	;Who	;|Tim Menzies
-doc/who/ed.html				;EdM		;2009	;Feb	;Who	;|Ed Morton
-doc/who/mikelangman.html	;Mikel	;2009	;Jan	;Who	;|Mike Langman
-doc/who/arnoldr.html		;ArnoldR	;2009	;Feb;Who	;|Arnold Robbins
-doc/who/steffen.html		;Steffen	;2009	;Feb ;Who	;|Steffen Schuler
-doc/who/greatauk.html		;Admin	;2009	;Feb	;Who	;|Great Auks
+doc/top10.html				;Admin ;  2009; Mar	;Top10		;Top 10 pages
+doc/credits.html			;Admin	;2009	;Feb	;Who	;Credits
+doc/who/jimh.html			;Jimh	;2009	;Feb	;Who	;Jim Hart
+doc/who/ronl.html			;Ronl	;2009	;Feb	;Who	;Ronald Loui
+doc/who/timm.html			;Timm	;2009	;Feb	;Who	;Tim Menzies
+doc/who/ed.html				;EdM		;2009	;Feb	;Who	;Ed Morton
+doc/who/mikelangman.html	;Mikel	;2009	;Jan	;Who	;Mike Langman
+doc/who/arnoldr.html		;ArnoldR	;2009	;Feb;Who	;Arnold Robbins
+doc/who/steffen.html		;Steffen	;2009	;Feb ;Who	;Steffen Schuler
+doc/who/greatauk.html		;Admin	;2009	;Feb	;Who	;Great Auks
 
-doc/advocacy.html			;Admin	;2009	;Jan	;WhyAwk ;Misc	;|Advocacy
-doc/community.html			;Admin	;2009	;Jan	;Misc	;|Community
-doc/contact.html			;Admin	;2009	;Jan	;Misc	;|Contact
-doc/index.html				;Admin	;2009	;Jan	;Misc	;|Awk.info
-doc/code.html				;Admin	;2009	;Jan	;Misc	;|Coding
-doc/mascot.html				;Admin	;2009	;Jan	;Misc	;Mascot	;|Mascot
-doc/awk4ai.html				;Ronl	;2009	;Jan	;WhyAwk	;Misc	;Papers ;Top10	;|Awk for AI
-doc/praise.html				;Ronl	;2009	;Apr	 ;WhyAwk ;Papers	;Misc;	Top10	;|In praise of scripting
-doc/history.html			;Timm	;2009	;Jan	;Misc	;|History
-doc/whygawk.html			;Timm	;2009	;Jan 	;WhyAwk	;Misc	;|Why Gawk?
-doc/awksys.html				;HenryS ;2009 ;Apr	;WhyAwk ;Papers ;SysAdmin ;|Awk for system programming
-doc/verify.html				;Admin  ;2009  ;Jul    ;Verification  ;|Verification 
-doc/databases.html				;Admin  ;2009  ;Jul    ;Databases  ;|Databases 
-doc/games.html				;Admin  ;2009  ;Apr    ;Games  ;|Awk Games 
-doc/game.html				;PPuri  ;2009  ;Nov    ;Games  ;|An Awk Dungeon Adventure Game
-doc/story.html				;BrianK	;2009	;Mar	;TenLiners	;Top10 ;Games  ;|Writing SciFi 
-doc/montyhall.html			;DonaldM	;2009	;Mar	;TenLiners	 	;|Monty Hall Problem
-doc/gender.html				;ScottP	;2009	;Mar	;TenLiners; Top10	;|Predicting Gender
-doc/eliza.html				;JuergenK	;2009	;Apr	;Eliza ;TenLiners ;Games		;|Eliza
-doc/hanoi.html				;AlanL	;2009	;Apr	;TenLiners 			;|Towers of Hanoi
-doc/readminds.html			;Anon	;2009	;Apr	;TenLiners  ;Games			;|How to Read Minds
-doc/mastermind.html			;Ysa	;2009	;Apr	;TenLiners  ;Games			;|Mastermind
-doc/mastermind2.html			;SteveL	;2009	;May	 ;Games			;|Mastermind (again)
-doc/checkers.html			;AaronH	;2009	;May	 ;Games			;|Checkers
-doc/tictactoe.html			;AaronH	;2009	;May	 ;Games			;|Tic-tac-toe
-doc/quicksort.html			;Ysa	;2009	;Apr	;TenLiners	;Sorting 			;|Quicksort
-doc/qtawk.html			;TerryB	;2009	;May	  			;|QTawk
+doc/advocacy.html			;Admin	;2009	;Jan	;WhyAwk ;Misc	;Advocacy
+doc/community.html			;Admin	;2009	;Jan	;Misc	;Community
+doc/contact.html			;Admin	;2009	;Jan	;Misc	;Contact
+doc/index.html				;Admin	;2009	;Jan	;Misc	;Awk.info
+doc/code.html				;Admin	;2009	;Jan	;Misc	;Coding
+doc/mascot.html				;Admin	;2009	;Jan	;Misc	;Mascot	;Mascot
+doc/awk4ai.html				;Ronl	;2009	;Jan	;WhyAwk	;Misc	;Papers ;Top10	;Awk for AI
+doc/praise.html				;Ronl	;2009	;Apr	 ;WhyAwk ;Papers	;Misc;	Top10	;In praise of scripting
+doc/history.html			;Timm	;2009	;Jan	;Misc	;History
+doc/whygawk.html			;Timm	;2009	;Jan 	;WhyAwk	;Misc	;Why Gawk?
+doc/awksys.html				;HenryS ;2009 ;Apr	;WhyAwk ;Papers ;SysAdmin ;Awk for system programming
+doc/verify.html				;Admin  ;2009  ;Jul    ;Verification  ;Verification 
+doc/databases.html				;Admin  ;2009  ;Jul    ;Databases  ;Databases 
+doc/games.html				;Admin  ;2009  ;Apr    ;Games  ;Awk Games 
+doc/game.html				;PPuri  ;2009  ;Nov    ;Games  ;An Awk Dungeon Adventure Game
+doc/story.html				;BrianK	;2009	;Mar	;TenLiners	;Top10 ;Games  ;Writing SciFi 
+doc/montyhall.html			;DonaldM	;2009	;Mar	;TenLiners	 	;Monty Hall Problem
+doc/gender.html				;ScottP	;2009	;Mar	;TenLiners; Top10	;Predicting Gender
+doc/eliza.html				;JuergenK	;2009	;Apr	;Eliza ;TenLiners ;Games		;Eliza
+doc/hanoi.html				;AlanL	;2009	;Apr	;TenLiners 			;Towers of Hanoi
+doc/readminds.html			;Anon	;2009	;Apr	;TenLiners  ;Games			;How to Read Minds
+doc/mastermind.html			;Ysa	;2009	;Apr	;TenLiners  ;Games			;Mastermind
+doc/mastermind2.html			;SteveL	;2009	;May	 ;Games			;Mastermind (again)
+doc/checkers.html			;AaronH	;2009	;May	 ;Games			;Checkers
+doc/tictactoe.html			;AaronH	;2009	;May	 ;Games			;Tic-tac-toe
+doc/quicksort.html			;Ysa	;2009	;Apr	;TenLiners	;Sorting 			;Quicksort
+doc/qtawk.html			;TerryB	;2009	;May	  			;QTawk
 
-doc/news/popular.html		;Admin	;2009	;Nov;				;|Awk.info Gaining Popularity
-doc/news/awkbot.html		;ScottS	;2009	;Nov;				;|Awkbot: 
-doc/news/awkmug.html		;Zazzle	;2009	;Oct;				;|Awk Mug
-doc/news/parallelAwk.html	;JohnD	;2009	;Oct				;|Parallel Awk
-doc/wst.html       		; DanN	;2009	;Dec				;|Waclaw Sierpinski's Triangle
-doc/tools/server.html		;MichealS	;2009	;Dec;	Web;			;|A Web Server in Awk
-doc/tools/myrss.html		;TimM	;2009	;Dec;	Rss;			;|Reading RSS feeds
-doc/tools/rcalc.html		;GrantC	;2009	;Nov;	Engineering;			;|Resistor Calculation
-doc/tools/zipf.html		;JohnF	;2009	;Oct;	TextMining;			;|Zipf's Law
-doc/news/mawkHashing.html	;JMellander	;2009	;Oct;	Mawk;			;|Faster Hashing in Mawk
-doc/news/mawkIsFast.html	;BrendanO	;2009	;Oct;	Mawk;			;|Mawk: faster than C, C++, Java, Perl, Ruby....
-doc/news/robbinsTalks.html	;ArnoldR	;2009	;Aug;			;|Interview with Arnold Robbins
-doc/news/libmawk.html		;TiborP	;2009	;Aug	;Libmawk	;Mawk		;|How to call Awk form "C" with Libmawk
-doc/news/awkeye.html		;DickL	;2009	;Jul	;Mascot		;|New Awk Mascot ('AWK-eye the Dwarf)?
-doc/news/theAwkBook.html	;Admin; 2009; Mar; News			;|The Awk Book's Code
-doc/news/runawk018.html		;AlexC	;2009	;Nov	;Tools	;Project ;Runawk	;|Runawk 0.18
-doc/news/runawk017.html		;AlexC	;2009	;Sept	;Tools	;Project ;Runawk	;|Runawk 0.17
-doc/news/runawk016.html		;AlexC	;2009	;Apr	;Tools	;Project ;Runawk	;|Runawk 0.16
-doc/news/awksnake.html		;PanosP	;2009	;Sept	;Mascot		;|Awk snake 
-doc/news/davinci.html		;VenkatesanS	;2009	;Apr	;Mascot		;|Davinci mascot 
+doc/news/popular.html		;Admin	;2009	;Nov;				;Awk.info Gaining Popularity
+doc/news/awkbot.html		;ScottS	;2009	;Nov;				;Awkbot: 
+doc/news/awkmug.html		;Zazzle	;2009	;Oct;				;Awk Mug
+doc/news/parallelAwk.html	;JohnD	;2009	;Oct				;Parallel Awk
+doc/wst.html       		; DanN	;2009	;Dec				;Waclaw Sierpinski's Triangle
+doc/tools/server.html		;MichealS	;2009	;Dec;	Web;			;A Web Server in Awk
+doc/tools/myrss.html		;TimM	;2009	;Dec;	Rss;			;Reading RSS feeds
+doc/tools/rcalc.html		;GrantC	;2009	;Nov;	Engineering;			;Resistor Calculation
+doc/tools/zipf.html		;JohnF	;2009	;Oct;	TextMining;			;Zipf's Law
+doc/news/mawkHashing.html	;JMellander	;2009	;Oct;	Mawk;			;Faster Hashing in Mawk
+doc/news/mawkIsFast.html	;BrendanO	;2009	;Oct;	Mawk;			;Mawk: faster than C, C++, Java, Perl, Ruby....
+doc/news/robbinsTalks.html	;ArnoldR	;2009	;Aug;			;Interview with Arnold Robbins
+doc/news/libmawk.html		;TiborP	;2009	;Aug	;Libmawk	;Mawk		;How to call Awk form "C" with Libmawk
+doc/news/awkeye.html		;DickL	;2009	;Jul	;Mascot		;New Awk Mascot ('AWK-eye the Dwarf)?
+doc/news/theAwkBook.html	;Admin; 2009; Mar; News			;The Awk Book's Code
+doc/news/runawk018.html		;AlexC	;2009	;Nov	;Tools	;Project ;Runawk	;Runawk 0.18
+doc/news/runawk017.html		;AlexC	;2009	;Sept	;Tools	;Project ;Runawk	;Runawk 0.17
+doc/news/runawk016.html		;AlexC	;2009	;Apr	;Tools	;Project ;Runawk	;Runawk 0.16
+doc/news/awksnake.html		;PanosP	;2009	;Sept	;Mascot		;Awk snake 
+doc/news/davinci.html		;VenkatesanS	;2009	;Apr	;Mascot		;Davinci mascot 
 
 
-doc/wp.html					;Admin	;2009	;Apr	;Wp					;|Word-processing in Awk
-doc/interpreters.html		;Admin	;2009	;Apr			;Interpreters ;|Interpreters
-doc/aasl.html               ;HenryS ;2009 ;Apr ;Interpreters ;Awk100 ;|Parser Generator
-doc/bfc.html                ;SteveJ	;2009	;May	;Interpreters	;|Brainfuck to C 
+doc/wp.html					;Admin	;2009	;Apr	;Wp					;Word-processing in Awk
+doc/interpreters.html		;Admin	;2009	;Apr			;Interpreters ;Interpreters
+doc/aasl.html               ;HenryS ;2009 ;Apr ;Interpreters ;Awk100 ;Parser Generator
+doc/bfc.html                ;SteveJ	;2009	;May	;Interpreters	;Brainfuck to C 
 
-doc/oo.html					;Admin	;2009	;May			;Oo ;|OO tools in Awk
-doc/dsl.html				;Admin	;2009	;Mar	;Dsl	;|Domain-Specific Langauges
-doc/dsl/graph.html			;AlfredA	;PeterW	;BrianK	;2009	;Mar	;Dsl	;|Graph
-doc/dsl/uml.html			;MartinF	;2009	;April	;Dsl	;|UML: sequence diagrams
-doc/dsl/awklisp.html		;DariusB	;2009	;Mar	;Dsl	;Interpreters ;AwkLisp	;Top10;Eliza	;|awklisp
-doc/awk100/aaa.html			;HenryS	;2009	;Apr	;Dsl		;Interpreters; Top10 ;Awk100 ;|Amazing Awk Assembler
-doc/tools/adoc.html		;PeterI	;2009	;Dec	;Wp	;|Convert Code Comments  to Latex
-doc/dsl/markdown2.html		;JesusG	;2009	;Jul	;Dsl	;Wp 	;|md2html : Update to Markdown.awk
-doc/dsl/markdown.html		;JesusG	;2009	;Mar	;Dsl	;Wp ;Top10	;|Markdown
-doc/dsl/awkplusplus.html	;Jimh	;2009	;Mar	;Dsl	;Oo	;Awk100	;|Awk++
-doc/dsl/ooc.html			;AlexS	;2009	;May	;Dsl	;Oo	;Awk100	;|Awk + Ansi-C = OO
-doc/awkastar.html			;DavidL	;2009	;Apr	;Interpreters		;|Building Interpreters with A*
+doc/oo.html					;Admin	;2009	;May			;Oo ;OO tools in Awk
+doc/dsl.html				;Admin	;2009	;Mar	;Dsl	;Domain-Specific Langauges
+doc/dsl/graph.html			;AlfredA	;PeterW	;BrianK	;2009	;Mar	;Dsl	;Graph
+doc/dsl/uml.html			;MartinF	;2009	;April	;Dsl	;UML: sequence diagrams
+doc/dsl/awklisp.html		;DariusB	;2009	;Mar	;Dsl	;Interpreters ;AwkLisp	;Top10;Eliza	;awklisp
+doc/awk100/aaa.html			;HenryS	;2009	;Apr	;Dsl		;Interpreters; Top10 ;Awk100 ;Amazing Awk Assembler
+doc/tools/adoc.html		;PeterI	;2009	;Dec	;Wp	;Convert Code Comments  to Latex
+doc/dsl/markdown2.html		;JesusG	;2009	;Jul	;Dsl	;Wp 	;md2html : Update to Markdown.awk
+doc/dsl/markdown.html		;JesusG	;2009	;Mar	;Dsl	;Wp ;Top10	;Markdown
+doc/dsl/awkplusplus.html	;Jimh	;2009	;Mar	;Dsl	;Oo	;Awk100	;Awk++
+doc/dsl/ooc.html			;AlexS	;2009	;May	;Dsl	;Oo	;Awk100	;Awk + Ansi-C = OO
+doc/awkastar.html			;DavidL	;2009	;Apr	;Interpreters		;Building Interpreters with A*
 
-doc/funky.html				;Timm	;2009	;Mar	;Funky	;|Functional Gawk 
-doc/funcChallenge.html		;Timm	;2009	;Mar	;Funky	;|Functional Challenge
+doc/funky.html				;Timm	;2009	;Mar	;Funky	;Functional Gawk 
+doc/funcChallenge.html		;Timm	;2009	;Mar	;Funky	;Functional Challenge
 
-doc/sed.html				;Admin	;2009	;Apr	;Tips ;Sed		;|Sed-clones (in Awk)
-doc/tip/shortenMyPipes.html			;M0J0	;2009	;Oct	;SysAdmin	 		;|Shorten my pipes
-doc/tip/sedInAwk.html			;EdM	;2009	;Oct	;Tips ;Sed		;|Sed in Awk
-doc/fastre.html				;RussC	;2009	;Jul			;|Regular Expression Matching Can Be Simple And Fast 
+doc/sed.html				;Admin	;2009	;Apr	;Tips ;Sed		;Sed-clones (in Awk)
+doc/tip/shortenMyPipes.html			;M0J0	;2009	;Oct	;SysAdmin	 		;Shorten my pipes
+doc/tip/sedInAwk.html			;EdM	;2009	;Oct	;Tips ;Sed		;Sed in Awk
+doc/fastre.html				;RussC	;2009	;Jul			;Regular Expression Matching Can Be Simple And Fast 
 
-doc/news/whinyfix.html		;HermannP	;2009	;Nov; ;Errata		;|Errata: WHINY_USERS slows down Awk
-doc/tip/whinyUsers.html		;EdM	;2009	;Sept	;Tips	;|The Secret WHINY_YSERS flag
-doc/tip/printranges.html		;EdM	;2009	;Aug	;Tips	;|Printing ranges
-doc/tip/awk4db.html		;VictorA	;2009	;Jul	;Tips	;Databases	;|Using Awk for Databases
-doc/tip/random.html		;Admin	;2009	;Jul	;Tips		;|Random Numbers in Gawk
-doc/tip/superFor.html		;ArnoldR	;2009	;Mar	;Tips	;Funky	;|Super-For loops
-doc/tip/readheaders.html	;JanisP	;2009	;Aug	;Tips	;|Using field names to reference columns
-doc/tip/getline.html		;EdM	;2009	;Jan	;Tips	;Getline	;|Getline
-doc/tip/noforloops.html		;Jimh	;2009	;Jan	;Tips	;Forloop	;|Forloops
-doc/tip/moving.html			;ArnoldR	;2009	;Apr	;Tips		;|Moving Files with Awk
-doc/tip/awksed.html			;ArnoldR	;2009	;Apr	;Tips ;Sed		;|Simple Stream Editor
-doc/s2a.html			;JamesL	;2009	;Apr	;Tips ;Sed		;|Sed to Awk
-doc/visualawk.html		;JiirL	;2009	;Jul	  ;Papers	;|Visual Awk
-doc/microtracer.html		;GerardH	;2009	;Jul  ;Verification ;Papers	;|MicroTracer
-doc/tools/awkdebug.html ;MikhailA	;2009	;Jul	;Verification	;Papers ;|Debugger and Assertion Checker
-doc/verifyawk.html		;BalkhisB	;2009	;Jul	  ;Verification ;Papers	;|Automated Results Verification
+doc/news/whinyfix.html		;HermannP	;2009	;Nov; ;Errata		;Errata: WHINY_USERS slows down Awk
+doc/tip/whinyUsers.html		;EdM	;2009	;Sept	;Tips	;The Secret WHINY_YSERS flag
+doc/tip/printranges.html		;EdM	;2009	;Aug	;Tips	;Printing ranges
+doc/tip/awk4db.html		;VictorA	;2009	;Jul	;Tips	;Databases	;Using Awk for Databases
+doc/tip/random.html		;Admin	;2009	;Jul	;Tips		;Random Numbers in Gawk
+doc/tip/superFor.html		;ArnoldR	;2009	;Mar	;Tips	;Funky	;Super-For loops
+doc/tip/readheaders.html	;JanisP	;2009	;Aug	;Tips	;Using field names to reference columns
+doc/tip/getline.html		;EdM	;2009	;Jan	;Tips	;Getline	;Getline
+doc/tip/noforloops.html		;Jimh	;2009	;Jan	;Tips	;Forloop	;Forloops
+doc/tip/moving.html			;ArnoldR	;2009	;Apr	;Tips		;Moving Files with Awk
+doc/tip/awksed.html			;ArnoldR	;2009	;Apr	;Tips ;Sed		;Simple Stream Editor
+doc/s2a.html			;JamesL	;2009	;Apr	;Tips ;Sed		;Sed to Awk
+doc/visualawk.html		;JiirL	;2009	;Jul	  ;Papers	;Visual Awk
+doc/microtracer.html		;GerardH	;2009	;Jul  ;Verification ;Papers	;MicroTracer
+doc/tools/awkdebug.html ;MikhailA	;2009	;Jul	;Verification	;Papers ;Debugger and Assertion Checker
+doc/verifyawk.html		;BalkhisB	;2009	;Jul	  ;Verification ;Papers	;Automated Results Verification
 
-doc/fun/enumerate.html		;Timm	;2009	;Mar	;Funky	;|Functional Enumeration
+doc/fun/enumerate.html		;Timm	;2009	;Mar	;Funky	;Functional Enumeration
 
-doc/contribute.html			;Admin	;2009	;Jan	;Contribute	;|How to contribute
-doc/prettyprint.html		;Timm	;2009	;Jan	;Contribute	;|Pretty print
-doc/unittests.html			;Timm	;2009	;Jan	;Contribute	;|Unit tests
+doc/contribute.html			;Admin	;2009	;Jan	;Contribute	;How to contribute
+doc/prettyprint.html		;Timm	;2009	;Jan	;Contribute	;Pretty print
+doc/unittests.html			;Timm	;2009	;Jan	;Contribute	;Unit tests
 
-doc/learning.html			;Admin	;2009	;Jan	;Learn	;|Learning Awk
-doc/teachingawk.html		;Ronl	;2009	;Jan	;Learn	;|Teaching Awk
-doc/keys2awk.html			;Timm	;2009	;Jan	;Learn	;|Four Keys to Awk
-doc/oneliners.html			;Admin	;2009	;Jan	;Learn	;OneLiners	;|One Liners
-doc/awk1line.html			;EricP	;2009	;Jan	;Learn	;OneLiners	;|Handy One Liners
-doc/explain1line.html		;Admin	;2009	;Jan	;Learn	;OneLiners	;|Explaining Awk One Liners
-doc/tenliners.html			;Admin	;2009	;Jan	;Learn	;TenLiners	;|Ten Liners
-doc/samples.html			;Ronl	;2009	;Jan	;Learn	;TenLiners	;|Samples of AWK
-gawk/array/saya.awk			;Timm	;2009	;Apr		;Arrays	;|Print an Array
-gawk/array/join.awk			;ArnoldR	;2009	;Feb	;Function	;Arrays	;Timm	;|join.awk
-gawk/array/array.awk		;Admin	;2009	;Feb	;Function	;Arrays	;|array.awk
+doc/learning.html			;Admin	;2009	;Jan	;Learn	;Learning Awk
+doc/teachingawk.html		;Ronl	;2009	;Jan	;Learn	;Teaching Awk
+doc/keys2awk.html			;Timm	;2009	;Jan	;Learn	;Four Keys to Awk
+doc/oneliners.html			;Admin	;2009	;Jan	;Learn	;OneLiners	;One Liners
+doc/awk1line.html			;EricP	;2009	;Jan	;Learn	;OneLiners	;Handy One Liners
+doc/explain1line.html		;Admin	;2009	;Jan	;Learn	;OneLiners	;Explaining Awk One Liners
+doc/tenliners.html			;Admin	;2009	;Jan	;Learn	;TenLiners	;Ten Liners
+doc/samples.html			;Ronl	;2009	;Jan	;Learn	;TenLiners	;Samples of AWK
+gawk/array/saya.awk			;Timm	;2009	;Apr		;Arrays	;Print an Array
+gawk/array/join.awk			;ArnoldR	;2009	;Feb	;Function	;Arrays	;Timm	;join.awk
+gawk/array/array.awk		;Admin	;2009	;Feb	;Function	;Arrays	;array.awk
 
-doc/sorting.html            ;EdM   ;2009   ;Nov    ;Tools      ;Sorting	 ;|Sorting
-doc/j.html		;EdM	;KennyM		;2009	;Dec;				;|Awk's Equivalent to VI's J
-doc/tools/o.html		;DebbieF	;2009	;Dec;	Sorting;			;|Sorting Arrays Via the Shell
-doc/quicksort2.html			;Awk	;2009	;Apr	;TenLiners 	;Sorting			;|Quicksort2
-doc/tools/levenshtein.html  ;PierreG   ;2009   ;Nov    ;Tools       ;|levenshtein.awk
-doc/tools/columnate.html            ;Admin   ;2009   ;Nov    ;Tools       ;|Columnate
-doc/tools/widenbmp.html            ;TedD   ;2009   ;Sept    ;Graphics       ;|Widen bitmaps, using Gawk
-doc/bitmaps.html            ;TedD   ;2009   ;Jul    ;Graphics       ;|Processing Bitmaps in Gawk
-doc/news/spawk4suse.html    ;PanosP	;2009	;Dec	;Spawk	;Databases		;|Spawk for SuSE Linux
-doc/tools/spawk-in-googlecode.html		;PanosP	;2009	;Jul	;Spawk	;Databases		;|Spawk in GoogleCode
-doc/tools/spawk.html		;PanosP	;2009	;Jul	;Databases	;Spawk		;|SQL Powered AWK
-doc/macro.html				;Timm	;2009	;Mar	;Tools	;Macros	;|Macro pre-processors
-doc/tools/fsm.html			;WmM	;2009	;Jul	;Tools			;|Finite State Machine Generator
-doc/tools/cryptosig.html	;Anon	;2009	;Apr	;Tools	;Sigs	;|Hiding Email Address
-doc/tools/sigs.html			;Timm	;2009	;Apr	;Tools	;Sigs	;|Generating random sigs
-doc/tools/correlate.html	;TimS	;2009	;May	;Tools	;Stats	;|Correlation between numbers
+doc/sorting.html            ;EdM   ;2009   ;Nov    ;Tools      ;Sorting	 ;Sorting
+doc/j.html		;EdM	;KennyM		;2009	;Dec;				;Awk's Equivalent to VI's J
+doc/tools/o.html		;DebbieF	;2009	;Dec;	Sorting;			;Sorting Arrays Via the Shell
+doc/quicksort2.html			;Awk	;2009	;Apr	;TenLiners 	;Sorting			;Quicksort2
+doc/tools/levenshtein.html  ;PierreG   ;2009   ;Nov    ;Tools       ;levenshtein.awk
+doc/tools/columnate.html            ;Admin   ;2009   ;Nov    ;Tools       ;Columnate
+doc/tools/widenbmp.html            ;TedD   ;2009   ;Sept    ;Graphics       ;Widen bitmaps, using Gawk
+doc/bitmaps.html            ;TedD   ;2009   ;Jul    ;Graphics       ;Processing Bitmaps in Gawk
+doc/news/spawk4suse.html    ;PanosP	;2009	;Dec	;Spawk	;Databases		;Spawk for SuSE Linux
+doc/tools/spawk-in-googlecode.html		;PanosP	;2009	;Jul	;Spawk	;Databases		;Spawk in GoogleCode
+doc/tools/spawk.html		;PanosP	;2009	;Jul	;Databases	;Spawk		;SQL Powered AWK
+doc/macro.html				;Timm	;2009	;Mar	;Tools	;Macros	;Macro pre-processors
+doc/tools/fsm.html			;WmM	;2009	;Jul	;Tools			;Finite State Machine Generator
+doc/tools/cryptosig.html	;Anon	;2009	;Apr	;Tools	;Sigs	;Hiding Email Address
+doc/tools/sigs.html			;Timm	;2009	;Apr	;Tools	;Sigs	;Generating random sigs
+doc/tools/correlate.html	;TimS	;2009	;May	;Tools	;Stats	;Correlation between numbers
 
-doc/music.html			;Admin	;2009	;June	;Tools	;Music; 	;|Music tools and Awk
+doc/music.html			;Admin	;2009	;June	;Tools	;Music; 	;Music tools and Awk
 
-doc/project.html			;Admin	;2009	;Mar	;Tools	;Project	;|Project Tools
-doc/tools/mysql.html			;ScottS	;2009	;Oct	 ;Databases	;|MySql
-doc/tools/nosql.html			;CarloS	;2009	;Jul	 ;Databases	;|NoSQL
-doc/tools/plait.html			;StephenJ	;2009	;June	;Tools	;Music; ;Awk100	;|Playing music
-doc/tools/humdrum.html			;DavidH	;2009	;June	;Tools	;Music; 	;|Music analysis workbench
-doc/tools/shuffle.html		;Timm	;2009	;June	;Tools	;TenLiners	;|Shuffle.awk
-doc/tools/runawk.html		;AlexC	;2009	;Mar	;Tools	;Project ;Runawk	;|runawk
-doc/tools/m1.html			;JonB	;2009	;Mar	;Tools	;Macros; Awk100	;|m1 : simple macros
-doc/tools/m5.html			;WillW	;2009	;Mar	;Tools	;Macros ;|m5 :  macro processor
-doc/tools/awkwords.html		;Timm	;2009	;Mar	;Tools	;Project; Wp	;|awkwords
-doc/tools/awf.html		;HenryS	;2009	;Apr	;Tools ;Wp ;Awk100;Wp		;|Amazing Awk Formatter
-doc/tools/spreadsheet2awk.html	;AlexR	;2009	;May	;Tools				;|Spreadsheets and Awk.
+doc/project.html			;Admin	;2009	;Mar	;Tools	;Project	;Project Tools
+doc/tools/mysql.html			;ScottS	;2009	;Oct	 ;Databases	;MySql
+doc/tools/nosql.html			;CarloS	;2009	;Jul	 ;Databases	;NoSQL
+doc/tools/plait.html			;StephenJ	;2009	;June	;Tools	;Music; ;Awk100	;Playing music
+doc/tools/humdrum.html			;DavidH	;2009	;June	;Tools	;Music; 	;Music analysis workbench
+doc/tools/shuffle.html		;Timm	;2009	;June	;Tools	;TenLiners	;Shuffle.awk
+doc/tools/runawk.html		;AlexC	;2009	;Mar	;Tools	;Project ;Runawk	;runawk
+doc/tools/m1.html			;JonB	;2009	;Mar	;Tools	;Macros; Awk100	;m1 : simple macros
+doc/tools/m5.html			;WillW	;2009	;Mar	;Tools	;Macros ;m5 :  macro processor
+doc/tools/awkwords.html		;Timm	;2009	;Mar	;Tools	;Project; Wp	;awkwords
+doc/tools/awf.html		;HenryS	;2009	;Apr	;Tools ;Wp ;Awk100;Wp		;Amazing Awk Formatter
+doc/tools/spreadsheet2awk.html	;AlexR	;2009	;May	;Tools				;Spreadsheets and Awk.
 
-doc/pstricks.html			;Admin	;2009	;Apr	;Ps 		;|Postscript tricks
-doc/tools/pschoose.html		;ArnoldR	;2009	;Apr	;Ps 		;|Print Some Postscript Pages
-doc/tools/psrev.html		;ArnoldR	;2009	;Apr	;Ps 		;|Reverse Postscript pages 
-doc/tools/indent.html		;PhilipB	;2009	;Apr	;TenLiners 		;|Format Shell Scripts
+doc/pstricks.html			;Admin	;2009	;Apr	;Ps 		;Postscript tricks
+doc/tools/pschoose.html		;ArnoldR	;2009	;Apr	;Ps 		;Print Some Postscript Pages
+doc/tools/psrev.html		;ArnoldR	;2009	;Apr	;Ps 		;Reverse Postscript pages 
+doc/tools/indent.html		;PhilipB	;2009	;Apr	;TenLiners 		;Format Shell Scripts
 
-doc/var/top10posters.html	;Steffen	;2009	;Jan	;Newsgroup	;|Top 10 posters
-doc/var/top10subjects.html	;Steffen	;2009	;Jan	;Newsgroup	;|Top 10 subjects
-doc/var/top10posterslastyear.html	;Steffen	;2009	;Jan	;Newsgroup	;|Top 10 posters last year
-doc/var/top10subjectslastyear.html	;Steffen	;2009	;Jan	;Newsgroup	;|Top 10 subjects last year
-doc/tools/holidays.html			;BobO  ;2009 ;June 	;Dates	;|Holiday date routines
-doc/tools/nbc.html			;Timm  ;2009 ;May 	;DataMining	;|Naive Bayes Classifier
+doc/var/top10posters.html	;Steffen	;2009	;Jan	;Newsgroup	;Top 10 posters
+doc/var/top10subjects.html	;Steffen	;2009	;Jan	;Newsgroup	;Top 10 subjects
+doc/var/top10posterslastyear.html	;Steffen	;2009	;Jan	;Newsgroup	;Top 10 posters last year
+doc/var/top10subjectslastyear.html	;Steffen	;2009	;Jan	;Newsgroup	;Top 10 subjects last year
+doc/tools/holidays.html			;BobO  ;2009 ;June 	;Dates	;Holiday date routines
+doc/tools/nbc.html			;Timm  ;2009 ;May 	;DataMining	;Naive Bayes Classifier
 
-doc/os.html                     ;Admin   ;2009   ;Apr   ;Os   ;|Operating Systems and Awk
-doc/tip/sysAdminInAwk.html          ;BrianJ   ;2009   ;Oct   ;SysAdmin   ;|SysAdmins: Awk is Your Friend
-doc/xml.html					;Admin  ;2009 ;Apr ;XML ;|XML and Awk
-doc/tools/xmlparse.html					;SteveC  ;2009 ;June ;XML ;|xmlparse.awk
+doc/os.html                     ;Admin   ;2009   ;Apr   ;Os   ;Operating Systems and Awk
+doc/tip/sysAdminInAwk.html          ;BrianJ   ;2009   ;Oct   ;SysAdmin   ;SysAdmins: Awk is Your Friend
+doc/xml.html					;Admin  ;2009 ;Apr ;XML ;XML and Awk
+doc/tools/xmlparse.html					;SteveC  ;2009 ;June ;XML ;xmlparse.awk
 
-doc/jawk.html		;Dab  ;2009 ;May ;Awk100	;|Jawk = Java + Awk
-doc/awk100/017xmlgawk.html		;JurgenK  ;2009 ;Apr ;Awk100 ;XML ;Xgawk ;|XMLgawk
-doc/news/xgawk4windows.html		;WimVB  ;2009 ;Dec ;XML ;Xgawk ;|Xgawk for Windows
-doc/awk100/015soccer.html		;Ronl	;2009;Apr	;Awk100 ;Games		;|Soccer
-doc/awk100/013awklinux.html		;YungC	;2009;Apr	;Os ;Papers ;Awk100	;Top10	;|Awk-Linux
-doc/awk100/spell.html			;ArnoldR ;Spell ;NelsonB ;2009 ;Mar ;Awk100; Top10	;|spell.awk
-doc/tools/spellcheck.html			;GregoryG ;Spell	;2009 ;Nov	;|spellcheck.awk
-doc/awk100/009yawk.html			;WolfganZ	;2009;Feb	;Awk100	;Yawk	;|Yawk
-doc/awk100/008awklisp.html		;DariusB	;2009	;Feb	 ;Awk100	;AwkLisp	;|Awklisp
-doc/awk100/007name.html			;BillP	;2009	;Feb	;Awk100	;Name	;|Tex-to-bilingual Dictionary
-doc/awk100/006boris.html		;Ronl	;2009	;Feb	;Awk100	;Boris; Top10	;|Fast Clustering
-doc/awk100/005getYouTube.html	;PeterK	;2009	;Jan	;Awk100	;WWW	;|Get YouTube Vids
-doc/awk100/004sudoku.html		;Jimh	;2009	;Jan	;Awk100	;Sudoku	;|Sudoku
-doc/awk100/003negotiate.html	;Ronl	;2009	;Jan	;Awk100	;Negotiate	;|Negotiate
-doc/awk100/002baseballsim.html	;Ronl	;2009	;Jan	;Awk100	;Baseballsim	;|Basebase Sim
-doc/awk100/001argcol.html		;Ronl	;2009	;Jan	;Awk100	;Argcol	;|Argcol
+doc/jawk.html		;Dab  ;2009 ;May ;Awk100	;Jawk = Java + Awk
+doc/awk100/017xmlgawk.html		;JurgenK  ;2009 ;Apr ;Awk100 ;XML ;Xgawk ;XMLgawk
+doc/news/xgawk4windows.html		;WimVB  ;2009 ;Dec ;XML ;Xgawk ;Xgawk for Windows
+doc/awk100/015soccer.html		;Ronl	;2009;Apr	;Awk100 ;Games		;Soccer
+doc/awk100/013awklinux.html		;YungC	;2009;Apr	;Os ;Papers ;Awk100	;Top10	;Awk-Linux
+doc/awk100/spell.html			;ArnoldR ;Spell ;NelsonB ;2009 ;Mar ;Awk100; Top10	;spell.awk
+doc/tools/spellcheck.html			;GregoryG ;Spell	;2009 ;Nov	;spellcheck.awk
+doc/awk100/009yawk.html			;WolfganZ	;2009;Feb	;Awk100	;Yawk	;Yawk
+doc/awk100/008awklisp.html		;DariusB	;2009	;Feb	 ;Awk100	;AwkLisp	;Awklisp
+doc/awk100/007name.html			;BillP	;2009	;Feb	;Awk100	;Name	;Tex-to-bilingual Dictionary
+doc/awk100/006boris.html		;Ronl	;2009	;Feb	;Awk100	;Boris; Top10	;Fast Clustering
+doc/awk100/005getYouTube.html	;PeterK	;2009	;Jan	;Awk100	;WWW	;Get YouTube Vids
+doc/awk100/004sudoku.html		;Jimh	;2009	;Jan	;Awk100	;Sudoku	;Sudoku
+doc/awk100/003negotiate.html	;Ronl	;2009	;Jan	;Awk100	;Negotiate	;Negotiate
+doc/awk100/002baseballsim.html	;Ronl	;2009	;Jan	;Awk100	;Baseballsim	;Basebase Sim
+doc/awk100/001argcol.html		;Ronl	;2009	;Jan	;Awk100	;Argcol	;Argcol
 
-doc/xgawk/wellformed.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;|XML: Checking for Well-Formednes 
-doc/xgawk/dtd.html               ;JurgenK   ; 2009   ;June    ;XML        ;|XML: Dealing with DTDs
-doc/xgawk/outline.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;|XML: printing an outline
-doc/xgawk/pulling.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;|XML: pulling out data
-doc/dumpxml.html               ;MarkB   ; 2009   ;May    ;XML        ;|XML: Display components 
+doc/xgawk/wellformed.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;XML: Checking for Well-Formednes 
+doc/xgawk/dtd.html               ;JurgenK   ; 2009   ;June    ;XML        ;XML: Dealing with DTDs
+doc/xgawk/outline.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;XML: printing an outline
+doc/xgawk/pulling.html     ;JurgenK	;2009    ;May    ;XML ;Xgawk ;XML: pulling out data
+doc/dumpxml.html               ;MarkB   ; 2009   ;May    ;XML        ;XML: Display components 
 
-doc/ethiopianMultiplication.html	;Admin  ;2009 ;Sept  ;|Ethiopian Multiplication
-doc/tawks.html					;Admin  ;2009 ;Sept  ;|A Tale of Two Tawks
-doc/getxml.html					;JanW  ;2009 ;May ;XML ;|GetXML.awk
-doc/unicast.html                ;SallyF ;2009   ;Apr   ;Os  ;Papers ;|Simulations Unicast Applications
-doc/templates.html                ;JonB ;2009   ;May   ;Papers ;|Template-driven programming
-doc/alerts.html                ;KimD ;2009   ;Apr   ;Os  ;Papers ;|Intrusion alert normalization 
+doc/ethiopianMultiplication.html	;Admin  ;2009 ;Sept  ;Ethiopian Multiplication
+doc/tawks.html					;Admin  ;2009 ;Sept  ;A Tale of Two Tawks
+doc/getxml.html					;JanW  ;2009 ;May ;XML ;GetXML.awk
+doc/unicast.html                ;SallyF ;2009   ;Apr   ;Os  ;Papers ;Simulations Unicast Applications
+doc/templates.html                ;JonB ;2009   ;May   ;Papers ;Template-driven programming
+doc/alerts.html                ;KimD ;2009   ;Apr   ;Os  ;Papers ;Intrusion alert normalization 
 
-doc/textmining.html				;Admin	;2009	;Mar	;TextMining	;|Text Mining
-doc/textmine/awknl.html		;YasumasaS	;2009	;May	;TextMining	;|Lexical and Grammar  Analysis
-doc/textmine/languageAnalysis.html		;LotharS	;2009	;Mar	;TextMining	;|Language Analysis
-doc/textmine/severis.html		;Timm	;2009	;Mar	;TextMining	;|Issue report mining
-doc/textmine/textmunge.html		;DonaldM	;2009	;Mar	;TextMining	;|Text Munging
+doc/textmining.html				;Admin	;2009	;Mar	;TextMining	;Text Mining
+doc/textmine/awknl.html		;YasumasaS	;2009	;May	;TextMining	;Lexical and Grammar  Analysis
+doc/textmine/languageAnalysis.html		;LotharS	;2009	;Mar	;TextMining	;Language Analysis
+doc/textmine/severis.html		;Timm	;2009	;Mar	;TextMining	;Issue report mining
+doc/textmine/textmunge.html		;DonaldM	;2009	;Mar	;TextMining	;Text Munging
 
-doc/99bottles.html		;ArnoldR; OsamuA; WilhelmW 	;2009	;Apr	;|99 bottles of beer
+doc/99bottles.html		;ArnoldR; OsamuA; WilhelmW 	;2009	;Apr	;99 bottles of beer
 
-doc/mail.html				;Admin	;2009;	Apr;	Mail	;|Awk and Mail
-doc/spam.html				;StevenH	;2009;	Apr;	Mail	;|Spam Filtering
-doc/mailsort.html				;ArnoldR	;2009;	Apr;	Mail	;|Mail sort
+doc/mail.html				;Admin	;2009;	Apr;	Mail	;Awk and Mail
+doc/spam.html				;StevenH	;2009;	Apr;	Mail	;Spam Filtering
+doc/mailsort.html				;ArnoldR	;2009;	Apr;	Mail	;Mail sort
  
-doc/eng.html		;Admin	;2009	;June	;Engineering	;|Awk for Engineering
-doc/chem.html		;EisaA	;2009	;June	;Engineering	;|Awk for Chemical Engineers
-doc/mecheng.html		;DavidL	;2009	;June	;Engineering	;|Awk for Mechanical Engineers
+doc/eng.html		;Admin	;2009	;June	;Engineering	;Awk for Engineering
+doc/chem.html		;EisaA	;2009	;June	;Engineering	;Awk for Chemical Engineers
+doc/mecheng.html		;DavidL	;2009	;June	;Engineering	;Awk for Mechanical Engineers
 
