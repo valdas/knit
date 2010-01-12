@@ -8,3 +8,8 @@ website
 				get the rss randomizer working
 	slot filling
 	
+
+cd penny
+make build eg9
+
+now i need to geneate the page headers

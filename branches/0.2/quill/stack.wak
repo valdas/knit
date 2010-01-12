@@ -30,7 +30,7 @@ Pop an _item_ from a stack "_s_". Return the _item_.
      return item
  }
 
- Cards (2-d stacks)
+Cards (2-d stacks)
 ===================
 
 Cards are a 2-d stack where item "_i_" in a set of cards _c_ has cardinality _c\[i,0\]_ 
@@ -41,7 +41,7 @@ push2
 
 Push an _item_ into cards  "_c_" at a certain "_key_". Return the size of the new stack.
 
- function push2(c,key,item, i)  {
+ function push2(c,key,item,   i)  {
      i = ++c[key,0]
      c[key,i] = item
      return i 

@@ -32,30 +32,42 @@ Code
 Uses 
 ----
 
-@uses basename phrases
+@uses basename phrases o trim stack
 
 Main
 ----
 
-function loadTags(file,file,title,tags,sgat,   oldRS,oldFS,line,items,ni) {
+ function loadTags(ins,file,title,tags,sgat,   oldRS,oldFS,line,items,n,i) {
      oldRS=RS; oldFS=FS;
      RS="\n"; FS=";";
-     while((getline line < file) > 0) 
-         if (NF > 1) {
-             n = pharses(line,FS,items)
+     print ins
+     while((getline line < ins) > 0) {  
+         line = trim(line)
+         n = phrases(line,";",items)
+         o(items,"phrases")
+         print n " [" line "]"
+         if (n) {
              tagLine(items,n,file,title,tags,sgat); 
+             o(file,"file")
+             o(title,"title")
+             o(tags,"tags")
+             o(sgat,"stag")
+             return 1
          }
+     }
      RS=oldRS; FS=oldFS
  }
- function tagLine(items,n,file,title,tags,sgat,  dirname,file,i,n) {
-   dirname = items[1]
-   f    = basename(dirname)
-   file[change(/\..*/,"",f)] = $1; 
-   for(i=2;i<n;i++) {
-     push2(tags,dir,items[i]); # files to cats
-     push2(sgat,items[i],dir); # cats to files
-   }
-   title[dirname] = items[n];
+ function tagLine(items,n,file,title,tags,sgat,  dirname,f,i,name) {
+     dirname = items[1]
+     name    = items[n]
+     title[dirname] = name
+     f    = basename(dirname)
+     print f
+     file[gensub(/\..*/,"","g",f)] = dirname; 
+     for(i=2;i<n;i++) {
+         push2(tags,dirname,items[i]); # files to cats
+         push2(sgat,items[i],dirname); # cats to files
+     }
  }
 
 Author

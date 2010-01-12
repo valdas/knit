@@ -4,6 +4,10 @@ basename
 
 Return the basename of a path.
 
+ function demoBaseName() {
+		print 1
+ }
+
  function basename(path,  n,tmp) {
     n = split(path,tmp,/\//)
     return tmp[n]
