@@ -71,7 +71,7 @@ the above string gets replaced by:
 Main
 ----
 
- function slots(slotsFile,frameFile,      value,sep) {
+ function slots(slotsFile,frameFile,      values,sep) {
      sep="``"
      loadSlots(slotsFile,sep,values)   
      fillFrame(frameFile,sep,values)
