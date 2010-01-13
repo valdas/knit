@@ -16,7 +16,6 @@ Main
 ----
 
  function demoSlots(     get, data,frame1, slots1) {
-     srand(1)
     get    = "wget -q -O - "
     data   = "http://knit.googlecode.com/svn/branches/0.2/quill/etc/tests/" 
     frame1 = get data "frame1.txt"
@@ -28,7 +27,7 @@ Main
     if (tmp[1]=="rss")
        return myrss(tmp[2],tmp[3])
     if (tmp[1]="any")
-        return anyStrings(values[tmp[2]],tmp[3],1)
+        return anyStrings(values[tmp[2]],tmp[3],5)
     barph("(" string ") ???") 
  }
 
