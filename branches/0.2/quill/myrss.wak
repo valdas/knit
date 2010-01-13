@@ -71,7 +71,7 @@ Main
 
  function myrss(feed,max,between,              \
                  date,url,author,link,txt,title,	\
-                 n,all,sep,out,seen,x) {
+                n,all,sep,out,seen,x,i) {
      n = wget(feed,all,">");
      for(i=1;i<=n; i++) {
 	 x= all[i]= trim(all[i])
