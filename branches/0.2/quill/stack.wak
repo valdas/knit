@@ -12,10 +12,10 @@ push
 
 Push an _item_ into a stack "_s_". Return the size of the new stack.
 
- function push(s,item,  i) { 
-     i=length(s)+1
-     s[i] = item
-     return i 
+ function push(s,item,  i) {      
+     print "length " i
+     s[i= ++s[0]] = item
+     return 
  }
 
 pop
