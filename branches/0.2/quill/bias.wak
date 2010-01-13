@@ -21,7 +21,7 @@ sample
 
 Sample from population of things.
 
- function sample(population,cdf,memo,   count) { 
+    function sample(population,cdf,memo,   count,one) { 
      length(population)
      for(one in population) 
          count[population[one]]++
