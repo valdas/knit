@@ -39,7 +39,7 @@ $(Html)/%.html : %.wak
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
-Spy  = $(Pgawk) --lint --dump-variables="$(Vars)" \
+Spy  = $(Pgawk)     --dump-variables="$(Vars)" \
                     --profile="$(Profile)" $(Loads) #
 Dump = cat $(Profile) | sed '1d' ; cat $(Vars) | egrep -v '^[A-Z]+:'
 Run  = $(Gawk)  $(Loads)#
@@ -48,7 +48,7 @@ Z    = ; exit}'
 a    = $(Run) -v Test=1 --source 'BEGIN {#
 z    = ; exit}'
 
-Demo=$(Gawk) 'BEGIN                     { FS="[ \t(]" } \
+Demo=$(Pgawk) 'BEGIN                     { FS="[ \t(]" } \
            /^[ \t]function[ \t]*demo.*\(/ {print $$3"();"; exit}' $u.wak
 
 awk :
