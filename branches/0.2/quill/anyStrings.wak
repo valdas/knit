@@ -55,25 +55,19 @@ Main
 ----
 
  function anyStrings(string,   skew,repeats,sep,             \
-                     pmax, paras,para,lines,freq, thing,cdf,memo,out,one,i) {
+                     pmax, paras,para,lines,freq, thing,cdf,memo,out) {
      skew    = skew    ? skew    : 1
      repeats = repeats ? repeats : 1
      sep     = sep     ? sep     : "\n"
      pmax = split(string,paras,/\n\n/)     
      for(para=1; para<=pmax; para++) {
-         split(paras[para],lines,/\n/)       
+         lines[0]    = split(paras[para],lines,/\n/)       
          thing       = trim(a2s(lines,"\n",2))
          freq[thing] = lines[1] + 0
      }
      sampleCounts(freq,cdf,memo)
-     while(repeats--) {
-         one = memo[pick(cdf,skew)]
-         push(out,  one)
-         print "\n\nrepeat " repeats ; 
-         for(i in out) 
-             print i " = " out[i] 
-     }     
-     #print "out " a2s(out,sep)
+     while(repeats--) 
+         push(out,  memo[pick(cdf,skew)])
      return a2s(out,sep)
  }
 
