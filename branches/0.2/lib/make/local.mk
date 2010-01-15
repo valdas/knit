@@ -1,7 +1,9 @@
 ifeq (,$(findstring appele, $(MACHTYPE)))
-	Gawk=/opt/local/bin/gawk
+	Gawk0=/opt/local/bin/gawk
+	Gawk=$(Gawk0)
 	Pgawk=/opt/local/bin/gawk
 else	
-        Gawk=gawk
+        Gawk0=gawk
+	Gawk=gawk
 	Pgawk=pgawk
 endif
