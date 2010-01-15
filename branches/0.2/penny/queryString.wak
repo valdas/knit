@@ -1,0 +1,95 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+queryString
+
+The URL of a Penny page contains a little language. This language allows for the
+convenient reference of web pages.
+
+* _?page_              : returns _page.html_. 
+* _?Tag_               : returns all pages with a certain _Tag_.
+* _?Tag1&Tag2&..._     : returns all pages with all off _Tag1_ and _Tag2_ and ...
+* _?page&Tag1&Tag2&... : returns page, then all the other pages tagged with 
+                         _Tag1_ etc. This is useful for generating a report
+			 with a header page on top, followed by pages of details.
+			 Note that if _page_ has _Tag1_ etc, then it is only 
+                         printed once.
+* _x=y_                : sets the slot x to have value y. Useful for changing
+                         control settings on the site.
+
+At a first approximation, _Tags_ start with upper case and everything is a _page_.
+However, there are exceptions:
+
+* anything containing _.html_ is a page.
+* anything containing a "_/"_ is a page.
+
+Code
+====
+
+Uses
+----
+
+@uses deShell stack
+
+ function queryString(tags,files,titles,stac,out,   var,used,cats,n,tmp,i,is,title) {
+   n = split(ENVIRON["QUERY_STRING"],tmp,"&");
+   for(i=1;i<=n;i++) {
+        tmp[i] = prepVar(tmp[i])
+        is[i] = recognizer(var)
+        if (is[i] == "category") cats++
+   }
+   for(i=1; i<=n; i++) {
+     var = tmp[i];
+     if (is[i]=="set")      qset(var ,tags);
+     if (is[i]=="file")     title = title " " qfile(var,tags,1,   used,files,titles,stac,out) ;
+     if (is[i]=="shortcut") title = title " " qshortcut(var,tags,1,   used,files,titles,stac,out);
+     if (is[i]=="category") title = title " " qcategory(var,tags,cats,used,files,titles,stac,out);
+   } 
+   return title; 
+ }
+ function prepVar(var) { 
+   var = trim(var);
+   gsub(/_/,".",var);
+   gsub(/\+/," ",var);
+   return deShell(var);
+ }
+ function recognizer(var) {
+   if (var ~ /=/) return "set";
+   if (var ~ /^[a-z_]/) {
+     if (var ~ /\//     ) return "file";
+     if (var ~ /\.html$/) return "file";
+     return "shortcut";
+   }
+   return "category";
+ }
+ function qset(var,tags,   tmp) { # make a config setting
+   split(var,tmp,"=");
+   tags[trim(tmp[1])] = trim(tmp[2])
+ }
+ function shortcut(var,tags,needs,used,files,titles,stac,out) { # shortcut to file 
+   var=  (var in files) ? files[var] : tags["default"];
+   return qfile(var,tags,needs,used,files,titles,stac,out);
+ }	
+ function qfile(var,tags,needs,used,files,titles,stac,out,   title) { # add file
+   title=" ";
+   var = (var in titles) ? var : tags["default"];
+   if (++used[var] == needs ) {
+     push(out,var);
+     title = " " titles[var]; }
+   return title;
+ }
+ function qcategory(var,tags,needs,used,files,titles,stac,out,     i,n) {#add files from cats
+     n =cards(stac,var);
+     for(i=1;i<=n;i++) 
+         qfile(stac[var,i],tags,needs,used,files,titles,stac,out);
+     return var;
+ }
+
+To do
+=====
+
+404 error
+
+Author
+======
+
+Tim Menzies
