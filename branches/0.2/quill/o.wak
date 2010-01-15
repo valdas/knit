@@ -19,30 +19,42 @@ Synopsis
 Code 
 ====
 
+Main
+----
+
  function o(a, str,control,   i,com) {
      str = str ? str : "array"
      if (control ~ /^[0-9]/)  {
          if (control==0)
-             for(i in a)
-                 print o1(str,i,a)
+             o1(a,str)
 	 else
              for(i=1;i<=control;i++)
-                 print o1(str,i,a)
+                 print oprim(str,i,a)
      } else
-	 if (0 in a)       # before a bug fix in gawk 3.1.7, i used "0"
-	     o(a,str,a[0]) # to store the length of the array
+	 if (0 in a)        # sometimes i store array size in a[0]
+	     o(a,str,a[0])         
          else {
              com = control ? control : " -n -k 2" 
              com = "sort " com  " #" rand(); # ensure com is unique
              for(i in a)
-                 print o1(str,i,a) | com;
+                 print oprim(str,i,a) | com;
              close(com); }
  }
 
- function o1(str,i,a,  j) {
+ function oprim(str,i,a,  j) {
      j=i
      gsub(SUBSEP,",",j) 
      return str "[ " j " ]\t=\t [ " a[i] " ]"
+ }
+
+Simpler
+-------
+                                                                                   
+When "_o_" is too complicated, use "_oo_".
+                                                                                  
+ function oo(a,str, i) {
+     for(i in a)
+         print oprim(str,i,a)
  }
 
 Author
