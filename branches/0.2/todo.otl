@@ -1,3 +1,5 @@
+make
+	change all gawk to gawk0 for the gawk utils
 slots
 	anyStrings
 		blank outout
