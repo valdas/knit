@@ -20,22 +20,22 @@ buildHtmls: $(HtmlHtmls)
 
 $(Tmp)/knit.tmp : $(LibAwks)	
 	@echo $(LibAwks)
-	@echo "#!$(Gawk) -f " > $@ 
+	@echo "#!$(Gawk0) -f " > $@ 
 	@(cat $(Knit)/etc/copyrite.txt; cat $(Knit)/etc/knit.txt) >> $@
 	@echo "# Built on `date` by $(USER). " >> $@
 	@$(foreach f,$^,\
  	       (printf "\n# $(shell basename $f) \n"; \
-               $(Gawk) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
+               $(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
 	@chmod a+rx $@
 
 $(OldBuild)    : $(Tmp)/knit.tmp; @cp $< $@
 $(LatestBuild) : $(Tmp)/knit.tmp; @cp $< $@
 
 $(Lib)/%.awk : %.wak
-	 $(Gawk) -f $(Knit)/lib/awk/comment.awk $< > $@
+	 $(Gawk0) -f $(Knit)/lib/awk/comment.awk $< > $@
 
 $(Html)/%.html : %.wak
-	$(Gawk) -f $(Knit)/lib/awk/markup.awk $< > $@
+	$(Gawk0) -f $(Knit)/lib/awk/markup.awk $< > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
