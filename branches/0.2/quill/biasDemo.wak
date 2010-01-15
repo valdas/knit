@@ -14,7 +14,7 @@ Given a list of things, prepare the cdf and memos required to sample from that l
 The _population_ array holds the "_n_"  inputs and _cdf_ and _memo_ are the output. The standard
 idiom for running this code is:
     
-    collect( pop )   # somehow, collect a list of thins
+    collect( pop )   
     sample(pop,cdf,memo) # set up
     while(repeats--)
         use( memo[pick(cdf)] ) # use one item
@@ -104,8 +104,8 @@ from a sample.
      #set up 
      all = sample(a,cdf,memo)
      # digression: showing off some internals
-     o(cdf,"cdf")          
-     o(memo,"memo")
+     oo(cdf,"cdf")          
+     oo(memo,"memo")
      # generating
      max=r=10000;  
      while(--r)
