@@ -15,7 +15,7 @@
 	     gsub(/[\" \n\r\t]/,"",file);
 	     if (file) {
 		 file = file ~ /\.wak$/ ? file : file ".wak";
-		 if  (++Seen[file] == 1)
+                 if  (++Seen[file] == 1)
 		     uses1(file)
  }}}}
  function uses1(file0,    file,i,line,found) {
@@ -27,8 +27,7 @@
 	 }
 	 close(file)
 	 if (found) { # if ever found, print, exit
-	     print file0
-	     Seen[file0]++
+             print file0
 	     return 1
      }}
      # if never found, die screaming
