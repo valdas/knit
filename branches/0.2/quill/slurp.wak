@@ -26,13 +26,14 @@ Main
 		  all, 
 		  (sep ? sep : "\n")) 
  }
- function slurp0(com0,    com,txt,rs0,fs0) {
-     rs0=RS; fs0=FS;           # save globals
+ function slurp0(com0,    com,txt,\
+                 filename,fnr,nf,nr,rs,fs ) {
+     filename=FILENAME;fnr=FNR;nf=NF;nr=NR;rs=RS;fs=FS;
      RS="\r\r\n"; FS="\r\r\n"; # change globals 
      com = deShell(com0)       # make 'com0' safe
      com | getline txt ;       # everything is in 'txt'
      close(com);               # close pipe
-     RS=rs0; FS=fs0;           # restore globals
+     FILENAME=filename;FNR=fnr;NF=nf;NR=nr;RS=rs;FS=fs;
      return txt                # the end
  }
 
