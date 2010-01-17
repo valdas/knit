@@ -2,9 +2,9 @@
 
 A minimal CMS.
 
-@uses tags
+@uses tags queryString o
 
- BEGIN {print 1111}
+# BEGIN {print 1111}
 
 # Does some cool things
 # =====================
