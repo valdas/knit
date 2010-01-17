@@ -37,38 +37,30 @@ Uses
 Main
 ----
 
- function loadTags(ins,file,title,tags,sgat,   oldRS,oldFS,line,items,n,i) {
-     oldRS=RS; oldFS=FS;
+ function loadTags(ins,file,title,tags,sgat,   \
+                       line,items,n,i,\
+                       _FILENAME,_FNR,_NF,_NR,_RS,_FS ) {
+     _FILENAME=FILENAME; _FNR=FNR; _NF=NF; _NR=NR; _RS=RS; _FS=FS;
      RS="\n"; FS=";";
-     print ins
      while((getline line < ins) > 0) {  
          line = trim(line)
          n = phrases(line,";",items)
-         o(items,"phrases")
-         print n " [" line "]"
-         if (n) {
+         if (n) 
              tagLine(items,n,file,title,tags,sgat); 
-             o(file,"file")
-             o(title,"title")
-             o(tags,"tags")
-             o(sgat,"stag")
-             return 1
-         }
      }
-     RS=oldRS; FS=oldFS
- }
+     FILENAME=_FILENAME; FNR=_FNR; NF=_NF; NR=_NR; RS=_RS; FS=_FS;
+ } 
  function tagLine(items,n,file,title,tags,sgat,  dirname,f,i,name) {
-     dirname = items[1]
-     name    = items[n]
-     title[dirname] = name
-     f    = basename(dirname)
-     print f
-     file[gensub(/\..*/,"","g",f)] = dirname; 
-     for(i=2;i<n;i++) {
-         push2(tags,dirname,items[i]); # files to cats
-         push2(sgat,items[i],dirname); # cats to files
-     }
- }
+      dirname = items[1]
+      name    = items[n]
+      title[dirname] = name
+      f    = basename(dirname)
+      file[gensub(/\..*/,"","g",f)] = dirname; 
+      for(i=2;i<n;i++) {
+          push2(tags,dirname,items[i]); # files to cats
+          push2(sgat,items[i],dirname); # cats to files
+      }
+  } 
 
 Author
 ======
