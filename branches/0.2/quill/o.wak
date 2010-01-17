@@ -57,6 +57,25 @@ When "_o_" is too complicated, use "_oo_".
          print oprim(str,i,a)
  }
 
+Many prints
+-----------
+ 
+ function oos(a1,str1,a2,str2,a3,str3,a4,str4,a5,str5) {
+     if(str1) oo(a1,str1);
+     if(str2) oo(a2,str2);
+     if(str3) oo(a3,str3);
+     if(str4) oo(a4,str4);
+     if(str5) oo(a5,str5)
+ }
+
+ function os(a1,str1,a2,str2,a3,str3,a4,str4,a5,str5) {
+     if(str1) o(a1,str1);
+     if(str2) o(a2,str2);
+     if(str3) o(a3,str3);
+     if(str4) o(a4,str4);
+     if(str5) o(a5,str5)
+ }
+
 Author
 ======
 
