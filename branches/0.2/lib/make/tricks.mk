@@ -13,7 +13,7 @@ demo :
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
 	@grep -h '^[a-zA-Z].*#:' $(Knit)/lib/make/*.mk Makefile  \
-        | $(Gawk) -F: '{print "\t" $$1 "\t" $$3}' | sort
+        | $(Gawk0) -F: '{print "\t" $$1 "\t" $$3}' | sort
 
 all : $(Egs) #: run all examples
 
