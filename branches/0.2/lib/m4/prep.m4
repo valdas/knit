@@ -1,1 +1,1 @@
-changequote(`[[[', `]]]')
+changequote(`{{', `}}')
