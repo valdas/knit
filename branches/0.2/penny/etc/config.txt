@@ -6,7 +6,7 @@
 ``css-print``       img/print.css
 ``description``     The art of Awk: how to do more, with less
 ``keywords``        Awk, design, less is more
-``author``          Tim Menzies
+``author``          Tim Menzies 
 ``favicon``         bracket.ico
 ``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
 ``logo``            <center>
