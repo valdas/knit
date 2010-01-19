@@ -1,5 +1,9 @@
 need some scripting tricl
 
+web site
+	need a page for "support"
+	need a 404 page
+
 brian
 	who is the chair of the systems committee
 
@@ -19,3 +23,62 @@ make
 slots
 	anyStrings
 		blank outout
+Adam
+	: explain adtrees 
+Ashutosh 
+	note
+		: please use the makefile to generate the paper. it stores all the
+		: temp files in ~/tmp (so if that directory does not exist, you will
+		: have to make it). the script is useful since if you make tml files
+		: (e.g. RHE_paper.bbl) and i make the same tmp files, subversion vers
+		: confused about who owns what. 
+		usage
+			: type "make"
+	
+	title
+		Learning Patterns of University Student Retention?
+	Introduction
+		: what is the value of figs1,2? delete?
+	Footnotes
+		: please check footnotes for questions from me to you.
+	Table 1
+		: please horiztonal line between the results of each author. i found
+		: (e.g.) Herzog (2005) to be hard to read
+	Hypotheses
+		: we never list the hypotheses
+	Which classifiers were used by past research?
+
+MIL
+	ekrem
+		hello!
+	andrew 
+		tutorial
+			: setting ssh keys so we can run things on n machines
+	timm
+		abcd results	
+	adam2
+		mann whitney
+		neighborhoods
+	fayola
+		essay: jan31
+		10 
+			: results of clustering over 10 data sets for discrete data
+	adam1 
+		mdp
+			:what are the defect distributions in the different 
+			:components of the nasa data?
+		student data
+			: meeting 1:30?
+	bryan 
+		ridor trees sizes
+			: that check on the sizes of the ridor trees. 
+		paper
+			: asked to bring 10 copies
+		also
+			: what else?
+	greg
+		coseekmo
+			: sample output from coseekmo
+	zach
+		numeric clstering
+			:results of clustering the output from the forensics  models
