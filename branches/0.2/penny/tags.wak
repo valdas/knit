@@ -9,9 +9,11 @@ Synopsis
 
 Load a tags file and build the working memory.
 
-    loadTags(tagFile,file,title,tags,sgat)
+    loadTags(tagCommand,file,title,tags,sgat)
 
-Print the tags for a web page. Uses the working memory buit above.
+Runs _tagCommand_ (e.g. "cat file") to generate the source of the tags
+files.  Using that information, it print the tags for a web page. Uses
+the working memory buit above.
 
     print tag(page,file,title,tags,sgat)
 
@@ -32,23 +34,18 @@ Code
 Uses 
 ----
 
-@uses basename phrases o trim stack
+@uses basename phrases o trim stack slurp
 
 Main
 ----
 
- function loadTags(ins,file,title,tags,sgat,   \
-                       line,items,n,i,\
-                       _FILENAME,_FNR,_NF,_NR,_RS,_FS ) {
-     _FILENAME=FILENAME; _FNR=FNR; _NF=NF; _NR=NR; _RS=RS; _FS=FS;
-     RS="\n"; FS=";";
-     while((getline line < ins) > 0) {  
-         line = trim(line)
-         n = phrases(line,";",items)
+ function loadTags(ins,file,title,tags,sgat,     maxLines,i,lines,items,n) {
+     maxLines = slurp(ins,lines)
+     for(i=1;i<=maxLines;i++) {  
+         n = phrases(trim(lines[i]),";",items)
          if (n) 
              tagLine(items,n,file,title,tags,sgat); 
      }
-     FILENAME=_FILENAME; FNR=_FNR; NF=_NF; NR=_NR; RS=_RS; FS=_FS;
  } 
  function tagLine(items,n,file,title,tags,sgat,  dirname,f,i,name) {
       dirname = items[1]
