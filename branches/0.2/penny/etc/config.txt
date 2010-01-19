@@ -3,7 +3,7 @@
 ``quote``           <b>"Because easy is not wrong."</b><br>- Ronald Loui
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF
 ``css-main``        img/style.css
-``css-print``       iing/print.css
+``css-print``       img/print.css
 ``description``     The art of Awk: how to do more, with less
 ``keywords``        Awk, design, less is more
 ``author``          Tim Menzies
