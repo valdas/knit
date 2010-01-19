@@ -10,6 +10,9 @@ Synopsis
 Grab the output of a shell _command_ into an _array_, divided by a
 _seperator_ (defaults to newline).
 
+For very big files, _slurp_ is _not_ recommended. When dealing with
+very big files, it is  better to read each line one at a time.
+
 Code
 ====
 
