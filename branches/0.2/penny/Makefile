@@ -54,3 +54,6 @@ eg11 : eg0
 eg12 : eg0
 	@$A testQueryString("etc/tests/tags.txt","advocacy&Admin&Jan&Misc&title=love") $Z
 
+eg13 : eg0
+	QUERY_STRING="nosql" gawk 'BEGIN {print ENVIRON["QUERY_STRING"]}'
+
