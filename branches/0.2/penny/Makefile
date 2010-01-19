@@ -39,20 +39,20 @@ eg8 : eg0
 	@gawk -f $(Knit)/lib/awk/uses.awk
 
 eg9 : eg0
-	@$A loadTags("etc/tests/tags.txt",files,titles,tags,sgat); print "----";\
+	@$A loadTags("cat etc/tests/tags.txt",files,titles,tags,sgat); print "----";\
          os(files,"files",titles,"titles",tags,"tags",sgat,"sgat")  $(Z)
 	$(Dump);
 
 
 eg10 : eg0
-	@$A testQueryString("etc/tests/tags.txt","nosql") $Z
+	@$A testQueryString("cat etc/tests/tags.txt","nosql") $Z
 
 
 eg11 : eg0
-	@$A testQueryString("etc/tests/tags.txt","Admin") $Z
+	@$A testQueryString("cat etc/tests/tags.txt","Admin") $Z
 
 eg12 : eg0
-	@$A testQueryString("etc/tests/tags.txt","advocacy&Admin&Jan&Misc&title=love") $Z
+	@$A testQueryString("cat etc/tests/tags.txt","advocacy&Admin&Jan&Misc&title=love") $Z
 
 eg13 : eg0
 	QUERY_STRING="nosql" gawk 'BEGIN {print ENVIRON["QUERY_STRING"]}'

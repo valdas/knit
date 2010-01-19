@@ -45,18 +45,18 @@ doc/tictactoe.html			;AaronH	;2009	;May	 ;Games			;Tic-tac-toe
 doc/quicksort.html			;Ysa	;2009	;Apr	;TenLiners	;Sorting 			;Quicksort
 doc/qtawk.html			;TerryB	;2009	;May	  			;QTawk
 
-doc/news/popular.html		;Admin	;2009	;Nov;				;Awk.info Gaining Popularity
-doc/news/awkbot.html		;ScottS	;2009	;Nov;				;Awkbot: 
-doc/news/awkmug.html		;Zazzle	;2009	;Oct;				;Awk Mug
+doc/news/popular.html		;Admin	;2009	;Nov				;Awk.info Gaining Popularity
+doc/news/awkbot.html		;ScottS	;2009	;Nov				;Awkbot: 
+doc/news/awkmug.html		;Zazzle	;2009	;Oct				;Awk Mug
 doc/news/parallelAwk.html	;JohnD	;2009	;Oct				;Parallel Awk
 doc/wst.html       		; DanN	;2009	;Dec				;Waclaw Sierpinski's Triangle
-doc/tools/server.html		;MichealS	;2009	;Dec;	Web;			;A Web Server in Awk
-doc/tools/myrss.html		;TimM	;2009	;Dec;	Rss;			;Reading RSS feeds
-doc/tools/rcalc.html		;GrantC	;2009	;Nov;	Engineering;			;Resistor Calculation
-doc/tools/zipf.html		;JohnF	;2009	;Oct;	TextMining;			;Zipf's Law
-doc/news/mawkHashing.html	;JMellander	;2009	;Oct;	Mawk;			;Faster Hashing in Mawk
-doc/news/mawkIsFast.html	;BrendanO	;2009	;Oct;	Mawk;			;Mawk: faster than C, C++, Java, Perl, Ruby....
-doc/news/robbinsTalks.html	;ArnoldR	;2009	;Aug;			;Interview with Arnold Robbins
+doc/tools/server.html		;MichealS	;2009	;Dec	;Web			;A Web Server in Awk
+doc/tools/myrss.html		;TimM	;2009	;Dec	;Rss			;Reading RSS feeds
+doc/tools/rcalc.html		;GrantC	;2009	;Nov	;Engineering			;Resistor Calculation
+doc/tools/zipf.html		;JohnF	;2009	;Oct	;TextMining			;Zipf's Law
+doc/news/mawkHashing.html	;JMellander	;2009	;Oct	;Mawk			;Faster Hashing in Mawk
+doc/news/mawkIsFast.html	;BrendanO	;2009	;Oct	;Mawk			;Mawk: faster than C, C++, Java, Perl, Ruby....
+doc/news/robbinsTalks.html	;ArnoldR	;2009	;Aug			;Interview with Arnold Robbins
 doc/news/libmawk.html		;TiborP	;2009	;Aug	;Libmawk	;Mawk		;How to call Awk form "C" with Libmawk
 doc/news/awkeye.html		;DickL	;2009	;Jul	;Mascot		;New Awk Mascot ('AWK-eye the Dwarf)?
 doc/news/theAwkBook.html	;Admin; 2009; Mar; News			;The Awk Book's Code
@@ -93,7 +93,7 @@ doc/tip/shortenMyPipes.html			;M0J0	;2009	;Oct	;SysAdmin	 		;Shorten my pipes
 doc/tip/sedInAwk.html			;EdM	;2009	;Oct	;Tips ;Sed		;Sed in Awk
 doc/fastre.html				;RussC	;2009	;Jul			;Regular Expression Matching Can Be Simple And Fast 
 
-doc/news/whinyfix.html		;HermannP	;2009	;Nov; ;Errata		;Errata: WHINY_USERS slows down Awk
+doc/news/whinyfix.html		;HermannP	;2009	;Nov ;Errata		;Errata: WHINY_USERS slows down Awk
 doc/tip/whinyUsers.html		;EdM	;2009	;Sept	;Tips	;The Secret WHINY_YSERS flag
 doc/tip/printranges.html		;EdM	;2009	;Aug	;Tips	;Printing ranges
 doc/tip/awk4db.html		;VictorA	;2009	;Jul	;Tips	;Databases	;Using Awk for Databases
@@ -129,8 +129,8 @@ gawk/array/join.awk			;ArnoldR	;2009	;Feb	;Function	;Arrays	;Timm	;join.awk
 gawk/array/array.awk		;Admin	;2009	;Feb	;Function	;Arrays	;array.awk
 
 doc/sorting.html            ;EdM   ;2009   ;Nov    ;Tools      ;Sorting	 ;Sorting
-doc/j.html		;EdM	;KennyM		;2009	;Dec;				;Awk's Equivalent to VI's J
-doc/tools/o.html		;DebbieF	;2009	;Dec;	Sorting;			;Sorting Arrays Via the Shell
+doc/j.html		;EdM	;KennyM		;2009	;Dec				;Awk's Equivalent to VI's J
+doc/tools/o.html		;DebbieF	;2009	;Dec   ;Sorting			;Sorting Arrays Via the Shell
 doc/quicksort2.html			;Awk	;2009	;Apr	;TenLiners 	;Sorting			;Quicksort2
 doc/tools/levenshtein.html  ;PierreG   ;2009   ;Nov    ;Tools       ;levenshtein.awk
 doc/tools/columnate.html            ;Admin   ;2009   ;Nov    ;Tools       ;Columnate
@@ -145,13 +145,13 @@ doc/tools/cryptosig.html	;Anon	;2009	;Apr	;Tools	;Sigs	;Hiding Email Address
 doc/tools/sigs.html			;Timm	;2009	;Apr	;Tools	;Sigs	;Generating random sigs
 doc/tools/correlate.html	;TimS	;2009	;May	;Tools	;Stats	;Correlation between numbers
 
-doc/music.html			;Admin	;2009	;June	;Tools	;Music; 	;Music tools and Awk
+doc/music.html			;Admin	;2009	;June	;Tools	;Music 	;Music tools and Awk
 
 doc/project.html			;Admin	;2009	;Mar	;Tools	;Project	;Project Tools
 doc/tools/mysql.html			;ScottS	;2009	;Oct	 ;Databases	;MySql
 doc/tools/nosql.html			;CarloS	;2009	;Jul	 ;Databases	;NoSQL
-doc/tools/plait.html			;StephenJ	;2009	;June	;Tools	;Music; ;Awk100	;Playing music
-doc/tools/humdrum.html			;DavidH	;2009	;June	;Tools	;Music; 	;Music analysis workbench
+doc/tools/plait.html			;StephenJ	;2009	;June	;Tools	;Music ;Awk100	;Playing music
+doc/tools/humdrum.html			;DavidH	;2009	;June	;Tools	;Music 	;Music analysis workbench
 doc/tools/shuffle.html		;Timm	;2009	;June	;Tools	;TenLiners	;Shuffle.awk
 doc/tools/runawk.html		;AlexC	;2009	;Mar	;Tools	;Project ;Runawk	;runawk
 doc/tools/m1.html			;JonB	;2009	;Mar	;Tools	;Macros; Awk100	;m1 : simple macros
