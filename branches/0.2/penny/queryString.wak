@@ -44,7 +44,7 @@ Code
 # stag to tags
 
  function queryString(tags,files,titles,sgat,out) {
-    queryString(ENVIRON["QUERY_STRING"],tags,files,titles,sgat,out) 
+     queryString(ENVIRON["QUERY_STRING"],tags,files,titles,sgat,out) 
  }
  function queryString1(query,tags,files,titles,sgat,out,   \
                        var,used,seen,cats,n,tmp,i,is,title) {
