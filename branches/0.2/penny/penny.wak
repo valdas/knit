@@ -4,6 +4,18 @@ A minimal CMS.
 
 @uses tags queryString o
 
+function penny(config) {
+    return penny1(config,ENVIRON["QUERY_STRING"])
+}
+function penny1(config,str) {
+     loadTags(config,files,titles,tags,sgat)
+     title = queryString1(query,tags,files,titles,sgat,out)
+     for(i=1;i<=pages[0];pages)
+         contents = contents 
+ }
+
+# loads the tas, load the config
+
 # BEGIN {print 1111}
 
 # Does some cool things
