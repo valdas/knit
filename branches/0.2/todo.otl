@@ -48,6 +48,10 @@ Ashutosh
 		: we never list the hypotheses
 	Which classifiers were used by past research?
 
+AWK.info
+	jan
+		safe slurping
+
 =======================================================
 
 MIL
@@ -59,30 +63,42 @@ MIL
 	andrew 
 		tutorial
 			: setting ssh keys so we can run things on n machines
-	timm
-		using at-at-wvu
-		abcd results	
-		tools
-			: swipl
-			: outline mode in vim
-		student data experiment
-			: its waked!
-		nsf proposal
-			: with vindo
-		deadlines
-			: Waynet state (? mar 22)
-			: ASE march march 8/15
-			: Germany (last 2 weeks of march)
-			: PROMISE*2 may 14/2010
-		thesis defense (april/may)
-			: brian, greg, joe, ? fayola, ? andrew , ? phillip
+	cool tools
+		: ai stack
+		: ssh
+		: swipl
+		: outline mode in vim
+		: google search, google analytics, disqus, outbrain, highlighter
 	adam2
 		mann whitney
 		neighborhoods
+	timm
+		using at-at-wvu
+		abcd results	
+		student data experiment
+			: its waked!
+		nsf proposal
+			: with vinod
+		deadlines
+			: ASE march march 8/15
+			: PROMISE*2 may 14/2010
+			thesis defense (april/may)
+				: brian, greg, joe, ? fayola, ? andrew , ? phillip
+		trips
+			: Wayne state (? mar 22)
+			: Germany (last 2 weeks of march)
+			: ASE/PROMISE/ICSM: sept 
+			: china/australia: ?june / ?july
 	fayola
 		essay: jan31
 		10 
 			: results of clustering over 10 data sets for discrete data
+	zach
+		numeric clstering
+			:results of clustering the output from the forensics  models
+	greg
+		coseekmo
+			: sample output from coseekmo
 	adam1 
 		mdp
 			:what are the defect distributions in the different 
@@ -96,9 +112,3 @@ MIL
 			: asked to bring 10 copies
 		also
 			: what else?
-	greg
-		coseekmo
-			: sample output from coseekmo
-	zach
-		numeric clstering
-			:results of clustering the output from the forensics  models
