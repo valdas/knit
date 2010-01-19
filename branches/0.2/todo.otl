@@ -55,8 +55,13 @@ MIL
 		tutorial
 			: setting ssh keys so we can run things on n machines
 	timm
-		abcd results	
 		using at-at-wvu
+		abcd results	
+		tools
+			: swipl
+			: outline mode in vim
+		student data experiment
+			: its waked!
 		nsf proposal
 			: with vindo
 		deadlines
