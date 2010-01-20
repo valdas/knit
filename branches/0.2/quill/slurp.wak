@@ -25,12 +25,12 @@ Main
 ----
 
  function slurp(com,all, sep) { 
-     return split(slurp0(com),
+     return split(slurp2String(com),
 		  all, 
 		  (sep ? sep : "\n")) 
  }
- function slurp0(com0,    com,txt,\
-                 filename,fnr,nf,nr,rs,fs ) {
+ function slurp2String(com0,    com,txt,\
+                      filename,fnr,nf,nr,rs,fs ) {
      filename=FILENAME;fnr=FNR;nf=NF;nr=NR;rs=RS;fs=FS;
      RS="\r\r\n"; FS="\r\r\n"; # change globals 
      com = deShell(com0)       # make 'com0' safe
