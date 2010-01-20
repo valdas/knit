@@ -1,0 +1,3 @@
+index.html    ;Admin ;Jan ;2010 ;Welcome to the Art of Awk
+success.html  ;Admin ;Jan ;2010 ;You have logged in to the comment system
+404.html      ;Admin ;Jan ;2010 ;Page not found 

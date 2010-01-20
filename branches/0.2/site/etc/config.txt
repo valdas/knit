@@ -8,11 +8,13 @@
 ``css-main``        img/style.css
 ``css-print``       img/print.css
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF
-``tags``            http://knit.googlecode.com/svn/branches/0.2/penny/etc/tags.txt
+``tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
+``site``           http://knit.googlecode.com/svn/branches/0.2/site
+``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
 ``logo``            <center>
                     <img  width="155"
-		          src="http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF/img/leaves_brown.jpg">
+		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg">
                     The Art of <strike>Auk</strike> Awk: <br>how do more, with less.
                     </center> 
 ``footnote``         <p> 

@@ -2,16 +2,26 @@
 
 A minimal CMS.
 
-@uses tags queryString o
+@uses tags queryString
 
 function penny(config) {
-    return penny1(config,ENVIRON["QUERY_STRING"])
+    return penny1("http://" config,ENVIRON["QUERY_STRING"])
 }
-function penny1(config,str) {
-     loadTags(config,files,titles,tags,sgat)
-     title = queryString1(query,tags,files,titles,sgat,out)
-     for(i=1;i<=pages[0];pages)
-         contents = contents 
+function penny1(slotsFile,query,     sep,values,files,titles,tags,sgat,pages,file,url,content,out) {
+    sep="``"
+    loadSlots("wget -O - "slotsFile,sep,values) # get all the short string values
+    loadTags(values["tags"],   files,titles,tags,sgat) # get all the page tags
+    values["Title"]  = queryString1(query,tags,files,titles,sgat,pages) # list the required pages
+    values["Content"]=""
+    if (pages[0] == 0)
+        push(pages,values["Default"])
+    for(i=1;i<=pages[0];i++) {
+        file = values["File"] = pages[i]
+        url  = values["Url"]  = "http://" values[site] "/" file
+        content = content fillFrame2String(url,sep,values)
+    }
+    values["Content"] = cotent
+    fillFrame(values["template"],sep,values)     
  }
 
 # loads the tas, load the config

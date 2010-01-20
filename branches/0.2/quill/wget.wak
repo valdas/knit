@@ -8,8 +8,9 @@ Synopsis
   wget(url,array,seperator)
 
 Split the contents of _url_ into an _array_, divided by a _seperator_
-(defaults to new line). Note that this code prepends "http://" onto
-the url.
+(defaults to new line). Returns the size of the array.
+
+Note that this code prepends "http://" onto the url.
 
 Example  
 =======
