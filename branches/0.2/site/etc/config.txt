@@ -58,6 +58,55 @@
        SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
        SyntaxHighlighter.all();
    </script> 
+ ``quotes``
+12
+"Because easy is not wrong."
+-- Ronald Loui
+
+11
+"Simplify, then add lightness."
+-- Colin Chapman
+
+10
+"Out of clutter, find simplicity"
+-- Albert Einstein
+
+9
+"Simplicity is the ultimate sophistication."
+-- Leonardo da Vinci
+
+8
+"Good design is as little design as possible."
+-- Dieter Rams
+
+7
+"Simplify means to eliminate the unnecessary"
+-- Hans Hoffman
+
+6
+"Plurality should not be assumed without necessity."
+-- William of Ockham
+
+5
+"If it's stupid, and it works, it isn't stupid."
+-- Murphy's laws of combat. 
+
+4
+"Perfection: when there is nothing left to take away."
+-- Antoine de Saint-Exupery
+
+3
+"Simplicity does not precede complexity, but follows it."
+-- Alan Perlis
+
+2
+"Our life is frittered away by detail... simplify, simplify."
+-- Henry Thoreau
+
+1
+"Any simple idea will be worded in the most complicated way."
+-- Malek's Law
+
 
 ``File``index.html
 ``Content``
