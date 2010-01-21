@@ -1,4 +1,10 @@
-``title``           The Art of Awk
+``Title``           The Art of Awk
+``Tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
+``Url``             http://knit.googlecode.com/svn/branches/0.2/site
+``Default``         index.html
+``NotFound``	    404.html
+``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
+
 ``home``            http://awkcookbook.info
 ``quote``           <b>"Because easy is not wrong."</b><br>- Ronald Loui
 ``description``     The art of Awk: how to do more, with less
@@ -8,17 +14,15 @@
 ``css-main``        img/style.css
 ``css-print``       img/print.css
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF
-``tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
-``site``           http://knit.googlecode.com/svn/branches/0.2/site
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
 ``logo``            <center>
-                    <img  width="155"
-		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg">
+                    <a href="http://www.mikelangman.co.uk/"><img  width="155"
+		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a>
                     The Art of <strike>Auk</strike> Awk: <br>how do more, with less.
                     </center> 
-``footnote``         <p> 
-                     Courtesy of <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
+``footer``         <p> 
+                     &copy; 2010 Tim Menzies. Design from  <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
                      &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
 ``google-vertify``  <meta name="google-site-verification" 
                           content="xpIIfhn5E4bx2nT6xnaP0_zc1xJ8K3-02NCqsliLNbU" />
