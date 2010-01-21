@@ -13,7 +13,7 @@
 ``favicon``         bracket.ico
 ``css-main``        img/style.css
 ``css-print``       img/print.css
-``theme``           http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF
+``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
 ``logo``            <center>
