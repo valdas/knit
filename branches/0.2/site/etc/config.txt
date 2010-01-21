@@ -24,7 +24,7 @@
 ``footer``         <p> 
                      &copy; 2010 Tim Menzies. Design from  <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
                      &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
-``google-vertify``  <meta name="google-site-verification" 
+``google-verify``  <meta name="google-site-verification" 
                           content="xpIIfhn5E4bx2nT6xnaP0_zc1xJ8K3-02NCqsliLNbU" />
 ``outbrain-verify`` <input type="hidden" name="OBKey" value="osmrOhG3GtMLBrR57TCKZA=="/> 
                     <script LANGUAGE="JavaScript">var OBCTm=1263101123123; </script>
