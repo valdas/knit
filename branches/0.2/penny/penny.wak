@@ -13,7 +13,7 @@ A minimal CMS.
      sep="``"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
-     values["Title"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
+     values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
      values["Content"]=""
      if (pages[0] == 0)
          push(pages,values["Default"])
@@ -22,7 +22,7 @@ A minimal CMS.
          url  = values["Url"]  = "http://" values[site] "/" file
          content = content fillFrame2String(wget url,sep,values)
      }
-     values["Content"] = cotent
+     values["Content"] = content
      fillFrame(wget values["Template"],sep,values)     
  }
 
