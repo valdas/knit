@@ -57,3 +57,7 @@ eg12 : eg0
 eg13 : eg0
 	QUERY_STRING="nosql" gawk 'BEGIN {print ENVIRON["QUERY_STRING"]}'
 
+
+eg14 : eg0
+	@$A penny1("http://knit.googlecode.com/svn/branches/0.2/site/etc/config.txt","Index") $Z
+

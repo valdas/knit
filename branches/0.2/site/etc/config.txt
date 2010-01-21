@@ -10,7 +10,7 @@
 ``description``     The art of Awk: how to do more, with less
 ``keywords``        Awk, design, less is more
 ``author``          Tim Menzies 
-``favicon``         bracket.ico
+``favicon``         http://knit.googlecode.com/svn/branches/0.2/share/img/bracket.ico
 ``css-main``        img/style.css
 ``css-print``       img/print.css
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF

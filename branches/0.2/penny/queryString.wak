@@ -87,7 +87,7 @@ Code
      return trim(tmp[2])
  }
  function qshortcut(var,tags,needs,seen,used,files,titles,sgat,out) { # shortcut to file 
-   var=  (var in files) ? files[var] : tags["default"];
+   var=  (var in files) ? files[var] : tags["NotFound"];
    return qfile(var,tags,needs,seen,used,files,titles,sgat,out);
  }	
  function qfile(var,tags,needs,seen,used,files,titles,sgat,out,   title) { # add file

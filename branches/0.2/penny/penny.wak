@@ -2,28 +2,39 @@
 
 A minimal CMS.
 
-@uses tags queryString
+@uses slots tags queryString myrss anyStrings barph
 
-function penny(config) {
-    return penny1("http://" config,ENVIRON["QUERY_STRING"])
-}
-function penny1(slotsFile,query,     sep,values,files,titles,tags,sgat,pages,file,url,content,out) {
-    sep="``"
-    loadSlots("wget -O - "slotsFile,sep,values) # get all the short string values
-    loadTags(values["tags"],   files,titles,tags,sgat) # get all the page tags
-    values["Title"]  = queryString1(query,tags,files,titles,sgat,pages) # list the required pages
-    values["Content"]=""
-    if (pages[0] == 0)
-        push(pages,values["Default"])
-    for(i=1;i<=pages[0];i++) {
-        file = values["File"] = pages[i]
-        url  = values["Url"]  = "http://" values[site] "/" file
-        content = content fillFrame2String(url,sep,values)
-    }
-    values["Content"] = cotent
-    fillFrame(values["template"],sep,values)     
+ function penny(config) {
+     return penny1("http://" config,ENVIRON["QUERY_STRING"])
+ }
+ function penny1(slotsFile,query,     \
+                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,out) {
+     wget = "wget -qO - "
+     sep="``"
+     loadSlots(wget slotsFile,sep,values) # get all the short string values
+     loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
+     values["Title"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
+     values["Content"]=""
+     if (pages[0] == 0)
+         push(pages,values["Default"])
+     for(i=1;i<=pages[0];i++) {
+         file = values["File"] = pages[i]
+         url  = values["Url"]  = "http://" values[site] "/" file
+         content = content fillFrame2String(wget url,sep,values)
+     }
+     values["Content"] = cotent
+     fillFrame(wget values["Template"],sep,values)     
  }
 
+ function slotsPlugIns(string,values,      tmp) {   
+     split(string,tmp,";")
+     if (tmp[1]=="rss")
+         return myrss(tmp[2],tmp[3])
+     if (tmp[1]="any")
+         return anyStrings(values[tmp[2]],tmp[3],1)
+     barph("(" string ") ???") 
+ }
+  
 # loads the tas, load the config
 
 # BEGIN {print 1111}
