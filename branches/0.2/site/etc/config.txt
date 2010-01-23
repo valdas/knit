@@ -1,6 +1,6 @@
 ``Title``           The Art of Awk
 ``Tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
-``Url``             http://knit.googlecode.com/svn/branches/0.2/site
+``Site``            http://knit.googlecode.com/svn/branches/0.2/site
 ``Default``         index.html
 ``NotFound``	    404.html
 ``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
