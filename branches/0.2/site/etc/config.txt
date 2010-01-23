@@ -4,7 +4,6 @@
 ``Default``         index.html
 ``NotFound``	    404.html
 ``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
-
 ``home``            http://awkcookbook.info
 ``quote``           <b>"Because easy is not wrong."</b><br>- Ronald Loui
 ``description``     The art of Awk: how to do more, with less
@@ -59,54 +58,49 @@
        SyntaxHighlighter.all();
    </script> 
  ``quotes``
-12
+1
 "Because easy is not wrong."
 -- Ronald Loui
 
-11
+1
 "Simplify, then add lightness."
 -- Colin Chapman
 
-10
+1
 "Out of clutter, find simplicity"
 -- Albert Einstein
 
-9
+1
 "Simplicity is the ultimate sophistication."
 -- Leonardo da Vinci
 
-8
+1
 "Good design is as little design as possible."
 -- Dieter Rams
 
-7
+1
 "Simplify means to eliminate the unnecessary"
 -- Hans Hoffman
 
-6
+1
 "Plurality should not be assumed without necessity."
 -- William of Ockham
 
-5
+1
 "If it's stupid, and it works, it isn't stupid."
 -- Murphy's laws of combat. 
 
-4
+1
 "Perfection: when there is nothing left to take away."
 -- Antoine de Saint-Exupery
 
-3
+1
 "Simplicity does not precede complexity, but follows it."
 -- Alan Perlis
 
-2
+1
 "Our life is frittered away by detail... simplify, simplify."
 -- Henry Thoreau
-
-1
-"Any simple idea will be worded in the most complicated way."
--- Malek's Law
-
 
 ``File``index.html
 ``Content``
