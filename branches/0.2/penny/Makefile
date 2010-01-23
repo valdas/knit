@@ -59,5 +59,5 @@ eg13 : eg0
 
 
 eg14 : eg0
-	@$A penny1("http://knit.googlecode.com/svn/branches/0.2/site/etc/config.txt","Index") $Z
+	@$A penny1("http://knit.googlecode.com/svn/branches/0.2/site/etc/config.txt","Admin") $Z
 
