@@ -5,7 +5,6 @@
 ``NotFound``	    404.html
 ``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
 ``home``            http://awkcookbook.info
-``quote``           <b>"Because easy is not wrong."</b><br>- Ronald Loui
 ``description``     The art of Awk: how to do more, with less
 ``keywords``        Awk, design, less is more
 ``author``          Tim Menzies 
