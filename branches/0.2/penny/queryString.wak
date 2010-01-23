@@ -75,7 +75,7 @@ Code
  }
  function qrecognizer(var) {
    if (var ~ /^title=/) return "title";
-   if (var ~ /^[a-z_]/) {
+   if (var ~ /^[a-z_0-9]/) {
      if (var ~ /\//     ) return "file";
      if (var ~ /\.html$/) return "file";
      return "shortcut";
