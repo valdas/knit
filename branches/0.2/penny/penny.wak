@@ -8,13 +8,13 @@ A minimal CMS.
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
  }
  function penny1(slotsFile,query,     \
-                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,out) {
+                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,out) {     
      wget = "wget -qO - "
      sep="``"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
      values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
-     values["Content"]=""
+     values["Content"]="" 
      if (pages[0] == 0)
          push(pages,values["Default"])
      for(i=1;i<=pages[0];i++) {
