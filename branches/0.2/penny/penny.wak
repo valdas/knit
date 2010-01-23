@@ -19,7 +19,7 @@ A minimal CMS.
          push(pages,values["Default"])
      for(i=1;i<=pages[0];i++) {
          file = values["File"] = pages[i]
-         url  = values["Url"]  = "http://" values["Site"] "/" file
+         url  = values["Url"]  = values["Site"] "/" file
          print url
          content = content fillFrame2String(wget url,sep,values)
      }
