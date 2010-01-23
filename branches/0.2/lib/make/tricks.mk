@@ -20,16 +20,12 @@ all : $(Egs) #: run all examples
 Download=$(Tags)/$(This)/$(Version)
 
 tag : build #: install the current version into tags
-	if [ ! -d "$(Download)" ]; then \
-		mkdir -p $(Download) ;   \
-		svn add $(This)      ;    \
+	if [ ! -d "$(Download)" ]; then  \
+		mkdir -p $(Download) ;    \
+		svn add $(Tags)/$(This);   \
 	fi
-	cd $(Download)
-	cp  $(LatestBuild) $(This)
-	svn add --quiet $(This)
-	cd ../..
-	svn commit -m "added : new version of $(This) $(Version)" 
-
+	cd $(Download) ; cp $(LatestBuild) $(This); svn add --quiet $(This)
+	cd $(Tags)/$(This); svn commit -m "added : new version of $(This) $(Version)" 
 
 installDir : 
 	@$(foreach d, $(Dirs),\
