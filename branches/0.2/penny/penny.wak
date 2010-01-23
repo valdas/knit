@@ -23,8 +23,7 @@ A minimal CMS.
          content = content fillFrame2String(wget url,sep,values)
      }
      values["Content"] = content
-     print content
-     #fillFrame(wget values["Template"],sep,values)     
+     fillFrame(wget values["Template"],sep,values)     
  }
 
  function slotsPlugIns(string,values,      tmp) {   
