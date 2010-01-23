@@ -5,5 +5,6 @@ echo ""
 
 Base="knit.googlecode.com/svn"
 
-wget -O penny.awk "http://$Base/tags/penny/0.1/penny.awk"
-gawk -f penny.awk --source 'BEGIN { penny("'$Base'"branches/0.2/penny/etc/config.txt"}'
+rm -rf penny
+wget -q http://$Base/tags/penny/0.1/penny
+gawk -f penny --source 'BEGIN { penny("'$Base'/branches/0.2/site/etc/config.txt")}'
