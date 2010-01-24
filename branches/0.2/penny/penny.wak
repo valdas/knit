@@ -30,7 +30,7 @@ A minimal CMS.
  function slotsPlugIns(string,values,      tmp) {   
      split(string,tmp,";")
      if (tmp[1]=="rss")
-         return "<p>" myrss(tmp[2],tmp[3],"<p>")
+         return  myrss(tmp[2],tmp[3],"<p>")
      if (tmp[1]="any")
          return anyStrings(values[tmp[2]],tmp[3],1)
      barph("(" string ") ???") 
