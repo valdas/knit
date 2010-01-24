@@ -14,11 +14,10 @@
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
-``logo``            <center>
-                    <a href="http://www.mikelangman.co.uk/"><img  width="150"
-		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a>
+``logo``            <a href="http://www.mikelangman.co.uk/"><img  width="150"
+		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>
                     The Art of <strike>Auk</strike> Awk: <br>how do more, with less.
-                    </center> 
+             
 ``footer``         <p> 
                      &copy; 2010 Tim Menzies. Design from  <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
                      &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
