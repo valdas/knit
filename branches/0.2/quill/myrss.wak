@@ -136,7 +136,7 @@ the itenm. Note that every field found by _myrss1_ is passed to the function.
 Feel free to ignore all the arguments except the ones you want to display.
 
  function myReport(url,date,title,author,link,txt) {
-     return "<a href=\"" url "\">" date "</a>\n " txt
+     return "<a href=\"" url "\">" date "</a>:\n " txt
  }
 
 Author
