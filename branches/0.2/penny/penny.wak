@@ -2,13 +2,14 @@
 
 A minimal CMS.
 
-@uses slots tags queryString myrss anyStrings barph
+@uses slots tags queryString myrss seed anyStrings barph
 
  function penny(config) {
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
  }
  function penny1(slotsFile,query,     \
                  wget,sep,values,files,titles,tags,sgat,pages,file,url,content,out) {     
+     seed()
      wget = "wget -qO - "
      sep="``"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
