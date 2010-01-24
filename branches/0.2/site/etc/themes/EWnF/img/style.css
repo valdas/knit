@@ -103,7 +103,7 @@ background-color: #F5F5F5;
 #navigation p {
 margin-top: 40px;
 padding: 5px;
-border-bottom: 1px dotted #CCC;
+xborder-bottom: 1px dotted #CCC;
 border-top: 1px dotted #CCC;
 }
 #navimg {
