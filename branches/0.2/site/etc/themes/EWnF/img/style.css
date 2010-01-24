@@ -92,10 +92,10 @@ float: left;
 width: 140px;
 }
 #navigation a {
-background-color: #ece8e8;
-display: block;
-padding: 5px;
-width: 140px;
+xbackground-color: #ece8e8;
+xdisplay: block;
+xpadding: 5px;
+xwidth: 140px;
 xborder-bottom: 1px solid #CCC;
 }
 #navigation a:hover {
