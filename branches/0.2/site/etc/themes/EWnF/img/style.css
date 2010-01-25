@@ -75,15 +75,17 @@ padding-top: 20px;
 #navigation {
 float: left;
 clear: left;
-background-color: #EDE9E6;
 width: 150px;
 xheight: 100%;
 margin: 0 0 0 0;
 padding: 5px;			
-border: solid 1px #000;
-margin-bottom: 5px;
-}
 
+}
+#panel {
+ background-color: #EDE9E6;
+ border: solid 1px #000;
+ margin-bottom: 5px;
+}
 #navigation ul {
 margin-left: 0;
 padding-left: 0;
