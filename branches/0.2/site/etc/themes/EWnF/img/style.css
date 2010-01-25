@@ -78,13 +78,14 @@ clear: left;
 width: 150px;
 xheight: 100%;
 margin: 0 0 0 0;
-padding: 5px;			
+xpadding: 5px;			
 
 }
 #panel {
  background-color: #EDE9E6;
  border: solid 1px #000;
  margin-bottom: 5px;
+ padding: 5px;
 }
 #navigation ul {
 margin-left: 0;
