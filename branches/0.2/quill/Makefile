@@ -1,14 +1,4 @@
 #---------------------------------------------------------------------------
-This    = quill#
-Version = 0.1#
-
-about: 
-	@echo "A test engine for QUILL function $(This), v$(Version)"
-	@echo "copyright (c) GPL 3.0 2010 Tim Menzies, (tim AT menzies DOT us)"
-
-include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
-#---------------------------------------------------------------------------
-
 # QUILL processes "wak" files and, depending on your taste, "wak" means:
 #
 # - "awk", al mixed up
@@ -47,3 +37,19 @@ include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #   animals and demons.
 #   (From http://www.monamagick.com/resources_deities_african4.html)
 
+This    = quill#
+Version = 0.1#
+
+about: 
+	@echo "A test engine for QUILL function $(This), v$(Version)"
+	@echo "copyright (c) GPL 3.0 2010 Tim Menzies, (tim AT menzies DOT us)"
+
+include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
+#---------------------------------------------------------------------------
+
+PrettyFeathers:=$(subst .wak,.html,$(shell ls *.wak))
+
+builds 	: $(Html)/$(subst .html ,.html $(Html)/,$(PrettyFeathers))
+
+$(Html)/%.html : %.wak
+	$(MAKE) This=$(subst .wak,,$^) build
