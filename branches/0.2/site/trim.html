@@ -1,0 +1,13 @@
+<h1><join>trim</join></h1>
+<p>
+Returns a string after removing leading and trailing blanks.
+</p>
+<pre>
+ function trim(s) {
+	sub(/^[ \t\r\n]*/,"",s)
+	sub(/[ \t\r\n]*$/,"",s)
+	return s
+ } 
+</pre>
+<p>
+by Tim Menzies

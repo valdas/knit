@@ -1,0 +1,81 @@
+<h1><join>stack</join></h1>
+
+<ul>
+<li> <a href="#1">Simple stacks</a>
+<ul>
+<li> <a href="#2">push</a>
+<li> <a href="#3">pop</a>
+</ul>
+<li> <a href="#4">Cards (2-d stacks)</a>
+<ul>
+<li> <a href="#5">push2</a>
+<li> <a href="#6">cards</a>
+<li> <a href="#7">card</a>
+</ul>
+<li> <a href="#8">Author</a>
+</ul>
+<p>
+Stack functions in Awk. 
+</p>
+<a name="1"><h2>Simple stacks</h2>
+
+<a name="2"><h3>push</h3>
+<p>
+Push an <em>item</em> into a stack "<em>s</em>". Return the size of the new stack.
+</p>
+<pre>
+ function push(s,item,  i) {      
+     i    = ++s[0]
+     s[i] = item
+     return i
+ }
+</pre>
+<a name="3"><h3>pop</h3>
+<p>
+Pop an <em>item</em> from a stack "<em>s</em>". Return the <em>item</em>.
+</p>
+<pre>
+ function pop(s, i,item) { 
+     i    = s[0]--
+     item = s[i]
+     delete s[i]
+     return item
+ }
+</pre>
+<a name="4"><h2>Cards (2-d stacks)</h2>
+<p>
+Cards are a 2-d stack where item "<em>i</em>" in a set of cards <em>c</em> has cardinality <em>c[i,0]</em> 
+and card <em>c[i,1]</em> , <em>c[i,2]</em> , <em>c[i,3]</em> ... 
+</p>
+<a name="5"><h3>push2</h3>
+<p>
+Push an <em>item</em> into cards  "<em>c</em>" at a certain "<em>key</em>". Return the size of the new stack.
+</p>
+<pre>
+ function push2(c,key,item,   i)  {
+     i = ++c[key,0]
+     c[key,i] = item
+     return i 
+ }
+</pre>
+<a name="6"><h3>cards</h3>
+<p>
+Return the number of cards at a particular <em>key</em>.
+</p>
+<pre>
+ function cards(c,key) { 
+     return c[key,0] 
+ }
+</pre>
+<a name="7"><h3>card</h3>
+<p>
+Return the <em>n</em>-th card at position <em>key</em> in "<em>c</em>".
+</p>
+<pre>
+ function card(c,key,n) { 
+     return c[key,n] 
+ }
+</pre>
+<a name="8"><h2>Author</h2>
+<p>
+by Tim Menzies
