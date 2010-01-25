@@ -21,8 +21,8 @@ buildHtmls: $(HtmlHtmls)
 $(Tmp)/knit.tmp : $(LibAwks)	 
 	@echo $(LibAwks)
 	@echo "#!$(Gawk0) -f " > $@ 
-	@(cat $(Knit)/etc/copyrite.txt; cat $(Knit)/etc/knit.txt) >> $@
-	@echo "# Built on `date` by $(USER). " >> $@
+	@(cat $(Knit)/etc/knit.txt; echo "# Built on `date` by $(USER). ") >> $@
+	@cat $(Knit)/etc/copyrite.txt >> $@
 	@$(foreach f,$^,\
 		(printf "\n# $(shell basename $f) \n"; \
 		$(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
