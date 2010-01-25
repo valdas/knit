@@ -1,0 +1,33 @@
+<h1><join>s2a: string to array</join></h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
+</ul>
+
+<a name="1"><h2>Synopsis</h2>
+<pre>
+  s2a(string, array [,seperator])
+</pre>
+<p>
+Divides the input <em>string</em> into the output <em>array</em>, seperated by 
+<em>seperator</em> (default: ','). Uses the odd numbered elements as 
+the keys and the even numbered elements as the values.
+</p>
+<p>
+Note that the <em>array</em> is completely reset by this function.
+</p>
+<a name="2"><h2>Code</h2>
+<pre>
+ function s2a(str,a,  sep,  tmp,n,i) {
+     sep = sep ? sep : ","
+     n= split(str,tmp,sep)
+     for(i=1;i&lt;=n;i+=2) 
+	 a[trim(tmp[i])]= trim(tmp[i+1])
+     return n/2
+ }
+</pre>
+<a name="3"><h2>Author</h2>
+<p>
+Tim Menzies

@@ -1,0 +1,68 @@
+<h1><join>o</join></h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Code </a>
+<ul>
+<li> <a href="#3">Main</a>
+<li> <a href="#4">Simpler</a>
+<li> <a href="#5">Many prints</a>
+</ul>
+<li> <a href="#6">Author</a>
+</ul>
+<p>
+Print an array.
+</p>
+<a name="1"><h2>Synopsis</h2>
+<pre>
+   o(array [,string,control])
+</pre>
+<ul>
+<li> Else, if <em>control</em> is a string, use it as  an  argument to a UNIX sort command (otherwise,  just sort numerically by the <em>array</em> values.
+</ul>
+
+<a name="2"><h2>Code </h2>
+
+<a name="3"><h3>Main</h3>
+<pre>
+ function o(a, str,control,   i,com) {
+     str = str ? str : "array"
+     if (control ~ /^[0-9]/)  {
+         if (control==0)
+             o1(a,str)
+	 else
+             for(i=1;i&lt;=control;i++)
+                 print oprim(str,i,a)
+     } else
+	 if (0 in a)        # sometimes i store array size in a[0]
+	     o(a,str,a[0])         
+         else {
+             com = control ? control : " -n -k 2" 
+             com = "sort " com  " #" rand(); # ensure com is unique
+             for(i in a)
+                 print oprim(str,i,a) | com;
+             close(com); }
+ }
+
+
+ function oprim(str,i,a,  j) {
+     j=i
+     gsub(SUBSEP,",",j) 
+     return str "[ " j " ]\t=\t [ " a[i] " ]"
+ }
+</pre>
+<a name="4"><h3>Simpler</h3>
+
+<a name="5"><h3>Many prints</h3>
+<pre>
+ function os(a1,str1,a2,str2,a3,str3,a4,str4,a5,str5) {
+     if(str1) o(a1,str1);
+     if(str2) o(a2,str2);
+     if(str3) o(a3,str3);
+     if(str4) o(a4,str4);
+     if(str5) o(a5,str5)
+ }
+</pre>
+<a name="6"><h2>Author</h2>
+<p>
+Tim Menzies

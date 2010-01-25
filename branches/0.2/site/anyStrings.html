@@ -1,0 +1,81 @@
+<h1><join>anyStrings</join></h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<ul>
+<li> <a href="#2">Variables</a>
+</ul>
+<li> <a href="#3">Code</a>
+<ul>
+<li> <a href="#4">Uses</a>
+<li> <a href="#5">Main</a>
+</ul>
+<li> <a href="#6">Author</a>
+</ul>
+<p>
+Selects a string, at random from a set of strings.
+</p>
+<a name="1"><h2>Synopsis</h2>
+<pre>
+    anyStrings(string  [,skew,repeats,sep])
+</pre>
+<a name="2"><h3>Variables</h3>
+<p>
+<em>string</em> is a list of paragraphs, with a number on the first
+line. These numbers form a probability distribution.  For example:
+  
+  6  
+  "Out of clutter, find simplicity"
+  -- Albert Einstein
+</p>
+<pre>
+  3
+  "Simplicity is the ultimate sophistication."
+  -- Leonardo da Vinci
+
+
+  1
+  "Good design is as little design as possible."
+  -- Dieter Rams
+
+
+  1
+  "If it's stupid, and it works, it isn't stupid."
+  -- Murphy's laws of combat. 
+
+
+  1
+  "Perfection: when there is nothing left to take away."
+  -- Antoine de Saint-Exupery
+</pre>
+<p>
+N strings are returned, biased by the first line numbers. So, in this
+example, the first quote appears half the time, the second appears a
+quarter of the time and the last appear at much lower frequencies.
+</p>
+<a name="3"><h2>Code</h2>
+
+<a name="4"><h3>Uses</h3>
+
+<a name="5"><h3>Main</h3>
+<pre>
+ function anyStrings(string,   skew,repeats,sep,             \
+                     pmax, paras,para,lines,freq, thing,cdf,memo,out) {
+     skew    = skew    ? skew    : 1
+     repeats = repeats ? repeats : 1
+     sep     = sep     ? sep     : "\n"
+     pmax = split(string,paras,/\n\n/)     
+     for(para=1; para&lt;=pmax; para++) {
+         lines[0]    = split(paras[para],lines,/\n/)       
+         thing       = trim(a2s(lines,"\n",2))
+         freq[thing] = lines[1] + 0
+     }
+     sampleCounts(freq,cdf,memo)
+     while(repeats--) 
+         push(out,  memo[pick(cdf,skew)])
+     return a2s(out,sep)
+ }
+</pre>
+<a name="6"><h2>Author</h2>
+<p>
+Tim

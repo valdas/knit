@@ -1,0 +1,12 @@
+<h1><join>noShellComs</join></h1>
+<p>
+Prune characters that cause shell exection.
+</p>
+<pre>
+ function deShell(str) {
+     gsub(/["`\$;\|&>&lt;]/,"",str);
+     return str
+ }
+</pre>
+<p>
+by Tim Menzies

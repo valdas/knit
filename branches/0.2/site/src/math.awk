@@ -1,0 +1,15 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#math
+
+#Standard maths stuff.
+
+ BEGIN { Pi = 3.14159265
+         E  = 2.71828183 
+       }
+ function oddp(x)  { return (x % 2) }
+ function evenp(x) { return (! oddp(x)) }
+ function round(x) { return int(x + 0.5) }
+
+#by Tim Menzies
+
