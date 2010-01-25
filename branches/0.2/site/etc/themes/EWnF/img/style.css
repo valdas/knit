@@ -73,7 +73,7 @@ padding-bottom: 5px;
 padding-top: 20px;
 }
 #navigation {
-float: left;
+xfloat: left;
 xclear: left;
 background-color: #EDE9E6;
 width: 150px;
