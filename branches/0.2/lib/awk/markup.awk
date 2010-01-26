@@ -55,7 +55,7 @@ function markup(i,str,now,b4) {
 	sub(/[hH]/,"",now)
 	level = now + 0;
 	toc(level,str,++L);
-	return "<a name=\"" L "\"><h" level ">" str "</h" level ">";
+	return "<a name=\"" L "\"><h" level ">" str "</h" level "></a>";
     }
     else 
 	return str 
