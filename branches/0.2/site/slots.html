@@ -105,16 +105,14 @@ Workers
 	 values[trim(all[i])] = trim(all[i+1]);
  }
  function fillFrame(frame,sep,values,   all,n,i) {
-     n=slurp(frame,all,sep);
-     for(i=1; i&lt;=n; i++)  
-	 printf("%s", (oddp(i) ? all[i] : fillSlot(all[i],values)))
+     print fillFrame2String(frame,sep,values)
  }
  function fillFrame2String(frame,sep,values,   all,n,i,str) {
      n=slurp(frame,all,sep);
      for(i=1; i&lt;=n; i++)  
 	 str = str sprintf("%s", (oddp(i) ? all[i] : fillSlot(all[i],values)))
      return str
- }
+ } 
  function fillSlot(str,values) {
      return (str ~ /;/ ? slotsPlugIns(str,values) : values[str])
 }

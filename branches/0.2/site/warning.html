@@ -1,0 +1,9 @@
+<h1><join>warning </join></h1>
+<p>
+Prints a  string to standard error.
+</p>
+<pre>
+ function warning(str) {
+     print "# ERROR: " str   >> "/dev/stderr";
+     fflush("/dev/stderr");
+ }

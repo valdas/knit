@@ -1,2 +1,8 @@
-## -*- mode: Awk; -*-  vim: set filetype=awk : 
+## -*- mode: Awk; -*-  vim: set filetype=awk :
+
+#This is an auto-generated file. Do not edit.
+
+#@uses a2s anyStrings assert barph basename bias biasDemo cat change copyleft deShell math myrss o options phrases prints s2a seed slots slotsDemo slurp stack stackDemo trim warning wget
+
+ function demoQuill() { print "This is Quill." }
 
