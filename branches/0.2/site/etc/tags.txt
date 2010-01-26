@@ -1,3 +1,33 @@
-index.html    ;Admin ;Jan ;2010 ;Welcome to the Art of Awk
-success.html  ;Admin ;Jan ;2010 ;You have logged in to the comment system
-404.html      ;Admin ;Jan ;2010 ;Page not found 
+index.html      ;Admin ;Jan ;2010		;Welcome to the Art of Awk
+success.html    ;Admin ;Jan ;2010 		;You have logged in to the comment system
+404.html      	;Admin ;Jan ;2010 		;Page not found 
+
+
+a2s.html        ;Timm; Strings; Arrays; Jan; 2010		; Array to strings
+anyStrings.html ;Timm; Strings; Random; Jan; 2010		; Select string a random
+assert.html     ;Timm; Debug; Jan; 2010	     			; Assertions
+barph.html      ;Timm; Debug; Jan; 2010				; Barphing
+basename.html	;Timm; Os; Jan; 2010				; Get file basenam
+bias.html	;Timm; Random; Jan; 2010			; Biased random selection
+biasDemo.html	;Timm; Random; Jan; 2010			; Biased random selection (demo)
+cat.html	;Timm; Os; Jan; 2010				; Cat a file
+change.html	;Timm; Strings; Jan; 2010			; Change a string
+copyleft.html	;Timm; App; Jan; 2010				; Print a copyright notice
+deShell.html	;Timm; Os; Jan; 2010				; Remove unsafe meta-characters
+math.html	;Timm; Math; Jan; 2010				; A little maths
+myrss.html	;Timm; Web; Rss; Jan; 2010			; Simple RSS feed reader
+o.html		;Timm; Debug; Arrays;Strings; Jan; 2010		; Print an array
+options.html	;Timm; App; Os; Jan; 2010     	   		; Access command-line options
+phrases.html	;Timm; Strings; Jan; 2010     			; Convert strings to phrases
+prints.html	;Timm; Strings; Jan; 2010     			; Print many strings
+quill.html	;Timm; Misc; Jan; 2010				; Collection of gawk tools
+s2a.html	;Timm; Strings; Arrays; Strings; Jan; 2010	; String to array
+seed.html	;Timm; Randoms; Jan; 2010	      		; Control random number seeds
+slots.html	;Timm; Macros; Strings;Jan; 2010		; Simple macro language
+slotsDemo.html	;Timm; Macros;Strings; Jan; 2010		; Simple macro language (demo)
+slurp.html	;Timm; Os; Web; Jan; 2010   			; Read a file (on disk, across the net)
+stack.html	;Timm; Arrays;  Jan; 2010			; Stacks
+stackDemo.html	;Timm; Arrays; Jan; 2010			; Stacks (demo)
+trim.html	;Timm; Strings; Jan; 2010			; Remove whitespace
+warning.html	;Timm; Debug; Jan; 2010				; Warning
+wget.html	;Timm; Web; Jan; 2010				; Grab a  web file
