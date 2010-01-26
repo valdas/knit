@@ -15,11 +15,11 @@
 <p>
 Selects a string, at random from a set of strings.
 </p>
-<a name="1"><h2>Synopsis</h2>
+<a name="1"><h2>Synopsis</h2></a>
 <pre>
     anyStrings(string  [,skew,repeats,sep])
 </pre>
-<a name="2"><h3>Variables</h3>
+<a name="2"><h3>Variables</h3></a>
 <p>
 <em>string</em> is a list of paragraphs, with a number on the first
 line. These numbers form a probability distribution.  For example:
@@ -53,11 +53,11 @@ N strings are returned, biased by the first line numbers. So, in this
 example, the first quote appears half the time, the second appears a
 quarter of the time and the last appear at much lower frequencies.
 </p>
-<a name="3"><h2>Code</h2>
+<a name="3"><h2>Code</h2></a>
 
-<a name="4"><h3>Uses</h3>
+<a name="4"><h3>Uses</h3></a>
 
-<a name="5"><h3>Main</h3>
+<a name="5"><h3>Main</h3></a>
 <pre>
  function anyStrings(string,   skew,repeats,sep,             \
                      pmax, paras,para,lines,freq, thing,cdf,memo,out) {
@@ -76,6 +76,6 @@ quarter of the time and the last appear at much lower frequencies.
      return a2s(out,sep)
  }
 </pre>
-<a name="6"><h2>Author</h2>
+<a name="6"><h2>Author</h2></a>
 <p>
 Tim

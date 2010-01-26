@@ -16,7 +16,7 @@
 <p>
 Simple formatter of an RSS stream.
 </p>
-<a name="1"><h2>Synopsis</h2>
+<a name="1"><h2>Synopsis</h2></a>
 <pre>
     myrss(url,N  [,between])
 </pre>
@@ -34,7 +34,7 @@ The code includes a generic loop for reading the stream and a set of
 <em>formatting functions</em> that lets a programmer change the presentation
 of the stream.
 </p>
-<a name="2"><h2>Tips</h2>
+<a name="2"><h2>Tips</h2></a>
 <p>
 When formatting an RSS feed, it it useful to view its
 structure. The following command will show that structure. 
@@ -46,9 +46,9 @@ structure. The following command will show that structure.
 Note that <em>myRss</em> imports the above into an array <em>all</em>, split on ">"
 (see the function <em>myRss1</em>).
 </p>
-<a name="3"><h2>Code</h2>
+<a name="3"><h2>Code</h2></a>
 
-<a name="4"><h3>Demo</h3>
+<a name="4"><h3>Demo</h3></a>
 <pre>
  function demoRss() {  
      print "&lt;ul>"
@@ -76,11 +76,11 @@ Outputs:
     Peter Ivanyi and Roman Putanowicz generate Latex doco from program comments.
   &lt;/ul>
 </pre>
-<a name="5"><h3>Uses </h3>
+<a name="5"><h3>Uses </h3></a>
 <p>
 <a href="wget.html">wget</a> <a href="trim.html">trim</a> 
 </p>
-<a name="6"><h3>Main </h3>
+<a name="6"><h3>Main </h3></a>
 <pre>
  function myrss(feed,max,between,              \
                  date,url,author,link,txt,title,	\
@@ -106,7 +106,7 @@ Outputs:
      return out;
  }
 </pre>
-<a name="7"><h3>Formatting</h3>
+<a name="7"><h3>Formatting</h3></a>
 <p>
 Modify the following formatting functions to change the appearance of
 each field.
@@ -142,7 +142,7 @@ quirks of the feeds you are processing.
      return trim(tmp[4])
  }
 </pre>
-<a name="8"><h3>Reporter</h3>
+<a name="8"><h3>Reporter</h3></a>
 <p>
 Modify the following reporting function to change the final output of
 the itenm. Note that every field found by <em>myrss1</em> is passed to the function. 
@@ -155,6 +155,6 @@ Feel free to ignore all the arguments except the ones you want to display.
      return "&lt;a href=\"" url "\">" date "&lt;/a>:\n " txt
  }
 </pre>
-<a name="9"><h2>Author</h2>
+<a name="9"><h2>Author</h2></a>
 <p>
 Tim Menzies

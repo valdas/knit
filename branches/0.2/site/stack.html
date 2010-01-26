@@ -17,9 +17,9 @@
 <p>
 Stack functions in Awk. 
 </p>
-<a name="1"><h2>Simple stacks</h2>
+<a name="1"><h2>Simple stacks</h2></a>
 
-<a name="2"><h3>push</h3>
+<a name="2"><h3>push</h3></a>
 <p>
 Push an <em>item</em> into a stack "<em>s</em>". Return the size of the new stack.
 </p>
@@ -30,7 +30,7 @@ Push an <em>item</em> into a stack "<em>s</em>". Return the size of the new stac
      return i
  }
 </pre>
-<a name="3"><h3>pop</h3>
+<a name="3"><h3>pop</h3></a>
 <p>
 Pop an <em>item</em> from a stack "<em>s</em>". Return the <em>item</em>.
 </p>
@@ -42,12 +42,12 @@ Pop an <em>item</em> from a stack "<em>s</em>". Return the <em>item</em>.
      return item
  }
 </pre>
-<a name="4"><h2>Cards (2-d stacks)</h2>
+<a name="4"><h2>Cards (2-d stacks)</h2></a>
 <p>
 Cards are a 2-d stack where item "<em>i</em>" in a set of cards <em>c</em> has cardinality <em>c[i,0]</em> 
 and card <em>c[i,1]</em> , <em>c[i,2]</em> , <em>c[i,3]</em> ... 
 </p>
-<a name="5"><h3>push2</h3>
+<a name="5"><h3>push2</h3></a>
 <p>
 Push an <em>item</em> into cards  "<em>c</em>" at a certain "<em>key</em>". Return the size of the new stack.
 </p>
@@ -58,7 +58,7 @@ Push an <em>item</em> into cards  "<em>c</em>" at a certain "<em>key</em>". Retu
      return i 
  }
 </pre>
-<a name="6"><h3>cards</h3>
+<a name="6"><h3>cards</h3></a>
 <p>
 Return the number of cards at a particular <em>key</em>.
 </p>
@@ -67,7 +67,7 @@ Return the number of cards at a particular <em>key</em>.
      return c[key,0] 
  }
 </pre>
-<a name="7"><h3>card</h3>
+<a name="7"><h3>card</h3></a>
 <p>
 Return the <em>n</em>-th card at position <em>key</em> in "<em>c</em>".
 </p>
@@ -76,6 +76,6 @@ Return the <em>n</em>-th card at position <em>key</em> in "<em>c</em>".
      return c[key,n] 
  }
 </pre>
-<a name="8"><h2>Author</h2>
+<a name="8"><h2>Author</h2></a>
 <p>
 by Tim Menzies
