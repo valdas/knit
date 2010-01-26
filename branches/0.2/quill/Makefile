@@ -47,9 +47,15 @@ about:
 include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #---------------------------------------------------------------------------
 
-PrettyFeathers:=$(subst .wak,.html,$(shell ls *.wak))
+Waks = $(subst .wak,,$(subst quill.wak,,$(shell ls *.wak)))
 
-builds 	: $(Html)/$(subst .html ,.html $(Html)/,$(PrettyFeathers))
-
-$(Html)/%.html : %.wak
-	$(MAKE) This=$(subst .wak,,$^) build
+builds 	: 
+	@echo "# -*- mode: Awk; -*-  vim: set filetype=awk :" > quill.wak
+	@printf "\nThis is an auto-generated file. Do not edit.\n" >> quill.wak
+	@printf "\n@uses" >> quill.wak
+	@$(foreach i,$(Waks), echo -n " $i" >> quill.wak;)
+	@printf "\n\n function demoQuill() { print \"This is Quill.\" }\n\n" >> quill.wak
+	@$(MAKE) -s This=quill build
+	@cd $(Lib); svn -q add *;
+	@cd $(Old); svn  -q add *;
+	@cd $(Html); svn  -q add *; svn commit -m "updating web site"

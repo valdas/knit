@@ -8,7 +8,7 @@ Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
 I    = printf "\n----| $@ |--------------\n\n"
 
 demo :
-	 @time $(MAKE) -s This=$u build Gawk="$(Spy)" One="$(shell $(Demo))" one
+	 time $(MAKE) -s This=$u build Gawk="$(Spy)" One="$(shell $(Demo))" one
 
 help: about #: help
 	@printf "\nUsage  : make [OPTIONS]*\nOptions:\n"
