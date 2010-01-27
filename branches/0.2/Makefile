@@ -1,4 +1,4 @@
 all :
-		cd quill; make builds
-		cd penny; make -B tag
+		cd quill; $(MAKE) builds
+		cd penny; $(MAKE) tag
 		svn commit -m "building the site"
