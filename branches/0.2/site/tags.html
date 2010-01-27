@@ -15,7 +15,7 @@
 <p>
 Reads a <em>tags file</em>, once, describing a set of web pages. Adds those tags to the top of the tagged pages.
 </p>
-<a name="1"><h2>Synopsis</h2></a>
+<a name="1"></a><h2>Synopsis</h2>
 <p>
 Load a tags file and build the working memory.
 </p>
@@ -30,7 +30,7 @@ the working memory buit above.
 <pre>
     print tag(page,file,title,tags,sgat)
 </pre>
-<a name="2"><h3>Working memory</h3></a>
+<a name="2"></a><h3>Working memory</h3>
 <p>
 file<a href="stem">stem</a> : return the full <em>path</em> of the file whose's stem is <em>stem</em>.
 </p>
@@ -43,13 +43,13 @@ tags[path,n\] :holds the _n_-th tag of a file at _path_.
 <p>
 sgat[tags,n] : reverse of <em>tags</em>. holds the <em>n</em>-th file of  a <em>tag</em>.
 </p>
-<a name="3"><h2>Code</h2></a>
+<a name="3"></a><h2>Code</h2>
 
-<a name="4"><h3>Uses </h3></a>
+<a name="4"></a><h3>Uses </h3>
 <p>
 <a href="?basename">basename</a> <a href="?phrases">phrases</a> <a href="?o">o</a> <a href="?trim">trim</a> <a href="?stack">stack</a> <a href="?slurp">slurp</a> 
 </p>
-<a name="5"><h3>Main</h3></a>
+<a name="5"></a><h3>Main</h3>
 <pre>
  function loadTags(ins,files,titles,tags,sgat,     maxLines,i,lines,items,n) {
      maxLines = slurp(ins,lines)
@@ -71,6 +71,6 @@ sgat[tags,n] : reverse of <em>tags</em>. holds the <em>n</em>-th file of  a <em>
       }
   } 
 </pre>
-<a name="6"><h2>Author</h2></a>
+<a name="6"></a><h2>Author</h2>
 <p>
 Tim Menzies
