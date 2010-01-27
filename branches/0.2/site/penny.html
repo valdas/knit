@@ -1,4 +1,4 @@
-<h1><join>A minimal CMS.</join></h1>
+<h1><join>A minimal CMS. </join></h1>
 <p>
 <a href="slots.html">slots</a> <a href="tags.html">tags</a> <a href="queryString.html">queryString</a> <a href="myrss.html">myrss</a> <a href="seed.html">seed</a> <a href="anyStrings.html">anyStrings</a> <a href="barph.html">barph</a> 
 </p>
@@ -22,7 +22,9 @@
          stem     = gensub(/.html/,"","g",file)
          url      = values["Url"]  = values["Site"] "/" file
          content0 = fillFrame2String(wget url,sep,values)
-         content0 = gensub(/&lt;h1>([^&lt;]*)&lt;\/h1>/,"&lt;h1>&lt;a href=\"?"stem"\">\\1&lt;/a>&lt;/h1>","g",content0)
+         content0 = gensub(/&lt;h1>([^&lt;]*)&lt;\/h1>/,
+	                       "&lt;h1>&lt;a href=\"?"stem"\">\\1&lt;/a>&lt;/h1>",
+                           "g",content0)
          content  = content content0
      }
      values["Content"] = content
@@ -38,3 +40,6 @@
          return anyStrings(values[tmp[2]],tmp[3],1)
      barph("(" string ") ???") 
  }
+</pre>
+<p>
+by Tim Menzies
