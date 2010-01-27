@@ -49,7 +49,7 @@ function complete(i) {
 function markup(i,str,now,b4) {
     str = prep(now,str);
     if (now=="h1") 
-	return "<h1><join>" str "</join></h1>"; 
+	return "<h1>" str "</h1>"; 
     str = (now == "pre") ? pre(str) : text(str);  
     if (headingp(i)) { 
 	sub(/[hH]/,"",now)
