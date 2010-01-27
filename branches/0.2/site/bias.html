@@ -105,6 +105,11 @@ If <em>max</em> is supplied, return no more than the first <em>max</em> number o
 <a name="9"><h4>sorted2cdf</h4></a>
 <pre>
  function sorted2cdf(n,sorted,cdf,    i,j,sum) {
+     if (! (1 in sorted)) {
+         split('',cdf,'')
+         cdf[0] = 0
+         return 0
+     }
      sum = cdf[1] = sorted[1];
      for(i=2;i&lt;=n;i++) { 
          sum += sorted[i];
