@@ -1,0 +1,76 @@
+<h1><join>tags</join></h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<ul>
+<li> <a href="#2">Working memory</a>
+</ul>
+<li> <a href="#3">Code</a>
+<ul>
+<li> <a href="#4">Uses </a>
+<li> <a href="#5">Main</a>
+</ul>
+<li> <a href="#6">Author</a>
+</ul>
+<p>
+Reads a <em>tags file</em>, once, describing a set of web pages. Adds those tags to the top of the tagged pages.
+</p>
+<a name="1"><h2>Synopsis</h2></a>
+<p>
+Load a tags file and build the working memory.
+</p>
+<pre>
+    loadTags(tagCommand,file,title,tags,sgat)
+</pre>
+<p>
+Runs <em>tagCommand</em> (e.g. "cat file") to generate the source of the tags
+files.  Using that information, it print the tags for a web page. Uses
+the working memory buit above.
+</p>
+<pre>
+    print tag(page,file,title,tags,sgat)
+</pre>
+<a name="2"><h3>Working memory</h3></a>
+<p>
+file<a href="stem">stem</a> : return the full <em>path</em> of the file whose's stem is <em>stem</em>.
+</p>
+<pre>
+title\[path\] : returns the title of file at _path_.
+
+
+tags[path,n\] :holds the _n_-th tag of a file at _path_.
+</pre>
+<p>
+sgat[tags,n] : reverse of <em>tags</em>. holds the <em>n</em>-th file of  a <em>tag</em>.
+</p>
+<a name="3"><h2>Code</h2></a>
+
+<a name="4"><h3>Uses </h3></a>
+<p>
+<a href="basename.html">basename</a> <a href="phrases.html">phrases</a> <a href="o.html">o</a> <a href="trim.html">trim</a> <a href="stack.html">stack</a> <a href="slurp.html">slurp</a> 
+</p>
+<a name="5"><h3>Main</h3></a>
+<pre>
+ function loadTags(ins,files,titles,tags,sgat,     maxLines,i,lines,items,n) {
+     maxLines = slurp(ins,lines)
+     for(i=1;i&lt;=maxLines;i++) {  
+         n = phrases(trim(lines[i]),";",items)
+         if (n) 
+             tagLine(items,n,files,titles,tags,sgat); 
+     }
+ } 
+ function tagLine(items,n,files,titles,tags,sgat,  dirname,f,i,name) {
+      dirname = items[1]
+      name    = items[n]
+      titles[dirname] = name
+      f    = basename(dirname)
+      files[gensub(/\..*/,"","g",f)] = dirname; 
+      for(i=2;i&lt;n;i++) {
+          push2(tags,dirname,items[i]); # files to cats
+          push2(sgat,items[i],dirname); # cats to files
+      }
+  } 
+</pre>
+<a name="6"><h2>Author</h2></a>
+<p>
+Tim Menzies
