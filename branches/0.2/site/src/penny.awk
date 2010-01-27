@@ -11,7 +11,7 @@
                  wget,sep,values,files,titles,tags,sgat,pages,file,url,content,content0,stem,out) {     
      seed()
      wget = "wget -qO - "
-     sep="``"
+     sep="`""`"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
      values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
