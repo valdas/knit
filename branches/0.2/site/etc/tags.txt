@@ -36,6 +36,7 @@ math.html	;Timm; Math; Jan; 2010				; A little maths
 
 myrss.html	;Timm; Web; Rss; Jan; 2010			; Simple RSS feed reader
 wget.html	;Timm; Web; Jan; 2010				; Grab a  web file
+penny.html	;Timm; Web; Jan; 2010				; A content management system
 
 slots.html	;Timm; Macros; Strings;Jan; 2010		; Simple macro language
 slotsDemo.html	;Timm; Macros;Strings; Jan; 2010		; Simple macro language (demo)
