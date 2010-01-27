@@ -27,7 +27,7 @@ A minimal CMS.
 	                       "<h1><a href=\"?"stem"\">\\1</a></h1>",
                            "g",content0)
          content  = content content0
-     }
+     } 
      values["Content"] = content
      fillFrame(wget values["Template"],sep,values)     
  }
