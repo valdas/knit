@@ -72,7 +72,7 @@
 #----
 
  function slots(slotsFile,frameFile,      values,sep) {
-     sep="``"
+     sep=sprintf("%c%c",96,96) # ascii for back tick is 96
      loadSlots(slotsFile,sep,values)   
      fillFrame(frameFile,sep,values)
  }

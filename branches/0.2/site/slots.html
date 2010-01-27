@@ -90,7 +90,7 @@ the above string gets replaced by:
 <a name="8"><h3>Main</h3></a>
 <pre>
  function slots(slotsFile,frameFile,      values,sep) {
-     sep="``"
+     sep=sprintf("%c%c",96,96) # ascii for back tick is 96
      loadSlots(slotsFile,sep,values)   
      fillFrame(frameFile,sep,values)
  }
