@@ -71,7 +71,7 @@ function prep(now,str,   n,i,tmp) {
       n=split(str,tmp,/[ \t]+/);
       str=""
       for(i=1;i<=n;i++)
-	  str = str "[" tmp[i] ".html " tmp[i] "] "
+	  str = str "[?" tmp[i] " " tmp[i] "] "
   }
   return str;
 }
