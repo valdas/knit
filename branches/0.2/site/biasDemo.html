@@ -15,9 +15,9 @@
 <p>
 A tutorial on using the <a href="bias">bias</a> code.
 </p>
-<a name="1"><h2>Uses Cases</h2></a>
+<a name="1"></a><h2>Uses Cases</h2>
 
-<a name="2"><h3>Sample from a list of things</h3></a>
+<a name="2"></a><h3>Sample from a list of things</h3>
 <p>
 Given a list of things, prepare the cdf and memos required to sample from that list.
 The <em>population</em> array holds the "<em>n</em>"  inputs and <em>cdf</em> and <em>memo</em> are the output. The standard
@@ -28,7 +28,7 @@ idiom for running this code is:
     while(repeats--)
         use( memo<a href="pick(cdf)">pick(cdf)</a> ) # use one item
 </p>
-<a name="3"><h3>Sample from a pairs of symbols/frequencies</h3></a>
+<a name="3"></a><h3>Sample from a pairs of symbols/frequencies</h3>
 <p>
 Given things a,b,c,... with frequency counts fa,fb,fc,... and an
 array of {thing/f}+ pairs, prepare the cdf and memos required
@@ -41,7 +41,7 @@ running this scenario is as follows:
   while(repeats--)
       use( memo[pick(cdf)] )
 </pre>
-<a name="4"><h3>Sample from indexed frequencies</h3></a>
+<a name="4"></a><h3>Sample from indexed frequencies</h3>
 <p>
 Given  numeric indexes 1,2,3,... with frequencies, f1,f2,f3,... and an array
 of item/f pairs, prepare the cdf required to sample
@@ -54,13 +54,13 @@ follows
     while(repeats--)
         use( pick(cdf) ) # use one item 
 </pre>
-<a name="5"><h2>Code</h2></a>
+<a name="5"></a><h2>Code</h2>
 
-<a name="6"><h3>Uses</h3></a>
+<a name="6"></a><h3>Uses</h3>
 <p>
 <a href="?bias">bias</a> 
 </p>
-<a name="7"><h3>Demos</h3></a>
+<a name="7"></a><h3>Demos</h3>
 <p>
 These demos generate values from the same distribution. We pick at random from a space
 of four apples, three  bananas, two carrots and one durian. In the <em>numericBiasDemo</em> 

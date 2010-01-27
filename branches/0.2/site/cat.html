@@ -12,33 +12,33 @@
 <li> <a href="#7">Author</a>
 </ul>
 
-<a name="1"><h2>Synopsis</h2></a>
+<a name="1"></a><h2>Synopsis</h2>
 <p>
 Split the contents of <em>file</em> into an  <em>array</em>, divided by a <em>seperator</em>.
 </p>
-<a name="2"><h2>Example</h2></a>
+<a name="2"></a><h2>Example</h2>
 <pre>
   cat("config.txt",contents,"\n")
 </pre>
-<a name="3"><h2>Code</h2></a>
+<a name="3"></a><h2>Code</h2>
 
-<a name="4"><h3>Uses</h3></a>
+<a name="4"></a><h3>Uses</h3>
 <p>
 <a href="?slurp">slurp</a> <a href="?o">o</a> 
 </p>
-<a name="5"><h3>Demo</h3></a>
+<a name="5"></a><h3>Demo</h3>
 <pre>
  function demoCat(   n,all) {
      n=cat("cat.wak",all)
      o(all,"cat",n)
  }
 </pre>
-<a name="6"><h3>Main</h3></a>
+<a name="6"></a><h3>Main</h3>
 <pre>
  function cat(file,all,sep) { 
     return slurp("cat " file,all,sep) 
  }
 </pre>
-<a name="7"><h2>Author</h2></a>
+<a name="7"></a><h2>Author</h2>
 <p>
 Tim Menzies
