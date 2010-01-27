@@ -51,7 +51,7 @@
 #Example
 #-------
 
-#+ [slotsDemo] is a  simple demo program for this code.
+#+ [?slotsDemo] is a  simple demo program for this code.
 
 #Assumed Functions
 #-----------------
