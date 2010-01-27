@@ -24,7 +24,7 @@ tag : build #: install the current version into tags
 		mkdir -p $(Download) ;    \
 		svn add $(Tags)/$(This);   \
 	fi
-	cd $(Download) ; cp $(LatestBuild) $(This); svn add --quiet $(This)
+	cp $(LatestBuild) $(Download); cd $(Download); svn add --quiet $(This)
 	cd $(Tags)/$(This); svn commit -m "added : new version of $(This) $(Version)" 
 
 installDir : 
