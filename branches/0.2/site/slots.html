@@ -12,8 +12,9 @@
 <li> <a href="#6">Example</a>
 <li> <a href="#7">Assumed Functions</a>
 <li> <a href="#8">Main</a>
+<li> <a href="#9">Workers</a>
 </ul>
-<li> <a href="#9">Author</a>
+<li> <a href="#10">Author</a>
 </ul>
 
 <a name="1"><h2>About</h2></a>
@@ -61,12 +62,12 @@ slot will be filled in by passing the slot label to the <em>slotsPlugIns</em> fu
 
 <a name="5"><h3>Uses</h3></a>
 <p>
-<a href="trim.html">trim</a> <a href="math.html">math</a> 
+<a href="?trim">trim</a> <a href="?math">math</a> 
 </p>
 <a name="6"><h3>Example</h3></a>
 
 <ul>
-<li> <a href="slotsDemo">slotsDemo</a> is a  simple demo program for this code.
+<li> <a href="?slotsDemo">?slotsDemo</a> is a  simple demo program for this code.
 </ul>
 
 <a name="7"><h3>Assumed Functions</h3></a>
@@ -94,11 +95,9 @@ the above string gets replaced by:
      loadSlots(slotsFile,sep,values)   
      fillFrame(frameFile,sep,values)
  }
-     
-Workers
--------
-
-
+</pre>
+<a name="9"><h3>Workers</h3></a>
+<pre>
  function loadSlots(slots,sep,values,   n,i,all) {
      n=slurp(slots,all,sep)
      for(i=2; i&lt;=n; i += 2) 
@@ -117,6 +116,6 @@ Workers
      return (str ~ /;/ ? slotsPlugIns(str,values) : values[str])
 }
 </pre>
-<a name="9"><h2>Author</h2></a>
+<a name="10"><h2>Author</h2></a>
 <p>
 Tim Menzies
