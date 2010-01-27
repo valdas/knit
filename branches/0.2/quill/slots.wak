@@ -17,22 +17,22 @@ from a set of plugins.
 Sample
 ------
 
-Here is a slots file:
+Here is a slots file. Note how the fields are seperated by back ticks:
 
-  ``name``   Tim Menzies
-  ``office`` 841a
-  ``phone``  28361
+  &#96;&#96;name&#96;&#96;   Tim Menzies
+  &#96;&#96;office&#96;&#96; 841a
+  &#96;&#96;phone&#96;&#96;  28361
 
 And here is a frame file
 
-   Dear ``name``,
+   Dear &#96;&#96;name&#96;&#96;,
  
-   When the pizza arrives, I will call you on ``phone`` and send
-   it around to ``office``.  
+   When the pizza arrives, I will call you on &#96;&#96;phone&#96;&#96; and send
+   it around to &#96;&#96;office&#96;&#96;.  
   
    Bon Appetit!
 
-   p.s. Fyi: here are the latest updates to our menu: ``rss;tinyurl/pizza.rss;5``
+   p.s. Fyi: here are the latest updates to our menu: &#96;&#96;rss;tinyurl/pizza.rss;5&#96;&#96;
 
 About Plugins
 -------------
