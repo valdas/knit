@@ -19,7 +19,7 @@
 #Uses
 #----
 
-#@uses deShell 
+#@uses deShell
 
 #Main
 #----
