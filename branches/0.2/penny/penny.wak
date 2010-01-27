@@ -1,6 +1,6 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
 
-A minimal CMS.
+A minimal CMS. 
 
 @uses slots tags queryString myrss seed anyStrings barph
 
@@ -23,7 +23,9 @@ A minimal CMS.
          stem     = gensub(/.html/,"","g",file)
          url      = values["Url"]  = values["Site"] "/" file
          content0 = fillFrame2String(wget url,sep,values)
-         content0 = gensub(/<h1>([^<]*)<\/h1>/,"<h1><a href=\"?"stem"\">\\1</a></h1>","g",content0)
+         content0 = gensub(/<h1>([^<]*)<\/h1>/,
+	                       "<h1><a href=\"?"stem"\">\\1</a></h1>",
+                           "g",content0)
          content  = content content0
      }
      values["Content"] = content
@@ -38,3 +40,5 @@ A minimal CMS.
          return anyStrings(values[tmp[2]],tmp[3],1)
      barph("(" string ") ???") 
  }
+
+by Tim Menzies
