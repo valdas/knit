@@ -13,7 +13,7 @@
 <p>
 Print an array.
 </p>
-<a name="1"><h2>Synopsis</h2></a>
+<a name="1"></a><h2>Synopsis</h2>
 <pre>
    o(array [,string,control])
 </pre>
@@ -21,9 +21,9 @@ Print an array.
 <li> Else, if <em>control</em> is a string, use it as  an  argument to a UNIX sort command (otherwise,  just sort numerically by the <em>array</em> values.
 </ul>
 
-<a name="2"><h2>Code </h2></a>
+<a name="2"></a><h2>Code </h2>
 
-<a name="3"><h3>Main</h3></a>
+<a name="3"></a><h3>Main</h3>
 <pre>
  function o(a, str,control,   i,com) {
      str = str ? str : "array"
@@ -51,9 +51,9 @@ Print an array.
      return str "[ " j " ]\t=\t [ " a[i] " ]"
  }
 </pre>
-<a name="4"><h3>Simpler</h3></a>
+<a name="4"></a><h3>Simpler</h3>
 
-<a name="5"><h3>Many prints</h3></a>
+<a name="5"></a><h3>Many prints</h3>
 <pre>
  function os(a1,str1,a2,str2,a3,str3,a4,str4,a5,str5) {
      if(str1) o(a1,str1);
@@ -63,6 +63,6 @@ Print an array.
      if(str5) o(a5,str5)
  }
 </pre>
-<a name="6"><h2>Author</h2></a>
+<a name="6"></a><h2>Author</h2>
 <p>
 Tim Menzies
