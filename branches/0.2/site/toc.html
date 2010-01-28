@@ -1,0 +1,23 @@
+<h1> function toc(files,titles,tags,sgat,     i,one,memo,all,n,now,last,title,page,prefix) {	
+   for(i in files) {
+       one       = titles[files[i]]
+       memo[one] = i
+       all[one]  = one
+   }
+   n=asort(all)
+   for(i=1;i<=n;i++) { 
+       title = all[i]
+       page  = memo[all[i]]
+       now   = substr(title,1,1)
+       prefix=""
+       if (now    != last) {
+           prefix  = now
+           j       = 1-j
+       }
+       last = now
+       out  = out "<tr class=row"j"><td>"prefix\
+                 "</td><td><a href=\"?" page"\">"\
+                  title"</a></td></tr>\n"
+   }
+   return "<h1>Table of Contents</h1><table id=toc>"out"</table>"
+ }</h1>

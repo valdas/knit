@@ -14,10 +14,10 @@
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
      values["Content"]=""   
-     if (query=="toc") {
+     if (query=="sitemap") {
          values["Header"]  = "Contents"
-         values["File"]    = "?toc" 
-         values["Content"] = join2Page(toc(files,titles,tags,sgat),"toc")
+         values["File"]    = "?sitemap" 
+         values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
      } else {
          values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
          if (pages[0] == 0)
