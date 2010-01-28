@@ -13,7 +13,7 @@
 ``css-print``       img/print.css
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
-``menu``            <a href="?index">home</a> | <a href="?toc">contents</a>   
+``menu``            <a href="?index">home</a> | <a href="?sitemap">Contents</a>   
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
 		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>
