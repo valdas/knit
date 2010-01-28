@@ -110,7 +110,7 @@ background-color: #F5F5F5;
 margin-top: 0px;
 margin-bottom: 3px;
 xpadding: 5px;
-xborder-bottom: 1px dotted #CCC;
+border-bottom: 1px dotted #CCC;
 xborder-top: 1px dotted #CCC;
 }
 #rss {
