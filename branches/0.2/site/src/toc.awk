@@ -36,6 +36,6 @@
                  "</td><td><a href=\"?" page"\">"\
                   title"</a></td></tr>\n"
    }
-   return "<h1>Table of Contents</h1><table id=toc>"out"</table>"
+   return "<h1>Table of Contents</h1><center><table id=toc>"out"</table></center>"
  }
 
