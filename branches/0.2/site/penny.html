@@ -1,6 +1,6 @@
 <h1>A minimal CMS. </h1>
 <p>
-<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> 
+<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> <a href="?toc">toc</a> 
 </p>
 <pre>
  function penny(config) {
@@ -13,21 +13,25 @@
      sep="`""`"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
-     values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
      values["Content"]="" 
-     if (pages[0] == 0)
-         push(pages,values["Default"])
-     for(i=1;i&lt;=pages[0];i++) {
-         file     = values["File"] = pages[i]
-         stem     = gensub(/.html/,"","g",file)
-         url      = values["Url"]  = values["Site"] "/" file
-         content0 = fillFrame2String(wget url,sep,values)
-         content0 = gensub(/&lt;h1>([^&lt;]*)&lt;\/h1>/,
+     if (query=="_toc") {
+         values["Content"]=  toc(files,titles,tags,sgat)
+     } else {
+         values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
+         if (pages[0] == 0)
+             push(pages,values["Default"])
+         for(i=1;i&lt;=pages[0];i++) {
+             file     = values["File"] = pages[i]
+             stem     = gensub(/.html/,"","g",file)
+             url      = values["Url"]  = values["Site"] "/" file
+             content0 = fillFrame2String(wget url,sep,values)
+             content0 = gensub(/&lt;h1>([^&lt;]*)&lt;\/h1>/,
 	                       "&lt;h1>&lt;a href=\"?"stem"\">\\1&lt;/a>&lt;/h1>",
-                           "g",content0)
-         content  = content content0
-     } 
-     values["Content"] = content
+                               "g",content0)
+             content  = content content0
+         } 
+         values["Content"] = content
+     }
      fillFrame(wget values["Template"],sep,values)     
  }
 
