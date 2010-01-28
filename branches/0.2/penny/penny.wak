@@ -8,15 +8,17 @@ A minimal CMS.
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
  }
  function penny1(slotsFile,query,     \
-                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,content0,stem,out) {     
+                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,stem,out) {     
      seed()
      wget = "wget -qO - "
      sep="`""`"
      loadSlots(wget slotsFile,sep,values) # get all the short string values
      loadTags(wget values["Tags"],   files,titles,tags,sgat) # get all the page tags
-     values["Content"]="" 
-     if (query=="_toc") {
-         values["Content"]=  toc(files,titles,tags,sgat)
+     values["Content"]=""   
+     if (query=="sitemap") {
+         values["Header"]  = "Contents"
+         values["File"]    = "?sitemap" 
+         values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
      } else {
          values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
          if (pages[0] == 0)
@@ -25,17 +27,17 @@ A minimal CMS.
              file     = values["File"] = pages[i]
              stem     = gensub(/.html/,"","g",file)
              url      = values["Url"]  = values["Site"] "/" file
-             content0 = fillFrame2String(wget url,sep,values)
-             content0 = gensub(/<h1>([^<]*)<\/h1>/,
-	                       "<h1><a href=\"?"stem"\">\\1</a></h1>",
-                               "g",content0)
-             content  = content content0
+             content = content join2Page(fillFrame2String(wget url,sep,values),stem)
          } 
          values["Content"] = content
      }
      fillFrame(wget values["Template"],sep,values)     
  }
-
+ function join2Page(content,stem) {
+     return gensub(/<h1>([^<]*)<\/h1>/,
+                   "<h1><a href=\"?"stem"\">\\1</a></h1>",
+                   "g",content)
+ }
  function slotsPlugIns(string,values,      tmp) {   
      split(string,tmp,";")
      if (tmp[1]=="rss")
