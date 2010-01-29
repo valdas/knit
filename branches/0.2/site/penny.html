@@ -1,6 +1,6 @@
 <h1>A minimal CMS. </h1>
 <p>
-<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> <a href="?toc">toc</a> 
+<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> <a href="?toc">toc</a> <a href="?mytags">mytags</a> 
 </p>
 <pre>
  function penny(config) {
@@ -19,10 +19,10 @@
          values["File"]    = "?sitemap" 
          values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
      } if (query=="crossIndex") {
-		 values["Header"]  = "Cross-Index"
+         values["Header"]  = "Cross-Index"
          values["File"]    = "?crossIndex" 
          values["Content"] = join2Page(mytags(files,titles,tags,sgat),"crossIndex")
-	 } else {
+     } else {
          values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
          if (pages[0] == 0)
              push(pages,values["Default"])
