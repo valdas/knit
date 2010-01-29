@@ -192,14 +192,14 @@ tr.row1 {
     background-color: #EEE;
 }
 pre {
-width: 90%;
-xmargin-left: 10px;
-padding: 1em;
-border: 1px dashed #2f6fab;
-color: DarkBlue;
-background-color: #f9f9f9;
-line-height: 1.1em;
-font-size: x-small;
-font-weight: bold;
-font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-}
+	    padding: 1em;
+			font-family: Monaco, Comic-Sans-Ms, Courier;
+				border: 1px dashed #2f6fab;
+				    color: DarkBlue;
+					    background-color: #f9f9f9;
+							white-space: pre-wrap;       /* css-3 */
+								white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+									white-space: -pre-wrap;      /* Opera 4-6 */
+										white-space: -o-pre-wrap;    /* Opera 7 */
+											word-wrap: break-word;       /* Internet Explorer 5.5+ */
+										} 
