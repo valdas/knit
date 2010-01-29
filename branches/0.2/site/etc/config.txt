@@ -101,3 +101,19 @@
 1
 "Our life is frittered away by detail... simplify, simplify."<br>
 -- Henry Thoreau
+
+1
+"I would give my life for the simplicity on the other side of complexity."<br>
+-- Oliver Wendell Holmes 
+
+1
+"From native simplicity we arrive at more profound simplicity."<br>
+-- Albert Schweitzer
+
+1
+"Simplicity is prerequisite for reliability."<br>
+-- Edsger Dijkstra
+
+1
+"As we understand more things, everything is becoming simpler."<br>
+-- Edward Teller
