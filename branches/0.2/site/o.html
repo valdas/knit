@@ -52,7 +52,12 @@ Print an array.
  }
 </pre>
 <a name="4"></a><h3>Simpler</h3>
-
+<pre>
+ function oo(a,str, i) {
+     for(i in a)
+         print oprim(str,i,a)
+ }
+</pre>
 <a name="5"></a><h3>Many prints</h3>
 <pre>
  function os(a1,str1,a2,str2,a3,str3,a4,str4,a5,str5) {
