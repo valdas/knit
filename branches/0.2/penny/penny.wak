@@ -2,7 +2,7 @@
 
 A minimal CMS. 
 
-@uses slots tags queryString myrss seed anyStrings barph toc
+@uses slots tags queryString myrss seed anyStrings barph toc mytags
 
  function penny(config) {
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
@@ -20,10 +20,10 @@ A minimal CMS.
          values["File"]    = "?sitemap" 
          values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
      } if (query=="crossIndex") {
-		 values["Header"]  = "Cross-Index"
+         values["Header"]  = "Cross-Index"
          values["File"]    = "?crossIndex" 
          values["Content"] = join2Page(mytags(files,titles,tags,sgat),"crossIndex")
-	 } else {
+     } else {
          values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
          if (pages[0] == 0)
              push(pages,values["Default"])
