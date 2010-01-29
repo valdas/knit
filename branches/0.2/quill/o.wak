@@ -51,7 +51,7 @@ Simpler
 -------
                                                                                    
 When "_o_" is too complicated, use "_oo_".
-                                                                                  
+
  function oo(a,str, i) {
      for(i in a)
          print oprim(str,i,a)
