@@ -15,7 +15,7 @@
  function phrases(str,sep,a,   n,i) {
     n=split(str,a,sep)
     for(i=1;i<=n;i++)
-	a[i]= trim(a[i])
+		a[i]= trim(a[i])
     return n
  }
 
