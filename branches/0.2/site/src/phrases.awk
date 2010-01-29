@@ -4,15 +4,18 @@
 
 #Split a line on a seperator, remove leading and trailing whitespace on each item.
 
-#Uses
+#Code
 #====
+
+#Uses
+#----
 
 #@uses trim
 
-#Code 
-#==== 
+#Code
+#----
 
- function phrases(str,sep,a,   n,i) {
+ function phrases(str,sep,a,    n,i) {
     n=split(str,a,sep)
     for(i=1;i<=n;i++)
 		a[i]= trim(a[i])

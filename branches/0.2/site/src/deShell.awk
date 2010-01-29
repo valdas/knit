@@ -1,6 +1,6 @@
 ## -*- mode: Awk; -*-  vim: set filetype=awk : 
 
-#noShellComs
+#deShell
 
 #Prune characters that cause shell exection.
 
