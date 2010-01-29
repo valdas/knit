@@ -19,7 +19,12 @@ A minimal CMS.
          values["Header"]  = "Contents"
          values["File"]    = "?sitemap" 
          values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
-     } else {
+     } if (query=="crossIndex") {
+		 values["Header"]  = "Cross-Index"
+         values["File"]    = "?crossIndex" 
+         values["Content"] = join2Page(mytags(files,titles,tags,sgat),"crossIndex")
+
+	 } else {
          values["Header"]=queryString1(query,tags,files,titles,sgat,pages) # list pages
          if (pages[0] == 0)
              push(pages,values["Default"])
