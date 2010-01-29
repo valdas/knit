@@ -14,7 +14,7 @@ function main(p,n,is,  m,i) {
     m[1] = markup(1,p[1],"h1");
     m[n] = complete(n-1)
     for(i=3;i<n;i++)   
-	m[i] = markup(i,p[i],is[i],is[i-1]);
+		m[i] = markup(i,p[i],is[i],is[i-1]);
     m[2] = markup(2,p[2],"ul","h1");
     print m[1];
     for(i=2;i<=n;i++)  {
