@@ -71,7 +71,9 @@ from _ARGV_ and _ARGC_.
 		 	opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
 	     else 
 			barph("-"key" unknown. Try -h for help.")
-	 } else { i--; break }
+	 } else { 
+			i--; break 
+		}
      }
      for(j=i+1;j<=n;j++)  # 2: clear the flags from n, input 
 	 	tmp[j-i]=input[j]
