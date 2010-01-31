@@ -33,8 +33,9 @@ a billion people to their first program.
 	   "What=Hello World;Why=saying hi!;When=2010;Who=Tim Menzies;"	\
 	   "To=world;Say=hello;i="); 
      if (! opt("i")) {
-	 print opt("Say") " " opt("To");
-	 exit }
+	 	print opt("Say") " " opt("To");
+	 	exit 
+	}
  }
 </pre>
 <p>
@@ -49,9 +50,9 @@ every line of input.
  function help() {
     about()
     prints(" ", "usage: helloworld [OPTIONS] [qualifiers]"," ",
-           " -a          About",
+       " -a          About",
 	   " -i          Interactive mode. Prints hello, plus",
-           "             one qualifier per line of input.",
+       "             one qualifier per line of input.",
 	   " -To Who     Address the greeting to 'Who'",
 	   " -Say What   Start the greeting with 'Say'",
 	   " -c          Copyright",

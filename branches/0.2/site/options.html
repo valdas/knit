@@ -1,38 +1,98 @@
 <h1>options</h1>
+
+<ul>
+<li> <a href="#1">Code </a>
+<ul>
+<li> <a href="#2">Uses</a>
+<li> <a href="#3">Accessing an option</a>
+<li> <a href="#4">Main driver</a>
+</ul>
+<li> <a href="#5">Author</a>
+</ul>
 <p>
 Reads flags from the command line.
 </p>
 <p>
-Assumes that there exists a function, defined elsewhere, called <em>help()</em>,
-<em>copyright()</em> and <em>about()</em>.
+For a POSIX standard command-line options interpreter, please see
+Arnold Robbins' excellent
+<a href="http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function
+getopt">http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function
+getopt</a> function.
 </p>
+<p>
+Unlike that code, the following code is simple and uses  far new fewer
+globals: just one, in fact.  This code stores options in the <em>Opt</em>
+array. This means defaults for command line options can be set,
+just by pre-initializing the index/values of <em>Opt</em>.
+</p>
+<p>
+Another simplification, used below, is that flags can be any number
+of characters (not just one, as with getopt]. Also, if  a flag that
+starts with  an upper case letter it is assumed to have an argument.
+</p>
+<p>
+Finally, to encurage uniformity between code, the flags "a,c,h" are
+reserved for show help text:
+</p>
+<ul>
+<li> "<em>-h</em>" calls <em>help()</em> to print helpd text.
+</ul>
+
+<a name="1"></a><h2>Code </h2>
+
+<a name="2"></a><h3>Uses</h3>
+<p>
+<a href="?barph">barph</a> 
+</p>
+<p>
+This code also assumes that there exists a function, defined
+elsewhere, called <em>help()</em>, <em>copyright()</em> and <em>about()</em>.
+</p>
+<a name="3"></a><h3>Accessing an option</h3>
 <pre>
  function opt(x) {
-     return (x in Opt) ? Opt[x] : barph(Opt["What"] " option ["x"] unknown")
+     if  (x in Opt) 
+		return Opt[x] 
+	else
+	 	barph(Opt["What"] " option ["x"] unknown")
  }
+</pre>
+<a name="4"></a><h3>Main driver</h3>
+<p>
+<em>Ok2go</em> resets the contents of "<em>opt</em>" using the command-line
+arguments.  The program either exits the program or returns 1. As
+a side effect, any command-line argument information is removed
+from <em>ARGV</em> and <em>ARGC</em>.
+</p>
+<pre>
  function ok2go(opt,str) { # returns 0 if bad options
      s2a("a=;c=;h=;" str,opt,"[=;]")
-     ARGC = options(opt,ARGV,ARGC)
+     ARGC = ok2go1(opt,ARGV,ARGC)
      if (opt("c")) exit copyleft();
      if (opt("a")) exit about();    
      if (opt("h")) exit help();
      return 1
  }
- function options(opt,input,n,  key,i,j,k,tmp) {
+ function ok2go1(opt,input,n,  key,i,j,k,tmp) {
      for(i=1;i&lt;=n;i++)  { # 1: explore argstill no more flags
-	 key = input[i]
+	 	key = input[i]
 	 if (sub(/^[-]+/,"",key))  { # 1a: we have a new flag
 	     if (key in opt)         # 1b: if legal flag, change its value
-		 # 1c: if upper case flag grab value from command line 
-		 opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
-	     else barph("-"key" unknown. Try -h for help.")
+		 	# 1c: if upper case flag grab value from command line 
+		 	opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
+	     else 
+			barph("-"key" unknown. Try -h for help.")
 	 } else { i--; break }
      }
      for(j=i+1;j&lt;=n;j++)  # 2: clear the flags from n, input 
-	 tmp[j-i]=input[j]
+	 	tmp[j-i]=input[j]
      split("",input,"")
      for(k in tmp) 
-	 input[k] = tmp[k]
+	 	input[k] = tmp[k]
      n -= i
      return n
  }
+</pre>
+<a name="5"></a><h2>Author</h2>
+<p>
+Tim Menzies
