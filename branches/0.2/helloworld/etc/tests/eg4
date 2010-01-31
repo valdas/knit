@@ -1,6 +1,11 @@
 
 ----| eg4 |--------------
 
+Hello World : saying hi!
+Copyright 2010 Tim Menzies (GPL version 3)
+        
+usage: helloworld [OPTIONS] [qualifiers]
+        
         -a          About
         -i          Interactive mode. Prints hello, plus
                     one qualifier per line of input.

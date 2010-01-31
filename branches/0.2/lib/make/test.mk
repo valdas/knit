@@ -6,6 +6,7 @@ cache : #: run one eg and cache result (via make u=test cache)
 	@echo new test result cached to $(Tests)/$u
 
 test : $(Tests)/$u #: test if the cached result is still current
+	@echo $u >&2
 	@$(MAKE) run | tee $(Tmp)/$u.got 
 	@if  diff -s $(Tmp)/$u.got $(Tests)/$u > /dev/null;  \
 		then echo PASSED $u ; \

@@ -9,26 +9,28 @@ about:
 include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #---------------------------------------------------------------------------
 
-eg1 : 
+eg0 : build
+
+eg1 : eg0
 	@$I; $(Run)
 
-eg2 : 
+eg2 : eg0
 	$I; $(Spy); $(Dump) 
 
 # the following shows the code running as seperate files, included using "-f"
-eg3 : ; @$I; $(Run) -a
-eg4 : ; @$I; $(Run) -h
-eg5 : ; @$I; $(Run) -c
-eg6 : ; @$I; $(Run) -i $(Tests)/qualifiers.eg
-eg7 : ; @$I; cat $(Tests)/qualifiers.eg | $(Run) -i 
+eg3 : build ; @$I; $(Run) -a
+eg4 : build ; @$I; $(Run) -h
+eg5 : build ; @$I; $(Run) -c
+eg6 : build ; @$I; $(Run) -i $(Tests)/qualifiers.eg
+eg7 : build ; @$I; cat $(Tests)/qualifiers.eg | $(Run) -i 
 
 # the following shows the code running as one file, in $(LatestBuild)
-eg8  : ; @$I; $(LatestBuild) -a
-eg9  : ; @$I; $(LatestBuild) -i $(Tests)/qualifiers.eg
-eg10 : ; @$I; cat $(Tests)/qualifiers.eg | $(LatestBuild) -i 
+eg8  : build ; @$I; $(LatestBuild) -a
+eg9  : build ; @$I; $(LatestBuild) -i $(Tests)/qualifiers.eg
+eg10 : build ; @$I; cat $(Tests)/qualifiers.eg | $(LatestBuild) -i 
 
-eg11 : 
+eg11 : build
 	@$a help() $z
 
-eg12 : 
+eg12 : build
 	@$A help() $Z; $(Dump)

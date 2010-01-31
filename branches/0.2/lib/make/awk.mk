@@ -15,8 +15,8 @@ LatestBuild = $(Lib)/$(This)
 build : buildAwks buildHtmls #: Build executables and htmls
 
 buildAwks: $(Tmp)/knit.tmp 
-	cp $(Tmp)/knit.tmp $(OldBuild)
-	cp $(Tmp)/knit.tmp $(LatestBuild)
+	@ cp $(Tmp)/knit.tmp $(OldBuild)
+	@ cp $(Tmp)/knit.tmp $(LatestBuild)
 
 buildHtmls: $(HtmlHtmls)
 
@@ -24,6 +24,7 @@ $(Tmp)/knit.tmp : $(LibAwks)
 	@echo "#!$(Gawk0) -f " > $@ 
 	@(cat $(Knit)/etc/knit.txt; echo "# Built on `date` by $(USER). ") >> $@
 	@cat $(Knit)/etc/copyrite.txt >> $@
+	#@$(MAKE) about | $(Gawk0) -f $(Knit)/lib/awk/about.awk >> $@
 	@$(foreach f,$^,\
 		(printf "\n# $(shell basename $f) \n"; \
 		$(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
