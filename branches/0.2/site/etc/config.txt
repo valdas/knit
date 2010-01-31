@@ -12,6 +12,7 @@
 ``css-main``        img/style.css
 ``css-print``       img/print.css
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
+``download``		http://knit.googlecode.com/svn/tags
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="?index">Home</a> | <a href="?sitemap">Contents</a> | <a href="?crossIndex">Index</a>   
 ``logo``            <center>
