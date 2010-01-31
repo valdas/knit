@@ -7,8 +7,7 @@
 
 #For a POSIX standard command-line options interpreter, please see
 #Arnold Robbins' excellent
-#[http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function
-#getopt] function.
+#[http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function getopt] function.
 
 #Unlike that code, the following code is simple and uses  far new fewer
 #globals: just one, in fact.  This code stores options in the _Opt_
@@ -22,9 +21,9 @@
 #Finally, to encurage uniformity between code, the flags "a,c,h" are
 #reserved for show help text:
 
-#* "_-a_" calls _about()_ to describe the program.
-#* "_-c_" calls _copyright()_ to print legal info;
-#* "_-h_" calls _help()_ to print helpd text.
+#+ "_-a_" calls _about()_ to describe the program.
+#+ "_-c_" calls _copyright()_ to print legal info;
+#+ "_-h_" calls _help()_ to print helpd text.
 
 #Code 
 #====
@@ -32,7 +31,7 @@
 #Uses
 #----
 
-#@uses barph
+#@uses barph s2a
 
 #This code also assumes that there exists a function, defined
 #elsewhere, called _help()_, _copyright()_ and _about()_.
