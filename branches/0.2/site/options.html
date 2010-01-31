@@ -15,9 +15,7 @@ Reads flags from the command line.
 <p>
 For a POSIX standard command-line options interpreter, please see
 Arnold Robbins' excellent
-<a href="http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function
-getopt">http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function
-getopt</a> function.
+<a href="http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function">getopt</a> function.
 </p>
 <p>
 Unlike that code, the following code is simple and uses  far new fewer
@@ -35,6 +33,8 @@ Finally, to encurage uniformity between code, the flags "a,c,h" are
 reserved for show help text:
 </p>
 <ul>
+<li> "<em>-a</em>" calls <em>about()</em> to describe the program.
+<li> "<em>-c</em>" calls <em>copyright()</em> to print legal info;
 <li> "<em>-h</em>" calls <em>help()</em> to print helpd text.
 </ul>
 
@@ -42,7 +42,7 @@ reserved for show help text:
 
 <a name="2"></a><h3>Uses</h3>
 <p>
-<a href="?barph">barph</a> 
+<a href="?barph">barph</a> <a href="?s2a">s2a</a> 
 </p>
 <p>
 This code also assumes that there exists a function, defined
