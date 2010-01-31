@@ -2,6 +2,11 @@
 
 #Hello World!  
 
+#Download
+#========
+
+#[``download``/helloworld/0.1/helloworld helloworld]
+
 #Introduction
 #============
 
