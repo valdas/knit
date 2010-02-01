@@ -87,7 +87,7 @@ function text(x) {
     gsub(/\\`/,"!!TiCk!!",x);
     x = gensub(/_([^_]+)_/, "<em>\\1</em>", "g", x);
     x = gensub(/\*([^\*]+)\*/, "<strong>\\1</strong>", "g", x);
-    x = gensub(/`([^`]+)`/, "<tt>\\1</tt>", "g", x);
+    #x = gensub(/`([^`]+)`/, "<tt>\\1</tt>", "g", x);
     x = gensub(/\[(http:[^ ]+(jpg|gif|png)) ([^\]]+)\]/,  "<img \\3 src=\\1>","g",x)
     x = gensub(/\[(http:[^ ]+(jpg|gif|png))\]/,  "<img     src=\\1>","g",x)
     x = gensub(/\[([^ ]+) ([^\]]+)\]/,"<a href=\"\\1\">\\2</a>", "g", x);
