@@ -18,6 +18,10 @@ Print an array.
    o(array [,string,control])
 </pre>
 <ul>
+<li> If <em>string</em> is given,  print it before each item.
+<li> If <em>control</em> is a positive integer, then print from 1 to <em>control</em>.
+<li> If <em>control</em> is zero, the print in any order.
+<li> Else, if the size of the <em>array</em> is stored at location <em>array<a href="0">0</a></em> then print from one to size.
 <li> Else, if <em>control</em> is a string, use it as  an  argument to a UNIX sort command (otherwise,  just sort numerically by the <em>array</em> values.
 </ul>
 
