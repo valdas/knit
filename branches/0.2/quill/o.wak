@@ -9,11 +9,11 @@ Synopsis
 
    o(array [,string,control])
 
-* If _string_ is given,  print it before each item.
-* If _control_ is a positive integer, then print from 1 to _control_.
-* If _control_ is zero, the print in any order.
-* Else, if the size of the _array_ is stored at location _array[0]_ then print from one to size.
-* Else, if _control_ is a string, use it as  an  argument to a UNIX sort command (otherwise,
+- If _string_ is given,  print it before each item.
+- If _control_ is a positive integer, then print from 1 to _control_.
+- If _control_ is zero, the print in any order.
+- Else, if the size of the _array_ is stored at location _array[0]_ then print from one to size.
+- Else, if _control_ is a string, use it as  an  argument to a UNIX sort command (otherwise,
   just sort numerically by the _array_ values.
 
 Code 
