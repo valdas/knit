@@ -19,7 +19,7 @@
 
 #Adds tag lists top of page.
 
- function topOfPage(file,files,titles,tags,sgat,     i,n,out,q) {
+ function topOfPage(file,files,titles,tags,sgat,     sep,i,n,out,q) {
      n   = tags[file,0]
      out = ""
      q="\""
