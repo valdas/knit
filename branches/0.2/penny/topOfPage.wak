@@ -15,33 +15,22 @@
 # You should have received a copy of the GNU General Public License
 # along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
- function toc(files,titles,tags,sgat,     i,out,one,memo,all,n,now,last,title,page,prefix,j) {	
-   for(i in files) {
-       one       = titles[files[i]]
-       memo[one] = i
-       all[one]  = one
-   }
-   n=asort(all)
-   for(i=1;i<=n;i++) { 
-       title = all[i]
-       page  = memo[all[i]]
-       now   = substr(title,1,1)
-       prefix=""
-       if (now    != last) {
-           prefix  = now
-           j       = 1-j
-       }
-       last = now
-       out  = out "<tr class=row"j"><td>"prefix\
-                 "</td><td><a href=\"?" page"\">"\
-                  title"</a></td></tr>\n"
-   }
-   return "<h1>Table of Contents</h1><table width=\"100%\" id=toc>"out"</table>"
+topOfPage
+
+Adds tag lists top of page.
+
+ function topOfPage(file,files,titles,tags,sgat,     i,n,out,q) {
+     n   = tags[file,0]
+     out = ""
+     q="\""
+     if (n) {
+         for(i=1;i<=tags[file,0];i++) {
+             out = out sep "<a href=" q "?" tags[file,i] q ">" tags[file,i] "</a>"
+             sep = ", "
+         }
+         out = "<p id="q" tags "q" ><span id="q"id"q">categories: </span>"out"</p>"        
+     }
+     return out
  }
 
-
-
-
-
-
-
+by Tim Menzies

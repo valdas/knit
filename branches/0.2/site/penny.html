@@ -1,13 +1,13 @@
 <h1>A minimal CMS. </h1>
 <p>
-<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> <a href="?toc">toc</a> <a href="?mytags">mytags</a> 
+<a href="?slots">slots</a> <a href="?tags">tags</a> <a href="?queryString">queryString</a> <a href="?myrss">myrss</a> <a href="?seed">seed</a> <a href="?anyStrings">anyStrings</a> <a href="?barph">barph</a> <a href="?toc">toc</a> <a href="?mytags">mytags</a> <a href="?topOfPage">topOfPage</a> 
 </p>
 <pre>
  function penny(config) {
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
  }
  function penny1(slotsFile,query,     \
-                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,stem,out,between) {     
+                 i,wget,sep,values,files,titles,tags,sgat,pages,file,url,content,stem,out,between) {     
      seed()
      wget = "wget -qO - "
      sep="`""`"
@@ -30,8 +30,9 @@
              file     = values["File"] = pages[i]
              stem     = gensub(/.html/,"","g",file)
              url      = values["Url"]  = values["Site"] "/" file
+             content  = content topOfPage(file,files,titles,tags,sgat)
              content  = content between join2Page(fillFrame2String(wget url,sep,values),stem)
-			 between  = "&lt;br clear=all>&lt;hr>"
+	     between  = "&lt;br clear=all>&lt;hr>"
          } 
          values["Content"] = content
      }

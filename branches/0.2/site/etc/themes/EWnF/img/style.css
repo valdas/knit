@@ -191,6 +191,7 @@ background-color: #ffffff;
 tr.row1 {
     background-color: #EEE;
 }
+
 pre {
 	    padding: 1em;
 			font-family: Monaco, Comic-Sans-Ms, Courier;
@@ -203,3 +204,11 @@ pre {
 										white-space: -o-pre-wrap;    /* Opera 7 */
 											word-wrap: break-word;       /* Internet Explorer 5.5+ */
 										} 
+#id p {
+    margin-top: 0px;
+    margin-botton: 0px;
+    text-align: right
+}
+#id span {
+    color: #CCC'
+}
