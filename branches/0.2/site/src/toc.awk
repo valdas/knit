@@ -15,7 +15,7 @@
 ## You should have received a copy of the GNU General Public License
 ## along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
- function toc(files,titles,tags,sgat,     i,one,memo,all,n,now,last,title,page,prefix) {	
+ function toc(files,titles,tags,sgat,     i,out,one,memo,all,n,now,last,title,page,prefix,j) {	
    for(i in files) {
        one       = titles[files[i]]
        memo[one] = i

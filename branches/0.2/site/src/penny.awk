@@ -2,13 +2,13 @@
 
 #A minimal CMS. 
 
-#@uses slots tags queryString myrss seed anyStrings barph toc mytags
+#@uses slots tags queryString myrss seed anyStrings barph toc mytags topOfPage
 
  function penny(config) {
      return penny1("http://" config,ENVIRON["QUERY_STRING"])
  }
  function penny1(slotsFile,query,     \
-                 wget,sep,values,files,titles,tags,sgat,pages,file,url,content,stem,out,between) {     
+                 i,wget,sep,values,files,titles,tags,sgat,pages,file,url,content,stem,out,between) {     
      seed()
      wget = "wget -qO - "
      sep="`""`"
@@ -31,8 +31,9 @@
              file     = values["File"] = pages[i]
              stem     = gensub(/.html/,"","g",file)
              url      = values["Url"]  = values["Site"] "/" file
+             content  = content topOfPage(file,files,titles,tags,sgat)
              content  = content between join2Page(fillFrame2String(wget url,sep,values),stem)
-			 between  = "<br clear=all><hr>"
+	     between  = "<br clear=all><hr>"
          } 
          values["Content"] = content
      }
