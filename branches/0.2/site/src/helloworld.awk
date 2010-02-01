@@ -5,7 +5,7 @@
 #Download
 #========
 
-#[http://knit.googlecode.com/svn/tags/helloworld/0.1/helloworld Version 0.1]
+#[``download``/helloworld/0.1/helloworld Version 0.1]
 
 #Introduction
 #============
