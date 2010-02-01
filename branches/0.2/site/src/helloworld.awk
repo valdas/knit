@@ -10,8 +10,8 @@
 #Introduction
 #============
 
-#In the all the world, there has never been a hello like 'hello
-#world'.  First seen in the famous K&R book on 'C', it has introduced
+#In the all the world,  has there ever been a program like `hello
+#world`?  First seen in the famous K&R book on 'C', it has introduced
 #a billion people to their first program.
 
 #Code
