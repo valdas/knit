@@ -210,3 +210,8 @@ p.categories {
     text-align: right;
     color: #AAA;
 }
+
+hr.hrsep {
+	 background-color: #8da0a7;
+	 height: 5px;
+}

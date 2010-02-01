@@ -34,9 +34,9 @@
              values["ThisTitle"]=": " titles[file]
              stem     = gensub(/.html/,"","g",file)
              url      = values["Url"]  = values["Site"] "/" file
-             content  = content topOfPage(file,files,titles,tags,sgat)
-             content  = content between join2Page(fillFrame2String(wget url,sep,values),stem)
-	     between  = "<br clear=all><hr>"
+             content  = content between topOfPage(file,files,titles,tags,sgat)
+             between  = "<br clear=all><hr class=hrsep>"
+             content  = content join2Page(fillFrame2String(wget url,sep,values),stem)	     
          } 
          values["Content"] = content
      }
