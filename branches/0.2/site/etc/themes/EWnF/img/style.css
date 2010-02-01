@@ -204,11 +204,9 @@ pre {
 										white-space: -o-pre-wrap;    /* Opera 7 */
 											word-wrap: break-word;       /* Internet Explorer 5.5+ */
 										} 
-#id p {
+p.categories {
     margin-top: 0px;
     margin-botton: 0px;
-    text-align: right
-}
-#id span {
-    color: #CCC'
+    text-align: right;
+    color: #CCC;
 }

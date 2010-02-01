@@ -26,9 +26,9 @@ Adds tag lists top of page.
      if (n) {
          for(i=1;i<=tags[file,0];i++) {
              out = out sep "<a href=" q "?" tags[file,i] q ">" tags[file,i] "</a>"
-             sep = ", "
+             sep = ", " 
          }
-         out = "<p id="q" tags "q" ><span id="q"id"q">categories: </span>"out"</p>"        
+         out = "<p class="q"categories"q" >categories: "out"</p>"        
      }
      return out
  }
