@@ -16,10 +16,12 @@
      values["Content"]=""   
      if (query=="sitemap") {
          values["Header"]  = "Contents"
+         values["ThisTitle"]=": Contents"
          values["File"]    = "?sitemap" 
          values["Content"] = join2Page(toc(files,titles,tags,sgat),"sitemap")
      } else if (query=="crossIndex") {
          values["Header"]  = "Cross-Index"
+         values["ThisTitle"]=": Contents"
          values["File"]    = "?crossIndex" 
          values["Content"] = join2Page(mytags(files,titles,tags,sgat),"crossIndex")
      } else {
@@ -28,6 +30,7 @@
              push(pages,values["Default"])
          for(i=1;i&lt;=pages[0];i++) {
              file     = values["File"] = pages[i]
+             values["ThisTitle"]=": " titles[file]
              stem     = gensub(/.html/,"","g",file)
              url      = values["Url"]  = values["Site"] "/" file
              content  = content topOfPage(file,files,titles,tags,sgat)
