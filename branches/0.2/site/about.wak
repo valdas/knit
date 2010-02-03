@@ -1,20 +1,8 @@
-<h1>Welcome to the Art of Awk</h1>
+<h1>About "The the Art of Awk"</h1>
 
-<p>This site is, and is not, about the Awk programming language. 
-
-<p>At first glance, it is a collection of tools and tricks for Awk (more specifcally, GNU Awk a.k.a gawk).
-And if that is all you see, then you are missing out the art of Awk.
-<p>
-Awk is a magical language:
-<ul>
-	<li>It is fast to learn- you can learn the basics in an hour. I use it for for graduate university teaching, a lot, since with minimal training, n an hour
-	<li>It is invisibleit is invisi.
-supports no clever programming constructs.
-
-But that is only <em>What</em> is here
 <h2>Programming: What Matters Most?</h2> 
  
-<p>WhaAfter 25 years (gasp) of coding in Prolog, Lisp, Smalltalk, Bash, Gawk, Perl, Python, Ruby, etc, etc 
+<p>After 25 years (gasp) of coding in Prolog, Lisp, Smalltalk, Bash, Gawk, Perl, Python, Ruby, etc, etc 
 I've noticed no matter which  language I use, that I adopt  similar practices. Its the
 usual stuff
 (version control, make files, test-driven development, web-based literate programming, polymorphism)
@@ -31,7 +19,7 @@ Is it in a particular language?
 Or is it the language independent principles applied by the programmer?
 </ul> 
 <img align=right width=300 src="http://menzies.us/img/bfast.jpg"> 
-<p class="title_blue">An Experiment with Simplicity</p> 
+<h2>An Experiment with Simplicity</h2> 
 <p> 
 Time to check. Over the course of this year (2010), I'm going to take one hour after breakfast
 to tackle
@@ -72,14 +60,14 @@ function o(a, str,control,   i) {
  }
 </script> 
  
-<p class="title_blue">You be the Judge</p> 
+<h2>You be the Judge</h2> 
 <p> 
 So, now it is up to you.  Review this code and see what you think. 
 What gives you most productivity? Is it language-dependent tricks
 or general principles? And, given the tools available in the 21<sup>st</sup> century, are those 
 principles too hard to apply?
  
-<p class="title_blue">And if You Don't Like Awk...</p> 
+<h2>And if You Don't Like Awk...</h2> 
 <p>... Then we can still be friends.
  While I <em>use</em> Make,Awk,etc.
 I do not recommend them. Instead, I just <em>apply</em> them to show that how easy it is to support better programming practices. 
