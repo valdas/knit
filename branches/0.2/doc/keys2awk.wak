@@ -1,0 +1,303 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Four Keys to Gawk
+
+Imagine Gawk as a kind of a cut-down C language with four tricks:
+
+1. self-initializing variables
+2. pattern-based programming
+3. regular expressions
+4. associative arrays.
+
+What to all these do? Well....
+
+Self-initializing variables.
+============================
+
+You don't need to define variables- they appear as your use them.
+
+There are only three types: stings, numbers, and arrays.
+
+To ensure a number is a number, add zero to it.
+
+ x=x+0
+
+To ensure a string is a string, add an empty string to it.
+
+ x= x "" "the string you really want to add"
+
+To ensure your variables aren't global, use them within a function and add m ore variables to the call. For example if a function is passed two variables, d efine it with two PLUS the local variables:
+
+ function haslocals(passed1,passed2,         local1,local2,local3) {
+        passed1=passes1+1  # changes externally
+        local1=7           # only changed locally
+ }
+
+Note that its good practice to add white space between passed and local variables.
+
+Important Tip
+-------------
+
+The following tip would have saved me weeks of debugging. Please read it carefully.
+
+A useful practice is to label all your global variables as MixedCase and all your locals with a leading lowerCase letter.
+The call
+
+  pgawk --dump-variables -f file.awk
+
+lists all the globals in a file awkvars.out If you see a "global" starting with a lower case letter, then you know that you forget to define
+one of your locals (so it has escaped into the global space). The thing to do next is to hunt down and kill all escaped locals.
+
+Pattern-based programming
+=========================
+
+Gawk programs can contain functions AND pattern/action pairs.
+
+If the pattern is satisfied, the action is called.
+
+ /^\.P1/ { if (p != 0) print ".P1 after .P1, line", NR;
+           p = 1;
+         }
+ /^\.P2/ { if (p != 1) print ".P2 with no preceding .P1, line", NR;
+           p = 0;
+         }
+ END     { if (p != 0) print "missing .P2 at end" }
+
+Two magic patterns are BEGIN and END. These are true before and
+after all th e input files are read. Use END of end actions (e.g.
+final reports) and BEGIN for start up actions such as initializing
+default variables, setting the field s eparator, resetting the seed
+of the random number generator:
+
+ BEGIN {
+        while (getline < "Usr.Dict.Words") #slurp in dictionary 
+                dict[$0] = 1
+        FS=",";                            #set field seperator
+        srand();                           #reset random seed
+        Round=10;                          #always start globals with U.C.
+ }
+The default action is {print $0}; i.e. print the whole line.
+
+The default pattern is 1; i.e. true.
+
+Patterns are checked, top to bottom, in source-code order.
+
+Patterns can contain regular expressions. In the above example /^\.P1/ means "front of line followed by a full stop followed by P1". Regular expressions are important enough for their own section.
+
+A Small Example
+===============
+
+Ok, so now we know enough to explain an simple report function. How does hist.awk work in the following?
+ 
+ % cat /etc/passwd | grep -v \# | cut -d: -f 6|sort |
+                    uniq -c | sort -r -n | Gawk -f hist.awk
+
+              **************************  26 /var/empty
+                                      **   2 /var/virusmails
+                                      **   2 /var/root
+                                       *   1 /var/xgrid/controller
+                                       *   1 /var/xgrid/agent
+                                       *   1 /var/teamsserver
+                                       *   1 /var/spool/uucp
+                                       *   1 /var/spool/postfix
+                                       *   1 /var/spool/cups
+                                       *   1 /var/pcast/server
+                                       *   1 /var/pcast/agent
+                                       *   1 /var/imap
+                                       *   1 /Library/WebServer
+
+hist.awk reads the maximum width from line one (when NR==1), then scales it to s ome maximum width value. For each line, it then prints the line ($0) with some stars at front.
+
+ NR==1  { Width = Width ? Width : 40 ; sets Width if it is missing
+         Scale = $1 > Width ? $1 / Width : 1 
+       }
+       { Stars=int($1*Scale);  
+         print str(Width - Stars," ") str(Stars,"*") $0 
+       }
+
+ # note that, in the following "tmp" is a local variable
+ function str(n,c, tmp) { # returns a string, size "n", of all  "c" 
+    while((n--) > 0 ) tmp= c tmp 
+    return tmp 
+ }
+
+Regular Expressions
+===================
+
+Do you know what these mean?
+
+ /^[ \t\n]*/
+ /[ \t\n]*$/
+ /^[+-]?([0-9]+[.]?[0-9]*|[.][0-9]+)([eE][+-]?[0-9]+)?$/
+
+Well, the first two are leading and trailing blank spaces on a line
+and the last one is the definition of an IEEE-standard number written
+as a regular expression. Once we know that, we can do a bunch of
+common tasks like trimming away white space around a string:
+
+  function trim(s) {
+    sub(/^[ \t\n]*/,"",s);
+    sub(/[ \t\n]*$/,"",s);
+    return t
+ }
+
+or recognize something that isn't a number:
+
+ if ( $i !~ /^[+-]?([0-9]+[.]?[0-9]*|[.][0-9]+)([eE][+-]?[0-9]+)?$/ ) 
+    {print "ERROR: " $i " not a number}
+
+Regular expressions are an astonishingly useful tool supported by
+many languages (e.g. Awk, Perl, Python, Java). The following notes
+review the basics. For full details, see 
+[http://www.gnu.org/software/gawk/manual/html_node/Regexp.html]
+
+Syntax: Here's the basic building blocks of regular expressions:
+
++ *c* matches the character c (assuming c is a character with no special meaning in r egexps).  
++ *\c* matches the literal character c; e.g. tabs and newlines are \t and \n respectiv ely.
++ *.* matches any character except newline.
++ *^* matches the beginning of a line or a string.
++ *$* matches the end of a line or a string.
++ *\[abc...]* matches any of the characters ac... (character class).
++ *\[^ac...]* matches any character except abc... and newline (negated character class).
++ *r\** matches zero or more r's.
+
+And that's enough to understand our trim function shown above. The regular expression /\[ \t]\*$/ means trailing whitespace; i.e. zero-or-mo re spaces or tabs followed by the end of line.
+
+More Syntax:
+------------
+
+But that's only the start of regular expressions. There's lots more. For exa mple:
+
++ *r+* matches one or more r's.
++ *r?* matches zero or one r's.
++ *r1|r2* matches either r1 or r2 (alternation).
++ *r1r2* matches r1, and then r2 (concatenation).
++ *(r)* matches r (grouping).
+
+Now we can read *^\[+-]?(\[0-9]+\[.]?\[0-9]*|\[.]\[0-9]+)(\[eE]\[+-]?\[0-9]+)?$* like this:
+
++ *^\[+-]? ...* Numbers begin with zero or one plus or minus signs.
++ *...\[0-9]+...* Simple numbers are just one or more numbers.
++ *...\[.]?\[0-9]\*...* which may be followed by a decimal point and zero or more digits.
++ *...|\[.]\[0-9]+...* Alternatively, a number can have zero leading numbers and just start with a dec imal point.
++ *.... (\[eE]...)?$* Also, there may be an exponent added
++ *...\[+-]?\[0-9]+)?$* and that exponent is a positive or negative bunch of digits.
+
+Associative arrays
+==================
+
+Gawk has arrays, but they are only indexed by strings. This can be very usef ul, but it can also be annoying. For example, we can count the frequency of wor ds in a document (ignoring the icky part about printing them out):
+
+ gawk '{for(i=1;i <=NF;i++) freq[$i]++ }' filename
+
+The array will hold an integer value for each word that occurred in the file . Unfortunately, this treats foo'',Foo'', and foo,'' as different words. Oh wel l. How do we print out these frequencies? Gawk has a specialfor'' construct tha t loops over the values in an array. This script is longer than most command li nes, so it will be expressed as an executable script:
+
+ #!/usr/bin/awk -f
+  {for(i=1;i <=NF;i++) freq[$i]++ }
+  END{for(word in freq) print word, freq[word]  }
+
+You can find out if an element exists in an array at a certain index with th e expression:
+
+ index in array
+
+This expression tests whether or not the particular index exists, without the side effect of creating that element if it is not present.
+
+You can remove an individual element of an array using the delete statement:
+
+ delete array[index]
+
+It is not an error to delete an element which does not exist.
+
+Gawk has a special kind of for statement for scanning an array:
+
+ for (var in array)
+        body
+
+This loop executes body once for each different value that your program has previously used as an index in array, with the variable var set to that index.< /p>
+
+There order in which the array is scanned is not defined.
+
+To scan an array in some numeric order, you need to use keys 1,2,3,... and s tore somewhere that the array is N long. Then you can do the Here are some usef ul array functions. We begin with the usual stack stuff. These stacks have item s 1,2,3,.... and position 0 is reserved for the size of the stack
+
+ function top(a)        {return a[a[0]]}
+ function push(a,x,  i) {i=++a[0]; a[i]=x; return i}
+ function pop(a,   x,i) {
+   i=a[0]--;  
+   if (!i) {return ""} else {x=a[i]; delete a[i]; return x}}
+
+The pop function can be used in the usual way:
+
+ BEGIN {push(a,1); push(a,2); push(a,3);
+        while(x=pop(a)) print x
+ 3
+ 2
+ 1
+
+We can catch everything in an array to a string:
+
+ function a2s(a,  i,s) {
+        s=""; 
+        for (i in a) {s=s " " i "= [" a[i]"]\n"}; 
+        return s}
+
+  BEGIN {push(L,1); push(L,2); push(L,3);
+        print a2s(L);}
+  0= [3]
+  1= [1]
+  2= [2]
+  3= [3]
+
+And we can go the other way and convert a string into an array using the bui lt in split function. These pod files were built using a recursive include func tion that seeks patterns of the form:
+
+ ^=include file
+
+This function splits likes on space characters into the array `a` then looks for =include in a\[1]. If found, it calls itself recursively on a\[2]. Otherwise , it just prints the line:
+
+ function rinclude (line,    x,a) {
+   split(line,a,/ /);
+   if ( a[1] ~ /^\=include/ ) { 
+     while ( ( getline x < a[2] ) > 0) rinclude(x);
+     close(a[2])}
+   else {print line}
+ }
+
+Note that the third argument of the split function can be any regular expres sion.
+
+By the way, here's a nice trick with arrays. To print the lines in a files i n a random order:
+
+ BEGIN {srand()}
+       {Array[rand()]=$0}
+ END   {for(I in Array) print $0}
+
+Short, heh? This is not a perfect solution. Unless you are a little ticky, Gawk can only generate
+1,000,000 different random numbers so the birthday theorem cautions
+that there is a small chance that the lines will be lost when
+different lines are written to the same randomly selected location.
+After some experiments, I can report that you lose around one item
+after 1,000 inserts and 10 to 12 items after 10,000 random inserts.
+Nothing to write home about really. But for larger item sets, the
+above three liner is not what you want to use. For exampl,e 10,000
+to 12,000 items (more than 10%) are lost after 100,000 random
+inserts. Not good!
+
+Author
+======
+
+Tim Menzies
