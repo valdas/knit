@@ -215,3 +215,34 @@ hr.hrsep {
 	 background-color: #8da0a7;
 	 height: 5px;
 }
+
+img.lthumb {
+	float: left;
+	width: 150px;
+  margin-right: 5px;
+  padding:4px;
+    border:1px solid #446688;
+	  }
+
+img.rthumb {
+	float: right;
+	width: 150px;
+  margin-right: 5px;
+  padding:4px;
+    border:1px solid #446688;
+	  }
+img.rthumb250 {
+	float: right;
+	width: 250px;
+  margin-right: 5px;
+  padding:4px;
+    border:1px solid #446688;
+	  }
+
+img.rthumb250nb {
+	float: right;
+	width: 250px;
+  margin-right: 5px;
+  padding:4px;
+	  }
+
