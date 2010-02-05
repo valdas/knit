@@ -1,8 +1,16 @@
-all : pdfs
+all : quill penny docs pdfs commit
+
+quill :
 		cd quill; $(MAKE) builds
+
+penny :
 		cd penny; $(MAKE) tag
-		svn commit -m "building the site"
+
+commit:
+		svn commit 
+
+docs :
+		cd doc; make builds
 
 pdfs :
-		cd share/pdf
-		svn -q propset svn:mime-type application/pdf *.pdf
+		cd share/pdf;  svn -q propset svn:mime-type application/pdf *.pdf
