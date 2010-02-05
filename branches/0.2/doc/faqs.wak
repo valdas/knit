@@ -18,19 +18,61 @@
 
 Frequently Asked Questions
 
-Why use Awk?
+What is AWK?
 ============
 
-+ Awk is a simple and elegant pattern scanning and processing language.
-+ Awk is also the most portable scripting language in existence.
-+ But why use it rather than Perl (or PHP or Ruby or...):
+AWK is a simple and elegant pattern scanning and processing language.
+AWK is also the most portable scripting language in existence.
+
+AWK does not get in the way of generating solutions.  When
+you code in Awk, you are thinking about the problem, not the
+complexities of the language (because there aren't any: no
+continuations, no inheritance, no pointers, no unions, etc). So
+programming in Awk is a study of the essential essence of a problem
+(and not trivial and tedious implementation details of over-elaborated
+languages).
+
+What is an auk?
+===============
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/a/a1/Alca_torda_Roest_2003.jpg" class=rhumb250">
+AWK sounds like "auk"
+which is a bird of the family Alcidae in the
+order Charadriiformes. They are superficially similar to penguins
+but are not closely related 
+(this an example of moderate convergent
+evolution).
+In contrast to penguins, the modern auks are able to fly (with the
+exception of the recently extinct Great Auk). They are good swimmers
+and divers, but their walking appears clumsy.
+
+Auks live on the open sea and 
+only go ashore for breeding.
+Auks are wing-propelled pursuit divers.
+Time depth recorders on auks have shown that they can dive as deep
+as 100 m in the case of Uria guillemots, 40 m for the Cepphus
+guillemots and between 30 m for the auklets.
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/d/dc/AlleAlle_2.jpg" class=rthumb>
+The Little Auk is a small auk, the only member of the genus Alle. It breeds on islands in the high Arctic.
+Little Auks produce a variety of twitters and cackling calls at the breeding colonies, but are silent at sea.
+Large numbers of Little Auks have been killed in several oil-spill incidents. But climate changes (warming) in Southern Greenland and Iceland seems to be the reason for the decreasing populations there.
+
+But why use AWK rather than Perl (or PHP or Ruby or...)?
+========================================================
+
+AWK only codes the support code for a set of tools. Using those tools, you can make an IDE
+for any language.
+
+But you can also use these tools to write AWK code. Which is nice since:
+
  + Awk is simpler (especially important if deciding which to learn first);
  + Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
  + You may already know Awk well enough for the task at hand;
  + You may have only Awk installed;
  + Awk can be smaller, thus much quicker to execute for small programs.
 
-(Other languages like Perl is) a good programming language for
+Other languages like Perl etc are  good programming language for
 writing self-contained programs, but pre-compilation and long
 start-up time are worth paying only if once the program has loaded
 it can do everything in one go. This contrasts sharply with the
@@ -40,14 +82,6 @@ with initializing (say) Perl at every stage of the pipeline makes
 pipelining inefficient. A better way of manipulating structured
 ASCII files is to use the AWK programming language, which is much
 smaller, more specialized for this task, and is very fast at startup.
-
-Lastly, Awk does not get in the way of generating solutions.  When
-you code in Awk, you are thinking about the problem, not the
-complexities of the language (because there aren't any: no
-continuations, no inheritance, no pointers, no unions, etc). So
-programming in Awk is a study of the essential essence of a problem
-(and not trivial and tedious implementation details of over-elaborated
-languages).
 
 What is "KNIT"?
 ===============
@@ -92,7 +126,7 @@ the code.
 Each directory contains code from one language (so if you are coding PHP and PYTHON), place them in different directories.
 The Makefile defines what language is supported in the current directory.
 
-KNIT's Makefiles all begin with the same four parts:
+KNIT's Makefiles all begin with the same four parts, which must be defined in the following order: 
 
  This    = quill# 1) define the app name
  Version = 0.1#   2) define the version number
@@ -101,14 +135,14 @@ KNIT's Makefiles all begin with the same four parts:
 	@echo "A test engine for QUILL function $(This), v$(Version)"
 	@echo "Copyright (c) GPL 3.0 2010 Tim Menzies, (tim at menzies dot us)"
 
- # 4) define this directory's language
- include $(knit)/lib/make/awk.mk # must be after defining "this" and "about"
- -----------------------------------------------
+ include $(Knit)/lib/make/awk.mk # 4) include KNIT 
+
+Note the 4th part defines the language supported in this directory.
 
 What is "QUILL"?
 ================
 
-QUILL is a library of useful AWK functions.
+QUILL is a library of useful AWK functions (must I explain this? Well, AWK sounds like "auk" which is a bird that has wings that use quills).
 
 What is "PENNY"?
 ================
