@@ -1,0 +1,22 @@
+(global-set-key "\M-a" 'fill-region)
+
+(setq require-final-newline t)
+
+(setq awk-mode-hook
+    (function (lambda ()
+                (setq indent-tabs-mode nil)
+                (setq c-indent-level 4))))
+
+(setq-default
+ frame-title-format
+ (list '((buffer-file-name " %f" (dired-directory 
+	 			  dired-directory
+				  (revert-buffer-function " %b"
+				  ("%b - Dir:  " default-directory)))))))
+
+(setq-default
+ icon-title-format
+ (list '((buffer-file-name " %f" (dired-directory
+                                  dired-directory
+                                  (revert-buffer-function " %b"
+                                  ("%b - Dir:  " default-directory)))))))

@@ -1,0 +1,44 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#cat
+
+#Synopsis
+#========
+
+#  cat(file,array,seperator)
+
+#Split the contents of _file_ into an  _array_, divided by a _seperator_.
+
+#Example
+#=======
+
+#  cat("config.txt",contents,"\n")
+
+#Code
+#====
+
+#Uses
+#----
+
+#@uses slurp o
+
+#Demo
+#----
+
+ function demoCat(   n,all) {
+     n=cat("cat.wak",all)
+     o(all,"cat",n)
+ }
+
+#Main
+#----
+
+ function cat(file,all,sep) { 
+    return slurp("cat " file,all,sep) 
+ }
+
+#Author
+#======
+
+#Tim Menzies
+

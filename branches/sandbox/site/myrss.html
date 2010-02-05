@@ -1,0 +1,160 @@
+<h1>myrss</h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Tips</a>
+<li> <a href="#3">Code</a>
+<ul>
+<li> <a href="#4">Demo</a>
+<li> <a href="#5">Uses </a>
+<li> <a href="#6">Main </a>
+<li> <a href="#7">Formatting</a>
+<li> <a href="#8">Reporter</a>
+</ul>
+<li> <a href="#9">Author</a>
+</ul>
+<p>
+Simple formatter of an RSS stream.
+</p>
+<a name="1"></a><h2>Synopsis</h2>
+<pre>
+    myrss(url,N  [,between])
+</pre>
+<p>
+Returns the first <em>N</em> items from an rss feed at <em>url</em>. 
+</p>
+<p>
+The functional optionally accepts a between string that is printed
+between each item. For example, the <em>demoRss</em> function shown below
+prints a "&lt;li>" between each RSS item; i.e. it converts a text
+string into an HTML list.
+</p>
+<p>
+The code includes a generic loop for reading the stream and a set of
+<em>formatting functions</em> that lets a programmer change the presentation
+of the stream.
+</p>
+<a name="2"></a><h2>Tips</h2>
+<p>
+When formatting an RSS feed, it it useful to view its
+structure. The following command will show that structure. 
+</p>
+<pre>
+  Url="somUrl";  wget -q -O - "http://$Url"  | tidy -xml -i 
+</pre>
+<p>
+Note that <em>myRss</em> imports the above into an array <em>all</em>, split on ">"
+(see the function <em>myRss1</em>).
+</p>
+<a name="3"></a><h2>Code</h2>
+
+<a name="4"></a><h3>Demo</h3>
+<pre>
+ function demoRss() {  
+     print "&lt;ul>"
+     print  "&lt;li>" myrss("lawker.blogspot.com/feeds/posts/default?alt=rss",
+			 5,
+			 "\n&lt;li>")  
+     print "&lt;/ul>"
+ }
+</pre>
+<p>
+Outputs:
+</p>
+<pre>
+  &lt;ul>
+  &lt;li>&lt;a href="http://awk.info/poll/">Dec 26&lt;/a>
+    Arnold Robbins asks this community to comment on 
+    different methods to implement file inclusion in Gawk.
+  &lt;li>&lt;a href="http://awk.info/?tools/server">Dec 26&lt;/a>
+    Michael Sanders implements a web server, in very few lines, using Gawk.
+  &lt;li>&lt;a href="http://awk.info/?j">Dec 26&lt;/a>
+    Ed Morton and Kenny McCormack show us Awk's  equivalent to VI's "J" command.
+  &lt;li>&lt;a href="http://awk.info/?wst">Dec 26&lt;/a>
+    Dan Nielsen shows us how to draw Sierpinski Triangles.
+  &lt;li>&lt;a href="http://awk.info/?tools/adoc">Dec 26&lt;/a>
+    Peter Ivanyi and Roman Putanowicz generate Latex doco from program comments.
+  &lt;/ul>
+</pre>
+<a name="5"></a><h3>Uses </h3>
+<p>
+<a href="?wget">wget</a> <a href="?trim">trim</a> 
+</p>
+<a name="6"></a><h3>Main </h3>
+<pre>
+ function myrss(feed,max,between,              \
+                 date,url,author,link,txt,title,	\
+                n,all,sep,out,seen,x,i) {
+     n = wget(feed,all,">");
+     for(i=1;i&lt;=n; i++) {
+	 x= all[i]= trim(all[i])
+         # parse the items
+	 if      (x ~ /^&lt;pubDate/ )    date   = myDate(all,i)
+	 else if (x ~ /^&lt;description/) txt    = myText(all,i)
+	 else if (x ~ /^&lt;title/)       title  = myField(all,i)
+	 else if (x ~ /^&lt;author/)      author = myField(all,i)
+	 else if (x ~ /^&lt;link/)        link   = myField(all,i)
+	 else if (x ~ /^&lt;enclosure/)   url    = myEnclosure(all,i);
+         # if we have everything, generate an output
+	 if (date && txt && title && author && link && url) {
+	     out = out sep myReport(url,date,title,author,link,txt);
+	     sep = between ? between : "\n";
+	     date = txt = title = author = link = url = ""
+	     if (++seen >= max) 
+		 return out;
+	 }}
+     return out;
+ }
+</pre>
+<a name="7"></a><h3>Formatting</h3>
+<p>
+Modify the following formatting functions to change the appearance of
+each field.
+</p>
+<p>
+<em>MyField</em> is the simplest formatter and will suffice for many fields.
+</p>
+<pre>
+ function myField(all,i,    str) {
+     str = all[i+1] 
+     sub(/&lt;.*/,"",str);    
+     return str 
+ }
+</pre>
+<p>
+The other formatters handle special kinds of fields.  Note that the
+folowing code handles the fields seen in the feed I was processing
+when I wrote this script.  You may need something else to handle the
+quirks of the feeds you are processing.
+</p>
+<pre>
+ function myDate(all,i, tmp) {
+    split(all[i+1],tmp," ");   
+    return trim(tmp[3]  " " tmp[2])
+ } 
+ function myText(all,i,    str) {
+     str = all[i+1] 
+     sub(/&lt;.*/,"",str); 
+     return trim(str) 
+ }
+ function myEnclosure(all,i,   tmp) {
+     split(all[i],tmp,/'/);
+     return trim(tmp[4])
+ }
+</pre>
+<a name="8"></a><h3>Reporter</h3>
+<p>
+Modify the following reporting function to change the final output of
+the itenm. Note that every field found by <em>myrss1</em> is passed to the function. 
+</p>
+<p>
+Feel free to ignore all the arguments except the ones you want to display.
+</p>
+<pre>
+ function myReport(url,date,title,author,link,txt) {
+     return "&lt;a href=\"" url "\">" date "&lt;/a>:\n " txt
+ }
+</pre>
+<a name="9"></a><h2>Author</h2>
+<p>
+Tim Menzies

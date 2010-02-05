@@ -1,0 +1,66 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#tags
+
+#Reads a _tags file_, once, describing a set of web pages. Adds those tags to the top of the tagged pages.
+
+#Synopsis
+#========
+
+#Load a tags file and build the working memory.
+
+#    loadTags(tagCommand,file,title,tags,sgat)
+
+#Runs _tagCommand_ (e.g. "cat file") to generate the source of the tags
+#files.  Using that information, it print the tags for a web page. Uses
+#the working memory buit above.
+
+#    print tag(page,file,title,tags,sgat)
+
+#Working memory
+#--------------
+
+#file[stem] : return the full _path_ of the file whose's stem is _stem_.
+
+#title\[path\] : returns the title of file at _path_.
+
+#tags[path,n\] :holds the _n_-th tag of a file at _path_.
+
+#sgat[tags,n\] : reverse of _tags_. holds the _n_-th file of  a _tag_.
+
+#Code
+#====
+
+#Uses 
+#----
+
+#@uses basename phrases o trim stack slurp
+
+#Main
+#----
+
+ function loadTags(ins,files,titles,tags,sgat,     maxLines,i,lines,items,n) {
+     maxLines = slurp(ins,lines)
+     for(i=1;i<=maxLines;i++) {  
+         n = phrases(trim(lines[i]),";",items)
+         if (n) 
+             tagLine(items,n,files,titles,tags,sgat); 
+     }
+ } 
+ function tagLine(items,n,files,titles,tags,sgat,  dirname,f,i,name) {
+      dirname = items[1]
+      name    = items[n]
+      titles[dirname] = name
+      f    = basename(dirname)
+      files[gensub(/\..*/,"","g",f)] = dirname; 
+      for(i=2;i<n;i++) {
+          push2(tags,dirname,items[i]); # files to cats
+          push2(sgat,items[i],dirname); # cats to files
+      }
+  } 
+
+#Author
+#======
+
+#Tim Menzies
+
