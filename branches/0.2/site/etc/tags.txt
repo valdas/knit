@@ -3,6 +3,8 @@ success.html    ;Admin ;Jan ;2010 		;You have logged in to the comment system
 404.html      	;Admin ;Jan ;2010 		;Page not found 
 hooray.html     ;Timm; Admin;Jan; 2010                          ; And the people rejoiced
 about.html     ;Timm; Admin;Feb; 2010                          ; About this site
+contacts.html     ;Timm; Admin;Feb; 2010                          ; Contact us
+faqs.html     ;Timm; Admin;Feb; 2010                          ; Frequently asked questions
 
 keys2awk.html  ;Timm; Doco;Feb;2010; Four keys to Awk
 

@@ -14,7 +14,13 @@
 ``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
 ``download``	    http://knit.googlecode.com/svn/tags
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
-``menu``            <a href="?index">Home</a> | <a href="?sitemap">Contents</a> | <a href="?crossIndex">Index</a>   
+``menu``            <a href="?index">Home</a> | 
+                    <a href="?sitemap">Contents</a> | 
+                    <a href="?readmes">READMEs</a>   |
+                    <a href="?crossIndex">Index</a>   |
+                    <a href="?downloads">Downloads</a>  |
+                    <a href="?faqs">F.A.Q.</a> |
+                    <a href="?contacts">About us</a>  
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
 		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>

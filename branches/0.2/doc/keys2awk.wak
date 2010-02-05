@@ -42,7 +42,7 @@ To ensure a string is a string, add an empty string to it.
 
  x= x "" "the string you really want to add"
 
-To ensure your variables aren't global, use them within a function and add m ore variables to the call. For example if a function is passed two variables, d efine it with two PLUS the local variables:
+To ensure your variables aren't global, use them within a function and add m ore variables to the call. For example if a function is passed two variables, define it with two PLUS the local variables:
 
  function haslocals(passed1,passed2,         local1,local2,local3) {
         passed1=passes1+1  # changes externally
@@ -61,7 +61,7 @@ The call
 
   pgawk --dump-variables -f file.awk
 
-lists all the globals in a file awkvars.out If you see a "global" starting with a lower case letter, then you know that you forget to define
+lists all the globals in a file awk.vars.out If you see a "global" starting with a lower case letter, then you know that you forget to define
 one of your locals (so it has escaped into the global space). The thing to do next is to hunt down and kill all escaped locals.
 
 Pattern-based programming
@@ -82,13 +82,13 @@ If the pattern is satisfied, the action is called.
 Two magic patterns are BEGIN and END. These are true before and
 after all th e input files are read. Use END of end actions (e.g.
 final reports) and BEGIN for start up actions such as initializing
-default variables, setting the field s eparator, resetting the seed
+default variables, setting the field separator, resetting the seed
 of the random number generator:
 
  BEGIN {
         while (getline < "Usr.Dict.Words") #slurp in dictionary 
                 dict[$0] = 1
-        FS=",";                            #set field seperator
+        FS=",";                            #set field separator
         srand();                           #reset random seed
         Round=10;                          #always start globals with U.C.
  }
@@ -122,7 +122,7 @@ Ok, so now we know enough to explain an simple report function. How does hist.aw
                                        *   1 /var/imap
                                        *   1 /Library/WebServer
 
-hist.awk reads the maximum width from line one (when NR==1), then scales it to s ome maximum width value. For each line, it then prints the line ($0) with some stars at front.
+hist.awk reads the maximum width from line one (when NR==1), then scales it to some maximum width value. For each line, it then prints the line ($0) with some stars at front.
 
  NR==1  { Width = Width ? Width : 40 ; sets Width if it is missing
          Scale = $1 > Width ? $1 / Width : 1 
@@ -213,7 +213,7 @@ The array will hold an integer value for each word that occurred in the file . U
   {for(i=1;i <=NF;i++) freq[$i]++ }
   END{for(word in freq) print word, freq[word]  }
 
-You can find out if an element exists in an array at a certain index with th e expression:
+You can find out if an element exists in an array at a certain index with the  expression:
 
  index in array
 
