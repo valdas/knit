@@ -1,30 +1,75 @@
 <h1>Frequently Asked Questions</h1>
 
 <ul>
-<li> <a href="#1">Why use Awk?</a>
-<li> <a href="#2">What is "KNIT"?</a>
-<li> <a href="#3">What is a "WAK" file?</a>
-<li> <a href="#4">What is a "MakeFile"?</a>
-<li> <a href="#5">What is "QUILL"?</a>
-<li> <a href="#6">What is "PENNY"?</a>
-<li> <a href="#7">What else does "WAK" mean?</a>
+<li> <a href="#1">What is AWK?</a>
+<li> <a href="#2">What is an auk?</a>
+<li> <a href="#3">But why use AWK rather than Perl (or PHP or Ruby or...)?</a>
+<li> <a href="#4">What is "KNIT"?</a>
+<li> <a href="#5">What is a "WAK" file?</a>
+<li> <a href="#6">What is a "MakeFile"?</a>
+<li> <a href="#7">What is "QUILL"?</a>
+<li> <a href="#8">What is "PENNY"?</a>
+<li> <a href="#9">What else does "WAK" mean?</a>
 </ul>
 
-<a name="1"></a><h2>Why use Awk?</h2>
-
-<ul>
-<li> Awk is a simple and elegant pattern scanning and processing language.
-<li> Awk is also the most portable scripting language in existence.
-<li> But why use it rather than Perl (or PHP or Ruby or...):
-<ul>
-<li> Awk is simpler (especially important if deciding which to learn first);
-<li> Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
-<li> You may already know Awk well enough for the task at hand;
-<li> You may have only Awk installed;
-<li> Awk can be smaller, thus much quicker to execute for small programs.
-</ul></ul>
+<a name="1"></a><h2>What is AWK?</h2>
 <p>
-(Other languages like Perl is) a good programming language for
+AWK is a simple and elegant pattern scanning and processing language.
+AWK is also the most portable scripting language in existence.
+</p>
+<p>
+AWK does not get in the way of generating solutions.  When
+you code in Awk, you are thinking about the problem, not the
+complexities of the language (because there aren't any: no
+continuations, no inheritance, no pointers, no unions, etc). So
+programming in Awk is a study of the essential essence of a problem
+(and not trivial and tedious implementation details of over-elaborated
+languages).
+</p>
+<a name="2"></a><h2>What is an auk?</h2>
+<p>
+<img src="http://upload.wikimedia.org/wikipedia/commons/a/a1/Alca<em>torda</em>Roest_2003.jpg" class=rhumb250">
+AWK sounds like "auk"
+which is a bird of the family Alcidae in the
+order Charadriiformes. They are superficially similar to penguins
+but are not closely related 
+(this an example of moderate convergent
+evolution).
+In contrast to penguins, the modern auks are able to fly (with the
+exception of the recently extinct Great Auk). They are good swimmers
+and divers, but their walking appears clumsy.
+</p>
+<p>
+Auks live on the open sea and 
+only go ashore for breeding.
+Auks are wing-propelled pursuit divers.
+Time depth recorders on auks have shown that they can dive as deep
+as 100 m in the case of Uria guillemots, 40 m for the Cepphus
+guillemots and between 30 m for the auklets.
+</p>
+<p>
+<img src="http://upload.wikimedia.org/wikipedia/commons/d/dc/AlleAlle_2.jpg" class=rthumb>
+The Little Auk is a small auk, the only member of the genus Alle. It breeds on islands in the high Arctic.
+Little Auks produce a variety of twitters and cackling calls at the breeding colonies, but are silent at sea.
+Large numbers of Little Auks have been killed in several oil-spill incidents. But climate changes (warming) in Southern Greenland and Iceland seems to be the reason for the decreasing populations there.
+</p>
+<a name="3"></a><h2>But why use AWK rather than Perl (or PHP or Ruby or...)?</h2>
+<p>
+AWK only codes the support code for a set of tools. Using those tools, you can make an IDE
+for any language.
+</p>
+<p>
+But you can also use these tools to write AWK code. Which is nice since:
+</p>
+<pre>
+ + Awk is simpler (especially important if deciding which to learn first);
+ + Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
+ + You may already know Awk well enough for the task at hand;
+ + You may have only Awk installed;
+ + Awk can be smaller, thus much quicker to execute for small programs.
+</pre>
+<p>
+Other languages like Perl etc are  good programming language for
 writing self-contained programs, but pre-compilation and long
 start-up time are worth paying only if once the program has loaded
 it can do everything in one go. This contrasts sharply with the
@@ -35,16 +80,7 @@ pipelining inefficient. A better way of manipulating structured
 ASCII files is to use the AWK programming language, which is much
 smaller, more specialized for this task, and is very fast at startup.
 </p>
-<p>
-Lastly, Awk does not get in the way of generating solutions.  When
-you code in Awk, you are thinking about the problem, not the
-complexities of the language (because there aren't any: no
-continuations, no inheritance, no pointers, no unions, etc). So
-programming in Awk is a study of the essential essence of a problem
-(and not trivial and tedious implementation details of over-elaborated
-languages).
-</p>
-<a name="2"></a><h2>What is "KNIT"?</h2>
+<a name="4"></a><h2>What is "KNIT"?</h2>
 <p>
 KNIT is a language independent IDE that integrates the following tools:
 </p>
@@ -79,7 +115,7 @@ Storing tools:
 <li> Using on-line version control.
 </ul>
 
-<a name="3"></a><h2>What is a "WAK" file?</h2>
+<a name="5"></a><h2>What is a "WAK" file?</h2>
 <p>
 Everything in KNIT starts with .wak files.
 A ".wak" file is "words and kode", all mixed up. Based on Perl's POD files, WAK files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) 
@@ -87,7 +123,7 @@ A ".wak" file is "words and kode", all mixed up. Based on Perl's POD files, WAK 
 <p>
 For more (albeit useless) information on "WAK", see the bottom of this FAQ.
 </p>
-<a name="4"></a><h2>What is a "MakeFile"?</h2>
+<a name="6"></a><h2>What is a "MakeFile"?</h2>
 <p>
 WAK files live in a directory containing a Makefile. This file hooks
 the WAK source into KNIT and contains tools for building and testing
@@ -98,7 +134,7 @@ Each directory contains code from one language (so if you are coding PHP and PYT
 The Makefile defines what language is supported in the current directory.
 </p>
 <p>
-KNIT's Makefiles all begin with the same four parts:
+KNIT's Makefiles all begin with the same four parts, which must be defined in the following order: 
 </p>
 <pre>
  This    = quill# 1) define the app name
@@ -109,20 +145,21 @@ KNIT's Makefiles all begin with the same four parts:
 	@echo "Copyright (c) GPL 3.0 2010 Tim Menzies, (tim at menzies dot us)"
 
 
- # 4) define this directory's language
- include $(knit)/lib/make/awk.mk # must be after defining "this" and "about"
- -----------------------------------------------
+ include $(Knit)/lib/make/awk.mk # 4) include KNIT 
 </pre>
-<a name="5"></a><h2>What is "QUILL"?</h2>
 <p>
-QUILL is a library of useful AWK functions.
+Note the 4th part defines the language supported in this directory.
 </p>
-<a name="6"></a><h2>What is "PENNY"?</h2>
+<a name="7"></a><h2>What is "QUILL"?</h2>
+<p>
+QUILL is a library of useful AWK functions (must I explain this? Well, AWK sounds like "auk" which is a bird that has wings that use quills).
+</p>
+<a name="8"></a><h2>What is "PENNY"?</h2>
 <p>
 Penny, short for "penny for your thoughts" is the web browsing tool integrated into KNIT. When used with KNIT, it can display ".wak" files.
 When used separately, it is  a simple way to display HTML files (which you can hand generate).
 </p>
-<a name="7"></a><h2>What else does "WAK" mean?</h2>
+<a name="9"></a><h2>What else does "WAK" mean?</h2>
 <p>
 KNIT  processes "wak" files and, depending on your taste, "wak" means different things.
 </p>
