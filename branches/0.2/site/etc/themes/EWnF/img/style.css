@@ -240,7 +240,7 @@ img.rthumb250 {
 	  }
 
 img.cthumb250 {
-	float: center;
+	float: middle;
 	width: 250px;
   margin-right: 5px;
   padding:4px;
