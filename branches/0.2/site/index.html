@@ -1,7 +1,7 @@
 <h1>Welcome to the Art of Awk</h1>
 
 <img src="``share``/img/easterEgg.jpg" class="rthumb250">
-<p>This site is, and is not, about the Awk programming language. 
+<p>This site is, and is not, about the AWK programming language. 
 
 <p>At first glance, it is a collection of tools and tricks for Awk (more specifically, GNU Awk a.k.a gawk).
 But if that is all you see here, then you have missed the art of Awk, namely:
@@ -9,81 +9,19 @@ But if that is all you see here, then you have missed the art of Awk, namely:
 <em>To expose and simplify core issues by stripping away superfluous detail.</em>
 </ul>
 <p>
-	When you code in Awk, you are thinking  about the problem, 
-	not the complexities of the language (because there aren't any:
+	When you code in AWK, you are thinking  about the problem, 
+	not the complexities of the programming language (because there aren't any:
 	no continuations, no inheritance, no pointers, no unions, etc). 
-So programming in Awk is a study of the essential essence  of a problem (and not trivial and tedious
+So programming in AWK is a study of the essential essence  of a problem (and not trivial and tedious
 implementation details of over-elaborated languages).
 <p>
-This is not to say that tools are not important. Smart programmers know that they repeat the 
+AWK code is so short that it helps you quickly build and evolve prototypes. This gives you the
+experience you need to find the right design principles.
+If the code is complex in AWK, then usually you have not found
+them yet. So our advice is to keep AWKing till the code gets simple.
+<p>
+For example, smart programmers know that they repeat the 
 same tasks to solve different problems. And it make sense to build tools to support  those tasks. 
-<p>
-This site is about those tools, written in Awk (of course!). The question this site tries to answer is
-"what tasks are the <em>same</em>, not matter what problem I tackle, not matter
-what language I use?". The answers are at two levels- the software level and the knowledge level.
-
-<p>
-At the <em>software level</em>, we note that all code must be (a) written, (b) built, (c) read, (d) tested, and (e) stored.
-So this site defines:
-<ul>
-<dl>
-<dt>Writing tools: 
-<dd>
-A ".wak" file is "<u>w</u>ords and <u>k</u>ode", all mixed up. Based on 
-<a href="http://perldoc.perl.org/perlpod.html">Perl's POD files</a>, WAK 
-files
-let programmers <a href="http://code.google.com/p/knit/source/browse/branches/0.2/quill/bias.wak">mix up comments and code using a simple mark-up language</a> (e.g. paragraphs starting with a space are code, everything
-else is a comment.)
- We also offer many examples of domain-specific languages, and their use in software development.
-<dt>Building tools: 
-<dd>
-WAK list their dependencies and this site offers automatic tools to package together dependent files.
-<dt> Reading tools: 
-<dd> We support web-browsing of code files. For example, all the pages at this site were auto-generated from WAK files.
-<dt>
-Testing tools: 
-<dd>
-After building, the output from a WAK file can be cached. Test suites and regressions suites are now
-simple to implement:
-just re-run the code and comparing the output to the cache. 
-We automate much of this process.
-<dt>Storing tools: 
-<dd>
-using on-line version control.
-</dl>
-</ul>
-<p>At the <em>knowledge-level:</em>
-<ul>
-<li> 
-All code runs through a set of states  and some of these states are more preferable to others.
-<li>
-This site includes a set of data mining tools that let you nudge a program's behavior away/towards desired/undesired behavior.
-This is useful for controlling a device at runtime or finding errors before the software is released.
-</ul>
-<p>
-<em>(Aside: at the time of this writing (Feb'10)  some of the following tools are not on-line yet. The plan is to
-get posted by the end of 2010.)</em>
-<p>Sure, some of these tools are available in other IDEs (e.g. EMACS, ECLIPSE). But here's the thing:
-<ul>
-	<li>Some aren't. For example, there is no widely used Awk IDE that offers the above write, build, read, test, storage tools
-	(this was the original motivation for this site).
-<li>Many of the current tools are language dependent. In building the tools described here, the discovery was
-that these tools are nearly the same <em>no matter what language was used</em>. In fact, all the language dependent stuff
-could be isolated in tiny language configuration files.
-<li> Also, in many cases, you do not actually have to build these tools. Rather, you only need to mash-up existing services.
-For example, the page you are reading actually lives in <a href="http://code.google.com/p/knit/">Google Code</a>. 
-So the tools at this site do not need to handle password management, version control, roll-back etc. All that
-comes for free, just be using
-and existing on-line repository tool.
-<li>Finally, when you do have to build a tool, they are simple.  Really, really simple. Which is great news! Not only can we avoid overly complex tools,
-but it now becomes simpler to modify, customize, and improve the tool support.
-</ul>
-<p>
-<img class=rthumb250 src="http://4.bp.blogspot.com/_iKcZ3qcCmyo/R-JTg4HUDvI/AAAAAAAAGVM/X3nzUQA2O_A/s400/outdoor_kite_flying_f-778727.jpg">
-More importantly, building tools in Awk is FUN! Addictive crazy mad fun.
-<p>
-Once you get the bug, you won't be able to stop solving
-seemingly hard problems with a few lines of script.
-<p>This lets you go home early, and take the kids kite flying. 
-</ul>
+This site is about those tools, written in Awk (of course!). 
+For more on those tools, see our [?goals goals] page.
 
