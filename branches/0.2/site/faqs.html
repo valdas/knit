@@ -1,35 +1,29 @@
-# -*- mode: Awk; -*-  vim: set filetype=awk : 
-#
-# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
-# tim@menzies.us.
-#
-# KNIT is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# KNIT is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+<h1>Frequently Asked Questions</h1>
 
-Frequently Asked Questions
+<ul>
+<li> <a href="#1">Why use Awk?</a>
+<li> <a href="#2">What is "KNIT"?</a>
+<li> <a href="#3">What is a "WAK" file?</a>
+<li> <a href="#4">What is a "MakeFile"?</a>
+<li> <a href="#5">What is "QUILL"?</a>
+<li> <a href="#6">What is "PENNY"?</a>
+<li> <a href="#7">What else does "WAK" mean?</a>
+</ul>
 
-Why use Awk?
-============
+<a name="1"></a><h2>Why use Awk?</h2>
 
-+ Awk is a simple and elegant pattern scanning and processing language.
-+ Awk is also the most portable scripting language in existence.
-+ But why use it rather than Perl (or PHP or Ruby or...):
- + Awk is simpler (especially important if deciding which to learn first);
- + Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
- + You may already know Awk well enough for the task at hand;
- + You may have only Awk installed;
- + Awk can be smaller, thus much quicker to execute for small programs.
-
+<ul>
+<li> Awk is a simple and elegant pattern scanning and processing language.
+<li> Awk is also the most portable scripting language in existence.
+<li> But why use it rather than Perl (or PHP or Ruby or...):
+<ul>
+<li> Awk is simpler (especially important if deciding which to learn first);
+<li> Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
+<li> You may already know Awk well enough for the task at hand;
+<li> You may have only Awk installed;
+<li> Awk can be smaller, thus much quicker to execute for small programs.
+</ul></ul>
+<p>
 (Other languages like Perl is) a good programming language for
 writing self-contained programs, but pre-compilation and long
 start-up time are worth paying only if once the program has loaded
@@ -40,7 +34,8 @@ with initializing (say) Perl at every stage of the pipeline makes
 pipelining inefficient. A better way of manipulating structured
 ASCII files is to use the AWK programming language, which is much
 smaller, more specialized for this task, and is very fast at startup.
-
+</p>
+<p>
 Lastly, Awk does not get in the way of generating solutions.  When
 you code in Awk, you are thinking about the problem, not the
 complexities of the language (because there aren't any: no
@@ -48,99 +43,113 @@ continuations, no inheritance, no pointers, no unions, etc). So
 programming in Awk is a study of the essential essence of a problem
 (and not trivial and tedious implementation details of over-elaborated
 languages).
-
-What is "KNIT"?
-===============
-
+</p>
+<a name="2"></a><h2>What is "KNIT"?</h2>
+<p>
 KNIT is a language independent IDE that integrates the following tools:
-
+</p>
+<p>
 Writing tools:
-
-+  KNIT files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) We also offer many examples of domain-specific languages, and their use in software development.
-
+</p>
+<ul>
+<li>  KNIT files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) We also offer many examples of domain-specific languages, and their use in software development.
+</ul>
+<p>
 Building tools:
-
-+ KNIT files know their dependencies and this site offers automatic tools to package together dependent files.
-
+</p>
+<ul>
+<li> KNIT files know their dependencies and this site offers automatic tools to package together dependent files.
+</ul>
+<p>
 Reading tools:
 + KNIT  supports web-browsing of code files. For example, all the pages at this site were auto-generated from KNIT source files.
-
+</p>
+<p>
 Testing tools:
-
-+ After building, the output from a KNIT file can be cached. Test suites and regressions suites are now simple to implement: just re-run the code and comparing the output to the cache. We automate much of this process.
-
+</p>
+<ul>
+<li> After building, the output from a KNIT file can be cached. Test suites and regressions suites are now simple to implement: just re-run the code and comparing the output to the cache. We automate much of this process.
+</ul>
+<p>
 Storing tools:
+</p>
+<ul>
+<li> Using on-line version control.
+</ul>
 
-+ Using on-line version control.
-
-What is a "WAK" file?
-=====================
-
+<a name="3"></a><h2>What is a "WAK" file?</h2>
+<p>
 Everything in KNIT starts with .wak files.
 A ".wak" file is "words and kode", all mixed up. Based on Perl's POD files, WAK files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) 
-
+</p>
+<p>
 For more (albeit useless) information on "WAK", see the bottom of this FAQ.
-
-What is a "MakeFile"?
-=====================
-
+</p>
+<a name="4"></a><h2>What is a "MakeFile"?</h2>
+<p>
 WAK files live in a directory containing a Makefile. This file hooks
 the WAK source into KNIT and contains tools for building and testing
 the code.
-
+</p>
+<p>
 Each directory contains code from one language (so if you are coding PHP and PYTHON), place them in different directories.
 The Makefile defines what language is supported in the current directory.
-
+</p>
+<p>
 KNIT's Makefiles all begin with the same four parts:
  
  This    = quill# 1) define the app name
  Version = 0.1#   2) define the version number
-
+</p>
+<pre>
  about:       #   3) Write an about line, with a copyright.
 	@echo "A test engine for QUILL function $(This), v$(Version)"
 	@echo "Copyright (c) GPL 3.0 2010 Tim Menzies, (tim at menzies dot us)"
 
+
  # 4) define this directory's language
  include $(knit)/lib/make/awk.mk # must be after defining "this" and "about"
  -----------------------------------------------
-
-What is "QUILL"?
-================
-
+</pre>
+<a name="5"></a><h2>What is "QUILL"?</h2>
+<p>
 QUILL is a library of useful AWK functions.
-
-What is "PENNY"?
-================
-
+</p>
+<a name="6"></a><h2>What is "PENNY"?</h2>
+<p>
 Penny, short for "penny for your thoughts" is the web browsing tool integrated into KNIT. When used with KNIT, it can display ".wak" files.
 When used separately, it is  a simple way to display HTML files (which you can hand generate).
-
-What else does "WAK" mean?
-==========================
-
+</p>
+<a name="7"></a><h2>What else does "WAK" mean?</h2>
+<p>
 KNIT  processes "wak" files and, depending on your taste, "wak" means different things.
-
+</p>
+<p>
 For AWK programmers, a wak is  "awk", all mixed up
-
+</p>
+<p>
 For people who like doing violence to language, "WAK" is 
 "words and kode" (code)
-
+</p>
+<p>
 If your have street cred, then "WAK" means or super weird/awful/crazy/mad effed up
-(from [http://www.urbandictionary.com/define.php?term=wak the Urban Dictionary]).
-
+(from <a href="http://www.urbandictionary.com/define.php?term=wak">the Urban Dictionary</a>).
+</p>
+<p>
 If you a fan of  the actor Henry Alvarez or the film "Explorers" (1985), then
 "WAK" is an alien. According to
-[http://cardboardmonocle.com/blog/?page_id=747 Cardboard Monocle],
+<a href="http://cardboardmonocle.com/blog/?page_id=747">Cardboard Monocle</a>,
 at his core, Wak is a teenager. Though an alien, he has an annoying
 little sister, watches a ton of television, and had more angst than
 you can shake a latex eyeball on a stick at. Okay, so this is
 another goofy 80s movie, but it has Ethan Hawke, River Phoenix and
 a trash can spaceship. Plus, Wak has suction cup fingers.
-
+</p>
+<p>
 Finally, if you are about 4000 years old and come from north Africa,
 then "WAK" is  the
-[http://www.monamagick.com/resources_deities_african4.html creator
-god (in the mythology of southern Ethiopia, Uganda, and Somaliland)]
+<a href="http://www.monamagick.com/resources<em>deities</em>african4.html">creator
+god (in the mythology of southern Ethiopia, Uganda, and Somaliland)</a>
 who dwelled in the clouds. He was supreme and a benefactor god. He
 kept the heavens at a distance from the earth and ornamented it
 with stars. When the earth was flat, Wak asked man to build himself
@@ -156,6 +165,3 @@ into a woman whom the man married. Man and woman had 30 children,
 but man was so ashamed at having had so many that he hid fifteen
 of them away. Wak was angry at this, and as a result, the children
 man hid away were turned into animals and demons.
-
-
-
