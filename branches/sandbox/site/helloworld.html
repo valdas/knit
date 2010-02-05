@@ -1,0 +1,69 @@
+<h1>Hello World!  </h1>
+
+<ul>
+<li> <a href="#1">Download</a>
+<li> <a href="#2">Introduction</a>
+<li> <a href="#3">Code</a>
+<ul>
+<li> <a href="#4">Requires</a>
+<li> <a href="#5">Main </a>
+<li> <a href="#6">Support</a>
+</ul>
+<li> <a href="#7">Author</a>
+</ul>
+
+<a name="1"></a><h2>Download</h2>
+<p>
+<a href="``download``/helloworld/0.1/helloworld">Version 0.1</a>
+</p>
+<a name="2"></a><h2>Introduction</h2>
+<p>
+In the all the world,  has there ever been a program like <tt>hello
+world</tt>?  First seen in the famous K&R book on 'C', it has introduced
+a billion people to their first program.
+</p>
+<a name="3"></a><h2>Code</h2>
+
+<a name="4"></a><h3>Requires</h3>
+<p>
+<a href="?options">options</a> <a href="?prints">prints</a> 
+</p>
+<a name="5"></a><h3>Main </h3>
+<pre>
+ BEGIN { if (!Test) main() }
+
+
+ function main() {
+     ok2go(Opt, 
+	   "What=Hello World;Why=saying hi!;When=2010;Who=Tim Menzies;"	\
+	   "To=world;Say=hello;i="); 
+     if (! opt("i")) {
+	 	print opt("Say") " " opt("To");
+	 	exit 
+	}
+ }
+</pre>
+<p>
+If running in interactive mode, print hello and a qualifier for
+every line of input.
+</p>
+<pre>
+ { print opt("Say") " " opt("To") ", you " $0 "." }
+</pre>
+<a name="6"></a><h3>Support</h3>
+<pre>
+ function help() {
+    about()
+    prints(" ", "usage: helloworld [OPTIONS] [qualifiers]"," ",
+       " -a          About",
+	   " -i          Interactive mode. Prints hello, plus",
+       "             one qualifier per line of input.",
+	   " -To Who     Address the greeting to 'Who'",
+	   " -Say What   Start the greeting with 'Say'",
+	   " -c          Copyright",
+	   " -h          Help");
+ }
+</pre>
+<a name="7"></a><h2>Author</h2>
+<p>
+Tim Menzies

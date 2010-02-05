@@ -1,0 +1,47 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+ function toc(files,titles,tags,sgat,     i,out,one,memo,all,n,now,last,title,page,prefix,j) {	
+   for(i in files) {
+       one       = titles[files[i]]
+       memo[one] = i
+       all[one]  = one
+   }
+   n=asort(all)
+   for(i=1;i<=n;i++) { 
+       title = all[i]
+       page  = memo[all[i]]
+       now   = substr(title,1,1)
+       prefix=""
+       if (now    != last) {
+           prefix  = now
+           j       = 1-j
+       }
+       last = now
+       out  = out "<tr class=row"j"><td>"prefix\
+                 "</td><td><a href=\"?" page"\">"\
+                  title"</a></td></tr>\n"
+   }
+   return "<h1>Table of Contents</h1><table width=\"100%\" id=toc>"out"</table>"
+ }
+
+
+
+
+
+
+

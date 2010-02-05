@@ -1,0 +1,21 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#stacksDemo
+
+#Test file for stacks.
+
+#@uses stack o
+
+ function demoStacks(   n,tmp,i,a) {
+     n=split("a,b,c",tmp,",")
+     for(i=1;i<=n;i++) {
+         push(a,tmp[i])
+         print "\n=== " i "========"
+         for(i in a) 
+             print i " = " a[i]
+     }
+     o(a,"a")
+  }
+
+#by Tim Menzies
+
