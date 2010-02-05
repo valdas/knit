@@ -239,6 +239,14 @@ img.rthumb250 {
     border:1px solid #446688;
 	  }
 
+img.cthumb250 {
+	float: center;
+	width: 250px;
+  margin-right: 5px;
+  padding:4px;
+    border:1px solid #446688;
+	  }
+
 img.rthumb250nb {
 	float: right;
 	width: 250px;
