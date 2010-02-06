@@ -7,6 +7,7 @@ contacts.html     ;Timm; Admin;Feb; 2010                          ; Contact us
 goals.html     ;Timm; Admin;Feb; 2010                          ; Goals of this site
 faqs.html     ;Timm; Admin;Feb; 2010                          ; Frequently asked questions
 
+dsl.html     ;Timm; Admin;Feb; 2010                          ; Domain-specific languages
 literate.html     ;Timm; Lit;Feb; 2010                          ; Literate Programming
 tdd.html     ;Timm; Lit;Feb; 2010                          ; Test-Driven Development
 
