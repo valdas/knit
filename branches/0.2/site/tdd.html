@@ -1,0 +1,66 @@
+<h1>Test-Driven Development</h1>
+<p>This tools of this site support a kind of test-driven development (TDD) called demo-driven development (DDD). In short, demos are like tests, but slightly bigger.
+But what is TDD?
+
+<p>According to
+<a href="http://en.wikipedia.org/wiki/Test_driven_development">WIKIPEDIA</a>:
+<ul>
+Test-driven development (TDD) requires the programmer to first fail
+the test cases. The idea is to ensure that the test really works
+and can catch an error. Once this is shown, the normal cycle will
+commence. This has been coined the "Test-Driven Development Mantra",
+known as red/green/refactor where red means fail and green is pass.
+</ul>
+<p>Test-driven development is Kent Beck's  <em>how-to</em> of one part of the
+<em>extreme programming</em> approach to coding. 
+Note that TDD does not require
+extreme programming, but the reverse is certainly true. Consider the
+<em>extreme rules</em> shown in 
+<a href="http://www.extremeprogramming.org/rules.html">http://www.extremeprogramming.org/rules.html</a>
+and consider which of those rules depend on an active test program:
+<ul>
+<li>
+PLANNING rules
+<ul><li>
+  User stories are written. (a.k.a. lots of demos)
+  <li>Make frequent small releases (a.k.a. shows a string of demos)
+  <li>Fix XP when it breaks (ak.a. code run break fix is the usual cycle)
+</ul>
+<li>
+CODING rules
+<ul>
+<li>
+  Code the unit test first.
+</ul>
+<li>
+TESTING rules
+<ul><li>
+  All code must have unit tests.
+ <li> All code must pass all unit tests before it  can be released.
+  <li> When a bug is found tests are created.
+  <li>Acceptance tests are run often and the score is published.
+</ul>
+</ul>
+
+<p>
+On reading Kent Beck's book <a href="http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155">Test-driven development</a>, it is clear
+how small each test was. For example, when checking oeprations on a new
+abstract data type, just mini-tests are certainly appropriate. However,
+when working with large granularity programs ( e.g. shell scripts),
+Kent-style tests seemed to small.
+<p>
+So DDD is a (small)  variation to TDD. Think about how you might
+present the code to someone else, what you'd show off, what you'd use
+to demonstrate the core principles. This variant is called "demo-driven
+development" and it differs from TDD in that each "demo" is usually a
+seperate shell script comprising "large-grain tests" that demonstrate
+some functionality.
+<p>
+In short, TDD demands thousands of tests while DDD demands dozens (or less) of demonstration scripts.
+<p>
+XXX describe the make files
+
+<h2>References</h2>
+<p>
+<a href="http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155">
+Test-driven development: by example</a> by Kent Beck, Addison-Wesley, 2002.
