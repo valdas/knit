@@ -17,11 +17,44 @@ implementation details of over-elaborated languages).
 <p>
 AWK code is so short that it helps you quickly build and evolve prototypes. This gives you the
 experience you need to find the right design principles.
-If the code is complex in AWK, then usually you have not found
-them yet. So our advice is to keep AWKing till the code gets simple.
+And you know when you've found them- everything suddenly becomes clear and clean.
+So our advice is to keep AWKing till the code gets simple.
 <p>
-For example, smart programmers know that they repeat the 
-same tasks to solve different problems. And it make sense to build tools to support  those tasks. 
-This site is about those tools, written in Awk (of course!). 
-For more on those tools, see our <a href="?goals">goals</a>.
+For example:
+<ul>
+<li> Smart programmers know that they repeat the 
+same tasks to solve different problems. 
+<li>
+It make sense to build tools to support  those tasks. 
+
+<li>
+This site is about <a href="?goals">those tools, written in Awk</a> (of course!):
+<ul>
+<li><a href="?literate">Literate programming</a>
+<li><a href="?tdd">Test-driven development</a>
+<li><a href="dsl">Domain-specific languages</a>
+<li>Data mining for software engineering
+<li>And more.
+</ul>
+</ul>
+<p>(And note that while our main focus is using those tools on Awk, very little of these tools are Awk-specific.
+In fact, we show how easy it is to apply these tools to other langauges.)
+<h2>How to use this site</h2>
+<p>This site supports many tools (see below) and can be used in several ways. So you need to  decide how deep you want to go. 
+You might consider do the simpler stuff (like layer1, below) before you move to the more elaborate stuff:
+<p>
+<table align=center border=1>
+<tr><td colspan=2>                        <td colspan=3 align=center>libraries<td colspan=2><td align=center colspan=2>html    </tr>
+<tr><td>Layer <td>What you can do             <td>use<td>write<td>exchange<td>test suites<td>off-line storage<td>generate<td>serve on-line</tr>
+<tr><td>1     <td>Just grab some code,  use it locally<td bgcolor=#000><td><td><td><td><td><td></tr>
+<tr><td>2     <td>Just generate some html pages <td bgcolor=#000><td bgcolor=#000><td><td><td><td bgcolor=#000><td></tr>
+<tr><td>3     <td>Write a web site (using PENNY<sup>1</sup>)<td bgcolor=#000><td bgcolor=#000><td><td><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000></tr>
+<tr><td>4     <td>Use KNIT<sup>2</sup> to write code on your local machine <td bgcolor=#000><td bgcolor=#000><td><td bgcolor=#000><td><td><td></tr>
+<tr><td>5     <td>Write KNIT code within an on-line community <td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td><td></tr>
+<tr><td>6     <td>Write in KNIT (with an on-line community), then display with PENNY <td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000></tr>
+<tr><td>7     <td>As above, but use this site and write with this community. <td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000><td bgcolor=#000></tr>
+</table>
+<p>Notes:<br>
+<sup>1</sup> PENNY is a content management system and is short for "Penny for your thoughts".<br>
+<sup>2</sup> KNIT is a integrated development environment that makes extensive use of command-line tools.
 

@@ -16,10 +16,9 @@
 ``share``           http://knit.googlecode.com/svn/branches/0.2/share
 ``menu``            <a href="?index">Home</a> | 
                     <a href="?sitemap">Contents</a> | 
-                    <a href="?readmes">READMEs</a>   |
                     <a href="?crossIndex">Index</a>   |
-                    <a href="?downloads">Downloads</a>  |
-                    <a href="?faqs">F.A.Q.</a> |
+                    <a href="?faqs">FAQ</a> |
+		    <a href="?downloads">Downloads</a> |
                     <a href="?contacts">Contact</a>  
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
