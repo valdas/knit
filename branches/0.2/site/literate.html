@@ -2,7 +2,21 @@
 
 <ul>
 <li> <a href="#1">MARKUP (introduction)</a>
-<li> <a href="#2">Author</a>
+<li> <a href="#2">Example</a>
+<ul>
+<li> <a href="#3">Input</a>
+</ul>
+<li> <a href="#4">Syntax</a>
+<ul>
+<li> <a href="#5">Headings</a>
+<ul>
+<li> <a href="#6">In-line mark up</a>
+<li> <a href="#7">Next-line mark up</a>
+</ul>
+<li> <a href="#8">Mixing MARKUP with HTML</a>
+<li> <a href="#9">Two Kinds of Verbatims</a>
+</ul>
+<li> <a href="#10">Author</a>
 </ul>
 <p>
 According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
@@ -45,11 +59,116 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 &lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
 bolds, etc).
 </p>
+<a name="2"></a><h2>Example</h2>
+
+<a name="3"></a><h3>Input</h3>
 <p>
-It is a useful to distinguish <em>two</em> kinds
-of verbatims. Firstly, there is code that should be passed on to some interpreter/compiler.
-Secondly, there is code that 
+In the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+in HTML
 </p>
-<a name="2"></a><h2>Author</h2>
+<pre>
+  # -*- mode: Awk; -*-  vim: set filetype=awk : 
+  #
+  # This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+  # tim@menzies.us.
+
+
+  This is the heading of this page
+
+
+  An H1 Heading
+  =============
+
+
+  Paragraphs start after a blank line.
+
+
+  + Lists are marked with a plus..
+  + ... in the first column.
+
+
+  Also, numbered lists start with left-hand-side numbers.
+
+
+  1. Like this.
+  1. The actual number does not matter.
+  3. E.g. this list will be rendered as 1,2,3.
+
+
+  Italics is marked by _underscores_ and bolds are marked by *stars*.
+
+
+   function code(arg1,arg2) {
+      # This para started with white space. 
+      # So it will be rendered exactly.
+      return arg1 + arg2
+   }
+</pre>
+<a name="4"></a><h2>Syntax</h2>
+
+<a name="5"></a><h3>Headings</h3>
+<p>
+Headings are marked up either in-line, or on their next-line:
+</p>
+<a name="6"></a><h4>In-line mark up</h4>
+<p>
+The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+</p>
+<pre>
+  ===== BIG =====
+
+
+  ==== Not-so-big ====
+
+
+  === Smaller ===
+
+
+  == Smallest ==
+</pre>
+<a name="7"></a><h4>Next-line mark up</h4>
+<p>
+The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+</p>
+<pre>
+  BIG 
+  ===
+
+
+  Not-so-big 
+  ==========
+
+
+  Smaller
+  =======
+
+
+  Smallest
+  ========
+ 
+Notes
+=====
+</pre>
+<a name="8"></a><h3>Mixing MARKUP with HTML</h3>
+<p>
+MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
+"&lt;em>"). This means that for special rendering jobs (e.g. tables), 
+it is possible to use HTML tags within MARKUP files.
+</p>
+<p>
+Note one restriction: the table of contents generated on top of MARKUP file
+will not include any heading tags that you enter as raw HTML; e.g.
+&lt:h1>,
+&lt:h2>,
+&lt:h3>, etc.
+</p>
+<a name="9"></a><h3>Two Kinds of Verbatims</h3>
+
+<ul>
+<li> start code paragraphs with one character of whitespace 
+<li> start vertbatim paragraphs with two whitespace characters.
+</ul>
+
+<a name="10"></a><h2>Author</h2>
 <p>
 Tim Menzies
