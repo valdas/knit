@@ -1,13 +1,56 @@
 <h1>Literate Programming</h1>
-<p>Literate programming systems have the following properties.
 
-<p><em>Code and extended, detailed, comments are intermingled.  </em>
-Here, to write code,  just
-start a new paragraph with a space or a tab.
-And, to make comment writing easier,  we support a local variant of the MarkDown syntax called [?markup]. 
-
-<p><em>The program and its documentation can be handsomely typeset into a single article that explains the program and how it works.</em>
-Rather than typeset, we use HTML. But the results are the same: pretty displays of lots of code.
-
-<p><em> The code sections can be written in whatever order is best for people to understand, and are re-ordered automatically when the computer needs to run the program.</em>
-While this is not supported directly, code can be broken into many tiny files, then described in an order best suited for some narrative.
+<ul>
+<li> <a href="#1">MARKUP (introduction)</a>
+</ul>
+<p>
+According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
+Dominus</a>, literate programming systems have the following properties.
+</p>
+<p>
+<em>Code and extended, detailed, comments are intermingled.</em>
+Here, to write code, just start a new paragraph with a space or a tab.
+All other paragraphs are comments and these are written in a
+easy-to-read, easy-to-write plain text format called MARKUP (see below).
+</p>
+<p>
+<em>The program and its documentation can be handsomely typeset into a
+single article that explains the program and how it works.</em> Rather
+than typeset, we use HTML. But the results are the same: pretty
+displays of lots of code.
+</p>
+<p>
+<em>The code sections can be written in whatever order is best for
+people to understand, and are re-ordered automatically when the
+computer needs to run the program.</em> This site does not support
+this directly. However, code can be broken into many tiny files, then
+described in an order best suited for some narrative.
+</p>
+<a name="1"></a><h2>MARKUP (introduction)</h2>
+<p>
+MARKUP is based on John Gruber's excellent <a href="http://daringfireball.net/projects/markdown">MARKDOWN</a>
+system, with small extensions to better support KNIT.
+</p>
+<p>
+In MARKUP, the first two paragraphs are special. 
+</p>
+<ul>
+<li> The first paragraph is completely ignored. This is useful if   the first para contains either directives or comments (e.g.  relating to copyright or version control).
+<li> The second paragraph becomes the heading of the page.
+</ul>
+<p>
+After that, paragraphs are rendered as HTML code.  If paragraphs start
+with blanks or tabs, they are rendered verbatim (using the HTML
+&lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
+bolds, etc).
+</p>
+<p>
+It is a useful to distinguish <em>two</em> kinds
+of verbatims. Fristly, there is code that should be based on to some interpreter/compiler.
+For example:
+</p>
+<p>
+<h2>Author</h2>
+</p>
+<p>
+Tim Menzies
