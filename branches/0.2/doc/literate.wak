@@ -1,0 +1,67 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Literate Programming
+
+According to [http://www.perl.com/pub/a/tchrist/litprog.html Jason
+Dominus], literate programming systems have the following properties.
+
+_Code and extended, detailed, comments are intermingled._
+Here, to write code, just start a new paragraph with a space or a tab.
+All other paragraphs are comments and these are written in a
+easy-to-read, easy-to-write plain text format called MARKUP (see below).
+
+_The program and its documentation can be handsomely typeset into a
+single article that explains the program and how it works._ Rather
+than typeset, we use HTML. But the results are the same: pretty
+displays of lots of code.
+
+_The code sections can be written in whatever order is best for
+people to understand, and are re-ordered automatically when the
+computer needs to run the program._ This site does not support
+this directly. However, code can be broken into many tiny files, then
+described in an order best suited for some narrative.
+
+MARKUP (introduction)
+=====================
+
+MARKUP is based on John Gruber's excellent [http://daringfireball.net/projects/markdown MARKDOWN]
+system, with small extensions to better support KNIT.
+
+
+In MARKUP, the first two paragraphs are special. 
+
++ The first paragraph is completely ignored. This is useful if 
+  the first para contains either directives or comments (e.g.
+  relating to copyright or version control).
++ The second paragraph becomes the heading of the page.
+
+After that, paragraphs are rendered as HTML code.  If paragraphs start
+with blanks or tabs, they are rendered verbatim (using the HTML
+&lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
+bolds, etc).
+
+It is a useful to distinguish _two_ kinds
+of verbatims. Fristly, there is code that should be based on to some interpreter/compiler.
+For example:
+
+
+<h2>Author</h2>
+
+Tim Menzies
