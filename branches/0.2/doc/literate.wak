@@ -56,13 +56,8 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 &lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
 bolds, etc).
 
-Example
-=======
-
-Input
------
-
-In the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+For example,
+in the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
 in HTML
 
   # -*- mode: Awk; -*-  vim: set filetype=awk : 
@@ -131,7 +126,8 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
 
   Smallest
   ========
- 
+
+
 Notes
 =====
 
