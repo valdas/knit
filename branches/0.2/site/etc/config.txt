@@ -1,12 +1,12 @@
-``Title``           The Art of Awk
+``Title``           The Art of AWK
 ``Tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
 ``Site``            http://knit.googlecode.com/svn/branches/0.2/site
 ``Default``         index.html
 ``NotFound``	    404.html
 ``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
 ``home``            http://awkcookbook.info
-``description``     The art of Awk: how to do more, with less
-``keywords``        Awk, design, less is more
+``description``     The art of AWK: how to do more, with less
+``keywords``        AWK, design, less is more
 ``author``          Tim Menzies 
 ``favicon``         http://knit.googlecode.com/svn/branches/0.2/share/img/bracket.ico
 ``css-main``        img/style.css
@@ -23,7 +23,7 @@
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
 		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>
-                    The Art of <strike>Auk</strike> Awk: <br>how do more, with less.
+                    The Art of <strike>Auk</strike> AWK: <br>how do more, with less.
 		    </center>
              
 ``footer``         <p> 
