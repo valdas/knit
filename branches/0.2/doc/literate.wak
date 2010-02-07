@@ -44,7 +44,6 @@ MARKUP (introduction)
 MARKUP is based on John Gruber's excellent [http://daringfireball.net/projects/markdown MARKDOWN]
 system, with small extensions to better support KNIT.
 
-
 In MARKUP, the first two paragraphs are special. 
 
 + The first paragraph is completely ignored. This is useful if 
@@ -58,10 +57,10 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 bolds, etc).
 
 It is a useful to distinguish _two_ kinds
-of verbatims. Fristly, there is code that should be based on to some interpreter/compiler.
-For example:
+of verbatims. Firstly, there is code that should be passed on to some interpreter/compiler.
+Secondly, there is code that 
 
-
-<h2>Author</h2>
+Author
+======
 
 Tim Menzies
