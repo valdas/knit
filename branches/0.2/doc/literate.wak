@@ -56,9 +56,108 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 &lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
 bolds, etc).
 
-It is a useful to distinguish _two_ kinds
-of verbatims. Firstly, there is code that should be passed on to some interpreter/compiler.
-Secondly, there is code that 
+Example
+=======
+
+Input
+-----
+
+In the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+in HTML
+
+  # -*- mode: Awk; -*-  vim: set filetype=awk : 
+  #
+  # This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+  # tim@menzies.us.
+
+  This is the heading of this page
+
+  An H1 Heading
+  =============
+
+  Paragraphs start after a blank line.
+
+  + Lists are marked with a plus..
+  + ... in the first column.
+
+  Also, numbered lists start with left-hand-side numbers.
+
+  1. Like this.
+  1. The actual number does not matter.
+  3. E.g. this list will be rendered as 1,2,3.
+
+  Italics is marked by _underscores_ and bolds are marked by *stars*.
+
+   function code(arg1,arg2) {
+      # This para started with white space. 
+      # So it will be rendered exactly.
+      return arg1 + arg2
+   }
+
+Syntax
+======
+
+Headings
+--------
+
+Headings are marked up either in-line, or on their next-line:
+
+In-line mark up
+++++++++++++++
+
+The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+
+  ===== BIG =====
+
+  ==== Not-so-big ====
+
+  === Smaller ===
+
+  == Smallest ==
+
+Next-line mark up
+++++++++++++++
+
+The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+
+  BIG 
+  ===
+
+  Not-so-big 
+  ==========
+
+  Smaller
+  =======
+
+  Smallest
+  ========
+ 
+Notes
+=====
+
+Mixing MARKUP with HTML
+-----------------------
+
+MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
+"&lt;em>"). This means that for special rendering jobs (e.g. tables), 
+it is possible to use HTML tags within MARKUP files.
+
+Note one restriction: the table of contents generated on top of MARKUP file
+will not include any heading tags that you enter as raw HTML; e.g.
+&lt:h1>,
+&lt:h2>,
+&lt:h3>, etc.
+
+Two Kinds of Verbatims
+----------------------
+It is a useful to distinguish _two_ of verbatims. Firstly, there is
+code that should be passed on to some interpreter/compiler.  Secondly,
+there is some text that should just be rendered verbatim (e.g. showing
+sample output from a function) but which should not be passed on. One
+convention for this is to:
+
++ start code paragraphs with one character of whitespace 
++ start vertbatim paragraphs with two whitespace characters.
 
 Author
 ======
