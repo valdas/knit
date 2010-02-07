@@ -2,21 +2,20 @@
 
 <ul>
 <li> <a href="#1">MARKUP (introduction)</a>
-<li> <a href="#2">Example</a>
+<li> <a href="#2">Syntax</a>
 <ul>
-<li> <a href="#3">Input</a>
-</ul>
-<li> <a href="#4">Syntax</a>
+<li> <a href="#3">Headings</a>
 <ul>
-<li> <a href="#5">Headings</a>
+<li> <a href="#4">In-line mark up</a>
+<li> <a href="#5">Next-line mark up</a>
+</ul>
+</ul>
+<li> <a href="#6">Notes</a>
 <ul>
-<li> <a href="#6">In-line mark up</a>
-<li> <a href="#7">Next-line mark up</a>
+<li> <a href="#7">Mixing MARKUP with HTML</a>
+<li> <a href="#8">Two Kinds of Verbatims</a>
 </ul>
-<li> <a href="#8">Mixing MARKUP with HTML</a>
-<li> <a href="#9">Two Kinds of Verbatims</a>
-</ul>
-<li> <a href="#10">Author</a>
+<li> <a href="#9">Author</a>
 </ul>
 <p>
 According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
@@ -59,11 +58,9 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 &lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
 bolds, etc).
 </p>
-<a name="2"></a><h2>Example</h2>
-
-<a name="3"></a><h3>Input</h3>
 <p>
-In the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+For example,
+in the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
 in HTML
 </p>
 <pre>
@@ -104,13 +101,13 @@ in HTML
       return arg1 + arg2
    }
 </pre>
-<a name="4"></a><h2>Syntax</h2>
+<a name="2"></a><h2>Syntax</h2>
 
-<a name="5"></a><h3>Headings</h3>
+<a name="3"></a><h3>Headings</h3>
 <p>
 Headings are marked up either in-line, or on their next-line:
 </p>
-<a name="6"></a><h4>In-line mark up</h4>
+<a name="4"></a><h4>In-line mark up</h4>
 <p>
 The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
 </p>
@@ -126,7 +123,7 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
 
   == Smallest ==
 </pre>
-<a name="7"></a><h4>Next-line mark up</h4>
+<a name="5"></a><h4>Next-line mark up</h4>
 <p>
 The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
 </p>
@@ -145,11 +142,10 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
 
   Smallest
   ========
- 
-Notes
-=====
 </pre>
-<a name="8"></a><h3>Mixing MARKUP with HTML</h3>
+<a name="6"></a><h2>Notes</h2>
+
+<a name="7"></a><h3>Mixing MARKUP with HTML</h3>
 <p>
 MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
 "&lt;em>"). This means that for special rendering jobs (e.g. tables), 
@@ -162,13 +158,13 @@ will not include any heading tags that you enter as raw HTML; e.g.
 &lt:h2>,
 &lt:h3>, etc.
 </p>
-<a name="9"></a><h3>Two Kinds of Verbatims</h3>
+<a name="8"></a><h3>Two Kinds of Verbatims</h3>
 
 <ul>
 <li> start code paragraphs with one character of whitespace 
 <li> start vertbatim paragraphs with two whitespace characters.
 </ul>
 
-<a name="10"></a><h2>Author</h2>
+<a name="9"></a><h2>Author</h2>
 <p>
 Tim Menzies
