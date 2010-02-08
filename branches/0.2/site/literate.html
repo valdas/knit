@@ -9,13 +9,12 @@
 <li> <a href="#4">In-line mark up</a>
 <li> <a href="#5">Next-line mark up</a>
 </ul>
+<li> <a href="#6">Paragraphs</a>
+<li> <a href="#7">Verbatim Paragraghs</a>
+<li> <a href="#8">Lists</a>
+<li> <a href="#9">HTML</a>
 </ul>
-<li> <a href="#6">Notes</a>
-<ul>
-<li> <a href="#7">Mixing MARKUP with HTML</a>
-<li> <a href="#8">Two Kinds of Verbatims</a>
-</ul>
-<li> <a href="#9">Author</a>
+<li> <a href="#10">Author</a>
 </ul>
 <p>
 According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
@@ -42,11 +41,16 @@ described in an order best suited for some narrative.
 </p>
 <a name="1"></a><h2>MARKUP (introduction)</h2>
 <p>
-MARKUP is based on John Gruber's excellent <a href="http://daringfireball.net/projects/markdown">MARKDOWN</a>
-system, with small extensions to better support KNIT.
+MARKUP is based on John Gruber's excellent
+<a href="http://daringfireball.net/projects/markdown">MARKDOWN</a> system. It
+includes small extensions, so it can support KNIT better.
 </p>
 <p>
-In MARKUP, the first two paragraphs are special. 
+MARKUP generates ".html" files from a ".wak" file.  Inside the ".wak"
+file, MARKUP assumes that the code and comments exist together.
+</p>
+<p>
+In the file, the first two paragraphs of a page are special. 
 </p>
 <ul>
 <li> The first paragraph is completely ignored. This is useful if   the first para contains either directives or comments (e.g.  relating to copyright or version control).
@@ -59,8 +63,8 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 bolds, etc).
 </p>
 <p>
-For example,
-in the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+For example, in the following sample, para one is skipped, para two
+becomes the heading for the page, and the remaining text is rendered
 in HTML
 </p>
 <pre>
@@ -143,9 +147,37 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
   Smallest
   ========
 </pre>
-<a name="6"></a><h2>Notes</h2>
+<a name="6"></a><h3>Paragraphs</h3>
+<p>
+Paragraphs are seperated by blank lines.  
+</p>
+<p>
+Note that a line containing only tabs and space characters is <em>not</em> blank.
+If your paragraph looks funny, check that the line above is actually blank.
+</p>
+<a name="7"></a><h3>Verbatim Paragraghs</h3>
+<p>
+Verbatim paragraphs are rendered as pre-formatted text (using the HTML
+&lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
+(so any HTML used in yur code will get displayed correctly).
+</p>
+<p>
+It is a useful to distinguish <em>two</em> of verbatims. Firstly, there is
+code that should be passed on to some interpreter/compiler.  Secondly,
+there is some text that should just be rendered verbatim (e.g. showing
+sample output from a function) but which should not be passed on. One
+convention for this is to:
+</p>
+<ul>
+<li> start code paragraphs with one character of whitespace 
+<li> start vertbatim paragraphs with two whitespace characters.
+</ul>
 
-<a name="7"></a><h3>Mixing MARKUP with HTML</h3>
+<a name="8"></a><h3>Lists</h3>
+<p>
+Unnumbered lists start with a "*", ",\+", "\-" character at front-of-line.
+</p>
+<a name="9"></a><h3>HTML</h3>
 <p>
 MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
 "&lt;em>"). This means that for special rendering jobs (e.g. tables), 
@@ -158,13 +190,6 @@ will not include any heading tags that you enter as raw HTML; e.g.
 &lt:h2>,
 &lt:h3>, etc.
 </p>
-<a name="8"></a><h3>Two Kinds of Verbatims</h3>
-
-<ul>
-<li> start code paragraphs with one character of whitespace 
-<li> start vertbatim paragraphs with two whitespace characters.
-</ul>
-
-<a name="9"></a><h2>Author</h2>
+<a name="10"></a><h2>Author</h2>
 <p>
 Tim Menzies

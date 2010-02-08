@@ -19,7 +19,8 @@
                     <a href="?crossIndex">Index</a>   |
                     <a href="?faqs">FAQ</a> |
 		       <a href="http://code.google.com/p/knit/issues/list">Issues</a> |
-		    <a href="?downloads">Downloads</a> |
+		    <a href="?underConstruction">Install</a> |
+		    <a href="?underConstruction">Report bug</a> |		     
                     <a href="?contacts">Contact</a>  
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
