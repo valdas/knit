@@ -216,6 +216,9 @@ hr.hrsep {
 	 height: 5px;
 }
 
+img {
+	border: 0px
+}
 img.lthumb {
 	float: left;
 	width: 150px;
@@ -234,6 +237,14 @@ img.rthumb {
 img.rthumb250 {
 	float: right;
 	width: 250px;
+  margin-right: 5px;
+  padding:4px;
+    border:1px solid #446688;
+	  }
+
+img.rthumb350 {
+	float: right;
+	width: 350px;
   margin-right: 5px;
   padding:4px;
     border:1px solid #446688;
