@@ -45,10 +45,12 @@ MARKUP is based on John Gruber's excellent
 [http://daringfireball.net/projects/markdown MARKDOWN] system. It
 includes small extensions, so it can support KNIT better.
 
-MARKUP generates ".html" files from a ".wak" file.  Inside the ".wak"
-file, MARKUP assumes that the code and comments exist together.
+MARKUP generates ".html" files from a ".wak" file.  A table of contents
+is automatically added to the top of the generated ".html" file.
 
-In the file, the first two paragraphs of a page are special. 
+Inside the ".wak"
+file, MARKUP assumes that the code and comments exist together.
+The first two paragraphs of a page are special. 
 
 + The first paragraph is completely ignored. This is useful if 
   the first para contains either directives or comments (e.g.
@@ -93,43 +95,19 @@ in HTML
       return arg1 + arg2
    }
 
+Mixing with HTML
+================
+
+MARKUP does not alter HTML tags (those starting with &lt;; e.g.
+"&lt;em>"). This means that for special rendering jobs (e.g. tables),
+it is possible to use HTML tags within MARKUP files.
+
+Note one restriction: the table of contents generated on top of MARKUP
+file will not include any heading tags that you enter as raw HTML;
+e.g.  &lt:h1>, &lt:h2>, &lt:h3>, etc.
+
 Syntax
 ======
-
-Headings
---------
-
-Headings are marked up either in-line, or on their next-line:
-
-In-line mark up
-++++++++++++++
-
-The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
-
-  ===== BIG =====
-
-  ==== Not-so-big ====
-
-  === Smaller ===
-
-  == Smallest ==
-
-Next-line mark up
-++++++++++++++
-
-The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
-
-  BIG 
-  ===
-
-  Not-so-big 
-  ==========
-
-  Smaller
-  =======
-
-  Smallest
-  ========
 
 Paragraphs
 ----------
@@ -139,8 +117,51 @@ Paragraphs are seperated by blank lines.
 Note that a line containing only tabs and space characters is _not_ blank.
 If your paragraph looks funny, check that the line above is actually blank.
 
+
+Headings
+++++++++
+
+All headings are collected together and shown as a table of contents
+on the top of the generated ".html" file.
+
+In-line Headings
+________________
+
+All headings 
+In-line headings are paragraphs that begin with two or more equal
+signs at front-of-line.  For example, the following samples get marked
+up as a big, not-so-big, smaller, smallest heading (respectively):
+
+  ===== BIG =====
+
+  ==== Not-so-big ====
+
+  === Smaller ===
+
+  == Smallest ==
+
+Underlined Headings
+___________________
+
+Underlined headings are paragraphs where the second line is a two or
+more underline characters.  For example, the following sample gets
+marked up as a big, not-so-big, smaller, smallest heading
+(respectively):
+
+  BIG 
+  ===
+
+  Not-so-big 
+  ----------
+
+  Smaller
+  +++++++
+
+  Smallest
+  ________
+
 Verbatim Paragraghs
--------------------
++++++++++++++++++++
 
 Verbatim paragraphs are rendered as pre-formatted text (using the HTML
 &lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
@@ -156,25 +177,73 @@ convention for this is to:
 + start vertbatim paragraphs with two whitespace characters.
 
 Lists
------
++++++
 
-Unnumbered lists start with a "\*", ",\+", "\-" character at front-of-line.
+Unnumbered lists are paragraphs that start with a "\*", ",\+", "\-"
+character at front-of-line. For example:
 
-HTML
-----
+ + This is an unnumbered list item. It can spill over
+   many lines.
+ + It can be following by other list items.
+ + As many as you like.
 
-MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
-"&lt;em>"). This means that for special rendering jobs (e.g. tables), 
-it is possible to use HTML tags within MARKUP files.
+Numbers lists are paragraphs that start with a number at front,
+following by a full-stop. For example:
 
-Note one restriction: the table of contents generated on top of MARKUP file
-will not include any heading tags that you enter as raw HTML; e.g.
-&lt:h1>,
-&lt:h2>,
-&lt:h3>, etc.
+ 1. This is a numbered list item. It can spill over
+    many lines.
+ 1. The actual number is ignored.
+ 7. So this list will render as three points
+    that are numbered 1,2,3.
 
+Normal Paragraphs
++++++++++++++++++
+
+Normal paragraphs are paragraphs that are not lists or headings or verbatims.
+Within such normal paragraphs, the in-line markup rules apply.
+
+In-Line Markup
+--------------
+
+Character markup
+++++++++++++++++
+
++ Italics is denoted with matching underscores.
++ Bold font is denoted with matching star characters.
++ Typewriter font is denoted with matching back tick characters.
++ If you want a literal underscore, star, or back tick, prefix it with a back slash.
+
+For example:
+
+  I am in _italics font_ while I am in *bold font*.
+  Here comes the `typewriter font`.
+  And here are literal characters: underscore \_, bold \*, back tick \`.
+
+Hyperlinks
+++++++++++
+
+Hyperlinks are shown inside square brackets. The first word  in the brackets
+is the URL, the rest are the text of the link (if there are no other words, the
+URL of the text becomes the link text).
+
+XXX samples
+
+If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img tag.
+If there is more than one word inside the brackets, then these are passed as
+arguments to &lt;img. This is useful for controlling image size, centering, etc.
+
+XXX samples
+
+Credits
+=======
+
+Inspiration
+-----------
+
+This code was inspired by the simplicity of Jesus Galan's excellent implementation of
+[http://awk.info/?doc/dsl/markdown.html MARKDOWN]. 
 
 Author
-======
+------
 
 Tim Menzies
