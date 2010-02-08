@@ -41,10 +41,14 @@ described in an order best suited for some narrative.
 MARKUP (introduction)
 =====================
 
-MARKUP is based on John Gruber's excellent [http://daringfireball.net/projects/markdown MARKDOWN]
-system, with small extensions to better support KNIT.
+MARKUP is based on John Gruber's excellent
+[http://daringfireball.net/projects/markdown MARKDOWN] system. It
+includes small extensions, so it can support KNIT better.
 
-In MARKUP, the first two paragraphs are special. 
+MARKUP generates ".html" files from a ".wak" file.  Inside the ".wak"
+file, MARKUP assumes that the code and comments exist together.
+
+In the file, the first two paragraphs of a page are special. 
 
 + The first paragraph is completely ignored. This is useful if 
   the first para contains either directives or comments (e.g.
@@ -56,8 +60,8 @@ with blanks or tabs, they are rendered verbatim (using the HTML
 &lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
 bolds, etc).
 
-For example,
-in the following sample, para one is skipped, para two becomes the heading for the page, and the remaining text is rendered
+For example, in the following sample, para one is skipped, para two
+becomes the heading for the page, and the remaining text is rendered
 in HTML
 
   # -*- mode: Awk; -*-  vim: set filetype=awk : 
@@ -127,12 +131,37 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
   Smallest
   ========
 
+Paragraphs
+----------
 
-Notes
-=====
+Paragraphs are seperated by blank lines.  
 
-Mixing MARKUP with HTML
------------------------
+Note that a line containing only tabs and space characters is _not_ blank.
+If your paragraph looks funny, check that the line above is actually blank.
+
+Verbatim Paragraghs
+-------------------
+
+Verbatim paragraphs are rendered as pre-formatted text (using the HTML
+&lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
+(so any HTML used in yur code will get displayed correctly).
+
+It is a useful to distinguish _two_ of verbatims. Firstly, there is
+code that should be passed on to some interpreter/compiler.  Secondly,
+there is some text that should just be rendered verbatim (e.g. showing
+sample output from a function) but which should not be passed on. One
+convention for this is to:
+
++ start code paragraphs with one character of whitespace 
++ start vertbatim paragraphs with two whitespace characters.
+
+Lists
+-----
+
+Unnumbered lists start with a "\*", ",\+", "\-" character at front-of-line.
+
+HTML
+----
 
 MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
 "&lt;em>"). This means that for special rendering jobs (e.g. tables), 
@@ -144,16 +173,6 @@ will not include any heading tags that you enter as raw HTML; e.g.
 &lt:h2>,
 &lt:h3>, etc.
 
-Two Kinds of Verbatims
-----------------------
-It is a useful to distinguish _two_ of verbatims. Firstly, there is
-code that should be passed on to some interpreter/compiler.  Secondly,
-there is some text that should just be rendered verbatim (e.g. showing
-sample output from a function) but which should not be passed on. One
-convention for this is to:
-
-+ start code paragraphs with one character of whitespace 
-+ start vertbatim paragraphs with two whitespace characters.
 
 Author
 ======
