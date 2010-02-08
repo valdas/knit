@@ -19,6 +19,9 @@
 
 Literate Programming
 
+This whole site was auto-generated from source code using a web-based literate programming
+tool.
+
 According to [http://www.perl.com/pub/a/tchrist/litprog.html Jason
 Dominus], literate programming systems have the following properties.
 
