@@ -1,4 +1,4 @@
-``Title``           The Art of AWK
+``Title``           Mastering the art of AWK
 ``Tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
 ``Site``            http://knit.googlecode.com/svn/branches/0.2/site
 ``Default``         index.html
