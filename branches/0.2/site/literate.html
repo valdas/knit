@@ -2,20 +2,31 @@
 
 <ul>
 <li> <a href="#1">MARKUP (introduction)</a>
-<li> <a href="#2">Syntax</a>
+<li> <a href="#2">Mixing with HTML</a>
+<li> <a href="#3">Syntax</a>
 <ul>
-<li> <a href="#3">Headings</a>
+<li> <a href="#4">Paragraphs</a>
 <ul>
-<li> <a href="#4">In-line mark up</a>
-<li> <a href="#5">Next-line mark up</a>
+<li> <a href="#5">Headings</a>
+<ul>
+<li> <a href="#6">In-line Headings</a>
+<li> <a href="#7">Underlined Headings</a>
 </ul>
-<li> <a href="#6">Paragraphs</a>
-<li> <a href="#7">Verbatim Paragraghs</a>
-<li> <a href="#8">Lists</a>
-<li> <a href="#9">HTML</a>
+<li> <a href="#8">Verbatim Paragraghs</a>
+<li> <a href="#9">Lists</a>
+<li> <a href="#10">Normal Paragraphs</a>
 </ul>
-<li> <a href="#10">Author</a>
+<li> <a href="#11">In-Line Markup</a>
+<ul>
+<li> <a href="#12">Character markup</a>
+<li> <a href="#13">Hyperlinks</a>
 </ul>
+</ul>
+<li> <a href="#14">Credits</a>
+<ul>
+<li> <a href="#15">Inspiration</a>
+<li> <a href="#16">Author</a>
+</ul></ul>
 <p>
 According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
 Dominus</a>, literate programming systems have the following properties.
@@ -46,11 +57,13 @@ MARKUP is based on John Gruber's excellent
 includes small extensions, so it can support KNIT better.
 </p>
 <p>
-MARKUP generates ".html" files from a ".wak" file.  Inside the ".wak"
-file, MARKUP assumes that the code and comments exist together.
+MARKUP generates ".html" files from a ".wak" file.  A table of contents
+is automatically added to the top of the generated ".html" file.
 </p>
 <p>
-In the file, the first two paragraphs of a page are special. 
+Inside the ".wak"
+file, MARKUP assumes that the code and comments exist together.
+The first two paragraphs of a page are special. 
 </p>
 <ul>
 <li> The first paragraph is completely ignored. This is useful if   the first para contains either directives or comments (e.g.  relating to copyright or version control).
@@ -105,15 +118,38 @@ in HTML
       return arg1 + arg2
    }
 </pre>
-<a name="2"></a><h2>Syntax</h2>
-
-<a name="3"></a><h3>Headings</h3>
+<a name="2"></a><h2>Mixing with HTML</h2>
 <p>
-Headings are marked up either in-line, or on their next-line:
+MARKUP does not alter HTML tags (those starting with &lt;; e.g.
+"&lt;em>"). This means that for special rendering jobs (e.g. tables),
+it is possible to use HTML tags within MARKUP files.
 </p>
-<a name="4"></a><h4>In-line mark up</h4>
 <p>
-The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+Note one restriction: the table of contents generated on top of MARKUP
+file will not include any heading tags that you enter as raw HTML;
+e.g.  &lt:h1>, &lt:h2>, &lt:h3>, etc.
+</p>
+<a name="3"></a><h2>Syntax</h2>
+
+<a name="4"></a><h3>Paragraphs</h3>
+<p>
+Paragraphs are seperated by blank lines.  
+</p>
+<p>
+Note that a line containing only tabs and space characters is <em>not</em> blank.
+If your paragraph looks funny, check that the line above is actually blank.
+</p>
+<a name="5"></a><h4>Headings</h4>
+<p>
+All headings are collected together and shown as a table of contents
+on the top of the generated ".html" file.
+</p>
+<a name="6"></a><h5>In-line Headings</h5>
+<p>
+All headings 
+In-line headings are paragraphs that begin with two or more equal
+signs at front-of-line.  For example, the following samples get marked
+up as a big, not-so-big, smaller, smallest heading (respectively):
 </p>
 <pre>
   ===== BIG =====
@@ -127,9 +163,12 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
 
   == Smallest ==
 </pre>
-<a name="5"></a><h4>Next-line mark up</h4>
+<a name="7"></a><h5>Underlined Headings</h5>
 <p>
-The following sample gets marked up as a big, not-so-big, smaller, smallest heading (respectively):
+Underlined headings are paragraphs where the second line is a two or
+more underline characters.  For example, the following sample gets
+marked up as a big, not-so-big, smaller, smallest heading
+(respectively):
 </p>
 <pre>
   BIG 
@@ -137,25 +176,17 @@ The following sample gets marked up as a big, not-so-big, smaller, smallest head
 
 
   Not-so-big 
-  ==========
+  ----------
 
 
   Smaller
-  =======
+  +++++++
 
 
   Smallest
-  ========
+  ________
 </pre>
-<a name="6"></a><h3>Paragraphs</h3>
-<p>
-Paragraphs are seperated by blank lines.  
-</p>
-<p>
-Note that a line containing only tabs and space characters is <em>not</em> blank.
-If your paragraph looks funny, check that the line above is actually blank.
-</p>
-<a name="7"></a><h3>Verbatim Paragraghs</h3>
+<a name="8"></a><h4>Verbatim Paragraghs</h4>
 <p>
 Verbatim paragraphs are rendered as pre-formatted text (using the HTML
 &lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
@@ -173,23 +204,75 @@ convention for this is to:
 <li> start vertbatim paragraphs with two whitespace characters.
 </ul>
 
-<a name="8"></a><h3>Lists</h3>
+<a name="9"></a><h4>Lists</h4>
 <p>
-Unnumbered lists start with a "*", ",\+", "\-" character at front-of-line.
+Unnumbered lists are paragraphs that start with a "*", ",\+", "\-"
+character at front-of-line. For example:
 </p>
-<a name="9"></a><h3>HTML</h3>
+<pre>
+ + This is an unnumbered list item. It can spill over
+   many lines.
+ + It can be following by other list items.
+ + As many as you like.
+</pre>
 <p>
-MARKUP does not alter  HTML tags (those starting with &lt;; e.g. 
-"&lt;em>"). This means that for special rendering jobs (e.g. tables), 
-it is possible to use HTML tags within MARKUP files.
+Numbers lists are paragraphs that start with a number at front,
+following by a full-stop. For example:
+</p>
+<pre>
+ 1. This is a numbered list item. It can spill over
+    many lines.
+ 1. The actual number is ignored.
+ 7. So this list will render as three points
+    that are numbered 1,2,3.
+</pre>
+<a name="10"></a><h4>Normal Paragraphs</h4>
+<p>
+Normal paragraphs are paragraphs that are not lists or headings or verbatims.
+Within such normal paragraphs, the in-line markup rules apply.
+</p>
+<a name="11"></a><h3>In-Line Markup</h3>
+
+<a name="12"></a><h4>Character markup</h4>
+
+<ul>
+<li> Italics is denoted with matching underscores.
+<li> Bold font is denoted with matching star characters.
+<li> Typewriter font is denoted with matching back tick characters.
+<li> If you want a literal underscore, star, or back tick, prefix it with a back slash.
+</ul>
+<p>
+For example:
+</p>
+<pre>
+  I am in _italics font_ while I am in *bold font*.
+  Here comes the `typewriter font`.
+  And here are literal characters: underscore \_, bold \*, back tick \`.
+</pre>
+<a name="13"></a><h4>Hyperlinks</h4>
+<p>
+Hyperlinks are shown inside square brackets. The first word  in the brackets
+is the URL, the rest are the text of the link (if there are no other words, the
+URL of the text becomes the link text).
 </p>
 <p>
-Note one restriction: the table of contents generated on top of MARKUP file
-will not include any heading tags that you enter as raw HTML; e.g.
-&lt:h1>,
-&lt:h2>,
-&lt:h3>, etc.
+XXX samples
 </p>
-<a name="10"></a><h2>Author</h2>
+<p>
+If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img tag.
+If there is more than one word inside the brackets, then these are passed as
+arguments to &lt;img. This is useful for controlling image size, centering, etc.
+</p>
+<p>
+XXX samples
+</p>
+<a name="14"></a><h2>Credits</h2>
+
+<a name="15"></a><h3>Inspiration</h3>
+<p>
+This code was inspired by the simplicity of Jesus Galan's excellent implementation of
+<a href="http://awk.info/?doc/dsl/markdown.html">MARKDOWN</a>. 
+</p>
+<a name="16"></a><h3>Author</h3>
 <p>
 Tim Menzies
