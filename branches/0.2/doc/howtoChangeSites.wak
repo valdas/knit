@@ -21,13 +21,9 @@ How to move Penny between sites
 To install a PENNY web site on a new URL, following these steps:
 
 1. Copy your current [``Site``/../penny/index.cgi penny/index.cgi] to a web-readable directory.
-
 2. Perform the local juju for making that makes that script web-executable (e.g. `chmod u+rx index.cgi`).
-
 3. In your local files, hunt down all paths that point to the old URL, and move them to the new URL.
-   
 4. At any remote site that references your site, update the URLs.
-
 5. Remove index.cgi from your old site.
 
 Changing local files
