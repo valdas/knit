@@ -1,0 +1,59 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+How to move Penny between sites
+
+To install a PENNY web site on a new URL, following these steps:
+
+1. Copy your current [``Site``/../penny/index.cgi penny/index.cgi] to a web-readable directory.
+
+2. Perform the local juju for making that makes that script web-executable (e.g. `chmod u+rx index.cgi`).
+
+3. In your local files, hunt down all paths that point to the old URL, and move them to the new URL.
+   
+4. At any remote site that references your site, update the URLs.
+
+Changing local files
+====================
+
+Implementing the third point is easy. 
+
++ In  _site/etc/config.txt,  update the  variables _home_.
++ In  _site/etc/themes/*/index.html_, update any reference to the old URL. 
++ Do the same in  _site/*.html_  and _doc/*.wak
+
+(Hint: in your  _*.html_ and _*.wak_ files, you can replace all explicit
+references to the site with \`\`home\`\`.).
+
+Chaning remote files
+====================
+
+Implementing the last step (find your URLs in remote sites), is a little more tedious. At the time of this writing, this site uses services
+from
+
++ Blogger: for an rss feed to updates on this site).
++ Disquss: for the comment system)
++ Google: for a free site-specific search engine and to collect access statistics on the site.
+
+Sadly, none of those sites localize URL references so there it takes some time 
+to track them all down and fix them. Sigh.
+
+Author
+======
+
+Tim Menzies
