@@ -28,10 +28,12 @@ To install a PENNY web site on a new URL, following these steps:
    
 4. At any remote site that references your site, update the URLs.
 
+5. Remove index.cgi from your old site.
+
 Changing local files
 ====================
 
-Implementing the third point is easy. 
+Implementing the third step (changing URLs at your local site) is easy. 
 
 + In  _site/etc/config.txt,  update the  variables _home_.
 + In  _site/etc/themes/*/index.html_, update any reference to the old URL. 
@@ -43,7 +45,7 @@ references to the site with \`\`home\`\`.).
 Chaning remote files
 ====================
 
-Implementing the last step (find your URLs in remote sites), is a little more tedious. At the time of this writing, this site uses services
+Implementing the fourth step (changing your URLs in remote sites), is a little more tedious. At the time of this writing, this site uses services
 from
 
 + Blogger: for an rss feed to updates on this site).
