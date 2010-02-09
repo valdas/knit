@@ -8,7 +8,7 @@ goals.html     ;Timm; Admin;Feb; 2010                          ; Goals of this s
 faqs.html     ;Timm; Admin;Feb; 2010                          ; Frequently asked questions
 underconstruction.html ;Timm ;Admin ;Feb; 2010				;Patience is a virtue
 onComplexity.html ;Timm ;Admin ;Feb; 2010				;Software, complexity, and simplicity
-howToChangeSites.html; Timm; Penny; Feb; 2010                ;PENNY: how to move a site
+howtoChangeSites.html; Timm; Penny; Feb; 2010                ;PENNY: how to move a site
 
 dsl.html     ;Timm; Admin;Feb; 2010                          ; Domain-specific languages
 literate.html     ;Timm; Lit;Feb; 2010                          ; Literate Programming
