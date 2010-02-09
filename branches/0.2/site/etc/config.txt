@@ -4,7 +4,7 @@
 ``Default``         index.html
 ``NotFound``	    404.html
 ``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
-``home``            http://awkcookbook.info
+``home``            http://artofawk.net
 ``description``     The art of AWK: how to do more, with less
 ``keywords``        AWK, design, less is more
 ``author``          Tim Menzies 
