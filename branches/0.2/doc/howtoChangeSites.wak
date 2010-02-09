@@ -32,10 +32,10 @@ Changing local files
 Implementing the third step (changing URLs at your local site) is easy. 
 
 + In  _site/etc/config.txt,  update the  variables _home_.
-+ In  _site/etc/themes/*/index.html_, update any reference to the old URL. 
-+ Do the same in  _site/*.html_  and _doc/*.wak
++ In  _site/etc/themes/\*/index.html_, update any reference to the old URL. 
++ Do the same in  _site/\*.html_  and _doc/*.wak
 
-(Hint: in your  _*.html_ and _*.wak_ files, you can replace all explicit
+(Hint: in your  _\*.html_ and _\*.wak_ files, you can replace all explicit
 references to the site with \`\`home\`\`.).
 
 Chaning remote files
