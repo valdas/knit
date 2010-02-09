@@ -237,7 +237,7 @@ If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img t
 If there is more than one word inside the brackets, then these are passed as
 arguments to &lt;img. This is useful for controlling image size, centering, etc.
 
-For example, here are some sample hyperlinks, which are rendered in the next paragragh.
+For example, here are some sample hyperlinks, which are rendered in the next paragragh
 
  Paris is a [http://en.parisinfo.com/ wonderful city] but 
  I prefer visiting the Art of Awk web site at [?index.html]. 
@@ -247,6 +247,17 @@ For example, here are some sample hyperlinks, which are rendered in the next par
  They look ever cuter, close up:
 
  [``share``/img/cute-cat.jpg] 
+
+
+Paris is a [http://en.parisinfo.com/ wonderful city] but 
+I prefer visiting the Art of Awk web site at [?index.html]. 
+
+Say, have you seen these cute cats?[``share``/img/cute-cat.jpg align=middle width=100]
+
+They look ever cuter, close up:
+
+[``share``/img/cute-cat.jpg] 
+
 
 Credits
 =======
