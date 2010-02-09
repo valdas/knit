@@ -119,7 +119,7 @@ Syntax
 Paragraphs
 ----------
 
-Paragraphs are seperated by blank lines.  
+Paragraphs are separated by blank lines.  
 
 Note that a line containing only tabs and space characters is _not_ blank.
 If your paragraph looks funny, check that the line above is actually blank.
@@ -167,12 +167,12 @@ marked up as a big, not-so-big, smaller, smallest heading
   Smallest
   ________
 
-Verbatim Paragraghs
+Verbatim Paragraphs
 +++++++++++++++++++
 
 Verbatim paragraphs are rendered as pre-formatted text (using the HTML
 &lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
-(so any HTML used in yur code will get displayed correctly).
+(so any HTML used in your code will get displayed correctly).
 
 It is a useful to distinguish _two_ of verbatims. Firstly, there is
 code that should be passed on to some interpreter/compiler.  Secondly,
@@ -181,7 +181,7 @@ sample output from a function) but which should not be passed on. One
 convention for this is to:
 
 + start code paragraphs with one character of whitespace 
-+ start vertbatim paragraphs with two whitespace characters.
++ start verbatim paragraphs with two whitespace characters.
 
 Lists
 +++++
@@ -237,7 +237,7 @@ If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img t
 If there is more than one word inside the brackets, then these are passed as
 arguments to &lt;img. This is useful for controlling image size, centering, etc.
 
-For example, here are some sample hyperlinks, which are rendered in the next paragragh
+For example, here are some sample hyperlinks, which are rendered in the next paragraph
 
  Paris is a [http://en.parisinfo.com/ wonderful city] but 
  I prefer visiting the Art of Awk web site at [?index.html]. 
