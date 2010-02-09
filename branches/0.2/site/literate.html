@@ -54,6 +54,12 @@ computer needs to run the program.</em> This site does not support
 this directly. However, code can be broken into many tiny files, then
 described in an order best suited for some narrative.
 </p>
+<p>
+To the above excellent definition, we add that a literate program should
+be able to demonstrate itself running. Hence, the literate programming
+tools of this site are tightly integrated with 
+our <a href="?underconstruction">test-driven development tools</a>.
+</p>
 <a name="1"></a><h2>MARKUP (introduction)</h2>
 <p>
 MARKUP is based on John Gruber's excellent
@@ -260,16 +266,26 @@ is the URL, the rest are the text of the link (if there are no other words, the
 URL of the text becomes the link text).
 </p>
 <p>
-XXX samples
-</p>
-<p>
 If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img tag.
 If there is more than one word inside the brackets, then these are passed as
 arguments to &lt;img. This is useful for controlling image size, centering, etc.
 </p>
 <p>
-XXX samples
+For example, here are some sample hyperlinks, which are rendered in the next paragragh.
 </p>
+<pre>
+ Paris is a [http://en.parisinfo.com/ wonderful city] but 
+ I prefer visiting the Art of Awk web site at [?index.html]. 
+
+
+ Say, have you seen these cute cats?[``share``/img/cute-cat.jpg align=middle width=100]
+
+
+ They look ever cuter, close up:
+
+
+ [``share``/img/cute-cat.jpg] 
+</pre>
 <a name="14"></a><h2>Credits</h2>
 
 <a name="15"></a><h3>Inspiration</h3>
