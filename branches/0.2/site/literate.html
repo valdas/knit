@@ -14,18 +14,19 @@
 </ul>
 <li> <a href="#8">Verbatim Paragraphs</a>
 <li> <a href="#9">Lists</a>
-<li> <a href="#10">Normal Paragraphs</a>
+<li> <a href="#10">Numbers Lists</a>
+<li> <a href="#11">Normal Paragraphs</a>
 </ul>
-<li> <a href="#11">In-Line Markup</a>
+<li> <a href="#12">In-Line Markup</a>
 <ul>
-<li> <a href="#12">Character markup</a>
-<li> <a href="#13">Hyperlinks</a>
+<li> <a href="#13">Character markup</a>
+<li> <a href="#14">Hyperlinks</a>
 </ul>
 </ul>
-<li> <a href="#14">Credits</a>
+<li> <a href="#15">Credits</a>
 <ul>
-<li> <a href="#15">Inspiration</a>
-<li> <a href="#16">Author</a>
+<li> <a href="#16">Inspiration</a>
+<li> <a href="#17">Author</a>
 </ul></ul>
 <p>
 This whole site was auto-generated from source code using a web-based literate programming
@@ -130,14 +131,14 @@ in HTML
 </pre>
 <a name="2"></a><h2>Mixing with HTML</h2>
 <p>
-MARKUP does not alter HTML tags (those starting with &lt;; e.g.
+MARKUP does not alter HTML tags (those starting with "&lt;"; e.g.
 "&lt;em>"). This means that for special rendering jobs (e.g. tables),
 it is possible to use HTML tags within MARKUP files.
 </p>
 <p>
 Note one restriction: the table of contents generated on top of MARKUP
 file will not include any heading tags that you enter as raw HTML;
-e.g.  &lt:h1>, &lt:h2>, &lt:h3>, etc.
+e.g.  &lt;h1>, &lt;h2>, &lt;h3>, etc.
 </p>
 <a name="3"></a><h2>Syntax</h2>
 
@@ -233,6 +234,8 @@ This is rendered as follows:
 <li> It can be following by other list items.
 <li> As many as you like.
 </ul>
+
+<a name="10"></a><h4>Numbers Lists</h4>
 <p>
 Numbers lists are paragraphs that start with a number at front,
 following by a full-stop. For example:
@@ -253,14 +256,14 @@ This is rendered as follows.
 <li> So this list will render as three points   that are numbered 1,2,3.
 </ol>
 
-<a name="10"></a><h4>Normal Paragraphs</h4>
+<a name="11"></a><h4>Normal Paragraphs</h4>
 <p>
 Normal paragraphs are paragraphs that are not lists or headings or verbatims.
 Within such normal paragraphs, the in-line markup rules apply.
 </p>
-<a name="11"></a><h3>In-Line Markup</h3>
+<a name="12"></a><h3>In-Line Markup</h3>
 
-<a name="12"></a><h4>Character markup</h4>
+<a name="13"></a><h4>Character markup</h4>
 
 <ul>
 <li> Italics is denoted with matching underscores.
@@ -284,7 +287,7 @@ I am in <em>italics font</em> while I am in <strong>bold font</strong>.
 Here comes the <tt>typewriter font</tt>.
 And here are literal characters: underscore _, bold *, back tick `.
 </p>
-<a name="13"></a><h4>Hyperlinks</h4>
+<a name="14"></a><h4>Hyperlinks</h4>
 <p>
 Hyperlinks are shown inside square brackets. The first word  in the brackets
 is the URL, the rest are the text of the link (if there are no other words, the
@@ -321,13 +324,13 @@ She looks ever cuter, close up:
 <p>
 <img src="``share``/img/cute-cat.jpg"> 
 </p>
-<a name="14"></a><h2>Credits</h2>
+<a name="15"></a><h2>Credits</h2>
 
-<a name="15"></a><h3>Inspiration</h3>
+<a name="16"></a><h3>Inspiration</h3>
 <p>
 This code was inspired by the simplicity of Jesus Galan's excellent implementation of
 <a href="http://awk.info/?doc/dsl/markdown.html">MARKDOWN</a>. 
 </p>
-<a name="16"></a><h3>Author</h3>
+<a name="17"></a><h3>Author</h3>
 <p>
 Tim Menzies
