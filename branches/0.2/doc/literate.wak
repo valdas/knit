@@ -194,6 +194,13 @@ character at front-of-line. For example:
  + It can be following by other list items.
  + As many as you like.
 
+This is rendered as follows:
+
++ This is an unnumbered list item. It can spill over
+  many lines.
++ It can be following by other list items.
++ As many as you like.
+
 Numbers lists are paragraphs that start with a number at front,
 following by a full-stop. For example:
 
@@ -202,6 +209,14 @@ following by a full-stop. For example:
  1. The actual number is ignored.
  7. So this list will render as three points
     that are numbered 1,2,3.
+
+This is rendered as follows.
+
+1. This is a numbered list item. It can spill over
+   many lines.
+1. The actual number is ignored.
+7. So this list will render as three points
+   that are numbered 1,2,3.
 
 Normal Paragraphs
 +++++++++++++++++
@@ -225,6 +240,12 @@ For example:
   I am in _italics font_ while I am in *bold font*.
   Here comes the `typewriter font`.
   And here are literal characters: underscore \_, bold \*, back tick \`.
+
+This renders as follows.
+
+I am in _italics font_ while I am in *bold font*.
+Here comes the `typewriter font`.
+And here are literal characters: underscore \_, bold \*, back tick \`.
 
 Hyperlinks
 ++++++++++
