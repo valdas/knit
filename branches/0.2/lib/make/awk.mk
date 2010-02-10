@@ -24,7 +24,6 @@ $(Tmp)/knit.tmp : $(LibAwks)
 	@echo "#!$(Gawk0) -f " > $@ 
 	@(cat $(Knit)/etc/knit.txt; echo "# Built on `date` by $(USER). ") >> $@
 	@cat $(Knit)/etc/copyrite.txt >> $@
-	#@$(MAKE) about | $(Gawk0) -f $(Knit)/lib/awk/about.awk >> $@
 	@$(foreach f,$^,\
 		(printf "\n# $(shell basename $f) \n"; \
 		$(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
