@@ -1,37 +1,49 @@
 <h1>Literate Programming</h1>
 
 <ul>
-<li> <a href="#1">MARKUP (introduction)</a>
-<li> <a href="#2">Mixing with HTML</a>
-<li> <a href="#3">Syntax</a>
+<li> <a href="#1">Synposis</a>
+<li> <a href="#2">Download </a>
+<li> <a href="#3">What is Literate Programming?</a>
+<li> <a href="#4">MARKUP (introduction)</a>
+<li> <a href="#5">Mixing with HTML</a>
+<li> <a href="#6">Syntax</a>
 <ul>
-<li> <a href="#4">Paragraphs</a>
+<li> <a href="#7">Paragraphs</a>
 <ul>
-<li> <a href="#5">Headings</a>
+<li> <a href="#8">Headings</a>
 <ul>
-<li> <a href="#6">In-line Headings</a>
-<li> <a href="#7">Underlined Headings</a>
+<li> <a href="#9">In-line Headings</a>
+<li> <a href="#10">Underlined Headings</a>
 </ul>
-<li> <a href="#8">Verbatim Paragraphs</a>
-<li> <a href="#9">Lists</a>
-<li> <a href="#10">Numbers Lists</a>
-<li> <a href="#11">Normal Paragraphs</a>
+<li> <a href="#11">Verbatim Paragraphs</a>
+<li> <a href="#12">Lists</a>
+<li> <a href="#13">Numbers Lists</a>
+<li> <a href="#14">Normal Paragraphs</a>
 </ul>
-<li> <a href="#12">In-Line Markup</a>
+<li> <a href="#15">In-Line Markup</a>
 <ul>
-<li> <a href="#13">Character markup</a>
-<li> <a href="#14">Hyperlinks</a>
+<li> <a href="#16">Character markup</a>
+<li> <a href="#17">Hyperlinks</a>
 </ul>
 </ul>
-<li> <a href="#15">Credits</a>
+<li> <a href="#18">Credits</a>
 <ul>
-<li> <a href="#16">Inspiration</a>
-<li> <a href="#17">Author</a>
+<li> <a href="#19">Inspiration</a>
+<li> <a href="#20">Author</a>
 </ul></ul>
 <p>
 This whole site was auto-generated from source code using a web-based literate programming
-tool.
+tool. This page describes this tool, called MARKUP
 </p>
+<a name="1"></a><h2>Synposis</h2>
+<p>
+gawk -f markup.awk x.wak > x.html
+</p>
+<a name="2"></a><h2>Download </h2>
+<p>
+Download from <a href="``site``/lib/awk/markup.html">KNIT</a>.
+</p>
+<a name="3"></a><h2>What is Literate Programming?</h2>
 <p>
 According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
 Dominus</a>, literate programming systems have the following properties.
@@ -61,7 +73,7 @@ be able to demonstrate itself running. Hence, the literate programming
 tools of this site are tightly integrated with 
 our <a href="?underconstruction">test-driven development tools</a>.
 </p>
-<a name="1"></a><h2>MARKUP (introduction)</h2>
+<a name="4"></a><h2>MARKUP (introduction)</h2>
 <p>
 MARKUP is based on John Gruber's excellent
 <a href="http://daringfireball.net/projects/markdown">MARKDOWN</a> system. It
@@ -129,7 +141,7 @@ in HTML
       return arg1 + arg2
    }
 </pre>
-<a name="2"></a><h2>Mixing with HTML</h2>
+<a name="5"></a><h2>Mixing with HTML</h2>
 <p>
 MARKUP does not alter HTML tags (those starting with "&lt;"; e.g.
 "&lt;em>"). This means that for special rendering jobs (e.g. tables),
@@ -140,9 +152,9 @@ Note one restriction: the table of contents generated on top of MARKUP
 file will not include any heading tags that you enter as raw HTML;
 e.g.  &lt;h1>, &lt;h2>, &lt;h3>, etc.
 </p>
-<a name="3"></a><h2>Syntax</h2>
+<a name="6"></a><h2>Syntax</h2>
 
-<a name="4"></a><h3>Paragraphs</h3>
+<a name="7"></a><h3>Paragraphs</h3>
 <p>
 Paragraphs are separated by blank lines.  
 </p>
@@ -150,12 +162,12 @@ Paragraphs are separated by blank lines.
 Note that a line containing only tabs and space characters is <em>not</em> blank.
 If your paragraph looks funny, check that the line above is actually blank.
 </p>
-<a name="5"></a><h4>Headings</h4>
+<a name="8"></a><h4>Headings</h4>
 <p>
 All headings are collected together and shown as a table of contents
 on the top of the generated ".html" file.
 </p>
-<a name="6"></a><h5>In-line Headings</h5>
+<a name="9"></a><h5>In-line Headings</h5>
 <p>
 All headings 
 In-line headings are paragraphs that begin with two or more equal
@@ -174,7 +186,7 @@ up as a big, not-so-big, smaller, smallest heading (respectively):
 
   == Smallest ==
 </pre>
-<a name="7"></a><h5>Underlined Headings</h5>
+<a name="10"></a><h5>Underlined Headings</h5>
 <p>
 Underlined headings are paragraphs where the second line is a two or
 more underline characters.  For example, the following sample gets
@@ -197,7 +209,7 @@ marked up as a big, not-so-big, smaller, smallest heading
   Smallest
   ________
 </pre>
-<a name="8"></a><h4>Verbatim Paragraphs</h4>
+<a name="11"></a><h4>Verbatim Paragraphs</h4>
 <p>
 Verbatim paragraphs are rendered as pre-formatted text (using the HTML
 &lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
@@ -215,7 +227,7 @@ convention for this is to:
 <li> start verbatim paragraphs with two whitespace characters.
 </ul>
 
-<a name="9"></a><h4>Lists</h4>
+<a name="12"></a><h4>Lists</h4>
 <p>
 Unnumbered lists are paragraphs that start with a "*", ",\+", "\-"
 character at front-of-line. For example:
@@ -235,7 +247,7 @@ This is rendered as follows:
 <li> As many as you like.
 </ul>
 
-<a name="10"></a><h4>Numbers Lists</h4>
+<a name="13"></a><h4>Numbers Lists</h4>
 <p>
 Numbers lists are paragraphs that start with a number at front,
 following by a full-stop. For example:
@@ -256,14 +268,14 @@ This is rendered as follows.
 <li> So this list will render as three points   that are numbered 1,2,3.
 </ol>
 
-<a name="11"></a><h4>Normal Paragraphs</h4>
+<a name="14"></a><h4>Normal Paragraphs</h4>
 <p>
 Normal paragraphs are paragraphs that are not lists or headings or verbatims.
 Within such normal paragraphs, the in-line markup rules apply.
 </p>
-<a name="12"></a><h3>In-Line Markup</h3>
+<a name="15"></a><h3>In-Line Markup</h3>
 
-<a name="13"></a><h4>Character markup</h4>
+<a name="16"></a><h4>Character markup</h4>
 
 <ul>
 <li> Italics is denoted with matching underscores.
@@ -287,7 +299,7 @@ I am in <em>italics font</em> while I am in <strong>bold font</strong>.
 Here comes the <tt>typewriter font</tt>.
 And here are literal characters: underscore _, bold *, back tick `.
 </p>
-<a name="14"></a><h4>Hyperlinks</h4>
+<a name="17"></a><h4>Hyperlinks</h4>
 <p>
 Hyperlinks are shown inside square brackets. The first word  in the brackets
 is the URL, the rest are the text of the link (if there are no other words, the
@@ -324,13 +336,13 @@ She looks ever cuter, close up:
 <p>
 <img src="``share``/img/cute-cat.jpg"> 
 </p>
-<a name="15"></a><h2>Credits</h2>
+<a name="18"></a><h2>Credits</h2>
 
-<a name="16"></a><h3>Inspiration</h3>
+<a name="19"></a><h3>Inspiration</h3>
 <p>
 This code was inspired by the simplicity of Jesus Galan's excellent implementation of
 <a href="http://awk.info/?doc/dsl/markdown.html">MARKDOWN</a>. 
 </p>
-<a name="17"></a><h3>Author</h3>
+<a name="20"></a><h3>Author</h3>
 <p>
 Tim Menzies
