@@ -1,5 +1,6 @@
 export Knit=$HOME/svns/knit/branches/0.2
 export VPATH=$HOME/svns/knit/branches/0.2/quill
+export SVN_EDITOR=/usr/bin/vim
 alias knit='make'
 Lib=$HOME/svns/knit/branches/0.2/site/src
 Html=$HOME/svns/knit/branches/0.2/site
