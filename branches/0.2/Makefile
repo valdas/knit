@@ -7,7 +7,7 @@ penny :
 		cd penny; $(MAKE) tag
 
 commit:
-		svn commit 
+		cd ../../; svn commit 
 
 docs :
 		cd doc; make builds
