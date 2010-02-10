@@ -105,13 +105,13 @@ in HTML
 Mixing with HTML
 ================
 
-MARKUP does not alter HTML tags (those starting with &lt;; e.g.
+MARKUP does not alter HTML tags (those starting with "&lt;"; e.g.
 "&lt;em>"). This means that for special rendering jobs (e.g. tables),
 it is possible to use HTML tags within MARKUP files.
 
 Note one restriction: the table of contents generated on top of MARKUP
 file will not include any heading tags that you enter as raw HTML;
-e.g.  &lt:h1>, &lt:h2>, &lt:h3>, etc.
+e.g.  &lt;h1>, &lt;h2>, &lt;h3>, etc.
 
 Syntax
 ======
@@ -200,6 +200,9 @@ This is rendered as follows:
   many lines.
 + It can be following by other list items.
 + As many as you like.
+
+Numbers Lists
++++++++++++++
 
 Numbers lists are paragraphs that start with a number at front,
 following by a full-stop. For example:
