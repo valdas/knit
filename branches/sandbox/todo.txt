@@ -13,3 +13,5 @@ cd penny
 make build eg9
 
 now i need to geneate the page headers
+
+this is a test to see if my SVN is working correctly 
