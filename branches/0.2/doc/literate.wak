@@ -240,7 +240,7 @@ arguments to &lt;img. This is useful for controlling image size, centering, etc.
 For example, here are some sample hyperlinks, which are rendered in the next paragraph
 
  Paris is a [http://en.parisinfo.com/ wonderful city] but 
- I prefer visiting the Art of Awk web site at [?index.html]. 
+ I prefer visiting the Art of Awk web site at [?index]. 
  
  Say, have you seen this cute cat? [``share``/img/cute-cat.jpg align=middle width=100]
  
@@ -249,7 +249,7 @@ For example, here are some sample hyperlinks, which are rendered in the next par
  [``share``/img/cute-cat.jpg] 
 
 Paris is a [http://en.parisinfo.com/ wonderful city] but 
-I prefer visiting the Art of Awk web site at [?index.html]. 
+I prefer visiting the Art of Awk web site at [?index]. 
 
 Say, have you seen this cute cat? [``share``/img/cute-cat.jpg align=middle width=100]
 
