@@ -29,7 +29,7 @@ gawk -f markup.awk x.wak > x.html
 Download 
 ========
 
-Download from [``site``/lib/awk/markup.html KNIT].
+Download from [``download``/markup/0.1/markup.awk KNIT].
 
 What is Literate Programming?
 =============================
