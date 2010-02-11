@@ -21,9 +21,14 @@ Feeds for this site
 
 To monitor the activity at this site, please follow these feeds:
 
-+ About the Art of Awk (lowest update frequency)
-  + [http://art-of-awk.blogspot.com/feeds/posts/default?alt=rss]
-+ Issue updates (medium update frequency)
-  + [http://code.google.com/feeds/p/knit/issueupdates/basic]
-+ Subversion commit updates (high frequency update)
-  + [http://code.google.com/feeds/p/knit/svnchanges/basic]
+About the Art of Awk (lowest update frequency)
+
++ [http://art-of-awk.blogspot.com/feeds/posts/default?alt=rss]
+
+Issue updates (medium update frequency)
+
++ [http://code.google.com/feeds/p/knit/issueupdates/basic]
+
+Subversion commit updates (high frequency update)
+
++ [http://code.google.com/feeds/p/knit/svnchanges/basic]
