@@ -10,7 +10,7 @@ install :
 	@if [ -z "`which grep`"  ]; then echo "WARNING: missing grep command. Please install."; fi
 	@if [ -z "`which svn`"   ]; then echo "WARNING: missing subversion command. Please install."; fi
 	@if [ -z "`which sed`"   ]; then echo "WARNING: missing sed command. Please install."; fi
-	@[ -n $(Knit) ] && (cd quill; $(MAKE) install)
+	[ -n $(Knit) ] && (cd quill; $(MAKE) install)
 
 quill :
 		cd quill; $(MAKE) builds
