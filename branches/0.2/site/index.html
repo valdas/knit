@@ -28,10 +28,10 @@ Hence:
 <em><u>The rule of AWK</u>: keep AWKing till the code gets simple.</em>
 </ul>
 <p>
-For example, master programmers know that they repeat the 
-same tasks to solve different problems. 
-It make sense to build tools to support  those tasks. 
-This site is about those tools, written in AWK (of course!), with a little help from some Unix scripting tools:
+For example, there is no standard AWK development environment that supports development, testing, and documentation
+by a distributed
+community. So, we wrote one
+in AWK (of course!), with a little help from some Unix scripting tools:
 <ul>
 <li><a href="?underconstruction">Domain-specific languages</a> for better <em>design and and analysis</em>;
 <li><em>Writing</em> and documentation tools using  <a href="?literate">literate programming</a>;
@@ -39,13 +39,19 @@ This site is about those tools, written in AWK (of course!), with a little help 
 <li>Continuous <em>unit testing</em> via  <a href="?tdd">test-driven development</a>;
 <li><a href="?underconstruction">Data mining</a> tools for better <em>system testing</em>;
 <li><a href="?underconstruction">Web-based content management</a> (with version control) for all the above.
+<li>And we used the above to code up some sample  <a href="?underconstruction">applications</a>.
 </ul>
-<p>Also, this site presents example  <a href="?underconstruction">applications</a>
-that apply the above tools.
 <p>
-Much of the above can be applied to any scritping language. For example, this
+What we found was that this was remarkably easy to do:
+this is a 
+part time project and the first release of this site was built using
+80 minutes per day for three months (includes writing, testing, documentation) - about 2 weeks full time work.
+Also, the resulting environment was not AWK-specific. 
+For example, this
 site offers mappings of these tools into LISP, SMALLTALK, PROLOG, PHP, PYTHON,..., and 
 (of course) AWK.
+So what started as a project to support AWK programming quickly became a project that supporting programming,
+in any language.
 <p>
 When you review this code, you might be surprised at how easy it is to code these tools.
 And that is the Art of AWK:
