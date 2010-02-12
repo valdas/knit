@@ -1,6 +1,5 @@
 #MAKEFLAGS= -s
 
-include $(Knit)/lib/make/local.mk
 include $(Knit)/lib/make/dirs.mk
 include $(Knit)/lib/make/test.mk
 
