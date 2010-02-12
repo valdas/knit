@@ -60,7 +60,7 @@ complexities of the language (because there aren't any: no
 continuations, no inheritance, no pointers, no unions, etc). So
 programming in Awk is a study of the essential essence of a problem
 (and not trivial and tedious implementation details of over-elaborated
-languages).
+languages). 
 
 But why use AWK rather than Perl (or PHP or Ruby or...)?
 ========================================================
