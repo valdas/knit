@@ -30,15 +30,15 @@
 ``footer``         <p> 
                      &copy; 2010 Tim Menzies. Design from  <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
                      &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
-``google-verify``  <meta name="google-site-verification" 
-                          content="xpIIfhn5E4bx2nT6xnaP0_zc1xJ8K3-02NCqsliLNbU" />
+``google-verify``    <meta name="google-site-verification"
+                         content="oqBRhz9HAKKij8vaqKnIpmVwHuRcbnAunicF6ClybPA" />
 ``outbrain-verify`` <input type="hidden" name="OBKey" value="osmrOhG3GtMLBrR57TCKZA=="/> 
                     <script LANGUAGE="JavaScript">var OBCTm=1263101123123; </script>
                     <script LANGUAGE="JavaScript" src="http://widgets.outbrain.com/claim.js"> </script> 
 
 ``search-box``      <form action="http://www.google.com/cse" id="cse-search-box"> 
                          <p> 
-                         <input type="hidden" name="cx" value="15406670773682269893:09koyu6eeq4" /> 
+                         <input type="hidden" name="cx" value="015406670773682269893:d4mefvjd3zw" /> 
                          <input type="hidden" name="ie" value="UTF-8" /> 
                          <input type="text" name="q" value=" " size="15" /> 
                          <input type="submit" name="sa" value="Find" /> 
