@@ -1,4 +1,7 @@
-all : quill penny docs pdfs misc commit
+#  doc: add make instructuin.s make isntall. make-B. 
+#  #where is the sebe site set up?
+
+ all : quill penny docs pdfs misc commit
 
 install :
 	@if  [ -z "$(Knit)"      ]; then printf "#Please add to (e.g.) .bashrc:\nexport Knit=\"`pwd`\"\n\n"; fi
@@ -17,7 +20,7 @@ install :
 	@if [ -z "`which svn`"   ]; then echo "WARNING: missing subversion command. Please install."; fi
 	@if [ -z "`which sed`"   ]; then echo "WARNING: missing sed command. Please install."; fi
 	if [ -n "$(Knit)" -a  -n "$(Tags)" -a -n $(Gawk0) -a -n $(Gawk) -a -n $(Pgawk) -a -n $(Lib) -a -n "$(Html)" ]; \
-	 then cd quill; $(MAKE) install; $(MAKE) -B all; \
+	 then cd quill; $(MAKE) install;  \
 	 else echo "Install failed."; \
 	 fi
 
