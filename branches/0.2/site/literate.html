@@ -1,0 +1,348 @@
+<h1>Literate Programming</h1>
+
+<ul>
+<li> <a href="#1">Synposis</a>
+<li> <a href="#2">Download </a>
+<li> <a href="#3">What is Literate Programming?</a>
+<li> <a href="#4">MARKUP (introduction)</a>
+<li> <a href="#5">Mixing with HTML</a>
+<li> <a href="#6">Syntax</a>
+<ul>
+<li> <a href="#7">Paragraphs</a>
+<ul>
+<li> <a href="#8">Headings</a>
+<ul>
+<li> <a href="#9">In-line Headings</a>
+<li> <a href="#10">Underlined Headings</a>
+</ul>
+<li> <a href="#11">Verbatim Paragraphs</a>
+<li> <a href="#12">Lists</a>
+<li> <a href="#13">Numbers Lists</a>
+<li> <a href="#14">Normal Paragraphs</a>
+</ul>
+<li> <a href="#15">In-Line Markup</a>
+<ul>
+<li> <a href="#16">Character markup</a>
+<li> <a href="#17">Hyperlinks</a>
+</ul>
+</ul>
+<li> <a href="#18">Credits</a>
+<ul>
+<li> <a href="#19">Inspiration</a>
+<li> <a href="#20">Author</a>
+</ul></ul>
+<p>
+This site was auto-generated from program source code using a web-based literate programming
+tool. This page describes this tool, called MARKUP.
+</p>
+<a name="1"></a><h2>Synposis</h2>
+<p>
+gawk -f markup.awk x.wak > x.html
+</p>
+<a name="2"></a><h2>Download </h2>
+<p>
+Download from <a href="``download``/markup/0.1/markup.awk">KNIT</a>.
+</p>
+<a name="3"></a><h2>What is Literate Programming?</h2>
+<p>
+According to <a href="http://www.perl.com/pub/a/tchrist/litprog.html">Jason
+Dominus</a>, literate programming systems have the following properties.
+</p>
+<p>
+<em>Code and extended, detailed, comments are intermingled.</em>
+Here, to write code, just start a new paragraph with a space or a tab.
+All other paragraphs are comments and these are written in a
+easy-to-read, easy-to-write plain text format called MARKUP (see below).
+</p>
+<p>
+<em>The program and its documentation can be handsomely typeset into a
+single article that explains the program and how it works.</em> Rather
+than typeset, we use HTML. But the results are the same: pretty
+displays of lots of code.
+</p>
+<p>
+<em>The code sections can be written in whatever order is best for
+people to understand, and are re-ordered automatically when the
+computer needs to run the program.</em> This site does not support
+this directly. However, code can be broken into many tiny files, then
+described in an order best suited for some narrative.
+</p>
+<p>
+To the above excellent definition, we add that a literate program should
+be able to demonstrate itself running. Hence, the literate programming
+tools of this site are tightly integrated with 
+our <a href="?underconstruction">test-driven development tools</a>.
+</p>
+<a name="4"></a><h2>MARKUP (introduction)</h2>
+<p>
+MARKUP is based on John Gruber's excellent
+<a href="http://daringfireball.net/projects/markdown">MARKDOWN</a> system. It
+includes small extensions, so it can support KNIT better.
+</p>
+<p>
+MARKUP generates ".html" files from a ".wak" file.  A table of contents
+is automatically added to the top of the generated ".html" file.
+</p>
+<p>
+Inside the ".wak"
+file, MARKUP assumes that the code and comments exist together.
+The first two paragraphs of a page are special. 
+</p>
+<ul>
+<li> The first paragraph is completely ignored. This is useful if   the first para contains either directives or comments (e.g.  relating to copyright or version control).
+<li> The second paragraph becomes the heading of the page.
+</ul>
+<p>
+After that, paragraphs are rendered as HTML code.  If paragraphs start
+with blanks or tabs, they are rendered verbatim (using the HTML
+&lt;pre>) tag. Other paragraphs are rendered using full HTML (italics,
+bolds, etc).
+</p>
+<p>
+For example, in the following sample, para one is skipped, para two
+becomes the heading for the page, and the remaining text is rendered
+in HTML
+</p>
+<pre>
+  # -*- mode: Awk; -*-  vim: set filetype=awk : 
+  #
+  # This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+  # tim@menzies.us.
+
+
+  This is the heading of this page
+
+
+  An H1 Heading
+  =============
+
+
+  Paragraphs start after a blank line.
+
+
+  + Lists are marked with a plus..
+  + ... in the first column.
+
+
+  Also, numbered lists start with left-hand-side numbers.
+
+
+  1. Like this.
+  1. The actual number does not matter.
+  3. E.g. this list will be rendered as 1,2,3.
+
+
+  Italics is marked by _underscores_ and bolds are marked by *stars*.
+
+
+   function code(arg1,arg2) {
+      # This para started with white space. 
+      # So it will be rendered exactly.
+      return arg1 + arg2
+   }
+</pre>
+<a name="5"></a><h2>Mixing with HTML</h2>
+<p>
+MARKUP does not alter HTML tags (those starting with "&lt;"; e.g.
+"&lt;em>"). This means that for special rendering jobs (e.g. tables),
+it is possible to use HTML tags within MARKUP files.
+</p>
+<p>
+Note one restriction: the table of contents generated on top of MARKUP
+file will not include any heading tags that you enter as raw HTML;
+e.g.  &lt;h1>, &lt;h2>, &lt;h3>, etc.
+</p>
+<a name="6"></a><h2>Syntax</h2>
+
+<a name="7"></a><h3>Paragraphs</h3>
+<p>
+Paragraphs are separated by blank lines.  
+</p>
+<p>
+Note that a line containing only tabs and space characters is <em>not</em> blank.
+If your paragraph looks funny, check that the line above is actually blank.
+</p>
+<a name="8"></a><h4>Headings</h4>
+<p>
+All headings are collected together and shown as a table of contents
+on the top of the generated ".html" file.
+</p>
+<a name="9"></a><h5>In-line Headings</h5>
+<p>
+All headings 
+In-line headings are paragraphs that begin with two or more equal
+signs at front-of-line.  For example, the following samples get marked
+up as a big, not-so-big, smaller, smallest heading (respectively):
+</p>
+<pre>
+  ===== BIG =====
+
+
+  ==== Not-so-big ====
+
+
+  === Smaller ===
+
+
+  == Smallest ==
+</pre>
+<a name="10"></a><h5>Underlined Headings</h5>
+<p>
+Underlined headings are paragraphs where the second line is a two or
+more underline characters.  For example, the following sample gets
+marked up as a big, not-so-big, smaller, smallest heading
+(respectively):
+</p>
+<pre>
+  BIG 
+  ===
+
+
+  Not-so-big 
+  ----------
+
+
+  Smaller
+  +++++++
+
+
+  Smallest
+  ________
+</pre>
+<a name="11"></a><h4>Verbatim Paragraphs</h4>
+<p>
+Verbatim paragraphs are rendered as pre-formatted text (using the HTML
+&lt;pre>) tag. In verbatim paragraphs, any "&lt;" is replaced by "&amp;lt;" 
+(so any HTML used in your code will get displayed correctly).
+</p>
+<p>
+It is a useful to distinguish <em>two</em> of verbatims. Firstly, there is
+code that should be passed on to some interpreter/compiler.  Secondly,
+there is some text that should just be rendered verbatim (e.g. showing
+sample output from a function) but which should not be passed on. One
+convention for this is to:
+</p>
+<ul>
+<li> start code paragraphs with one character of whitespace 
+<li> start verbatim paragraphs with two whitespace characters.
+</ul>
+
+<a name="12"></a><h4>Lists</h4>
+<p>
+Unnumbered lists are paragraphs that start with a "*", ",\+", "\-"
+character at front-of-line. For example:
+</p>
+<pre>
+ + This is an unnumbered list item. It can spill over
+   many lines.
+ + It can be following by other list items.
+ + As many as you like.
+</pre>
+<p>
+This is rendered as follows:
+</p>
+<ul>
+<li> This is an unnumbered list item. It can spill over  many lines.
+<li> It can be following by other list items.
+<li> As many as you like.
+</ul>
+
+<a name="13"></a><h4>Numbers Lists</h4>
+<p>
+Numbers lists are paragraphs that start with a number at front,
+following by a full-stop. For example:
+</p>
+<pre>
+ 1. This is a numbered list item. It can spill over
+    many lines.
+ 1. The actual number is ignored.
+ 7. So this list will render as three points
+    that are numbered 1,2,3.
+</pre>
+<p>
+This is rendered as follows.
+</p>
+<ol>
+<li> This is a numbered list item. It can spill over   many lines.
+<li> The actual number is ignored.
+<li> So this list will render as three points   that are numbered 1,2,3.
+</ol>
+
+<a name="14"></a><h4>Normal Paragraphs</h4>
+<p>
+Normal paragraphs are paragraphs that are not lists or headings or verbatims.
+Within such normal paragraphs, the in-line markup rules apply.
+</p>
+<a name="15"></a><h3>In-Line Markup</h3>
+
+<a name="16"></a><h4>Character markup</h4>
+
+<ul>
+<li> Italics is denoted with matching underscores.
+<li> Bold font is denoted with matching star characters.
+<li> Typewriter font is denoted with matching back tick characters.
+<li> If you want a literal underscore, star, or back tick, prefix it with a back slash.
+</ul>
+<p>
+For example:
+</p>
+<pre>
+  I am in _italics font_ while I am in *bold font*.
+  Here comes the `typewriter font`.
+  And here are literal characters: underscore \_, bold \*, back tick \`.
+</pre>
+<p>
+This renders as follows.
+</p>
+<p>
+I am in <em>italics font</em> while I am in <strong>bold font</strong>.
+Here comes the <tt>typewriter font</tt>.
+And here are literal characters: underscore _, bold *, back tick `.
+</p>
+<a name="17"></a><h4>Hyperlinks</h4>
+<p>
+Hyperlinks are shown inside square brackets. The first word  in the brackets
+is the URL, the rest are the text of the link (if there are no other words, the
+URL of the text becomes the link text).
+</p>
+<p>
+If the URL ends in jpg, gif, or png then the link is laid up using the &lt;img tag.
+If there is more than one word inside the brackets, then these are passed as
+arguments to &lt;img. This is useful for controlling image size, centering, etc.
+</p>
+<p>
+For example, here are some sample hyperlinks, which are rendered in the next paragraph
+</p>
+<pre>
+ Paris is a [http://en.parisinfo.com/ wonderful city] but 
+ I prefer visiting the Art of Awk web site at [?index]. 
+ 
+ Say, have you seen this cute cat? [``share``/img/cute-cat.jpg border=1 align=middle width=100]
+ 
+ She looks ever cuter, close up:
+ 
+ [``share``/img/cute-cat.jpg] 
+</pre>
+<p>
+Paris is a <a href="http://en.parisinfo.com/">wonderful city</a> but 
+I prefer visiting the Art of Awk web site at <a href="?index">?index</a>. 
+</p>
+<p>
+Say, have you seen this cute cat? <img border=1 align=middle width=100 src="``share``/img/cute-cat.jpg">
+</p>
+<p>
+She looks ever cuter, close up:
+</p>
+<p>
+<img src="``share``/img/cute-cat.jpg"> 
+</p>
+<a name="18"></a><h2>Credits</h2>
+
+<a name="19"></a><h3>Inspiration</h3>
+<p>
+This code was inspired by the simplicity of Jesus Galan's excellent implementation of
+<a href="http://awk.info/?doc/dsl/markdown.html">MARKDOWN</a>. 
+</p>
+<a name="20"></a><h3>Author</h3>
+<p>
+Tim Menzies
