@@ -1,6 +1,6 @@
 if 	[ -n "$1" ]
-then Knit="$1"
-else Knit="$HOME/svns/knit/branches/0.2"
+then export Knit="$1"
+else export Knit="$HOME/svns/knit/branches/0.2"
 fi
 
 export VPATH="$Knit/quill"
