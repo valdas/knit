@@ -28,42 +28,49 @@ Hence:
 <em><u>The rule of AWK</u>: keep AWKing till the code gets simple.</em>
 </ul>
 <p>
-For example, there is no standard AWK development environment that supports development, testing, and documentation
-by a distributed
-community. So, we wrote one
-in AWK (of course!), with a little help from some Unix scripting tools:
+Traditionally, AWK is viewed as a language for writing very short programs. This is strange since as far back as 1991
+Henry Spencer<sup>1</sup> wrote that:
 <ul>
-<li><a href="?underconstruction">Domain-specific languages</a> for better <em>design and and analysis</em>;
-<li><em>Writing</em> and documentation tools using  <a href="?literate">literate programming</a>;
-<li>Simplier <em>builds</em> with <a href="?underconstruction">library management</a> tools;
-<li>Continuous <em>unit testing</em> via  <a href="?tdd">test-driven development</a>;
-<li><a href="?underconstruction">Data mining</a> tools for better <em>system testing</em>;
-<li><a href="?underconstruction">Web-based content management</a> (with version control) for all the above.
-<li>And we used the above to code up some sample  <a href="?underconstruction">applications</a>.
+<li>There is no fundamental reason why AWK programs have to be small "glue" programs.
+<li>Even the "old" AWK is a powerful programming language in its own right.
+<li>Effective use of its data structures and its stream-oriented structure takes some adjustment for C programmers, but the results can be quite striking.
 </ul>
+<p>To prove the point, he offered an AWK version of the Bell Labs NROFF tool. 
+Since then,  apart from Spencer's work and a few others<sup>2</sup>, there are suspiciously few examples of large AWK programs.
 <p>
-What we found was that this was remarkably easy to do:
-this is a 
-part time project and the first release of this site was built using
-80 minutes per day for three months (includes writing, testing, documentation) - about 2 weeks full time work.
-Also, the resulting environment was not AWK-specific. 
-For example, this
-site offers mappings of these tools into LISP, SMALLTALK, PROLOG, PHP, PYTHON,..., and 
-(of course) AWK.
-So what started as a project to support AWK programming quickly became a project that supporting programming,
-in any language.
+Starting in early 2009, we've been the webmaster
+of the <a href="http://awk.info">AWK community  portal</a>. 
+Based on that experience, it is clear why there aren't many big AWK programs:
+certain key tools are missing from the AWK-verse. Specifically, there is:
+<ol>
+<li>No standard for source code library management . Without a library of parts, you can't build larger assemblies;
+<li>No standard for unit tests and regression tests. Without a way to exercise the code, you are reluctant to work as a team since you can't tell if someone else's latest change breaks your code. Worse, outsiders can't understands the code since you can't show off what it can do.
+<li>No standard for documentation. Without documentation tools, no one outside the team can see what you've done
+</ol>
+Various tools addressed point (1), but there are no AWK tools that handle (1) and (2) and (3) in an integrated manner.
+So we wrote those tools,
+in AWK (of course!), with a little help from some Unix scripting tools. We found  that our "AWK" support tools
+become tools for other languages, very easily.
+That is, starting with AWK, we ended up with 
+language-independent programmer support tools that work for
+LISP, SMALLTALK, PROLOG, PHP, PYTHON, etc. 
 <p>
-When you review this code, you might be surprised at how easy it is to code these tools.
+We present here the result of that work: a very small language independent programmer's 
+development environment, and numerous sample applications written using that environment.
+When you review this code, you might be surprised at how easy it is to code, and customize, these tools. 
 And that is the Art of AWK:
 <ul>
 <li> understanding something well enough...
-<li>... so you can write it, just short enough, to get the job done.
+<li> ... so you can write it, just short enough, to get the job done.
 </ul>
-<p>And always remember:
-<em>perfection is when there is nothing left to throw away</em><sup>1</sup>.
-
+<p>And always remember: <em>perfection is when there is nothing left to throw away</em><sup>3</sup>.
 <p><b>Notes:</b><br>
-<sup>1</sup>Antoine de Saint-Exupery
+<sup>1</sup> 
+Henry Spencer,
+<a href="http://lawker.googlecode.com/svn/fridge/share/pdf/aasl.pdf">Awk as A Major Systems Programming Language</a>,
+Proceedings of the Winter Usenix Conference (Dallas'91).<br>
+<sup>2</sup> See the <a href="http://awk.info/?awk100">AWK 100</a>.<br>
+<sup>3</sup> Antoine de Saint-Exupery
 
 <h2>How to use this site</h2>
 <p>Start with the <a href="?faqs">frequently asked questions</a>, then look at the
