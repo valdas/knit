@@ -55,7 +55,7 @@ sheet.
 What is AWK?
 ============
 
-AWK is a simple and elegant pattern scanning and processing language.
+AWK is a simple and elegant pattern scanning/processing language.
 AWK is also the most portable scripting language in existence.
 
 AWK does not get in the way of generating solutions.  When
