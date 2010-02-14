@@ -88,7 +88,16 @@ Tiny Tim, the man, was a legendary ukulele singer in the 1960s who sold albums w
 a straight banana". He is most famous for his falsetto/vibrato rendition of "Tiptoe Through the Tulips".
 At the peak of his popularity he was earning $60,000 a week in Las Vegas, playing to sellout crowds at Caesar's Palace. 
 
-TINY TIM, the software program, is  a tiny web-site manager. 
+TINY TIM, the software program, is  a tiny web-site manager written in AWK. 
+The site you are now reading was auto-generated using TINY TIM.
+
+The site was written to demonstrate that a little AWK goes a long way. 
+At the time of this writing, the  current system is under 100 lines
+of code (excluding a seperate formatter, that is another 170 lines of code).
+It took longer to write this doco and the various HTML/CSS theme files, than the actual code itself (fyi: 6 hours for the themes/doc
+and 3 hours for the code).
+
+TINY TIM has the following features:
 
 + In order to make editing easier, all content is kept in one file `site.txt`.
 + Pages can be accessed by their (lowercase)  name, or by their (uppercase) tags. 
