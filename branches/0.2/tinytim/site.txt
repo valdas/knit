@@ -5,7 +5,10 @@
 ``keywords``   love love love
 ``home``      http://at.ttoy.net
 ``author``	  Tim Menzies
-``menu``      <a href="?index">Home</a> | <a href="?contact">Contact</a> | <a href="?about">About</a>
+``menu``      <a href="?index">Home</a> | 
+              <a href="?contact">Contact</a> | 
+              <a href="?update">Update</a> | 
+              <a href="?about">About</a>
 ``footer``  <p>Powered by <a href="?tinytim">TINY TIM</a>. &copy; 2010 by Tim Menzies 
 ``images``            http://at.ttoy.net/img
 ``favicon``    favicon.ico
