@@ -133,7 +133,7 @@ For a screen-shots of the current themes, see below.
  #!/bin/bash
  
  [ -n "$1" ] && export QUERY_STRING="$1"
-   
+ 
  tinytim() {
 	cat site.txt themes/$1/theme.txt |
 	gawk -f lib/tinytim.awk |
@@ -167,11 +167,18 @@ To write a new theme:
 
 The following themes are defined in the directory `themes`.
 
-Auklet: [img/auklet.png border=1 width=400 align=middle]
+Auklet:
 
-Trendygreen: [img/trendygreen.png border=1 width=400 align=middle]
+[img/auklet.png border=1 width=500]
 
-Wink: [img/wink.png border=1 width=1 align=middle width=400]
+Trendygreen
+(adapted from  [http://gettemplates.com GetTemplates]):
+
+[img/trendygreen.png border=1 width=500]
+
+Wink:
+
+[img/wink.png border=1 width=500]
 
 Defining String Values
 ----------------------
