@@ -1,0 +1,86 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Installing KNIT
+
+
+Step1: Download 
+===============
+
+If you are a member of the [http://code.google.com/p/knit/ KNIT repository]
+then use:
+
+  svn checkout https://knit.googlecode.com/svn/ knit --username gname --password gpass
+
+This will grant you read/write access to the code, as well as sharing priveldeges with the
+rest of the KNIT community.
+
+Otherwise, download a copy you can read/write locally (but can't update back to KNIT):
+
+  svn checkout http://knit.googlecode.com/svn/ knit
+
+Step 2: Set up envrionment
+=========================
+
+In sme file that runs at ogin (e.g. `.bashrc` or `.bash_profile`, add this line:
+
+ export SVN_EDITOR=`which vi`    # or whatever your favorite editor is
+ . ~/a/b/c/etc/dotknitrc $HOME/a/b/c
+
+where `a/b/c` is the directory path down to the branch you are using. E.g. at the
+time of this writing, that line for this author is:
+
+ . ~/svns/knit/branches/0.2/etc/dotknitrc $HOME/svns/knit/branches/0.2
+
+Somehow, arrange for this file to be executed. E.g.
+
+  cd $HOME
+  . ~/.bashrc
+
+If this works, you should see no errors.
+
+Step 3: Install
+===============
+
+ cd a/b/c
+ make install
+
+If this works, you should see no errors.
+
+Step 4: Test
+============
+
+If you are a member of the [http://code.google.com/p/knit/ KNIT repository],
+write a little page about yourself in a/b/c/doc/yourname.wak.
+To edit that file, copy and modify doc/install.wak to doc/yourname.wak.
+
+Commit your new page to the repo:
+
+ svn add yourname.wak
+
+Register that new .wak file by adding its name to the the `@uses` line of doc/doc.wak.
+
+Add that file to site/tags.txt.
+
+Then build the site:
+
+ cd a/b/c
+ make
+
+You should see your page copied up the repoistory. Then, on-line, your page should appear at
+[http:/artofawk/?yourname].

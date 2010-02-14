@@ -10,6 +10,7 @@ underconstruction.html ;Admin ;Feb; 2010				;Patience is a virtue
 onComplexity.html ;Timm ;Admin ;Feb; 2010				;Software, complexity, and simplicity
 howtoChangeSites.html; Timm; Penny; Feb; 2010                ;PENNY: how to move a site
 feeds4thisSite.html  ;Admin ;Feb ;2010        ;What feeds to follow for this site
+install.html  ;Admin ;Feb ;2010        ;Install instructions for this site
 
 dsl.html     ;Timm; Admin;Feb; 2010                          ; Domain-specific languages
 literate.html     ;Timm; Lit;Feb; 2010                          ; Literate Programming

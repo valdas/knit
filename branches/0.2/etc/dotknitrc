@@ -15,5 +15,6 @@ fi
 
 export Lib="../site/src"
 export Html="../site"
+export Tags="${Knit}/../../tags"
 
 export Gawk="$Gawk0"
