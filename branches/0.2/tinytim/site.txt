@@ -242,7 +242,7 @@ the _name_ is "404"; the tags are "Admin Feb10" and the title is "Sorry".
  Admin Feb10
   
  Sorry
- i 
+  
  I have bad news:
  
  <center>
