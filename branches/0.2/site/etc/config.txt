@@ -19,7 +19,7 @@
                     <a href="?crossIndex">Index</a>   |
                     <a href="?faqs">FAQ</a> |
 		       <a href="http://code.google.com/p/knit/issues/list">Report bug</a> |
-		    <a href="?underconstruction">Install</a> |
+		    <a href="?install">Install</a> |
                     <a href="?contacts">Contact us</a>  
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
