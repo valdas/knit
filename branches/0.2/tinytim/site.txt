@@ -84,18 +84,18 @@ Admin Feb10 TinyTim
 
 TinyTim 
 
-Tiny Tim, the man, was a legendary ukele singer in the 1960s who sold albums with names like "I've never seen
+Tiny Tim, the man, was a legendary ukulele singer in the 1960s who sold albums with names like "I've never seen
 a straight banana". He is most famous for his falsetto/vibrato rendition of "Tiptoe Through the Tulips".
 At the peak of his popularity he was earning $60,000 a week in Las Vegas, playing to sellout crowds at Caesar's Palace. 
 
 TINY TIM, the software program, is  a tiny web-site manager. 
 
-+ In order to make editting easier, all content is kept in one file `site.txt`.
++ In order to make editing easier, all content is kept in one file `site.txt`.
 + Pages can be accessed by their (lowercase)  name, or by their (uppercase) tags. 
-+ Pages can be displayed using a set of customisable themes. 
++ Pages can be displayed using a set of customizable themes. 
 + Page contents can be written using a HTML shorthand language called MARKUP.
 + Pages can be searched using a Google search box.
-+ Source code is auto-displayed using a syntax highligther.
++ Source code is auto-displayed using a syntax highlighter.
 
 For a live demo of the site, see [http://at.ttoy.net/?tinytim].
 
@@ -119,7 +119,7 @@ index.cgi
 
 TINY TIM is controlled by the following `index.cgi` file.
 To select a theme, comment out all but _one_ of the last lines (using the "#" character).
-For a screenshots of the current themes, see below.
+For a screen-shots of the current themes, see below.
 
  #!/bin/bash
 
@@ -137,7 +137,7 @@ For a screenshots of the current themes, see below.
  tinytim wink
 
 Note the `sed` commands: these render normal &lt;pre> using [http://alexgorbatchev.com/wiki/SyntaxHighlighter Alex Gorbatchev]'s
-excellent syntax highligher. To change the highlighting rules for a different language, change `brush: cpp` to one of
+excellent syntax highlighter. To change the highlighting rules for a different language, change `brush: cpp` to one of
 the [http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes supported aliases].
 
 Themes
@@ -198,14 +198,22 @@ auto-generated, it is best to start your strings with a lower-case letter (e.g. 
 Adding a Search Engine
 ----------------------
 
-Google offers a nice site-specific search engine. It takes a few days for 
+Google offers a nice free site-specific search engine. It takes a few days for the spiders to find the site but after that, it works fine.
+To set this up, follow the instructions at [http://www.google.com/cse/ Google custom search], then
+
++ Add the appropriate magic strings into the first entry of `site.txt'
++ Add references to those strings to your template.
+
+For example, look for `google-search` in the current templates and `site.txt`.
+
+
 Writing pages
 -------------
 
 After the first entry, the rest of the entries in `site.txt` define the pages of a site. Each entry must begin with the magic string
 
-+ Each entry must begin wth the magic string &#35;12345
-+ The entry consists of paragraphs (seperated by blank lines.
++ Each entry must begin with the magic string &#35;12345
++ The entry consists of paragraphs (separated by blank lines.
 + Paragraph one contains the (short) page name (on line one) following by the page tags (on line two).
 + Paragraph two contains the heading of the page.
 + The remaining paragraphs are the page contents.
@@ -236,14 +244,14 @@ MARKUP is a shorthand for writing HTML pages based on MARKDOWN:
 + _Italics_, *bold*, `typerwritter font` are marked by matching \_, \*, and \` characters (respectively).
 + Lists are marked by leading "+" characters.
 + Numbered lists are marked by leading "1." strings.
-+ Lnks are enclosed in `\[square brackets\]`. The first word in the bracket is the URL and subsequent words are the text for the URL link.
++ Links are enclosed in `\[square brackets\]`. The first word in the bracket is the URL and subsequent words are the text for the URL link.
 + Images are marked up with the same `\[square brackets\]`, but the first work must end in one of .png, .gif, .jpg. Any subsequent words are passed as tags to the `&lt;img>` tag.
 
 Also, in MARKUP,  major, minor, sub-, and sub-sub- headings are two
 line paragraphs where the second line contains two or more "=", "-",
 "+", "_" (respectively).  MARKUP collects these headings as a table of contents, which is added to the top of the page.
 
-Note that MARKUP is seperate to TINY TIM. To change the formatting of pages, write your own AWK code and change the string \`\`formatter\`\` in
+Note that MARKUP is separate to TINY TIM. To change the formatting of pages, write your own AWK code and change the string \`\`formatter\`\` in
 the first entry of `site.txt`
 
 Copyright
