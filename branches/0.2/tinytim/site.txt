@@ -97,7 +97,7 @@ TINY TIM, the software program, is  a tiny web-site manager.
 + Pages can be searched using a Google search box.
 + Source code is auto-displayed using a syntax highligther.
 
-For a live demo of the site, see [http://at.ttoy.net].
+For a live demo of the site, see [http://at.ttoy.net/?tinytim].
 
 Install
 =======
