@@ -84,30 +84,46 @@ Admin Feb10 TinyTim
 
 TinyTim 
 
-TINY TIM: a tiny web-site manager. 
+Tiny Tim, the man, was a legendary ukele singer in the 1960s who sold albums with names like "I've never seen
+a straight banana". He is most famous for his falsetto/vibrato rendition of "Tiptoe Through the Tulips".
+At the peak of his popularity he was earning $60,000 a week in Las Vegas, playing to sellout crowds at Caesar's Palace. 
+
+TINY TIM, the software program, is  a tiny web-site manager. 
+
++ In order to make editting easier, all content is kept in one file `site.txt`.
++ Pages can be accessed by their (lowercase)  name, or by their (uppercase) tags. 
++ Pages can be displayed using a set of customisable themes. 
++ Page contents can be written using a HTML shorthand language called MARKUP.
++ Pages can be searched using a Google search box.
++ Source code is auto-displayed using a syntax highligther.
+
+For a live demo of the site, see [http://at.ttoy.net].
 
 Install
 =======
 
 In a web accessible directory, type
- 
- svn co http://knit.googlecode.com/svn/branches/0.2/tinytim/ 
+
+ svn export http://knit.googlecode.com/svn/branches/0.2/tinytim/ 
 
 In the resulting directory, perform the local juju required to make index.cgi web-runnable
 (e.g. on my ISP, `chmod u+rx index.cgi`).
 
 Follow the directions in the next section to customize the site.
 
-Customization
-=============
+Using
+=====
 
 index.cgi
 ---------
 
 TINY TIM is controlled by the following `index.cgi` file.
 To select a theme, comment out all but _one_ of the last lines (using the "#" character).
+For a screenshots of the current themes, see below.
 
  #!/bin/bash
+
+ [ -n "$1" ] && export QUERY_STRING="$1"
 
  tinytim() {
 	cat site.txt themes/$1/theme.txt |
@@ -120,7 +136,9 @@ To select a theme, comment out all but _one_ of the last lines (using the "#" ch
  #tinytim trendygreen
  tinytim wink
 
-For a screenshots of the current themes, see below.
+Note the `sed` commands: these render normal &lt;pre> using [http://alexgorbatchev.com/wiki/SyntaxHighlighter Alex Gorbatchev]'s
+excellent syntax highligher. To change the highlighting rules for a different language, change `brush: cpp` to one of
+the [http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes supported aliases].
 
 Themes
 ------
@@ -140,18 +158,16 @@ To write a new theme:
 
 The following themes are defined in the directory `themes`.
 
-themes/auklet
-++++++++++++++
+Auklet:
 
 [img/auklet.png border=1 width=500]
 
-themes/Trendygreen
-++++++++++++++++++
+Trendygreen
+(adapted from  [http://gettemplates.com GetTemplates]):
 
 [img/trendygreen.png border=1 width=500]
 
-themes/wink
-+++++++++++
+Wink:
 
 [img/wink.png border=1 width=500]
 
@@ -167,8 +183,11 @@ add to the bottom of each page; and a web-accessible directory for storing _imag
  &#96;&#96;formatter&#96;&#96;   lib/markup.awk
  &#96;&#96;description&#96;&#96; (simple cms)
  &#96;&#96;home&#96;&#96;        http://at.ttoy.net
- &#96;&#96;menu&#96;&#96;        <a href="?index">Home</a> | <a href="?contact">Contact</a> | <a href="?about">About</a>
- &#96;&#96;footer&#96;&#96;      <p>Powered by <a href="?tinytim">TINY TIM</a>. &copy; 2010 by Tim Menzies 
+ &#96;&#96;menu&#96;&#96;        <a href="?index">Home</a> | 
+                 <a href="?contact">Contact</a>  |
+                 <a href="?about">About</a>
+ &#96;&#96;footer&#96;&#96;      <p>Powered by <a href="?tinytim">TINY TIM</a>. 
+                                 &copy; 2010 by Tim Menzies 
  &#96;&#96;images&#96;&#96;      http://at.ttoy.net/img
 
 Note the following important convention.
@@ -176,6 +195,10 @@ TINY TIM auto-generates  some of its own strings. The names of these strings sta
 To avoid confusion of your strings with those that are
 auto-generated, it is best to start your strings with a lower-case letter (e.g. like all those in the above example.
 
+Adding a Search Engine
+----------------------
+
+Google offers a nice site-specific search engine. It takes a few days for 
 Writing pages
 -------------
 
