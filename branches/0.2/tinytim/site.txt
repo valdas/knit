@@ -131,9 +131,9 @@ To select a theme, comment out all but _one_ of the last lines (using the "#" ch
 For a screen-shots of the current themes, see below.
 
  #!/bin/bash
-
+ 
  [ -n "$1" ] && export QUERY_STRING="$1"
-
+ 
  tinytim() {
 	cat site.txt themes/$1/theme.txt |
 	gawk -f lib/tinytim.awk |
