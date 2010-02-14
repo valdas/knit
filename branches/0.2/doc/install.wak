@@ -22,7 +22,7 @@ Installing KNIT
 Step1: Download 
 ===============
 
-If you are a member of the [http://code.google.com/p/knit/ KNIT repository]
+If you are a member of the [http://code.google.com/p/knit/people/list  KNIT community]
 then use:
 
   svn checkout https://knit.googlecode.com/svn/ knit --username gname --password gpass
@@ -65,7 +65,7 @@ If this works, you should see no errors.
 Step 4: Test
 ============
 
-If you are a member of the [http://code.google.com/p/knit/ KNIT repository],
+If you are a member of the [http://code.google.com/p/knit/people/list  KNIT community],
 write a little page about yourself in a/b/c/doc/yourname.wak.
 To edit that file, copy and modify doc/install.wak to doc/yourname.wak.
 
