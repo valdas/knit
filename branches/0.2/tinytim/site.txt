@@ -86,23 +86,23 @@ TinyTim
 
 TINY TIM: a tiny web-site manager. 
 
-Copyright (C) 2010 by Tim Menzies,  tim@menzies.us.
+Install
+=======
 
-TINY TIM is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+In a web accessible directory, type
+ 
+ svn co http://knit.googlecode.com/svn/branches/0.2/tinytim/ 
 
-TINY TIM is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+In the resulting directory, perform the local juju required to make index.cgi web-runnable
+(e.g. on my ISP, `chmod u+rx index.cgi`).
 
-You should have received a copy of the GNU General Public License
-along with TINY TIM.  If not, see [http://www.gnu.org/licenses/].
+Follow the directions in the next section to customize the site.
+
+Customization
+=============
 
 index.cgi
-=========
+---------
 
 TINY TIM is controlled by the following `index.cgi` file.
 To select a theme, comment out all but _one_ of the last lines (using the "#" character).
@@ -120,25 +120,132 @@ To select a theme, comment out all but _one_ of the last lines (using the "#" ch
  #tinytim trendygreen
  tinytim wink
 
-Themes
-======
+For a screenshots of the current themes, see below.
 
-Auklet
+Themes
 ------
+
+Themes are defined in the sub-directory `themes/themename`.
+Each theme is defined by a `theme.txt` file that holds:
+
++ The HTML template for the  theme.
++ The in-line style sheet for the theme.
++ The page contents with pre-defined string names marked with \`\`; e.g. \`\`title\`\`. To change those strings, see the instructions at the end of this page.
+
+To write a new theme:
+
+1. Create a new folder `themes/new`.
+2. Copy (e.g.) `wink/theme.txt` to `new`.
+3. Using the copied theme as a template, start tinkering.
+
+The following themes are defined in the directory `themes`.
+
+themes/auklet
+++++++++++++++
 
 [img/auklet.png border=1 width=500]
 
-
-Trendygreen
------------
+themes/Trendygreen
+++++++++++++++++++
 
 [img/trendygreen.png border=1 width=500]
 
-
-Wink
-----
+themes/wink
++++++++++++
 
 [img/wink.png border=1 width=500]
+
+Defining String Values
+----------------------
+
+The first entry in `site.txt` defines strings that can slip into the theme templates. For example,
+the following slots define the _title_ of a site; the name of _formatter_ script that renders each page;
+the url of the _home_ directory of the site; a _menu_ to add top of each page; a _footer_ to
+add to the bottom of each page; and a web-accessible directory for storing _images_.
+
+ &#96;&#96;title&#96;&#96;       Just another Tiny Tim demo
+ &#96;&#96;formatter&#96;&#96;   lib/markup.awk
+ &#96;&#96;description&#96;&#96; (simple cms)
+ &#96;&#96;home&#96;&#96;        http://at.ttoy.net
+ &#96;&#96;menu&#96;&#96;        <a href="?index">Home</a> | <a href="?contact">Contact</a> | <a href="?about">About</a>
+ &#96;&#96;footer&#96;&#96;      <p>Powered by <a href="?tinytim">TINY TIM</a>. &copy; 2010 by Tim Menzies 
+ &#96;&#96;images&#96;&#96;      http://at.ttoy.net/img
+
+Note the following important convention.
+TINY TIM auto-generates  some of its own strings. The names of these strings start with an uppercase letter.
+To avoid confusion of your strings with those that are
+auto-generated, it is best to start your strings with a lower-case letter (e.g. like all those in the above example.
+
+Writing pages
+-------------
+
+After the first entry, the rest of the entries in `site.txt` define the pages of a site. Each entry must begin with the magic string
+
++ Each entry must begin wth the magic string &#35;12345
++ The entry consists of paragraphs (seperated by blank lines.
++ Paragraph one contains the (short) page name (on line one) following by the page tags (on line two).
++ Paragraph two contains the heading of the page.
++ The remaining paragraphs are the page contents.
+
+For example, here is a 404 missing page report for a site.
+In the following, the _name_ is "404"; the tags are "Admin Feb10" and the title is "Sorry".
+
+ &#35;12345&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;
+
+ 404
+ Admin Feb10
+ 
+ Sorry
+ 
+ I have bad news:
+ 
+ <center>
+ [img/404book.jpg]
+ </center>
+
+The contents can contain HTML and MARKUP tags.
+
+MARKUP
+------
+
+MARKUP is a shorthand for writing HTML pages based on MARKDOWN:
+
++ _Italics_, *bold*, `typerwritter font` are marked by matching \_, \*, and \` characters (respectively).
++ Lists are marked by leading "+" characters.
++ Numbered lists are marked by leading "1." strings.
++ Lnks are enclosed in `\[square brackets\]`. The first word in the bracket is the URL and subsequent words are the text for the URL link.
++ Images are marked up with the same `\[square brackets\]`, but the first work must end in one of .png, .gif, .jpg. Any subsequent words are passed as tags to the `&lt;img>` tag.
+
+Also, in MARKUP,  major, minor, sub-, and sub-sub- headings are two
+line paragraphs where the second line contains two or more "=", "-",
+"+", "_" (respectively).  MARKUP collects these headings as a table of contents, which is added to the top of the page.
+
+Note that MARKUP is seperate to TINY TIM. To change the formatting of pages, write your own AWK code and change the string \`\`formatter\`\` in
+the first entry of `site.txt`
+
+Copyright
+=========
+
+Copyright (C) 2010 by Tim Menzies,  tim@menzies.us.
+
+TINY TIM is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+TINY TIM is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with TINY TIM.  If not, see [http://www.gnu.org/licenses/].
+
+Author
+======
+
+Tim Menzies
+
 
 #12345####################################################################################
 
