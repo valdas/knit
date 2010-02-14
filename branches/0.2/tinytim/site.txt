@@ -229,8 +229,9 @@ After the first entry, the rest of the entries in `site.txt` define the pages of
 + Paragraph two contains the heading of the page.
 + The remaining paragraphs are the page contents.
 
-For example, here is a 404 missing page report for a site.
-In the following, the _name_ is "404"; the tags are "Admin Feb10" and the title is "Sorry".
+For example, this site contains a [?404 missing page] report. This page is defined as follows.
+In the following definition of that page,
+the _name_ is "404"; the tags are "Admin Feb10" and the title is "Sorry".
 
  &#35;12345&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;
  
