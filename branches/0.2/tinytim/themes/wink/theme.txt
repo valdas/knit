@@ -1,0 +1,304 @@
+#12345####################################################################################
+
+template
+System 
+Slots: description keywords author images google-search home title logo  links seeAlso menu footer
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- author = Wink Hosting (www.winkhosting.com) -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 1 September 2005), see www.w3.org" />
+  <meta http-equiv="content-type" content=
+  "text/html; charset=us-ascii" />
+  <meta name="description" content="``description``" />
+  <meta name="keywords" content="``keywords``" />
+  <meta name="author" content="``author``" />
+  <link rel="shortcut icon" type="image/x-icon" href=
+  "``home``/themes/wink/img/favicon.ico" />
+  <title>``title`` : ``Title``</title>
+<style type="text/css">
+/*<![CDATA[*/
+/* 
+CSS Document 
+Wink Hosting (www.winkhosting.com)
+Designed By Alexis Corredor
+alexis.corredor@gmail.com
+*/
+body {
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px; 
+text-align: left;
+align: left;
+}
+p.left {text-align: left}
+/*HEADER*/
+#header{
+width: 800px;
+position:relative; 
+height: 162px;
+background-image:url(``home``/themes/wink/img/header.jpg);
+background-repeat:no-repeat;
+}
+/*COMPANY NAME IN HEADER*/
+#companyname {
+position:absolute;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #FFFFFF;
+font-size: 30px;
+font-weight: bold;
+margin-top:30px;
+margin-left:40px;
+left: 0px;
+top: 0px;
+}
+#companyname a{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+text-decoration:none;
+}
+#companyname a:hover{
+text-decoration:underline;
+}
+/*MENU IN HEADER*/
+#menu{
+position:absolute;
+bottom: 20px;
+right: 30px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold;
+}
+#menu a{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold;
+color:#333333;
+text-decoration:none;
+}
+#menu a:hover{
+text-decoration:underline;
+}
+/*LEFT PANEL (News, Links, etc.)*/
+#leftpanel{
+float:left;
+width:200px;
+}
+/*CONTENT*/
+#content{
+width: 800px;
+}
+#contenttext{
+text-align: left;
+float: right;
+width: 580px;
+}
+/*FOOTER*/
+.footer{
+width: 779px;
+height: 32px;
+background-image:url(``home``/themes/wink/img/bg_footer.gif);
+background-repeat:no-repeat;
+clear:both;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold;
+color:#FFFFFF;
+}
+/*FOOTER LINKS*/
+.footer a{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold;
+color:#FFFFFF;
+text-decoration:none;
+}
+.footer a:hover{
+text-decoration:underline;
+}
+/*TABLE*/
+.table_top{
+width: 204px; 
+height: 27px;
+background-image:url(``home``/themes/wink/img/table_top.jpg);
+background-repeat:no-repeat;
+}
+.table_content{
+width: 204px;
+background-image:url(``home``/themes/wink/img/table_content.jpg);
+background-repeat:repeat-y;
+}
+.table_text{
+margin-left:15px;
+margin-right:15px;
+text-align:justify;
+}
+.table_bottom{
+width: 204px; height: 23px;
+}
+/*TEXT STYLES*/
+.news_date {    
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold;
+color: #0099CC;
+}
+.body_text {    
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px; align: left;
+}
+.news_more {    
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #FF9900;
+font-weight: bold;
+}
+.news_text {    font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+}
+.subtitle_gray {        
+font-family:Verdana, Arial, Helvetica, sans-serif;      
+font-weight: bold;
+font-size: 14px;
+color: #CCCCCC;
+}
+h1 {
+margin-top: 0px; padding-top: 0px; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 26px; color: #7DA5E0; 
+}
+.title_blue {
+font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 26px; color: #7DA5E0; 
+}
+.title_panel {  font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: bold;
+}
+pre {
+margin-left: 20px;
+padding: 1em;
+border: 1px dashed #2f6fab;
+color: DarkBlue;
+background-color: #f9f9f9;
+line-height: 1.1em;
+}
+#title p {
+float: right;
+text-align: right;
+text-width: 750px;
+color: white; 
+margin: 0 20px 0px 0; 
+line-height: 1.2em;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-top: 20px;
+}
+p.tags {
+font-size: x-small;
+margin-top: 0px;
+margin-botton: 0px;
+text-align: right;
+color: #AAA;
+}
+h1 h2 h3 h4 h5 h6 h7 { color:  #7DA5E0; }
+h2 { border-top: 1px solid #7DA5E0; } 
+/*]]>*/
+</style>
+</head>
+
+<body>
+  ``syntax-highlighter``
+
+  <div id="page" align="center">
+    <div id="header">
+     <div id="title">``google-search``  </div> 
+      <div id="companyname" align="left">
+        ``title``
+		<br><small>``description``</small>
+      </div>
+
+      <div align="right" class="links_menu" id="menu">
+        ``menu``
+      </div>
+    </div><br />
+
+    <div id="content">
+      <div id="leftpanel">
+
+        <div class="table_top">
+          <div align="center">
+            <span class="title_panel">Our hero</span>
+          </div>
+        </div>
+
+        <div class="table_content">
+          <div class="table_text">
+	       <center><table bgcolor=#CCC padding=1><tr><td valign=center align=center>
+		              <img border=1 src="``images``/``logo``" width=100><br>Hail Tiny Tim</td></tr></table></center>
+          </div>
+        </div>
+    
+        <div class="table_bottom">
+          <img src="``home``/themes/wink/img/table_bottom.jpg"
+          width="204" height="23" border="0" alt="" />
+        </div>
+        <p/>
+
+        <div class="table_top">
+          <div align="center">
+            <span class="title_panel">News</span>
+          </div>
+        </div>
+
+        <div class="table_content">
+          <div class="table_text">
+            ``links``
+          </div>
+        </div>
+    
+        <div class="table_bottom">
+          <img src="``home``/themes/wink/img/table_bottom.jpg"
+          width="204" height="23" border="0" alt="" />
+        </div>
+        <p/>
+        <div class="table_top">
+          <span class="title_panel">Links</span>
+        </div>
+
+        <div class="table_content">
+          <div class="table_text">
+             ``seeAlso``
+          </div>
+        </div>
+
+        <div class="table_bottom">
+          <img src="``home``/themes/wink/img/table_bottom.jpg"
+          width="204" height="23" border="0" alt="" />
+        </div>
+        <p/>
+
+      </div>
+
+      <div id="contenttext">
+         <img src="``home``/themes/wink/img/babel.jpg" align=right width=200  
+		        style="margin: 3px; padding: 1px; border: 1px solid #CCC;">
+        ``Content``
+
+        <p>&nbsp;</p>
+      </div><br />
+      <br />
+
+      <div class="footer">
+        ``footer``
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
