@@ -120,8 +120,8 @@ In the resulting directory, perform the local juju required to make index.cgi we
 
 Follow the directions in the next section to customize the site.
 
-Using
-=====
+Using TINY TIM
+==============
 
 index.cgi
 ---------
@@ -224,6 +224,8 @@ After the first entry, the rest of the entries in `site.txt` define the pages of
 + Each entry must begin with the magic string &#35;12345
 + The entry consists of paragraphs (separated by blank lines.
 + Paragraph one contains the (short) page name (on line one) following by the page tags (on line two).
+  + Note that the page name must start with a lower case letter.
+  + And the tags must start with an upper case letter.
 + Paragraph two contains the heading of the page.
 + The remaining paragraphs are the page contents.
 
@@ -231,12 +233,12 @@ For example, here is a 404 missing page report for a site.
 In the following, the _name_ is "404"; the tags are "Admin Feb10" and the title is "Sorry".
 
  &#35;12345&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;&#35;
-
+ 
  404
  Admin Feb10
- 
+  
  Sorry
- 
+ i 
  I have bad news:
  
  <center>
