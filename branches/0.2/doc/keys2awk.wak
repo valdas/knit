@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
-Four Keys to Gawk
+Four Keys to Gawk  
 
 Imagine Gawk as a kind of a cut-down C language with four tricks:
 
