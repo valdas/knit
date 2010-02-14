@@ -167,18 +167,11 @@ To write a new theme:
 
 The following themes are defined in the directory `themes`.
 
-Auklet:
+Auklet: [img/auklet.png border=1 width=400 align=middle]
 
-[img/auklet.png border=1 width=500]
+Trendygreen: [img/trendygreen.png border=1 width=400 align=middle]
 
-Trendygreen
-(adapted from  [http://gettemplates.com GetTemplates]):
-
-[img/trendygreen.png border=1 width=500]
-
-Wink:
-
-[img/wink.png border=1 width=500]
+Wink: [img/wink.png border=1 width=1 align=middle width=400]
 
 Defining String Values
 ----------------------
