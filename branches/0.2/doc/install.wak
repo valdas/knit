@@ -75,7 +75,7 @@ Commit your new page to the repo:
 
 Register that new .wak file by adding its name to the the `@uses` line of doc/doc.wak.
 
-Add that file to site/tags.txt.
+Add that file to a/b/c/site/etc/tags.txt.
 
 Then build the site:
 
