@@ -9,7 +9,7 @@ tinytim() {
 	sed 's/^<\/pre>/<\/script>/'
 }
 
-tinytim wink
+#tinytim wink
 #tinytim auklet
-#tinytim trendygreen
+tinytim trendygreen
 
