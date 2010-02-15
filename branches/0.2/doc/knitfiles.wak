@@ -19,7 +19,7 @@
 Inside KNIT
 
 KNIT divides into _core_ and _apps_  (application) directories.
-_App_ directories have special sub-directories (`_etc/tests`) that
+_App_ directories have special sub-directories (`etc/tests`) that
 handle the KNIT test engine.  
 
 This page describes those directories and files, focusing on what
