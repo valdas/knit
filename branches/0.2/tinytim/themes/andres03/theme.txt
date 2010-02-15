@@ -285,7 +285,7 @@ margin-top: 0px;
 text-align:center;
 xfloat:left;
 xwidth:100%;
-font-size:90%;
+xfont-size:90%;
 xborder-bottom:1px solid #2763A5;
 xline-height:normal;
 }
@@ -360,12 +360,12 @@ Released through OSWD.org */
 &nbsp;<br> 
 &nbsp;<br> 
 <p> 
-``title``
+<h1>``title``</h2>
 <br> 
 &nbsp;<br> 
 &nbsp;
 		
-		``description``
+		<h2>``description``</h2>
 		</p> 
 </center> 
 </div> 
