@@ -283,25 +283,10 @@ margin-top: 0px;
 }
 #tabs10 {
 text-align:left;
-xfloat:left;
-xwidth:100%;
-font-size:90%;
-xborder-bottom:1px solid #2763A5;
-xline-height:normal;
-}
-#tabs10 ul {
-margin:0;
-padding: 5px 5px 0 0;
-list-style:none;
-}
-#tabs10 li {
-display:inline;
-margin:0;
-padding:0;
 }
 #tabs10 a {
 float:left;
-background:url(``home``/themes/andres03/img/tableft10.gif) no-repeat left top;
+xbackground:url(``home``/themes/andres03/img/tableft10.gif) no-repeat left top;
 margin:0;
 padding:0 0 0 4px;
 text-decoration:none;
@@ -332,6 +317,13 @@ border-color: blue;
 border-width: 0.1em;
 margin-left: 10px;
 margin-right: 10px;
+}
+p.tags {
+font-size: x-small;
+margin-top: 0px;
+margin-botton: 0px;
+text-align: right;
+color: #AAA;
 }
 /* Original open source design by Andreas Viklund - http://andreasviklund.com
 Released through OSWD.org */
