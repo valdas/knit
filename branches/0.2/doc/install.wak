@@ -18,6 +18,10 @@
 
 Installing KNIT
 
+The following instructions assume a UNIX or UNIX-clone environment (e.g. LINUX,
+Mac OS/X, Cygwin).
+
+So far, these instructions have been tested on LINUX and Mac OS/X.
 
 Step1: Download 
 ===============
@@ -37,7 +41,10 @@ Otherwise, download a copy you can read/write locally (but can't update back to 
 Step 2: Set up envrionment
 =========================
 
-In sme file that runs at ogin (e.g. `.bashrc` or `.bash_profile`, add this line:
+Shell
+-----
+
+In some file that runs at ogin (e.g. `.bashrc` or `.bash_profile`, add this line:
 
  export SVN_EDITOR=`which vi`    # or whatever your favorite editor is
  . ~/a/b/c/etc/dotknitrc $HOME/a/b/c
@@ -53,6 +60,14 @@ Somehow, arrange for this file to be executed. E.g.
   . ~/.bashrc
 
 If this works, you should see no errors.
+
+Emacs
+-----
+
+If you are an EMACS user, then add something like this line to `$HOME/.emacs` (making the appropriate
+pathname changes):
+
+ (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
 
 Step 3: Install
 ===============
