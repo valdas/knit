@@ -118,7 +118,7 @@ A standard header to be added on top of all build files.
 An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent text with tabs: use spaces instead).
 </p>
 <pre>
- (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
+ (load "/Users/timm/opt/knit/etc/dotemacs")
 </pre>
 <a name="10"></a><h4>etc/dotknitrc</h4>
 <p>
@@ -128,7 +128,7 @@ A BASH configuration file to set up important KNIT variables. Change this file i
 To use this file, add something like this line to <tt>$HOME/.emacs</tt> (making the appropriate pathname changes):
 </p>
 <pre>
- . $HOME/svns/knit/branches/0.2/etc/dotknitrc $HOME/svns/knit/branches/0.2 local
+ . $HOME/opt/knit/etc/dotknitrc $HOME/opt/knit/etc local
 </pre>
 <p>
 Note that the keyword <tt>local</tt> at the end of the above command. Currently <tt>etc/dotknitrc</tt> has conditionals that may set special variables,
@@ -141,6 +141,9 @@ Contains the core scripts of KNIT.
 <a name="12"></a><h4>lib/make</h4>
 <p>
 Contains the core scripts of KNIT. To build new language bindings for KNIT, copy and modify (e.g.) <tt>awk.mk</tt> to create <tt>newlanguage.mk</tt>.
+</p>
+<p>
+XXX
 </p>
 <a name="13"></a><h2>Apps</h2>
 
