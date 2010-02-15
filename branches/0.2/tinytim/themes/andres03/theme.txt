@@ -282,7 +282,7 @@ padding-left: 30px;
 margin-top: 0px;
 }
 #tabs10 {
-text-align:center;
+text-align:left;
 xfloat:left;
 xwidth:100%;
 font-size:90%;
@@ -361,9 +361,6 @@ Released through OSWD.org */
 &nbsp;<br> 
 <p> 
 <h1>``title``</h2>
-<br> 
-&nbsp;<br> 
-&nbsp;
 		
 		<h2>``description``</h2>
 		</p> 
@@ -372,6 +369,7 @@ Released through OSWD.org */
  
 <div class="clear"></div> 
 <div> 
+<hr>
 ``Content`` 
 
  
