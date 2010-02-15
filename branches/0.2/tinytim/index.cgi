@@ -11,6 +11,5 @@ tinytim() {
 
 #tinytim wink
 #tinytim auklet
-#tinytim trendygreen
-tinytim andres03
+tinytim trendygreen
 
