@@ -91,4 +91,4 @@ To edit that file:
 3. Build and commit using `cd doc; make builds`
 
 If that works, your page should appear at
-[http:/artofawk.net/index.cgi?yourname].
+[http://artofawk.net/?yourname].
