@@ -20,7 +20,6 @@ and 3 hours for the code).
 
 TINY TIM has the following features:
 
-+ In order to make editing easier, all content is kept in one file `site.txt`.
 + Pages can be accessed by their (lowercase)  name, or by their (uppercase) tags. 
 + Pages can be displayed using a set of customizable themes. 
 + Page contents can be written using a HTML shorthand language called MARKUP.
@@ -56,7 +55,7 @@ For a screen-shots of the current themes, see below.
  [ -n "$1" ] && export QUERY_STRING="$1"
  
  tinytim() {
-	cat site.txt themes/$1/theme.txt |
+	cat content/* themes/$1/theme.txt |
 	gawk -f lib/tinytim.awk |
 	sed 's/^<pre>/<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[/' |
 	sed 's/^<\/pre>/<\/script>/'
@@ -66,9 +65,10 @@ For a screen-shots of the current themes, see below.
  #tinytim trendygreen
  tinytim wink
 
-Note the `sed` commands: these render normal &lt;pre> using [http://alexgorbatchev.com/wiki/SyntaxHighlighter Alex Gorbatchev]'s
-excellent syntax highlighter. To change the highlighting rules for a different language, change `brush: cpp` to one of
-the [http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes supported aliases].
+Notes:
+
++ The `sed` commands: these render normal &lt;pre> using [http://alexgorbatchev.com/wiki/SyntaxHighlighter Alex Gorbatchev]'s excellent syntax highlighter. To change the highlighting rules for a different language, change `brush: cpp` to one of the [http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes supported aliases].
++ The `cat` command: this assembles the content for the system. Multiple authors can write multiple files in the  sub-directorty `content`.
 
 Themes
 ------
@@ -104,7 +104,7 @@ Wink:
 Defining String Values
 ----------------------
 
-The first entry in `site.txt` defines strings that can slip into the theme templates. For example,
+The first entry in the content defines strings that can slip into the theme templates. For example,
 the following slots define the _title_ of a site; the name of _formatter_ script that renders each page;
 the url of the _home_ directory of the site; a _menu_ to add top of each page; a _footer_ to
 add to the bottom of each page; and a web-accessible directory for storing _images_.
@@ -131,16 +131,16 @@ Adding a Search Engine
 Google offers a nice free site-specific search engine. It takes a few days for the spiders to find the site but after that, it works fine.
 To set this up, follow the instructions at [http://www.google.com/cse/ Google custom search], then
 
-+ Add the appropriate magic strings into the first entry of `site.txt'
++ Add the appropriate magic strings into the first entry of the content (usually `content/0config.txt`).
 + Add references to those strings to your template.
 
-For example, look for `google-search` in the current templates and `site.txt`.
+For example, look for `google-search` in the current templates and `content/0config.txt`.
 
 
 Writing pages
 -------------
 
-After the first entry, the rest of the entries in `site.txt` define the pages of a site. Each entry must begin with the magic string
+After the first entry, the rest of the entries in the `content/*` define the pages of a site. Each entry must begin with the magic string
 
 + Each entry must begin with the magic string &#35;12345
 + The entry consists of paragraphs (separated by blank lines.
@@ -185,7 +185,7 @@ line paragraphs where the second line contains two or more "=", "-",
 "+", "_" (respectively).  MARKUP collects these headings as a table of contents, which is added to the top of the page.
 
 Note that MARKUP is separate to TINY TIM. To change the formatting of pages, write your own AWK code and change the string \`\`formatter\`\` in
-the first entry of `site.txt`
+the first entry of `content/0config.txt`.
 
 Copyright
 =========
