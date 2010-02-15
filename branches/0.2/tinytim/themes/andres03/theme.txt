@@ -292,7 +292,6 @@ padding:0 0 0 4px;
 text-decoration:none;
 }
 #tabs10 a span {
-display:block;
 font-weight: bold;
 background:url(``home``/themes/andres03/img/tabright10.gif) no-repeat right top;
 padding:5px 7px 4px 5px;
