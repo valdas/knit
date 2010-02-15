@@ -147,7 +147,7 @@ margin-right:20px;
 padding:0;
 }
 .headerstyle{
-display:block;
+xdisplay:block;
 margin:0px 0 10px 0;
 padding:5px 0 5px 8px;
 background:#eee url(``home``/themes/andres03/img/gradient2.png) repeat-x;
