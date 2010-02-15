@@ -1,0 +1,140 @@
+#12345####################################################################################
+
+404
+Admin Feb10 
+
+Sorry
+
+I have bad news:
+
+<center>
+[img/404book.jpg]
+</center>
+#12345####################################################################################
+
+contact
+Admin Feb10 
+
+Contact us
+
+[http://menzies.us Tim Menzies]
+
+#12345####################################################################################
+
+about
+Admin Feb10 
+
+What is this site?
+
+This site is a demo of [?tinytim TINY TIM].
+
+
+#12345####################################################################################
+
+index
+Admin Timm Feb 2010
+
+Hail!
+
+Lorem ipsum _dolor sit amet, consectetur adipiscing elit_. Vivamus ornare
+dui in *nulla lacinia facilisis*. Nunc eget sem nec lorem dignissim
+posuere. Sed eu lacinia leo. 
+
+ function o(a, str,n,   i,com) {
+	 com="sort -n -k 2";
+	 if(n)
+		 for(i=1;i<=n;i++)
+			 print str "[" i "] = [" a[i] "]"
+	 else { 
+		 for(i in a)
+			 print str "[ " i " ] = [ " a[i] " ]" | com;
+		 close(com)
+	 }
+ }
+
+Cum `sociis natoque penatibus` et magnis
+dis parturient montes, nascetur ridiculus mus. 
+[?about Sed eget tortor] in velit
+sollicitudin accumsan a et diam. 
+
++ Sed sit amet fringilla elit. 
++ Suspendisse molestie semper sapien, non tristique lectus lobortis vel. 
++ Nam vitae felis arcu, vel dictum dui. 
+
+Praesent lectus ligula 
+======================
+
+Sodales non porta vitae, dictum non augue. Donec at odio vitae ante
+consequat bibendum interdum vitae nunc. Etiam sed elit sit amet quam
+tempor rhoncus at sed urna. Mauris enim nibh, auctor elementum tempor
+id, pellentesque vitae turpis. 
+
+1. Sed sit amet fringilla elit. 
+1. Suspendisse molestie semper sapien, non tristique lectus lobortis vel. 
+2. Nam vitae felis arcu, vel dictum dui. 
+
+Cras ac lacus ut
+================
+
+Urna bibendum sagittis a id est. Nulla sagittis fermentum erat id
+dignissim. Morbi dolor metus, mollis non congue a, tempor in nisl.
+
+[http://www.floral-directory.com/flower.gif width=100]
+
+Donec orci nibh
+---------------
+
+Hendrerit sit amet placerat vitae, elementum eu
+diam. Curabitur nisl enim, vehicula ac ultrices quis, adipiscing non
+nisl. Donec egestas accumsan mattis. Sed venenatis eleifend enim, a
+aliquam mi placerat nec. Aliquam erat volutpat. Nulla ultrices libero
+dignissim nisl ornare non convallis est porttitor. Nullam adipiscing
+elementum ligula. 
+
+Cras sed leo ut massa
+---------------------
+
+Quisque in metus nulla, vehicula porttitor libero. Aliquam hendrerit
+venenatis nulla, non sagittis odio ultricies ut. Nullam aliquam facilisis
+enim, vel posuere magna convallis ac. Ut pulvinar sapien in urna
+fringilla nec dapibus odio ultrices. Praesent sollicitudin aliquam erat
+sed ornare.  dictum tincidunt. Aliquam varius vehicula
+
+ nisi pellentesque vehicula. Cras tincidunt,
+ nunc vitae tincidunt suscipit, neque tellus
+ sollicitudin massa, non vulputate est elit
+ id nisl. Curabitur tincidunt augue non ante
+ pharetra gravida. Curabitur massa dui, mollis eu
+ blandit iaculis, feugiat vitae mi. Pellentesque
+
+Nulla pharetra mattis risus ac ultrices. Nam turpis magna,
+gravida ut pellentesque in, tincidunt quis sapien. Donec faucibus faucibus
+sem id mattis. Nullam pharetra turpis quis sem tincidunt hendrerit. Duis
+convallis augue nec nisi laoreet porttitor. Nullam dui neque, faucibus
+et tempor a, blandit eget ligula. Praesent mattis auctor sem, at rhoncus
+nisi ultrices sit amet. Donec non risus non odio lacinia pharetra id et
+enim. Nam gravida fermentum dui ac porta. Ut cursus ligula sed mauris
+rutrum congue. Ut cursus, est in hendrerit semper, lacus quam luctus
+turpis, nec bibendum odio augue quis augue. Donec a enim lacus. Nam
+vulputate interdum massa at sodales. Phasellus dapibus, est a facilisis
+gravida, quam leo tempus dolor, eu tristique mauris arcu id elit.
+
+Proin urna nisl, tempor in porttitor eu, pretium sed ipsum. Mauris mollis
+luctus sapien id posuere. Maecenas lacinia metus eu risus adipiscing
+vel sagittis dui vehicula. Aenean semper laoreet metus, et interdum erat
+volutpat at. Vestibulum egestas placerat elit vel sollicitudin. Maecenas
+a tellus elit, quis vestibulum dolor. Nulla tempus odio vel est tincidunt
+in tempus urna mollis. Nunc vel faucibus ante. Duis ac eros nibh. Cras
+dignissim malesuada lacinia. Nullam tristique est sed velit elementum
+molestie. Aenean sed libero vitae urna sagittis tincidunt quis sed
+dui. Cras molestie dui in nunc rhoncus posuere. Praesent magna leo,
+pulvinar in sagittis vel, lacinia a turpis. Duis mattis tristique odio
+non ullamcorper. Vestibulum egestas risus id sapien condimentum vehicula.
+
+Suspendisse potenti. Nam elementum, orci non ultricies imperdiet, eros
+magna malesuada diam, a faucibus elit ipsum ut augue. Duis non augue
+sapien. Morbi sed nisl eu mi sagittis aliquet. Donec sagittis ipsum
+nec risus pharetra laoreet. Quisque lorem dui, faucibus pellentesque
+pulvinar ac, dictum ut enim. Donec et diam ante. Mauris eget placerat
+libero. Integer felis eros, feugiat ac venenatis semper, consequat at
+nulla. Pellentesque et semper enim.

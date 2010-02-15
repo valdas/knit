@@ -1,0 +1,52 @@
+``title``     Just another Tiny Tim demo
+``linksTo``       index contact about tinytim
+``formatter``  lib/markup.awk
+``description`` (simple cms)
+``keywords``   love love love
+``home``      http://at.ttoy.net
+``author``	  Tim Menzies
+``menu``      <a href="?index">Home</a> | 
+              <a href="?contact">Contact</a> | 
+              <a href="update.cgi">Update</a> | 
+              <a href="?about">About</a>
+``footer``  <p>Powered by <a href="?tinytim">TINY TIM</a>. &copy; 2010 by Tim Menzies 
+``images``            http://at.ttoy.net/img
+``favicon``    favicon.ico
+``logo``              tinytim.jpg
+``links``        
+							 <a href="http://abcnews.go.com">ABC</a><br>
+							<a href="http://news.bbc.co.uk/">BBC</a><br>
+							<a href="http://www.cnn.com">CNN</a>
+``seeAlso``       <a href="http://vernix.org/marcel/programming_language_authors/">Language authors</a> <br>
+                  <a href="http://esoteric.voxelperfect.net/wiki/IRP">Best language, ever</a> <br>
+                  <a href="http://code.google.com/p/lawker/source/browse/fridge/lib/awk/awklisp/awklisp">A LISP interpreter</a> <br>
+                  <a href="http://en.wikipedia.org/wiki/Brainfuck">Don't click here</a> 		 
+``google-search``  <form action="http://www.google.com/cse" id="cse-search-box">
+ 				      <p>
+                           <input type="hidden" name="cx" value="15406670773682269893:fsmxwijht6q" />
+                           <input type="hidden" name="ie" value="UTF-8" />
+                           <input type="text" name="q" value=" " size="15" />
+                           <input type="submit" name="sa" value="Find" />
+                   </form>
+``syntax-highlighter``
+		<link href='http://alexgorbatchev.com/pub/sh/current/styles/shCore.css' rel='stylesheet' type='text/css'/>
+		<link href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js' type='text/javascript'></script>
+		<!--- script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCSharp.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJava.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushRuby.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushSql.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushVb.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js' type='text/javascript'></script>
+		<script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPerl.js' type='text/javascript'></script --->
+		<script language='javascript'>
+		SyntaxHighlighter.config.bloggerMode = true;
+		SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+		</script>
+
