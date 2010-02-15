@@ -50,12 +50,34 @@ The core directories are:
  |   `-- src
  |       `-- old
 
+.
+--
+
+The root of the KNIT directories contains a Makefile that
+
+1. Installs the whole system via `make install`. Note: this command needs only to be called once, when KNIT is first downloaded.
+2. Updates and commits the whole syste via `make`. Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls `make` there.
+
 doc
 ---
 
 This is the KNIT documentation project. It contains
-files written in the [?markup] syntax.
- 
+files written in a [?literate shorthand for quick HTML markup].
+
+To update the documentation:
+
+1. Change to this directory.
+2. Write a new `.wak` file in this directory.
+3. Execute `make builds`.
+
+Note that this last step may ask you to update  file `../site/etc/tags.txt`. This file is discussed below.
+
+doc/faqs.wak
+++++++++++++
+
+Update this file to change the frequently asked questions.
+
+
  |-- helloworld
  |   `-- etc
  |       `-- tests

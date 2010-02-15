@@ -3,8 +3,11 @@
 <ul>
 <li> <a href="#1">Core Directories</a>
 <ul>
-<li> <a href="#2">doc</a>
-</ul></ul>
+<li> <a href="#2">.</a>
+<li> <a href="#3">doc</a>
+<ul>
+<li> <a href="#4">doc/faqs.wak</a>
+</ul></ul></ul>
 <p>
 KNIT divides into <em>core</em> and <em>apps</em>  (application) directories.
 <em>App</em> directories have special sub-directories (<tt>_etc/tests</tt>) that
@@ -39,30 +42,55 @@ The core directories are:
  |   `-- src
  |       `-- old
 </pre>
-<a name="2"></a><h3>doc</h3>
+<a name="2"></a><h3>.</h3>
+<p>
+The root of the KNIT directories contains a Makefile that
+</p>
+<ol>
+<li> Installs the whole system via <tt>make install</tt>. Note: this command needs only to be called once, when KNIT is first downloaded.
+<li> Updates and commits the whole syste via <tt>make</tt>. Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls <tt>make</tt> there.
+</ol>
+
+<a name="3"></a><h3>doc</h3>
 <p>
 This is the KNIT documentation project. It contains
-files written in the <a href="?markup">?markup</a> syntax.
- 
+files written in a <a href="?literate">shorthand for quick HTML markup</a>.
+</p>
+<p>
+To update the documentation:
+</p>
+<ol>
+<li> Change to this directory.
+<li> Write a new <tt>.wak</tt> file in this directory.
+<li> Execute <tt>make builds</tt>.
+</ol>
+<p>
+Note that this last step may ask you to update  file <tt>../site/etc/tags.txt</tt>. This file is discussed below.
+</p>
+<a name="4"></a><h4>doc/faqs.wak</h4>
+<p>
+Update this file to change the frequently asked questions.
+</p>
+<pre>
  |-- helloworld
- |   <tt>-- etc
- |       </tt>-- tests
+ |   `-- etc
+ |       `-- tests
  |-- penny
- |   <tt>-- etc
- |       </tt>-- tests
+ |   `-- etc
+ |       `-- tests
  |-- quill
- |   <tt>-- etc
- |       </tt>-- tests
- <tt>-- tinytim
+ |   `-- etc
+ |       `-- tests
+ `-- tinytim
      |-- content
      |-- etc
-     |   </tt>-- tests
+     |   `-- tests
      |-- img
      |-- lib
      `-- themes
  
 45 directories
-</p>
+</pre>
 <p>
 |-- Makefile
 |-- doc
