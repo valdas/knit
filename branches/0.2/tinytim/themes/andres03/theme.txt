@@ -307,7 +307,6 @@ padding:0 0 0 4px;
 text-decoration:none;
 }
 #tabs10 a span {
-float:left;
 display:block;
 font-weight: bold;
 background:url(``home``/themes/andres03/img/tabright10.gif) no-repeat right top;
@@ -399,7 +398,7 @@ Released through OSWD.org */
  
 <h4><b>News..</b></h4> 
 <p>
-``news``
+``seeAlso``
  </p> 
 <hr><h4><b>Links</b></h4> 
 <p>``links``</p>
