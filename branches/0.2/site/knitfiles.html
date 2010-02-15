@@ -4,9 +4,19 @@
 <li> <a href="#1">Core Directories</a>
 <ul>
 <li> <a href="#2">KNIT</a>
-<li> <a href="#3">doc</a>
 <ul>
-<li> <a href="#4">doc/faqs.wak</a>
+<li> <a href="#3">Makefile</a>
+<li> <a href="#4">head</a>
+</ul>
+<li> <a href="#5">doc</a>
+<ul>
+<li> <a href="#6">doc/faqs.html</a>
+</ul>
+<li> <a href="#7">etc</a>
+<ul>
+<li> <a href="#8">etc/copyrite.txt</a>
+<li> <a href="#9">etc/dotemacs</a>
+<li> <a href="#10">etc/dotknitrc</a>
 </ul></ul></ul>
 <p>
 KNIT divides into <em>core</em> and <em>apps</em>  (application) directories.
@@ -43,15 +53,25 @@ The core directories are:
  |       `-- old
 </pre>
 <a name="2"></a><h3>KNIT</h3>
+
+<a name="3"></a><h4>Makefile</h4>
 <p>
 The root of the KNIT directories contains a Makefile that:
 </p>
 <ol>
 <li> Installs the whole system via <tt>make install</tt>. Note: this command needs only to be called once, when KNIT is first downloaded.
-<li> Updates and commits the whole syste via <tt>make</tt>. Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls <tt>make</tt> there.
+<li> Updates and commits the whole syste via <tt>make</tt>. 
 </ol>
-
-<a name="3"></a><h3>doc</h3>
+<p>
+Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls <tt>make</tt> there.
+Hence, you should
+update this file whenever you build a new app (so it knows how to build that app).
+</p>
+<a name="4"></a><h4>head</h4>
+<p>
+<tt>Head</tt> is a file containing a standard header/copyright notice to be included at the start of all KNIT files.
+</p>
+<a name="5"></a><h3>doc</h3>
 <p>
 This is the KNIT documentation project. It contains
 files written in a <a href="?literate">shorthand for quick HTML markup</a>.
@@ -67,9 +87,38 @@ To update the documentation:
 <p>
 Note that this last step may ask you to update  file <tt>../site/etc/tags.txt</tt>. This file is discussed below.
 </p>
-<a name="4"></a><h4>doc/faqs.wak</h4>
+<a name="6"></a><h4>doc/faqs.html</h4>
 <p>
-Update this file to change the frequently asked questions.
+Update this file to update the faqs.
+</p>
+<a name="7"></a><h3>etc</h3>
+<p>
+Stores various system config files.
+</p>
+<a name="8"></a><h4>etc/copyrite.txt</h4>
+<p>
+A standard header to be added on top of all build files.
+</p>
+<a name="9"></a><h4>etc/dotemacs</h4>
+<p>
+An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent text with tabs: use spaces instead).
+</p>
+<pre>
+ (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
+</pre>
+<a name="10"></a><h4>etc/dotknitrc</h4>
+<p>
+A BASH configuration file to set up important KNIT variables. Change this file if your Makefiles need new or different envrionment variables.
+</p>
+<p>
+To use this file, add something like this line to <tt>$HOME/.emacs</tt> (making the appropriate pathname changes):
+</p>
+<pre>
+ . $HOME/svns/knit/branches/0.2/etc/dotknitrc $HOME/svns/knit/branches/0.2 local
+</pre>
+<p>
+Note that the keyword <tt>local</tt> at the end of the above command. Currently <tt>etc/dotknitrc</tt> has conditionals that may set special variables,
+	 if local conditions demand it. If (say) the pathname to 
 </p>
 <pre>
  |-- helloworld
@@ -434,6 +483,3 @@ Update this file to change the frequently asked questions.
 |   </tt>-- update.cgi
 |-- todo.otl
 `-- todo.txt
-</p>
-<p>
-45 directories, 297 files

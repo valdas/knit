@@ -3,10 +3,20 @@
 <ul>
 <li> <a href="#1">Step1: Download </a>
 <li> <a href="#2">Step 2: Set up envrionment</a>
-<li> <a href="#3">Step 3: Install</a>
-<li> <a href="#4">Step 4: Test</a>
+<ul>
+<li> <a href="#3">Shell</a>
+<li> <a href="#4">Emacs</a>
 </ul>
-
+<li> <a href="#5">Step 3: Install</a>
+<li> <a href="#6">Step 4: Test</a>
+</ul>
+<p>
+The following instructions assume a UNIX or UNIX-clone environment (e.g. LINUX,
+Mac OS/X, Cygwin).
+</p>
+<p>
+So far, these instructions have been tested on LINUX and Mac OS/X.
+</p>
 <a name="1"></a><h2>Step1: Download </h2>
 <p>
 If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>
@@ -26,8 +36,10 @@ Otherwise, download a copy you can read/write locally (but can't update back to 
   svn checkout http://knit.googlecode.com/svn/ knit
 </pre>
 <a name="2"></a><h2>Step 2: Set up envrionment</h2>
+
+<a name="3"></a><h3>Shell</h3>
 <p>
-In sme file that runs at ogin (e.g. <tt>.bashrc</tt> or <tt>.bash_profile</tt>, add this line:
+In some file that runs at ogin (e.g. <tt>.bashrc</tt> or <tt>.bash_profile</tt>, add this line:
 </p>
 <pre>
  export SVN_EDITOR=`which vi`    # or whatever your favorite editor is
@@ -50,7 +62,15 @@ Somehow, arrange for this file to be executed. E.g.
 <p>
 If this works, you should see no errors.
 </p>
-<a name="3"></a><h2>Step 3: Install</h2>
+<a name="4"></a><h3>Emacs</h3>
+<p>
+If you are an EMACS user, then add something like this line to <tt>$HOME/.emacs</tt> (making the appropriate
+pathname changes):
+</p>
+<pre>
+ (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
+</pre>
+<a name="5"></a><h2>Step 3: Install</h2>
 <pre>
  cd a/b/c
  make install
@@ -58,7 +78,7 @@ If this works, you should see no errors.
 <p>
 If this works, you should see no errors.
 </p>
-<a name="4"></a><h2>Step 4: Test</h2>
+<a name="6"></a><h2>Step 4: Test</h2>
 <p>
 If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>,
 write a little page about yourself in a/b/c/doc/yourname.wak.

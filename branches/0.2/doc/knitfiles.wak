@@ -53,10 +53,22 @@ The core directories are:
 KNIT
 ----
 
+Makefile
+++++++++
+
 The root of the KNIT directories contains a Makefile that:
 
 1. Installs the whole system via `make install`. Note: this command needs only to be called once, when KNIT is first downloaded.
-2. Updates and commits the whole syste via `make`. Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls `make` there.
+2. Updates and commits the whole syste via `make`. 
+
+Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls `make` there.
+Hence, you should
+update this file whenever you build a new app (so it knows how to build that app).
+
+head
+++++
+
+`Head` is a file containing a standard header/copyright notice to be included at the start of all KNIT files.
 
 doc
 ---
@@ -72,11 +84,39 @@ To update the documentation:
 
 Note that this last step may ask you to update  file `../site/etc/tags.txt`. This file is discussed below.
 
-doc/faqs.wak
+doc/faqs.html
++++++++++++++
+
+Update this file to update the faqs.
+
+etc
+---
+
+Stores various system config files.
+
+etc/copyrite.txt
+++++++++++++++++
+
+A standard header to be added on top of all build files.
+
+etc/dotemacs
 ++++++++++++
 
-Update this file to change the frequently asked questions.
+An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent text with tabs: use spaces instead).
 
+ (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
+
+etc/dotknitrc
++++++++++++++
+
+A BASH configuration file to set up important KNIT variables. Change this file if your Makefiles need new or different envrionment variables.
+
+To use this file, add something like this line to `$HOME/.emacs` (making the appropriate pathname changes):
+
+ . $HOME/svns/knit/branches/0.2/etc/dotknitrc $HOME/svns/knit/branches/0.2 local
+
+Note that the keyword `local` at the end of the above command. Currently `etc/dotknitrc` has conditionals that may set special variables,
+	 if local conditions demand it. If (say) the pathname to 
 
  |-- helloworld
  |   `-- etc
@@ -440,4 +480,3 @@ Update this file to change the frequently asked questions.
 |-- todo.otl
 `-- todo.txt
 
-45 directories, 297 files
