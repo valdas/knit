@@ -54,6 +54,7 @@ doc
 ---
 
 This is the KNIT documentation project. It contains
+files written in the [?markup] syntax.
  
  |-- helloworld
  |   `-- etc
