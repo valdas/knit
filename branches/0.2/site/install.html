@@ -82,27 +82,16 @@ If this works, you should see no errors.
 <p>
 If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>,
 write a little page about yourself in a/b/c/doc/yourname.wak.
-To edit that file, copy and modify doc/install.wak to doc/yourname.wak.
 </p>
 <p>
-Commit your new page to the repo:
+To edit that file:
 </p>
-<pre>
- svn add yourname.wak
-</pre>
+<ol>
+<li> cd to the <tt>doc</tt> directory;
+<li> Copy and modify doc/install.wak to doc/yourname.wak.
+<li> Add that file to site/etc/tags.txt.
+<li> Build and commit using <tt>cd doc; make builds</tt>
+</ol>
 <p>
-Register that new .wak file by adding its name to the the <tt>@uses</tt> line of doc/doc.wak.
-</p>
-<p>
-Add that file to a/b/c/site/etc/tags.txt.
-</p>
-<p>
-Then build the site:
-</p>
-<pre>
- cd a/b/c
- make
-</pre>
-<p>
-You should see your page copied up the repoistory. Then, on-line, your page should appear at
+If that works, your page should appear at
 <a href="http:/artofawk/?yourname">http:/artofawk/?yourname</a>.
