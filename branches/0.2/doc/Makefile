@@ -10,8 +10,18 @@ include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 
 Waks = $(subst .wak,,$(subst quill.wak,,$(shell ls *.wak)))
 
-builds 	: 
-	$(foreach i,$(Waks), \
-			$(MAKE) -s This=$i buildHtmls; \
-			svn -q add ../site/$i.html;\
-			)
+builds 	: wakToHmtl checkTags htmlCommits
+
+wakToHtml :
+	$(foreach i,$(Waks), $(MAKE) -s This=$i buildHtmls; )
+
+htmlCommits :
+	svn -q add *.wak ../site/$i.html
+	cd .. ; svn commit -m "updating waks, htmls"
+
+checkTags :
+	@$(foreach i,$(Waks), \
+		if   grep $i.html ../site/etc/tags.txt > /dev/null;   \
+		then true; \
+		else echo "Warning: missing in ../site/etc/tags.txt : $i.html" ; \
+		fi; )
