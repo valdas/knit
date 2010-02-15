@@ -361,10 +361,6 @@ Released through OSWD.org */
 &nbsp;<br> 
 <p> 
 <h1>``title``</h2>
-<br> 
-&nbsp;<br> 
-&nbsp;
-		
 		<h2>``description``</h2>
 		</p> 
 </center> 
@@ -377,7 +373,6 @@ Released through OSWD.org */
  
 </div></div> 
 <div id="sidebar"> 
-<center> 
 <!-- Google CSE Search Box Begins  --> 
 ``google-search``
 <div class="cse-branding-" style="background-color:#;color:#"> 
