@@ -10,7 +10,7 @@ include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 
 Waks = $(subst .wak,,$(subst quill.wak,,$(shell ls *.wak)))
 
-builds 	: wakToHmtl checkTags htmlCommits
+builds 	: wakToHtml checkTags htmlCommits
 
 wakToHtml :
 	$(foreach i,$(Waks), $(MAKE) -s This=$i buildHtmls; )
