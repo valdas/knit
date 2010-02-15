@@ -1,0 +1,410 @@
+<h1>Inside KNIT</h1>
+
+<ul>
+<li> <a href="#1">Core Directories</a>
+<ul>
+<li> <a href="#2">doc</a>
+</ul></ul>
+<p>
+KNIT divides into <em>core</em> and <em>apps</em>  (application) directories.
+<em>App</em> directories have special sub-directories (<tt>_etc/tests</tt>) that
+handle the KNIT test engine.  
+</p>
+<p>
+This page describes those directories and files, focusing on what
+files need changing to achieve common tasks.
+</p>
+<a name="1"></a><h2>Core Directories</h2>
+<p>
+The core directories are:
+</p>
+<pre>
+ .
+ |-- doc
+ |-- etc
+ |   `-- site
+ |-- lib
+ |   |-- awk
+ |   |-- m4
+ |   |-- make
+ |   `-- sh
+ |-- share
+ |   |-- img
+ |   `-- pdf
+ |-- site
+ |   |-- etc
+ |   |   `-- themes
+ |   |       `-- EWnF
+ |   |           `-- img
+ |   `-- src
+ |       `-- old
+</pre>
+<a name="2"></a><h3>doc</h3>
+<p>
+This is the KNIT documentation project. It contains
+ 
+ |-- helloworld
+ |   <tt>-- etc
+ |       </tt>-- tests
+ |-- penny
+ |   <tt>-- etc
+ |       </tt>-- tests
+ |-- quill
+ |   <tt>-- etc
+ |       </tt>-- tests
+ <tt>-- tinytim
+     |-- content
+     |-- etc
+     |   </tt>-- tests
+     |-- img
+     |-- lib
+     `-- themes
+ 
+45 directories
+</p>
+<p>
+|-- Makefile
+|-- doc
+|   |-- Makefile
+|   |-- doc.wak
+|   |-- faqs.wak
+|   |-- feeds4thisSite.wak
+|   |-- howtoChangeSites.wak
+|   |-- install.wak
+|   |-- keys2awk.wak
+|   |-- literate.wak
+|   <tt>-- old
+|       |-- markup.wak
+|       |-- markup1.wak
+|       </tt>-- why.txt
+|-- etc
+|   |-- copyrite.txt
+|   |-- dotemacs
+|   |-- dotknitrc
+|   |-- expect
+|   |   |-- eg1
+|   |   |-- eg2
+|   |   |-- eg3
+|   |   <tt>-- eg4
+|   |-- knit.txt
+|   </tt>-- site
+|       |-- filler.txt
+|       |-- index.html
+|       |-- index1.html
+|       <tt>-- sitemap.txt
+|-- head
+|-- helloworld
+|   |-- Makefile
+|   |-- etc
+|   |   |-- expect
+|   |   |   </tt>-- qualifiers.eg
+|   |   <tt>-- tests
+|   |       |-- eg0
+|   |       |-- eg1
+|   |       |-- eg10
+|   |       |-- eg11
+|   |       |-- eg12
+|   |       |-- eg2
+|   |       |-- eg3
+|   |       |-- eg4
+|   |       |-- eg5
+|   |       |-- eg6
+|   |       |-- eg7
+|   |       |-- eg8
+|   |       |-- eg9
+|   |       </tt>-- qualifiers.eg
+|   <tt>-- helloworld.wak
+|-- lib
+|   |-- awk
+|   |   |-- comment.awk
+|   |   |-- index0.cgi
+|   |   |-- markup.awk
+|   |   |-- rparse.awk
+|   |   </tt>-- uses.awk
+|   |-- m4
+|   |   <tt>-- prep.m4
+|   |-- make
+|   |   |-- awk.mk
+|   |   |-- dirs.mk
+|   |   |-- test.mk
+|   |   </tt>-- tricks.mk
+|   <tt>-- sh
+|-- penny
+|   |-- #toc.wak#
+|   |-- Makefile
+|   |-- etc
+|   |   |-- config.txt
+|   |   </tt>-- tests
+|   |       <tt>-- tags.txt
+|   |-- index.cgi
+|   |-- mytags.wak
+|   |-- penny.wak
+|   |-- pennyArchitecture.wak
+|   |-- queryString.wak
+|   |-- tags.wak
+|   |-- toc.wak
+|   </tt>-- topOfPage.wak
+|-- quill
+|   |-- Makefile
+|   |-- a2s.wak
+|   |-- anyStrings.wak
+|   |-- assert.wak
+|   |-- barph.wak
+|   |-- basename.wak
+|   |-- bias.wak
+|   |-- biasDemo.wak
+|   |-- cat.wak
+|   |-- change.wak
+|   |-- copyleft.wak
+|   |-- deShell.wak
+|   |-- etc
+|   |   <tt>-- tests
+|   |       |-- demoWget.rss
+|   |       |-- egRss
+|   |       |-- egWget
+|   |       |-- frame1.txt
+|   |       </tt>-- slots1.txt
+|   |-- math.wak
+|   |-- myrss.wak
+|   |-- o.wak
+|   |-- options.wak
+|   |-- phrases.wak
+|   |-- prints.wak
+|   |-- quill.wak
+|   |-- s2a.wak
+|   |-- seed.wak
+|   |-- slots.wak
+|   |-- slotsDemo.wak
+|   |-- slurp.wak
+|   |-- stack.wak
+|   |-- stackDemo.wak
+|   |-- trim.wak
+|   |-- warning.wak
+|   <tt>-- wget.wak
+|-- share
+|   |-- img
+|   |   |-- auk.jpg
+|   |   |-- auksAtSea.jpg
+|   |   |-- bracket.ico
+|   |   |-- cheered.jpg
+|   |   |-- cute-cat.jpg
+|   |   |-- easterEgg.jpg
+|   |   |-- tick.gif
+|   |   |-- todo.jpg
+|   |   </tt>-- under-construction.jpg
+|   <tt>-- pdf
+|       </tt>-- make.pdf
+|-- site
+|   |-- #keys2awk.html#
+|   |-- 404.html
+|   |-- a2s.html
+|   |-- about.wak
+|   |-- anyStrings.html
+|   |-- assert.html
+|   |-- barph.html
+|   |-- basename.html
+|   |-- bias.html
+|   |-- biasDemo.html
+|   |-- cat.html
+|   |-- change.html
+|   |-- contacts.html
+|   |-- copyleft.html
+|   |-- deShell.html
+|   |-- doc.html
+|   |-- dsl.html
+|   |-- etc
+|   |   |-- config.txt
+|   |   |-- tags.txt
+|   |   <tt>-- themes
+|   |       </tt>-- EWnF
+|   |           |-- img
+|   |           |   |-- 404.jpg
+|   |           |   |-- 404book.jpg
+|   |           |   |-- bg.gif
+|   |           |   |-- leaves<em>brown.jpg
+|   |           |   |-- print.css
+|   |           |   |-- rss.gif
+|   |           |   |-- style.css
+|   |           |   <tt>-- title</em>img.jpg
+|   |           </tt>-- index.html
+|   |-- faqs.html
+|   |-- feeds4thisSite.html
+|   |-- goals.html
+|   |-- helloworld.html
+|   |-- hooray.html
+|   |-- howtoChangeSites.html
+|   |-- index.html
+|   |-- index.html.bak
+|   |-- install.html
+|   |-- keys2awk.html
+|   |-- literate.html
+|   |-- math.html
+|   |-- myrss.html
+|   |-- mytags.html
+|   |-- o.html
+|   |-- onComplexity.html
+|   |-- options.html
+|   |-- penny.html
+|   |-- phrases.html
+|   |-- prints.html
+|   |-- queryString.html
+|   |-- quill.html
+|   |-- s2a.html
+|   |-- seed.html
+|   |-- slots.html
+|   |-- slotsDemo.html
+|   |-- slurp.html
+|   |-- src
+|   |   |-- a2s.awk
+|   |   |-- anyStrings.awk
+|   |   |-- assert
+|   |   |-- assert.awk
+|   |   |-- barph.awk
+|   |   |-- basename.awk
+|   |   |-- bias.awk
+|   |   |-- biasDemo.awk
+|   |   |-- cat.awk
+|   |   |-- change.awk
+|   |   |-- copyleft.awk
+|   |   |-- deShell.awk
+|   |   |-- helloworld
+|   |   |-- helloworld.awk
+|   |   |-- math.awk
+|   |   |-- myrss
+|   |   |-- myrss.awk
+|   |   |-- mytags.awk
+|   |   |-- o.awk
+|   |   |-- old
+|   |   |   |-- assert.0.1
+|   |   |   |-- helloworld.0.1
+|   |   |   |-- myrss.0.1
+|   |   |   |-- penny.0.1
+|   |   |   |-- phrases.0.1
+|   |   |   |-- quill.0.1
+|   |   |   |-- slots.0.1
+|   |   |   |-- slotsDemo.0.1
+|   |   |   |-- warning.0.1
+|   |   |   <tt>-- wget.0.1
+|   |   |-- options.awk
+|   |   |-- penny
+|   |   |-- penny.awk
+|   |   |-- phrases
+|   |   |-- phrases.awk
+|   |   |-- prints.awk
+|   |   |-- queryString.awk
+|   |   |-- quill
+|   |   |-- quill.awk
+|   |   |-- s2a.awk
+|   |   |-- seed.awk
+|   |   |-- slots
+|   |   |-- slots.awk
+|   |   |-- slotsDemo
+|   |   |-- slotsDemo.awk
+|   |   |-- slurp.awk
+|   |   |-- stack.awk
+|   |   |-- stackDemo.awk
+|   |   |-- tags.awk
+|   |   |-- toc.awk
+|   |   |-- topOfPage.awk
+|   |   |-- trim.awk
+|   |   |-- warning
+|   |   |-- warning.awk
+|   |   |-- wget
+|   |   </tt>-- wget.awk
+|   |-- stack.html
+|   |-- stackDemo.html
+|   |-- success.html
+|   |-- tags.html
+|   |-- tdd.html
+|   |-- toc.html
+|   |-- topOfPage.html
+|   |-- trim.html
+|   |-- underconstruction.html
+|   |-- warning.html
+|   <tt>-- wget.html
+|-- tinytim
+|   |-- content
+|   |   |-- 0config.txt
+|   |   |-- byAdmin.txt
+|   |   </tt>-- byTimm.txt
+|   |-- img
+|   |   |-- 404book.jpg
+|   |   |-- auklet.png
+|   |   |-- tinytim.jpg
+|   |   |-- trendygreen.png
+|   |   <tt>-- wink.png
+|   |-- index.cgi
+|   |-- lib
+|   |   |-- markup.awk
+|   |   </tt>-- tinytim.awk
+|   |-- site.txt.bak
+|   |-- themes
+|   |   |-- andres03
+|   |   |   |-- img
+|   |   |   |   |-- bodybg.gif
+|   |   |   |   |-- contbg.png
+|   |   |   |   |-- footerbg.png
+|   |   |   |   |-- gradient1.png
+|   |   |   |   |-- gradient2.png
+|   |   |   |   <tt>-- timatmenziesdotus.png
+|   |   |   </tt>-- theme.txt
+|   |   |-- auklet
+|   |   |   |-- img
+|   |   |   |   |-- bg.gif
+|   |   |   |   |-- favicon.ico
+|   |   |   |   <tt>-- title<em>img.jpg
+|   |   |   </tt>-- theme.txt
+|   |   |-- pluralism
+|   |   |   |-- images
+|   |   |   |   |-- img01.jpg
+|   |   |   |   |-- img02.jpg
+|   |   |   |   |-- img03.jpg
+|   |   |   |   |-- img04.jpg
+|   |   |   |   |-- img05.jpg
+|   |   |   |   |-- img06.jpg
+|   |   |   |   |-- img07.jpg
+|   |   |   |   |-- img08.gif
+|   |   |   |   |-- img09.gif
+|   |   |   |   |-- img10.jpg
+|   |   |   |   |-- img11.gif
+|   |   |   |   |-- img12.jpg
+|   |   |   |   |-- img13.jpg
+|   |   |   |   |-- img14.jpg
+|   |   |   |   |-- img15.jpg
+|   |   |   |   |-- img16.jpg
+|   |   |   |   |-- img17.jpg
+|   |   |   |   |-- img18.gif
+|   |   |   |   <tt>-- spacer.gif
+|   |   |   |-- index.html
+|   |   |   |-- license.txt
+|   |   |   </tt>-- style.css
+|   |   |-- trendygreen
+|   |   |   |-- img
+|   |   |   |   |-- arrow</em>path.gif
+|   |   |   |   |-- bg<em>footer.gif
+|   |   |   |   |-- bg</em>hdot.gif
+|   |   |   |   |-- bg<em>logo.gif
+|   |   |   |   |-- bg</em>main.gif
+|   |   |   |   |-- bg<em>navbutton.gif
+|   |   |   |   |-- bg</em>topnav.gif
+|   |   |   |   |-- bg<em>topnav2.gif
+|   |   |   |   |-- bg</em>visual.jpg
+|   |   |   |   |-- leftbar<em>footer.gif
+|   |   |   |   <tt>-- point</em>left.gif
+|   |   |   </tt>-- theme.txt
+|   |   <tt>-- wink
+|   |       |-- img
+|   |       |   |-- babel.jpg
+|   |       |   |-- bg<em>footer.gif
+|   |       |   |-- favicon.ico
+|   |       |   |-- header.jpg
+|   |       |   |-- table</em>bottom.jpg
+|   |       |   |-- table<em>content.jpg
+|   |       |   </tt>-- table</em>top.jpg
+|   |       <tt>-- theme.txt
+|   </tt>-- update.cgi
+|-- todo.otl
+`-- todo.txt
+</p>
+<p>
+45 directories, 297 files
