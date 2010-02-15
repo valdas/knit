@@ -129,6 +129,7 @@ lib/make
 Contains the core scripts of KNIT. To build new language bindings for KNIT, copy and modify (e.g.) `awk.mk` to create `newlanguage.mk`.
 
 XXX
+XXXX need tags
 
 Apps
 ====
