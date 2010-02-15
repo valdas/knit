@@ -17,6 +17,20 @@
 <li> <a href="#8">etc/copyrite.txt</a>
 <li> <a href="#9">etc/dotemacs</a>
 <li> <a href="#10">etc/dotknitrc</a>
+</ul>
+<li> <a href="#11">lib</a>
+<ul>
+<li> <a href="#12">lib/make</a>
+</ul>
+</ul>
+<li> <a href="#13">Apps</a>
+<ul>
+<li> <a href="#14">Standard Structure</a>
+<li> <a href="#15">Standard Apps</a>
+<ul>
+<li> <a href="#16">Helloworld</a>
+<li> <a href="#17">Penny</a>
+<li> <a href="#18">Quill</a>
 </ul></ul></ul>
 <p>
 KNIT divides into <em>core</em> and <em>apps</em>  (application) directories.
@@ -35,7 +49,6 @@ The core directories are:
  KNIT
  |-- doc
  |-- etc
- |   `-- site
  |-- lib
  |   |-- awk
  |   |-- m4
@@ -60,7 +73,8 @@ The root of the KNIT directories contains a Makefile that:
 </p>
 <ol>
 <li> Installs the whole system via <tt>make install</tt>. Note: this command needs only to be called once, when KNIT is first downloaded.
-<li> Updates and commits the whole syste via <tt>make</tt>. 
+<li> Updates and commit the whole system via <tt>make</tt>. 
+<li> Forces a rebuild of everything via <tt>make -B</tt> (warning, may be slow).
 </ol>
 <p>
 Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls <tt>make</tt> there.
@@ -118,368 +132,26 @@ To use this file, add something like this line to <tt>$HOME/.emacs</tt> (making 
 </pre>
 <p>
 Note that the keyword <tt>local</tt> at the end of the above command. Currently <tt>etc/dotknitrc</tt> has conditionals that may set special variables,
-	 if local conditions demand it. If (say) the pathname to 
+	 if local conditions demand it.  Change those conditionals if we find site-specific KNIT install requirements.
 </p>
-<pre>
- |-- helloworld
- |   `-- etc
- |       `-- tests
- |-- penny
- |   `-- etc
- |       `-- tests
- |-- quill
- |   `-- etc
- |       `-- tests
- `-- tinytim
-     |-- content
-     |-- etc
-     |   `-- tests
-     |-- img
-     |-- lib
-     `-- themes
- 
-45 directories
-</pre>
+<a name="11"></a><h3>lib</h3>
 <p>
-|-- Makefile
-|-- doc
-|   |-- Makefile
-|   |-- doc.wak
-|   |-- faqs.wak
-|   |-- feeds4thisSite.wak
-|   |-- howtoChangeSites.wak
-|   |-- install.wak
-|   |-- keys2awk.wak
-|   |-- literate.wak
-|   <tt>-- old
-|       |-- markup.wak
-|       |-- markup1.wak
-|       </tt>-- why.txt
-|-- etc
-|   |-- copyrite.txt
-|   |-- dotemacs
-|   |-- dotknitrc
-|   |-- expect
-|   |   |-- eg1
-|   |   |-- eg2
-|   |   |-- eg3
-|   |   <tt>-- eg4
-|   |-- knit.txt
-|   </tt>-- site
-|       |-- filler.txt
-|       |-- index.html
-|       |-- index1.html
-|       <tt>-- sitemap.txt
-|-- head
-|-- helloworld
-|   |-- Makefile
-|   |-- etc
-|   |   |-- expect
-|   |   |   </tt>-- qualifiers.eg
-|   |   <tt>-- tests
-|   |       |-- eg0
-|   |       |-- eg1
-|   |       |-- eg10
-|   |       |-- eg11
-|   |       |-- eg12
-|   |       |-- eg2
-|   |       |-- eg3
-|   |       |-- eg4
-|   |       |-- eg5
-|   |       |-- eg6
-|   |       |-- eg7
-|   |       |-- eg8
-|   |       |-- eg9
-|   |       </tt>-- qualifiers.eg
-|   <tt>-- helloworld.wak
-|-- lib
-|   |-- awk
-|   |   |-- comment.awk
-|   |   |-- index0.cgi
-|   |   |-- markup.awk
-|   |   |-- rparse.awk
-|   |   </tt>-- uses.awk
-|   |-- m4
-|   |   <tt>-- prep.m4
-|   |-- make
-|   |   |-- awk.mk
-|   |   |-- dirs.mk
-|   |   |-- test.mk
-|   |   </tt>-- tricks.mk
-|   <tt>-- sh
-|-- penny
-|   |-- #toc.wak#
-|   |-- Makefile
-|   |-- etc
-|   |   |-- config.txt
-|   |   </tt>-- tests
-|   |       <tt>-- tags.txt
-|   |-- index.cgi
-|   |-- mytags.wak
-|   |-- penny.wak
-|   |-- pennyArchitecture.wak
-|   |-- queryString.wak
-|   |-- tags.wak
-|   |-- toc.wak
-|   </tt>-- topOfPage.wak
-|-- quill
-|   |-- Makefile
-|   |-- a2s.wak
-|   |-- anyStrings.wak
-|   |-- assert.wak
-|   |-- barph.wak
-|   |-- basename.wak
-|   |-- bias.wak
-|   |-- biasDemo.wak
-|   |-- cat.wak
-|   |-- change.wak
-|   |-- copyleft.wak
-|   |-- deShell.wak
-|   |-- etc
-|   |   <tt>-- tests
-|   |       |-- demoWget.rss
-|   |       |-- egRss
-|   |       |-- egWget
-|   |       |-- frame1.txt
-|   |       </tt>-- slots1.txt
-|   |-- math.wak
-|   |-- myrss.wak
-|   |-- o.wak
-|   |-- options.wak
-|   |-- phrases.wak
-|   |-- prints.wak
-|   |-- quill.wak
-|   |-- s2a.wak
-|   |-- seed.wak
-|   |-- slots.wak
-|   |-- slotsDemo.wak
-|   |-- slurp.wak
-|   |-- stack.wak
-|   |-- stackDemo.wak
-|   |-- trim.wak
-|   |-- warning.wak
-|   <tt>-- wget.wak
-|-- share
-|   |-- img
-|   |   |-- auk.jpg
-|   |   |-- auksAtSea.jpg
-|   |   |-- bracket.ico
-|   |   |-- cheered.jpg
-|   |   |-- cute-cat.jpg
-|   |   |-- easterEgg.jpg
-|   |   |-- tick.gif
-|   |   |-- todo.jpg
-|   |   </tt>-- under-construction.jpg
-|   <tt>-- pdf
-|       </tt>-- make.pdf
-|-- site
-|   |-- #keys2awk.html#
-|   |-- 404.html
-|   |-- a2s.html
-|   |-- about.wak
-|   |-- anyStrings.html
-|   |-- assert.html
-|   |-- barph.html
-|   |-- basename.html
-|   |-- bias.html
-|   |-- biasDemo.html
-|   |-- cat.html
-|   |-- change.html
-|   |-- contacts.html
-|   |-- copyleft.html
-|   |-- deShell.html
-|   |-- doc.html
-|   |-- dsl.html
-|   |-- etc
-|   |   |-- config.txt
-|   |   |-- tags.txt
-|   |   <tt>-- themes
-|   |       </tt>-- EWnF
-|   |           |-- img
-|   |           |   |-- 404.jpg
-|   |           |   |-- 404book.jpg
-|   |           |   |-- bg.gif
-|   |           |   |-- leaves<em>brown.jpg
-|   |           |   |-- print.css
-|   |           |   |-- rss.gif
-|   |           |   |-- style.css
-|   |           |   <tt>-- title</em>img.jpg
-|   |           </tt>-- index.html
-|   |-- faqs.html
-|   |-- feeds4thisSite.html
-|   |-- goals.html
-|   |-- helloworld.html
-|   |-- hooray.html
-|   |-- howtoChangeSites.html
-|   |-- index.html
-|   |-- index.html.bak
-|   |-- install.html
-|   |-- keys2awk.html
-|   |-- literate.html
-|   |-- math.html
-|   |-- myrss.html
-|   |-- mytags.html
-|   |-- o.html
-|   |-- onComplexity.html
-|   |-- options.html
-|   |-- penny.html
-|   |-- phrases.html
-|   |-- prints.html
-|   |-- queryString.html
-|   |-- quill.html
-|   |-- s2a.html
-|   |-- seed.html
-|   |-- slots.html
-|   |-- slotsDemo.html
-|   |-- slurp.html
-|   |-- src
-|   |   |-- a2s.awk
-|   |   |-- anyStrings.awk
-|   |   |-- assert
-|   |   |-- assert.awk
-|   |   |-- barph.awk
-|   |   |-- basename.awk
-|   |   |-- bias.awk
-|   |   |-- biasDemo.awk
-|   |   |-- cat.awk
-|   |   |-- change.awk
-|   |   |-- copyleft.awk
-|   |   |-- deShell.awk
-|   |   |-- helloworld
-|   |   |-- helloworld.awk
-|   |   |-- math.awk
-|   |   |-- myrss
-|   |   |-- myrss.awk
-|   |   |-- mytags.awk
-|   |   |-- o.awk
-|   |   |-- old
-|   |   |   |-- assert.0.1
-|   |   |   |-- helloworld.0.1
-|   |   |   |-- myrss.0.1
-|   |   |   |-- penny.0.1
-|   |   |   |-- phrases.0.1
-|   |   |   |-- quill.0.1
-|   |   |   |-- slots.0.1
-|   |   |   |-- slotsDemo.0.1
-|   |   |   |-- warning.0.1
-|   |   |   <tt>-- wget.0.1
-|   |   |-- options.awk
-|   |   |-- penny
-|   |   |-- penny.awk
-|   |   |-- phrases
-|   |   |-- phrases.awk
-|   |   |-- prints.awk
-|   |   |-- queryString.awk
-|   |   |-- quill
-|   |   |-- quill.awk
-|   |   |-- s2a.awk
-|   |   |-- seed.awk
-|   |   |-- slots
-|   |   |-- slots.awk
-|   |   |-- slotsDemo
-|   |   |-- slotsDemo.awk
-|   |   |-- slurp.awk
-|   |   |-- stack.awk
-|   |   |-- stackDemo.awk
-|   |   |-- tags.awk
-|   |   |-- toc.awk
-|   |   |-- topOfPage.awk
-|   |   |-- trim.awk
-|   |   |-- warning
-|   |   |-- warning.awk
-|   |   |-- wget
-|   |   </tt>-- wget.awk
-|   |-- stack.html
-|   |-- stackDemo.html
-|   |-- success.html
-|   |-- tags.html
-|   |-- tdd.html
-|   |-- toc.html
-|   |-- topOfPage.html
-|   |-- trim.html
-|   |-- underconstruction.html
-|   |-- warning.html
-|   <tt>-- wget.html
-|-- tinytim
-|   |-- content
-|   |   |-- 0config.txt
-|   |   |-- byAdmin.txt
-|   |   </tt>-- byTimm.txt
-|   |-- img
-|   |   |-- 404book.jpg
-|   |   |-- auklet.png
-|   |   |-- tinytim.jpg
-|   |   |-- trendygreen.png
-|   |   <tt>-- wink.png
-|   |-- index.cgi
-|   |-- lib
-|   |   |-- markup.awk
-|   |   </tt>-- tinytim.awk
-|   |-- site.txt.bak
-|   |-- themes
-|   |   |-- andres03
-|   |   |   |-- img
-|   |   |   |   |-- bodybg.gif
-|   |   |   |   |-- contbg.png
-|   |   |   |   |-- footerbg.png
-|   |   |   |   |-- gradient1.png
-|   |   |   |   |-- gradient2.png
-|   |   |   |   <tt>-- timatmenziesdotus.png
-|   |   |   </tt>-- theme.txt
-|   |   |-- auklet
-|   |   |   |-- img
-|   |   |   |   |-- bg.gif
-|   |   |   |   |-- favicon.ico
-|   |   |   |   <tt>-- title<em>img.jpg
-|   |   |   </tt>-- theme.txt
-|   |   |-- pluralism
-|   |   |   |-- images
-|   |   |   |   |-- img01.jpg
-|   |   |   |   |-- img02.jpg
-|   |   |   |   |-- img03.jpg
-|   |   |   |   |-- img04.jpg
-|   |   |   |   |-- img05.jpg
-|   |   |   |   |-- img06.jpg
-|   |   |   |   |-- img07.jpg
-|   |   |   |   |-- img08.gif
-|   |   |   |   |-- img09.gif
-|   |   |   |   |-- img10.jpg
-|   |   |   |   |-- img11.gif
-|   |   |   |   |-- img12.jpg
-|   |   |   |   |-- img13.jpg
-|   |   |   |   |-- img14.jpg
-|   |   |   |   |-- img15.jpg
-|   |   |   |   |-- img16.jpg
-|   |   |   |   |-- img17.jpg
-|   |   |   |   |-- img18.gif
-|   |   |   |   <tt>-- spacer.gif
-|   |   |   |-- index.html
-|   |   |   |-- license.txt
-|   |   |   </tt>-- style.css
-|   |   |-- trendygreen
-|   |   |   |-- img
-|   |   |   |   |-- arrow</em>path.gif
-|   |   |   |   |-- bg<em>footer.gif
-|   |   |   |   |-- bg</em>hdot.gif
-|   |   |   |   |-- bg<em>logo.gif
-|   |   |   |   |-- bg</em>main.gif
-|   |   |   |   |-- bg<em>navbutton.gif
-|   |   |   |   |-- bg</em>topnav.gif
-|   |   |   |   |-- bg<em>topnav2.gif
-|   |   |   |   |-- bg</em>visual.jpg
-|   |   |   |   |-- leftbar<em>footer.gif
-|   |   |   |   <tt>-- point</em>left.gif
-|   |   |   </tt>-- theme.txt
-|   |   <tt>-- wink
-|   |       |-- img
-|   |       |   |-- babel.jpg
-|   |       |   |-- bg<em>footer.gif
-|   |       |   |-- favicon.ico
-|   |       |   |-- header.jpg
-|   |       |   |-- table</em>bottom.jpg
-|   |       |   |-- table<em>content.jpg
-|   |       |   </tt>-- table</em>top.jpg
-|   |       <tt>-- theme.txt
-|   </tt>-- update.cgi
-|-- todo.otl
-`-- todo.txt
+Contains the core scripts of KNIT.
+</p>
+<a name="12"></a><h4>lib/make</h4>
+<p>
+Contains the core scripts of KNIT. To build new language bindings for KNIT, copy and modify (e.g.) <tt>awk.mk</tt> to create <tt>newlanguage.mk</tt>.
+</p>
+<a name="13"></a><h2>Apps</h2>
+
+<a name="14"></a><h3>Standard Structure</h3>
+
+<a name="15"></a><h3>Standard Apps</h3>
+
+<a name="16"></a><h4>Helloworld</h4>
+<p>
+<em>helloworld</em>
+</p>
+<a name="17"></a><h4>Penny</h4>
+
+<a name="18"></a><h4>Quill</h4>

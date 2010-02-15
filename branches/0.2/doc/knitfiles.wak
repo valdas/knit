@@ -33,7 +33,6 @@ The core directories are:
  KNIT
  |-- doc
  |-- etc
- |   `-- site
  |-- lib
  |   |-- awk
  |   |-- m4
@@ -59,7 +58,8 @@ Makefile
 The root of the KNIT directories contains a Makefile that:
 
 1. Installs the whole system via `make install`. Note: this command needs only to be called once, when KNIT is first downloaded.
-2. Updates and commits the whole syste via `make`. 
+2. Updates and commit the whole system via `make`. 
+3. Forces a rebuild of everything via `make -B` (warning, may be slow).
 
 Note: this Makefile knows very little about KNIT. For the most part, it just changes to different sub-directories can calls `make` there.
 Hence, you should
@@ -116,367 +116,44 @@ To use this file, add something like this line to `$HOME/.emacs` (making the app
  . $HOME/svns/knit/branches/0.2/etc/dotknitrc $HOME/svns/knit/branches/0.2 local
 
 Note that the keyword `local` at the end of the above command. Currently `etc/dotknitrc` has conditionals that may set special variables,
-	 if local conditions demand it. If (say) the pathname to 
+	 if local conditions demand it.  Change those conditionals if we find site-specific KNIT install requirements.
 
- |-- helloworld
- |   `-- etc
- |       `-- tests
- |-- penny
- |   `-- etc
- |       `-- tests
- |-- quill
- |   `-- etc
- |       `-- tests
- `-- tinytim
-     |-- content
-     |-- etc
-     |   `-- tests
-     |-- img
-     |-- lib
-     `-- themes
- 
-45 directories
+lib
+---
 
-|-- Makefile
-|-- doc
-|   |-- Makefile
-|   |-- doc.wak
-|   |-- faqs.wak
-|   |-- feeds4thisSite.wak
-|   |-- howtoChangeSites.wak
-|   |-- install.wak
-|   |-- keys2awk.wak
-|   |-- literate.wak
-|   `-- old
-|       |-- markup.wak
-|       |-- markup1.wak
-|       `-- why.txt
-|-- etc
-|   |-- copyrite.txt
-|   |-- dotemacs
-|   |-- dotknitrc
-|   |-- expect
-|   |   |-- eg1
-|   |   |-- eg2
-|   |   |-- eg3
-|   |   `-- eg4
-|   |-- knit.txt
-|   `-- site
-|       |-- filler.txt
-|       |-- index.html
-|       |-- index1.html
-|       `-- sitemap.txt
-|-- head
-|-- helloworld
-|   |-- Makefile
-|   |-- etc
-|   |   |-- expect
-|   |   |   `-- qualifiers.eg
-|   |   `-- tests
-|   |       |-- eg0
-|   |       |-- eg1
-|   |       |-- eg10
-|   |       |-- eg11
-|   |       |-- eg12
-|   |       |-- eg2
-|   |       |-- eg3
-|   |       |-- eg4
-|   |       |-- eg5
-|   |       |-- eg6
-|   |       |-- eg7
-|   |       |-- eg8
-|   |       |-- eg9
-|   |       `-- qualifiers.eg
-|   `-- helloworld.wak
-|-- lib
-|   |-- awk
-|   |   |-- comment.awk
-|   |   |-- index0.cgi
-|   |   |-- markup.awk
-|   |   |-- rparse.awk
-|   |   `-- uses.awk
-|   |-- m4
-|   |   `-- prep.m4
-|   |-- make
-|   |   |-- awk.mk
-|   |   |-- dirs.mk
-|   |   |-- test.mk
-|   |   `-- tricks.mk
-|   `-- sh
-|-- penny
-|   |-- #toc.wak#
-|   |-- Makefile
-|   |-- etc
-|   |   |-- config.txt
-|   |   `-- tests
-|   |       `-- tags.txt
-|   |-- index.cgi
-|   |-- mytags.wak
-|   |-- penny.wak
-|   |-- pennyArchitecture.wak
-|   |-- queryString.wak
-|   |-- tags.wak
-|   |-- toc.wak
-|   `-- topOfPage.wak
-|-- quill
-|   |-- Makefile
-|   |-- a2s.wak
-|   |-- anyStrings.wak
-|   |-- assert.wak
-|   |-- barph.wak
-|   |-- basename.wak
-|   |-- bias.wak
-|   |-- biasDemo.wak
-|   |-- cat.wak
-|   |-- change.wak
-|   |-- copyleft.wak
-|   |-- deShell.wak
-|   |-- etc
-|   |   `-- tests
-|   |       |-- demoWget.rss
-|   |       |-- egRss
-|   |       |-- egWget
-|   |       |-- frame1.txt
-|   |       `-- slots1.txt
-|   |-- math.wak
-|   |-- myrss.wak
-|   |-- o.wak
-|   |-- options.wak
-|   |-- phrases.wak
-|   |-- prints.wak
-|   |-- quill.wak
-|   |-- s2a.wak
-|   |-- seed.wak
-|   |-- slots.wak
-|   |-- slotsDemo.wak
-|   |-- slurp.wak
-|   |-- stack.wak
-|   |-- stackDemo.wak
-|   |-- trim.wak
-|   |-- warning.wak
-|   `-- wget.wak
-|-- share
-|   |-- img
-|   |   |-- auk.jpg
-|   |   |-- auksAtSea.jpg
-|   |   |-- bracket.ico
-|   |   |-- cheered.jpg
-|   |   |-- cute-cat.jpg
-|   |   |-- easterEgg.jpg
-|   |   |-- tick.gif
-|   |   |-- todo.jpg
-|   |   `-- under-construction.jpg
-|   `-- pdf
-|       `-- make.pdf
-|-- site
-|   |-- #keys2awk.html#
-|   |-- 404.html
-|   |-- a2s.html
-|   |-- about.wak
-|   |-- anyStrings.html
-|   |-- assert.html
-|   |-- barph.html
-|   |-- basename.html
-|   |-- bias.html
-|   |-- biasDemo.html
-|   |-- cat.html
-|   |-- change.html
-|   |-- contacts.html
-|   |-- copyleft.html
-|   |-- deShell.html
-|   |-- doc.html
-|   |-- dsl.html
-|   |-- etc
-|   |   |-- config.txt
-|   |   |-- tags.txt
-|   |   `-- themes
-|   |       `-- EWnF
-|   |           |-- img
-|   |           |   |-- 404.jpg
-|   |           |   |-- 404book.jpg
-|   |           |   |-- bg.gif
-|   |           |   |-- leaves_brown.jpg
-|   |           |   |-- print.css
-|   |           |   |-- rss.gif
-|   |           |   |-- style.css
-|   |           |   `-- title_img.jpg
-|   |           `-- index.html
-|   |-- faqs.html
-|   |-- feeds4thisSite.html
-|   |-- goals.html
-|   |-- helloworld.html
-|   |-- hooray.html
-|   |-- howtoChangeSites.html
-|   |-- index.html
-|   |-- index.html.bak
-|   |-- install.html
-|   |-- keys2awk.html
-|   |-- literate.html
-|   |-- math.html
-|   |-- myrss.html
-|   |-- mytags.html
-|   |-- o.html
-|   |-- onComplexity.html
-|   |-- options.html
-|   |-- penny.html
-|   |-- phrases.html
-|   |-- prints.html
-|   |-- queryString.html
-|   |-- quill.html
-|   |-- s2a.html
-|   |-- seed.html
-|   |-- slots.html
-|   |-- slotsDemo.html
-|   |-- slurp.html
-|   |-- src
-|   |   |-- a2s.awk
-|   |   |-- anyStrings.awk
-|   |   |-- assert
-|   |   |-- assert.awk
-|   |   |-- barph.awk
-|   |   |-- basename.awk
-|   |   |-- bias.awk
-|   |   |-- biasDemo.awk
-|   |   |-- cat.awk
-|   |   |-- change.awk
-|   |   |-- copyleft.awk
-|   |   |-- deShell.awk
-|   |   |-- helloworld
-|   |   |-- helloworld.awk
-|   |   |-- math.awk
-|   |   |-- myrss
-|   |   |-- myrss.awk
-|   |   |-- mytags.awk
-|   |   |-- o.awk
-|   |   |-- old
-|   |   |   |-- assert.0.1
-|   |   |   |-- helloworld.0.1
-|   |   |   |-- myrss.0.1
-|   |   |   |-- penny.0.1
-|   |   |   |-- phrases.0.1
-|   |   |   |-- quill.0.1
-|   |   |   |-- slots.0.1
-|   |   |   |-- slotsDemo.0.1
-|   |   |   |-- warning.0.1
-|   |   |   `-- wget.0.1
-|   |   |-- options.awk
-|   |   |-- penny
-|   |   |-- penny.awk
-|   |   |-- phrases
-|   |   |-- phrases.awk
-|   |   |-- prints.awk
-|   |   |-- queryString.awk
-|   |   |-- quill
-|   |   |-- quill.awk
-|   |   |-- s2a.awk
-|   |   |-- seed.awk
-|   |   |-- slots
-|   |   |-- slots.awk
-|   |   |-- slotsDemo
-|   |   |-- slotsDemo.awk
-|   |   |-- slurp.awk
-|   |   |-- stack.awk
-|   |   |-- stackDemo.awk
-|   |   |-- tags.awk
-|   |   |-- toc.awk
-|   |   |-- topOfPage.awk
-|   |   |-- trim.awk
-|   |   |-- warning
-|   |   |-- warning.awk
-|   |   |-- wget
-|   |   `-- wget.awk
-|   |-- stack.html
-|   |-- stackDemo.html
-|   |-- success.html
-|   |-- tags.html
-|   |-- tdd.html
-|   |-- toc.html
-|   |-- topOfPage.html
-|   |-- trim.html
-|   |-- underconstruction.html
-|   |-- warning.html
-|   `-- wget.html
-|-- tinytim
-|   |-- content
-|   |   |-- 0config.txt
-|   |   |-- byAdmin.txt
-|   |   `-- byTimm.txt
-|   |-- img
-|   |   |-- 404book.jpg
-|   |   |-- auklet.png
-|   |   |-- tinytim.jpg
-|   |   |-- trendygreen.png
-|   |   `-- wink.png
-|   |-- index.cgi
-|   |-- lib
-|   |   |-- markup.awk
-|   |   `-- tinytim.awk
-|   |-- site.txt.bak
-|   |-- themes
-|   |   |-- andres03
-|   |   |   |-- img
-|   |   |   |   |-- bodybg.gif
-|   |   |   |   |-- contbg.png
-|   |   |   |   |-- footerbg.png
-|   |   |   |   |-- gradient1.png
-|   |   |   |   |-- gradient2.png
-|   |   |   |   `-- timatmenziesdotus.png
-|   |   |   `-- theme.txt
-|   |   |-- auklet
-|   |   |   |-- img
-|   |   |   |   |-- bg.gif
-|   |   |   |   |-- favicon.ico
-|   |   |   |   `-- title_img.jpg
-|   |   |   `-- theme.txt
-|   |   |-- pluralism
-|   |   |   |-- images
-|   |   |   |   |-- img01.jpg
-|   |   |   |   |-- img02.jpg
-|   |   |   |   |-- img03.jpg
-|   |   |   |   |-- img04.jpg
-|   |   |   |   |-- img05.jpg
-|   |   |   |   |-- img06.jpg
-|   |   |   |   |-- img07.jpg
-|   |   |   |   |-- img08.gif
-|   |   |   |   |-- img09.gif
-|   |   |   |   |-- img10.jpg
-|   |   |   |   |-- img11.gif
-|   |   |   |   |-- img12.jpg
-|   |   |   |   |-- img13.jpg
-|   |   |   |   |-- img14.jpg
-|   |   |   |   |-- img15.jpg
-|   |   |   |   |-- img16.jpg
-|   |   |   |   |-- img17.jpg
-|   |   |   |   |-- img18.gif
-|   |   |   |   `-- spacer.gif
-|   |   |   |-- index.html
-|   |   |   |-- license.txt
-|   |   |   `-- style.css
-|   |   |-- trendygreen
-|   |   |   |-- img
-|   |   |   |   |-- arrow_path.gif
-|   |   |   |   |-- bg_footer.gif
-|   |   |   |   |-- bg_hdot.gif
-|   |   |   |   |-- bg_logo.gif
-|   |   |   |   |-- bg_main.gif
-|   |   |   |   |-- bg_navbutton.gif
-|   |   |   |   |-- bg_topnav.gif
-|   |   |   |   |-- bg_topnav2.gif
-|   |   |   |   |-- bg_visual.jpg
-|   |   |   |   |-- leftbar_footer.gif
-|   |   |   |   `-- point_left.gif
-|   |   |   `-- theme.txt
-|   |   `-- wink
-|   |       |-- img
-|   |       |   |-- babel.jpg
-|   |       |   |-- bg_footer.gif
-|   |       |   |-- favicon.ico
-|   |       |   |-- header.jpg
-|   |       |   |-- table_bottom.jpg
-|   |       |   |-- table_content.jpg
-|   |       |   `-- table_top.jpg
-|   |       `-- theme.txt
-|   `-- update.cgi
-|-- todo.otl
-`-- todo.txt
+Contains the core scripts of KNIT.
+
+lib/make
++++++++++
+
+Contains the core scripts of KNIT. To build new language bindings for KNIT, copy and modify (e.g.) `awk.mk` to create `newlanguage.mk`.
+
+Apps
+====
+
+Standard Structure
+------------------
+ app
+ |-- Makefile
+ |-- app.wak
+ `-- etc
+     `-- tests
+	     |-- eg1
+	     |-- eg2
+		 ...
+
+Standard Apps
+-------------
+
+Helloworld
++++++++++++
+
+_helloworld_
+
+Penny
++++++
+
+Quill
++++++
+
 
