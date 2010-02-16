@@ -104,7 +104,7 @@ function text(x,  n) {
     n += gsub(/\\\[/,"!!OpEn!!",x);
     n += gsub(/``/,"!!TickTiCk!!",x);
     n += gsub(/\\]/,"!!ClOsE!!",x);
-    n += gsub(/\\\*/,"!!StAr!!",x);
+    n += gsub(/\\*/,"!!StAr!!",x);
     n += gsub(/\\_/,"!!DaSh!!",x);
     n += gsub(/\\`/,"!!TiCk!!",x);
     x = gensub(/_([^_]+)_/, "<em>\\1</em>", "g", x);
