@@ -302,7 +302,7 @@ site/src
 
 Contains source code, suitable for downloading.
 
-site/src/\*
+site/src/x
 ___________
 
 Latest source code files generated from the`*.wak` files. 
@@ -310,7 +310,7 @@ Latest source code files generated from the`*.wak` files.
 + If the file contains an extension, then it is just the original file with the comments commented out.
 + If the file has no extension, then it is the original source plus all its dependents (as discovererd by `lib/awk/uses.awk`).
 
-site/src/old\*
+site/src/old/x
 ______________
 
 Source files (including all the dependenats), with version numbers
