@@ -1,3 +1,60 @@
+quill
+	utils
+		malign
+		normalize
+		bore
+	Stats
+		mann whitney
+		wilcoxon
+		ttest
+		wlt visualization
+		quartile
+		nomograms
+		b^2/(b+a)
+Dsl
+	roles
+	qr2
+Learning
+	discretization
+		nbins
+		30
+		ewd
+	feature selection
+		variance
+		info gain
+		bore
+		tf*idf
+	sampling
+		sub
+		super
+		micro
+	case selection
+		lococomo
+		clustering
+			GAC
+			GRID
+			recursive 2means
+			k-means
+			k-means++
+			genic
+			genic2
+			single pass k-means
+	classification
+		rdr
+		ckump
+		hyperpipes
+		density
+		naive bayes
+		which
+		keys2
+		prism
+		prism+
+	regression
+		local calibrartion
+apps
+	cocomo
+		sampling
+
 BUG
 	remaking quill breaks penny
 
