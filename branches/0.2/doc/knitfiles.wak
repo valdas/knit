@@ -248,7 +248,7 @@ share
 
 Stores files common to all apps and the core.
 
-share/img
+share/img 
 +++++++++
 
 Stores graphic files.
