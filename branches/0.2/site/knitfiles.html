@@ -103,7 +103,7 @@ Within that directory, there is a standard structure.
 <a name="3"></a><h4>app/Makefile</h4>
 <p>
 This is the hook between an app and the rest of KNIT. For example, in the following
-example,the frist eight lines define variables and rules assumed bu KNIT. Then, line 9
+example,the first eight lines define variables and rules assumed by KNIT. Then, line 9
 loads one of the KNIT's language binding files, thus declaring that this app
 is being build from a particular example (in this example, awk). 
 </p>
@@ -146,15 +146,18 @@ to create and use these <tt>egX</tt> files, see the page on <a href="?tdd">test-
 <p>
 <em>helloworld</em> is a simple demonstrator for KNIT. To start a new app, copy an modify
 this directory.
+Discussed <a href="?underconstruction">elsewhere</a>.
 </p>
 <a name="8"></a><h4>Penny</h4>
 <p>
 The web content management system used to generate this site from the current
 KNIT development branch.
+Discussed <a href="?underconstruction">elsewhere</a>.
 </p>
 <a name="9"></a><h4>Quill</h4>
 <p>
-Not really an app, but lots of common functions used by other apps.
+Not really an app, but lots of common functions used by other apps. 
+Discussed <a href="?underconstruction">elsewhere</a>.
 </p>
 <a name="10"></a><h2>Core Directories</h2>
 <p>
@@ -235,7 +238,7 @@ An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent te
 <a name="19"></a><h4>etc/dotknitrc</h4>
 <p>
 A BASH configuration file to set up important KNIT variables. Change
-this file if your Makefiles need new or different envrionment
+this file if your Makefiles need new or different environment
 variables.  To use this file, add something like this line to
 <tt>$HOME/.emacs</tt> (making the appropriate pathname changes):
 </p>
@@ -361,11 +364,11 @@ Latest source code files generated from the<tt>*.wak</tt> files.
 </p>
 <ul>
 <li> If the file contains an extension, then it is just the original file with the comments commented out.
-<li> If the file has no extension, then it is the original source plus all its dependents (as discovererd by <tt>lib/awk/uses.awk</tt>).
+<li> If the file has no extension, then it is the original source plus all its dependents (as discovered by <tt>lib/awk/uses.awk</tt>).
 </ul>
 
 <a name="42"></a><h5>site/src/old/x</h5>
 <p>
-Source files (including all the dependenats), with version numbers
+Source files (including all the dependents), with version numbers
 attached (so if the code updates to a new version you do not trust,
-you can find the older version heer).
+you can find the older version here).
