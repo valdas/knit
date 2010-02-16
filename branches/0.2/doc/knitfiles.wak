@@ -50,7 +50,10 @@ Within that directory, there is a standard structure.
 app/Makefile
 ++++++++++++
 
-This is the hook between an app and the rest of KNIT.
+This is the hook between an app and the rest of KNIT. For example, in the following
+example,the frist eight lines define variables and rules assumed bu KNIT. Then, line 9
+loads one of the KNIT's language binding files, thus declaring that this app
+is being build from a particular example (in this example, awk). 
 
  #---------------------------------------------------------------------------
  This    = helloworld#
@@ -71,19 +74,39 @@ This is the hook between an app and the rest of KNIT.
  eg3 : build 
         @$I; $(Run) -a
 
+This is followed by rules that define tests for this app. The use of these rules
+is discussed [?tdd elsewhere].
+
+app/app.wak
++++++++++++
+
+The main file for the source code. Contains `uses` commands to link it to its dependent code.
+
+app/etc/tests/egX
++++++++++++++++++
+
+Stores the expected output for the `egX` rule of `app/Makefile`. For hints and tips on how
+to create and use these `egX` files, see the page on [?tdd test-driven development].
+
 Standard Apps
 -------------
 
 Helloworld
 +++++++++++
 
-_helloworld_
+_helloworld_ is a simple demonstrator for KNIT. To start a new app, copy an modify
+this directory.
 
 Penny
 +++++
 
+The web content management system used to generate this site from the current
+KNIT development branch.
+
 Quill
 +++++
+
+Not really an app, but lots of common functions used by other apps.
 
 Core Directories
 ================
