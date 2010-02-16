@@ -85,8 +85,6 @@ Penny
 Quill
 +++++
 
-
-
 Core Directories
 ================
 
@@ -225,23 +223,23 @@ lib/make
 Contains the core scripts of KNIT. To build new language bindings 
 for KNIT, copy and modify (e.g.) `awk.mk` to create `newlanguage.mk`.
 
-lib/make/awk.awk
-________________
+lib/make/awk.mk
+_______________
 
 Language-specific processing for awk.
 
-lib/make/dirs.awk
-_________________
+lib/make/dirs.mk
+________________
 
 Defines the `$(Dirs)` variable that lists all the directories used by KNIT.
 
-lib/make/test.awk
-_________________
+lib/make/test.mk
+________________
 
 Defines the KNIT [?tdd test engine].
 
-lib/make/tricks.awk
-___________________
+lib/make/tricks.mk
+__________________
 
 Defines the language-independent processing.
 
