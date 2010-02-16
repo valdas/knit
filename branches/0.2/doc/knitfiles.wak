@@ -291,8 +291,8 @@ _______________
 
 Defines the theme specific files (images, stylesheets, etc).
 
-site/etc/themes/\*/index.html
-____________________________
+site/etc/themes/themeName/index.html
+____________________________________
 
 Template for the web pages. Contains variables marked with \`\`back ticks \`\`. This reference variables
 define in `site/etc/config.txt`.
