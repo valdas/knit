@@ -1,14 +1,19 @@
 <h1>Installing KNIT</h1>
 
 <ul>
-<li> <a href="#1">Step1: Download </a>
-<li> <a href="#2">Step 2: Set up envrionment</a>
+<li> <a href="#1">Step 0: Before you begin</a>
+<li> <a href="#2">Step1: Download </a>
 <ul>
-<li> <a href="#3">Shell</a>
-<li> <a href="#4">Emacs</a>
+<li> <a href="#3">Knit Developers</a>
+<li> <a href="#4">Other Developers</a>
 </ul>
-<li> <a href="#5">Step 3: Install</a>
-<li> <a href="#6">Step 4: Test</a>
+<li> <a href="#5">Step 2: Set up envrionment</a>
+<ul>
+<li> <a href="#6">Shell</a>
+<li> <a href="#7">Emacs</a>
+</ul>
+<li> <a href="#8">Step 3: Install</a>
+<li> <a href="#9">Step 4: Test</a>
 </ul>
 <p>
 The following instructions assume a UNIX or UNIX-clone environment (e.g. LINUX,
@@ -17,36 +22,52 @@ Mac OS/X, Cygwin).
 <p>
 So far, these instructions have been tested on LINUX and Mac OS/X.
 </p>
-<a name="1"></a><h2>Step1: Download </h2>
+<a name="1"></a><h2>Step 0: Before you begin</h2>
 <p>
-If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>
-then use:
+Pick a home for your KNIT code. 
+In the following, I will use <tt>myknit</tt> to refer to that directory
+and <tt>parent</tt> to refer to the parent of directory.
+I store my KNIT code in $HOME/svns/knit  (but it can really live anywhere) so, for me,
 </p>
 <pre>
+  parent=$HOME/svns
+  myknit=$HOME/svns/knit
+</pre>
+<a name="2"></a><h2>Step1: Download </h2>
+
+<a name="3"></a><h3>Knit Developers</h3>
+<p>
+If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>
+then:
+</p>
+<pre>
+  cd parent
   svn checkout https://knit.googlecode.com/svn/ knit --username gname --password gpass
 </pre>
 <p>
 This will grant you read/write access to the code, as well as sharing priveldeges with the
 rest of the KNIT community.
 </p>
+<a name="4"></a><h3>Other Developers</h3>
 <p>
 Otherwise, download a copy you can read/write locally (but can't update back to KNIT):
 </p>
 <pre>
+  cd parent
   svn checkout http://knit.googlecode.com/svn/ knit
 </pre>
-<a name="2"></a><h2>Step 2: Set up envrionment</h2>
+<a name="5"></a><h2>Step 2: Set up envrionment</h2>
 
-<a name="3"></a><h3>Shell</h3>
+<a name="6"></a><h3>Shell</h3>
 <p>
 In some file that runs at ogin (e.g. <tt>.bashrc</tt> or <tt>.bash_profile</tt>, add this line:
 </p>
 <pre>
  export SVN_EDITOR=`which vi`    # or whatever your favorite editor is
- . ~/a/b/c/etc/dotknitrc $HOME/a/b/c
+ . myknit/branches/0.2/etc/dotknitrc myknit/branches/0.2
 </pre>
 <p>
-where <tt>a/b/c</tt> is the directory path down to the branch you are using. E.g. at the
+where <tt>myknit</tt> is the directory path down to the branch you are using. E.g. at the
 time of this writing, that line for this author is:
 </p>
 <pre>
@@ -62,26 +83,26 @@ Somehow, arrange for this file to be executed. E.g.
 <p>
 If this works, you should see no errors.
 </p>
-<a name="4"></a><h3>Emacs</h3>
+<a name="7"></a><h3>Emacs</h3>
 <p>
 If you are an EMACS user, then add something like this line to <tt>$HOME/.emacs</tt> (making the appropriate
 pathname changes):
 </p>
 <pre>
- (load "/Users/timm/svns/knit/branches/0.2/etc/dotemacs")
+ (load "myknit/branches/0.2/etc/dotemacs")
 </pre>
-<a name="5"></a><h2>Step 3: Install</h2>
+<a name="8"></a><h2>Step 3: Install</h2>
 <pre>
- cd a/b/c
+ cd myknit/branches/0.2
  make install
 </pre>
 <p>
 If this works, you should see no errors.
 </p>
-<a name="6"></a><h2>Step 4: Test</h2>
+<a name="9"></a><h2>Step 4: Test</h2>
 <p>
 If you are a member of the <a href="http://code.google.com/p/knit/people/list"> KNIT community</a>,
-write a little page about yourself in a/b/c/doc/yourname.wak.
+write a little page about yourself in myknit/branches/0.2/doc/yourname.wak.
 </p>
 <p>
 To edit that file:
