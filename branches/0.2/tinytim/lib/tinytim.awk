@@ -59,7 +59,7 @@ function loadSlots(string,sep,slots,   n,i,all) {
 function fill(string,sep,slots,   all,n,i,str) {
     n=split(string,all,sep);
     for(i=1; i<=n; i++)  
-        str = str sprintf("%s", i % 2 ? all[i] : fillSlot(slots[all[i]],slots))
+        str = str sprintf("%s", i % 2 ? all[i] : fillSlot(all[i],slots))
     return str
 } 
 function fillSlot(str,slots) {
