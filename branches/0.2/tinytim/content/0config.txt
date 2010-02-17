@@ -13,9 +13,9 @@
 ``images``            http://at.ttoy.net/img
 ``favicon``    favicon.ico
 ``logo``              tinytim.jpg
-``quotes``      We can do no great things, only small things with great love. <br>--Mother Teresa
+``quotes``      We can do no great things, only small things with great love. <br>-- Mother Teresa
  	            "God bless us every one!" said Tiny Tim, the last of all.<br>-- A Christmas Tale, Dickens
-			   It's hard work to make a four-minute program look effortless.<br>--Katarina Witt
+			   It's hard work to make a four-minute program look effortless.<br>-- Katarina Witt
 ``links``        
 							 <a href="http://abcnews.go.com">ABC</a><br>
 							<a href="http://news.bbc.co.uk/">BBC</a><br>
