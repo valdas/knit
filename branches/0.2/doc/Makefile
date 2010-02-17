@@ -16,7 +16,7 @@ wakToHtml :
 	$(foreach i,$(Waks), $(MAKE) -s This=$i buildHtmls; )
 
 htmlCommits :
-	svn -q add *.wak ../site/$i.html
+	svn -q add *.wak ../site/*.html
 	cd .. ; svn commit -m "updating waks, htmls"
 
 checkTags :
