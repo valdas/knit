@@ -115,9 +115,12 @@ p.tags { font-size: x-small; margin-top: 0px; margin-botton: 0px; text-align: ri
 				<h1>Links</h1>
 				``seeAlso``
                </div>
+			<div>
+				<h1>Quotes...</h1>
+				``quotes;``
+               </div>
   		    </div>
   		<div id="TEXT">
-			<em>``quotes;``</em>
 			``Content``
 		</div>
 	</div>
