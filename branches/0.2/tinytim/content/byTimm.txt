@@ -197,21 +197,23 @@ If a \`\` entry contains a semi-colon (e.g. \`\`quotes;\`\`) then it is a plugin
 To write a plugin, modify the file `lib/plugins.awk`. Currently, that file looks like this:
 
  function slotsPlugIns(str,slots,   tmp) {
-     split(str,tmp,";")
-     if (tmp[1]=="quotes")
-         return quotes(slots["quotes"])
-     return str
+    split(str,tmp,";")
+    if (tmp[1]=="quotes")
+        return quotes(str,slots)
+    return str
  }
- function quotes(q,    n,tmp) {
-     srand(systime() + PROCINFO["pid"])
-     n=split(q,tmp,"\n")
-     return tmp[int(rand()*n) + 1]
+ function quotes(str,slots,    n,tmp) {
+    srand(systime() + PROCINFO["pid"])
+    n=split(slots["quotes"],tmp,"\n")
+    return tmp[int(rand()*n) + 1]
  }
 
 The function `slotsPlugIns` is a "traffic-cop" who decides what plugin to call
 (in the above, there is only one current plugin: `quotes`).
 
-Each plugin function (e.g. `quotes`) is  
+Each plugin function (e.g. `quotes`) is passed the string from the template (see `str`) and an array of key/value pairs holding
+all the defined string values (see `slots`). These functions must return a string to be inserted into the rendered HTML.
+In the example above, `quotes` just returns a random quote.
 
 Copyright
 =========
