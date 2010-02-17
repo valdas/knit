@@ -19,11 +19,11 @@
 function slotsPlugIns(str,slots,   tmp) {
     split(str,tmp,";")
     if (tmp[1]=="quotes")
-        return quotes(slots["quotes"])
+        return quotes(str,slots)
     return str
 }
-function quotes(q,    n,tmp) {
+function quotes(str,slots,    n,tmp) {
     srand(systime() + PROCINFO["pid"])
-    n=split(q,tmp,"\n")
+    n=split(slots["quotes"],tmp,"\n")
     return tmp[int(rand()*n) + 1]
 }
