@@ -97,8 +97,7 @@ p.tags { font-size: x-small; margin-top: 0px; margin-botton: 0px; text-align: ri
 		</div>
 	</div>
 	<div id="VISUAL">
-		<p>&nbsp;
-		<p>&nbsp;
+		<p>&nbsp;``quotes;``
 		``google-search``
 	</div>	
 	<div id="CONTENT">
@@ -114,10 +113,6 @@ p.tags { font-size: x-small; margin-top: 0px; margin-botton: 0px; text-align: ri
 			<div>
 				<h1>Links</h1>
 				``seeAlso``
-               </div>
-			<div>
-				<h1>Quotes...</h1>
-				<p><em>``quotes;``</em>
                </div>
   		    </div>
   		<div id="TEXT">
