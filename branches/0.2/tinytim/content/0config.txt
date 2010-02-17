@@ -1,6 +1,6 @@
 ``title``     Just another Tiny Tim demo
 ``linksTo``       index contact about tinytim
-``formatter``  lib/markup.awk
+``formatter``   lib/markup.awk 
 ``description`` (simple cms)
 ``keywords``   love love love
 ``home``      http://at.ttoy.net
