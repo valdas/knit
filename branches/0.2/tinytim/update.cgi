@@ -6,4 +6,5 @@ date
 echo "<pre>"
 svn update
 echo "</pre>"
+chmod u+rx index.cgi
 echo "<a href=index.cgi>Continue to site</a>."

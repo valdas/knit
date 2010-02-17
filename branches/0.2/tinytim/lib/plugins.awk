@@ -16,6 +16,14 @@
 # You should have received a copy of the GNU General Public License
 # along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
-function slotsPlugIns(str,slots) {
-	return str
+function slotsPlugIns(str,slots,   tmp) {
+    split(str,tmp,";")
+    if (tmp[1]=="quotes")
+        return quotes(slots["quotes"])
+    return str
+}
+function quotes(q,    n,tmp) {
+    srand(systime() + PROCINFO["pid"])
+    n=split(q,tmp,"\n")
+    return tmp[int(rand()*n) + 1]
 }

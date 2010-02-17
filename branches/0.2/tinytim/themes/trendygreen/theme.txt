@@ -15,7 +15,7 @@ Slots: description keywords author images google-search home title logo  links s
   "``home``/themes/trendygreen/img/favicon.ico" />
   <title>``title`` : ``Title``</title>
 <style type="text/css">
-/* STANDARÂ TAGS' REDEFINITIONS */
+/* STANDARD TAGS' REDEFINITIONS */
 body{font-family : Arial, Helvetica, sans-serif;color : Black;	background-color : #868686; font-size: 12px;background-image: url(``home``/themes/trendygreen/img/bg_main.gif); background-repeat: repeat-x;margin: 0; padding: 0;  }
 a{	color : #006400; text-decoration: underline;  font-weight: normal;}
 p{ margin: 0 0 10px 0; padding:0; }
@@ -117,6 +117,7 @@ p.tags { font-size: x-small; margin-top: 0px; margin-botton: 0px; text-align: ri
                </div>
   		    </div>
   		<div id="TEXT">
+			<em>``quotes;``</em>
 			``Content``
 		</div>
 	</div>
