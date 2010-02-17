@@ -1,0 +1,43 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+TINY TIM
+
+TINY TIM, s a tiny web-site manager written in AWK. 
+
+The code was written to demonstrate that a little AWK goes a long
+way. At the time of this writing, the current system is under 100
+lines of code (excluding a seperate formatter, that is another 170
+lines of code). It took longer to write this doco and the various
+HTML/CSS theme files, than the actual code itself (fyi: 6 hours for
+the themes/doc and 3 hours for the code).
+
+TINY TIM has the following features:
+
++ Pages can be accessed by their (lowercase) name, or by their (uppercase) tags.
++ Pages can be displayed using a set of customizable themes.
++ Page contents can be written using a HTML shorthand language called MARKUP.
++ Pages can be searched using a Google search box.
++ Source code is auto-displayed using a syntax highlighter.
++ Page content can be auto-created via programmer-modifable plugins.
+
+For a live demo of the site (and instructions on how to download and install),
+see http://at.ttoy.net/?tinytim. 
+
+
+
