@@ -117,7 +117,7 @@ p.tags { font-size: x-small; margin-top: 0px; margin-botton: 0px; text-align: ri
                </div>
 			<div>
 				<h1>Quotes...</h1>
-				``quotes;``
+				<p><em>``quotes;``</em>
                </div>
   		    </div>
   		<div id="TEXT">
