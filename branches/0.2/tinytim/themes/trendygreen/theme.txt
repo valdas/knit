@@ -41,7 +41,7 @@ pre { padding: 1em; border: 1px dashed #2f6fab; color: black; background-color: 
 #BUTTONS{ float: right;  width: 100px; height:28px; text-align: center;  display: block;   }
 #VISUAL{ width: 750px; text-align: right; margin-left: auto; margin-right: auto;  height: 122px;  background-color: #1F7A2A;  background-image: url(``home``/themes/trendygreen/img/bg_visual.jpg);  background-repeat: no-repeat;      }
 #VISUAL ul{ margin:0; padding-left: 0;   float: right;  width: 302px;    }
-#VISUAL p{margin:3;padding:3; color:white}
+#VISUAL p{margin:3px;padding:3px; color:white}
 #VISUAL ul li{ display: block; list-style: none; }
 #VISUAL ul li.PhraseOne{  padding-right: 15px;  color: White;  font-family: "MS Sans Serif", Geneva, sans-serif;  font-size: 12px;  font-style: normal;  margin-top: 18px;  font-weight: bold;       }
 #VISUAL ul li.PhraseTwo{ padding-right: 15px;   color: White;  font-family: Arial, Helvetica, sans-serif;  font-size: 17px; font-style: normal;  font-weight: bold;   }
