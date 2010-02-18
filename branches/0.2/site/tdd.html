@@ -2,12 +2,18 @@
 
 <ul>
 <li> <a href="#1">Introduction</a>
-<li> <a href="#2">From "Tests" to "Demos"</a>
-</ul>
+<ul>
+<li> <a href="#2">The Need to Test</a>
+<li> <a href="#3">Test-Driven Development (TDD)</a>
+<li> <a href="#4">Demo-Driven Development</a>
+</ul></ul>
+
+<a name="1"></a><h2>Introduction</h2>
+
+<a name="2"></a><h3>The Need to Test</h3>
 <p>
 <em>I should be able to write a test in any language. --J. Random Hacker.</em>
 </p>
-<a name="1"></a><h2>Introduction</h2>
 <p>
 <a href="``share``img/bug.jpg">
 <img src="``share``/img/bug.jpg" width=300 align=right></a>
@@ -15,7 +21,7 @@ If there is anything that is constant across all programming languages,
 it is the need to test the code. Every programming has to be debugged.
 </p>
 <ul>
-<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949_ 
+<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949
 </ul>
 <p>
 Wilkes is pointing out that the time required to debug a system is
@@ -32,7 +38,7 @@ software divides as follows:
 <p>
 Decades later, the same distribution persists. It looks like this:
 <center>
-<img width=300 src="``share``/img/vdiagram.png">
+<img width=400 src="``share``/img/vdiagram.png">
 </center>
 </p>
 <p>
@@ -44,6 +50,7 @@ to predict where to best focus the testing effort. All cool stuff, to
 be sure, but the basic economics message of the above "v-diagram"
 remains: testing consume around half your development time.
 </p>
+<a name="3"></a><h3>Test-Driven Development (TDD)</h3>
 <p>
 Kent Beck has decided to turn a vice into a virtue.  I read his
 "test-driven development" (TDD) approach as something like this:
@@ -103,7 +110,7 @@ often achieved by other methods.  In
 Test-Driven">Development by Example</a>, Kent Beck also suggests the
 principle "Fake it, till you make it".
 </p>
-<a name="2"></a><h2>From "Tests" to "Demos"</h2>
+<a name="4"></a><h3>Demo-Driven Development</h3>
 <p>
 After reading Kent Beck's book "Test-driven development by Example", I
 was struck with how small each test was. When checking oeprations on a
