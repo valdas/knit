@@ -6,7 +6,19 @@
 <li> <a href="#2">The Need to Test</a>
 <li> <a href="#3">Test-Driven Development (TDD)</a>
 <li> <a href="#4">Demo-Driven Development</a>
-</ul></ul>
+</ul>
+<li> <a href="#5">Language-Indepedent Testing</a>
+<ul>
+<li> <a href="#6">Using One Test</a>
+<ul>
+<li> <a href="#7">run</a>
+<li> <a href="#8">cache</a>
+</ul>
+<li> <a href="#9">Using Multiple Tests</a>
+<ul>
+<li> <a href="#10">caches</a>
+<li> <a href="#11">score</a>
+</ul></ul></ul>
 
 <a name="1"></a><h2>Introduction</h2>
 
@@ -53,7 +65,7 @@ remains: testing consume around half your development time.
 </p>
 <a name="3"></a><h3>Test-Driven Development (TDD)</h3>
 <p>
-Kent Beck has decided to turn a vice into a virtue.  I read his
+<a href="http://www.threeriversinstitute.org/blog/">Kent Beck</a> has decided to turn a vice into a virtue.  I read his
 "test-driven development" (TDD) approach as something like this:
 </p>
 <ul>
@@ -133,3 +145,111 @@ is usually a seperate script comprising "large-grain tests" that
 demonstrate some functionality.
 Where as TDD demands thousands of tests,
 DDD (demo-driven development) demands dozens (or less) of demonstration scripts.
+</p>
+<a name="5"></a><h2>Language-Indepedent Testing</h2>
+<p>
+Writing a harnass for TDD is very simple. Here, in its entirity, is the KNIT
+Makefile for TDD. 
+</p>
+<pre>
+ run : #: run one eg (via make u=test run)
+	@$(MAKE) u=$u $u
+ 
+ cache : #: run one eg and cache result (via make u=test cache)
+	@$(MAKE) run  | tee $(Tests)/$u
+	@echo new test result cached to $(Tests)/$u
+ 
+ test : $(Tests)/$u #: test if the cached result is still current
+	@echo $u >&2
+	@$(MAKE) run | tee $(Tmp)/$u.got 
+	@if  diff -s $(Tmp)/$u.got $(Tests)/$u > /dev/null;  \
+		then echo PASSED $u ; \
+		else echo FAILED $u,  got $(Tmp)/$u.got; \
+	fi
+
+
+ caches :  build #: run 'cache' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x cache;) 
+ 
+ tests : build #: run 'test' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x test;) 
+ 
+ score : #: run 'test' on all egs, collect the scores
+	@$(MAKE) tests | egrep '(PASSED|FAILED)' \
+         | $(Gawk) '{print $$1}' | uniq -c
+</pre>
+<p>
+The code assumes some magic variables:
+</p>
+<ul>
+<li> $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with <tt>eg</tt> is a test and collected into <tt>$(Egs)</tt>.
+<li> $(Tests) is a directory to stored expected test outcomes. By default, this is <tt>etc/tests</tt>.
+</ul>
+
+<a name="6"></a><h3>Using One Test</h3>
+
+<a name="7"></a><h4>run</h4>
+<p>
+<tt>run</tt> executes one test. It tells the Makefile that the name of the test is <tt>$u</tt>, then it
+runs that test. The following shows an example of running one example (called <tt>eg4</tt>):
+</p>
+<pre>
+  make u=eg4 run
+</pre>
+<a name="8"></a><h4>cache</h4>
+<p>
+<tt>cache</tt> lets you define the expected  output of a test. Once you've run your code enough to
+understand what it should be doing, you can cache that result; e.g.
+</p>
+<pre>
+ make u=eg4 cache
+</pre>
+<p>
+Note that, for hand-crafted test output, you should not cache the output. The output of (e.g.) eg4
+can be genrated manually and stored in $(Tests)/eg4.
+</p>
+<pre>
+test
+++++
+</pre>
+<p>
+<tt>test</tt> compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
+Else, "FAIL" is printed.
+</p>
+<pre>
+ make u=eg4 test
+</pre>
+<a name="9"></a><h3>Using Multiple Tests</h3>
+<p>
+The remaining rules (<tt>caches</tt>, <tt>tests</tt>, <tt>score</tt>) handle mulitple tests.
+</p>
+<a name="10"></a><h4>caches</h4>
+<p>
+<tt>caches</tt> is used when you are happy that all your tests are currently generating the
+right output. In that happy case, you can reset the contents of all cached outputs with:
+</p>
+<pre>
+ make caches
+</pre>
+<p>
+Note: don't do this very often, since it blasts all your carefully written tests.
+</p>
+<pre>
+tests
++++++
+</pre>
+<p>
+This rule helps when the test outputs are really verbose. It runs all the tests,
+but just prints the PASSED and FAILED information. It can be called with:
+</p>
+<pre>
+ make tests
+</pre>
+<a name="11"></a><h4>score</h4>
+<p>
+This rule offers a final summary.  It runs all the tests,
+but just prints the number of times  PASSED and FAILED were seen on the output.
+It can be called with:
+</p>
+<pre>
+ make tests
