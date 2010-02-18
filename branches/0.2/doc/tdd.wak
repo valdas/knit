@@ -186,7 +186,7 @@ can be generated manually and stored in $(Tests)/eg4.
 test
 ++++
 
-`test` compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
+The `test` command compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
 Else, "FAIL" is printed.
 
  make u=eg4 test
