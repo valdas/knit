@@ -17,8 +17,10 @@ eg1 : eg0
 eg2 : eg0
 	$I; $(Spy); $(Dump) 
 
-# the following shows the code running as seperate files, included using "-f"
-eg3 : build ; @$I; $(Run) -a
+eg3 : build 
+		echo "$(Run)"
+	@$I; $(Run) -a
+
 eg4 : build ; @$I; $(Run) -h
 eg5 : build ; @$I; $(Run) -c
 eg6 : build ; @$I; $(Run) -i $(Tests)/qualifiers.eg
