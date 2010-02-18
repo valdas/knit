@@ -191,10 +191,11 @@ Else, "FAIL" is printed.
 
  make u=eg4 test
 
+The remaining rules (`caches`, `tests`, `score`) handle mulitple tests.
+
 Using Multiple Tests
 --------------------
 
-The remaining rules (`caches`, `tests`, `score`) handle mulitple tests.
 
 caches
 ++++++
