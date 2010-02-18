@@ -18,9 +18,9 @@
                     <a href="?sitemap">Contents</a> | 
                     <a href="?crossIndex">Index</a>   |
                     <a href="?faqs">FAQ</a> |
-		       <a href="http://code.google.com/p/knit/issues/list">Report bug</a> |
 		    <a href="?install">Install</a> |
-                    <a href="?contacts">Contact us</a>  
+		       <a href="http://code.google.com/p/knit/issues/list">Bugs</a> |
+                    <a href="?contacts">Contact</a>  
 ``logo``            <center>
 <a href="http://www.mikelangman.co.uk/"><img  width="140"
 		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>
