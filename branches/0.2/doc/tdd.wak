@@ -62,7 +62,7 @@ remains: testing consume around half your development time.
 Test-Driven Development (TDD)
 -----------------------------
 
-Kent Beck has decided to turn a vice into a virtue.  I read his
+[http://www.threeriversinstitute.org/blog/ Kent Beck] has decided to turn a vice into a virtue.  I read his
 "test-driven development" (TDD) approach as something like this:
 
 + Granted: we will spend most of our development time testing the code.
@@ -125,4 +125,101 @@ Where as TDD demands thousands of tests,
 DDD (demo-driven development) demands dozens (or less) of demonstration scripts.
 
 
+Language-Indepedent Testing
+===========================
+
+Writing a harnass for TDD is very simple. Here, in its entirity, is the KNIT
+Makefile for TDD. 
+
+ run : #: run one eg (via make u=test run)
+	@$(MAKE) u=$u $u
+ 
+ cache : #: run one eg and cache result (via make u=test cache)
+	@$(MAKE) run  | tee $(Tests)/$u
+	@echo new test result cached to $(Tests)/$u
+ 
+ test : $(Tests)/$u #: test if the cached result is still current
+	@echo $u >&2
+	@$(MAKE) run | tee $(Tmp)/$u.got 
+	@if  diff -s $(Tmp)/$u.got $(Tests)/$u > /dev/null;  \
+		then echo PASSED $u ; \
+		else echo FAILED $u,  got $(Tmp)/$u.got; \
+	fi
+
+ caches :  build #: run 'cache' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x cache;) 
+ 
+ tests : build #: run 'test' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x test;) 
+ 
+ score : #: run 'test' on all egs, collect the scores
+	@$(MAKE) tests | egrep '(PASSED|FAILED)' \
+         | $(Gawk) '{print $$1}' | uniq -c
+
+The code assumes some magic variables:
+
++ $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with `eg` is a test and collected into `$(Egs)`.
++ $(Tests) is a directory to stored expected test outcomes. By default, this is `etc/tests`.
+
+Using One Test
+--------------
+
+run
++++
+
+`run` executes one test. It tells the Makefile that the name of the test is `$u`, then it
+runs that test. The following shows an example of running one example (called `eg4`):
+
+  make u=eg4 run
+
+cache
++++++
+
+`cache` lets you define the expected  output of a test. Once you've run your code enough to
+understand what it should be doing, you can cache that result; e.g.
+
+ make u=eg4 cache
+
+Note that, for hand-crafted test output, you should not cache the output. The output of (e.g.) eg4
+can be genrated manually and stored in $(Tests)/eg4.
+
+test
+++++
+
+`test` compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
+Else, "FAIL" is printed.
+
+ make u=eg4 test
+
+Using Multiple Tests
+--------------------
+
+The remaining rules (`caches`, `tests`, `score`) handle mulitple tests.
+
+caches
+++++++
+
+`caches` is used when you are happy that all your tests are currently generating the
+right output. In that happy case, you can reset the contents of all cached outputs with:
+
+ make caches
+
+Note: don't do this very often, since it blasts all your carefully written tests.
+
+tests
++++++
+
+This rule helps when the test outputs are really verbose. It runs all the tests,
+but just prints the PASSED and FAILED information. It can be called with:
+
+ make tests
+
+score
++++++
+
+This rule offers a final summary.  It runs all the tests,
+but just prints the number of times  PASSED and FAILED were seen on the output.
+It can be called with:
+
+ make tests
 
