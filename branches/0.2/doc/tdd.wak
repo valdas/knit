@@ -1,41 +1,50 @@
-<h1>Test-Driven Development (in KNIT)</h1>
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
-<ul>
-<li> <a href="#1">Introduction</a>
-<li> <a href="#2">From "Tests" to "Demos"</a>
-</ul>
-<p>
-<em>I should be able to write a test in any language. --J. Random Hacker.</em>
-</p>
-<a name="1"></a><h2>Introduction</h2>
-<p>
+Test-Driven Development (in KNIT)
+
+_I should be able to write a test in any language. --J. Random Hacker._
+
+Introduction
+============
+
 <a href="``share``img/bug.jpg">
 <img src="``share``/img/bug.jpg" width=300 align=right></a>
 If there is anything that is constant across all programming languages,
 it is the need to test the code. Every programming has to be debugged.
-</p>
-<ul>
-<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949_ 
-</ul>
-<p>
+
++ "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949_ 
+
 Wilkes is pointing out that the time required to debug a system is
 surprisingly large- over half the effort of building.  According to
 Brooks (The Mythical Man Month, 1995), the time required to build
 software divides as follows:
-</p>
-<ul>
-<li> 1/3 in management and planning
-<li> 1/6 in development
-<li> 1/4 in unit test (testing all parts in isolation)
-<li> 1/4 in system testing (testing all parts, in combination) 
-</ul>
-<p>
+
++ 1/3 in management and planning
++ 1/6 in development
++ 1/4 in unit test (testing all parts in isolation)
++ 1/4 in system testing (testing all parts, in combination) 
+
 Decades later, the same distribution persists. It looks like this:
 <center>
 <img src="``share``/img/vdiagram.png">
 </center>
-</p>
-<p>
+
 For years I researched ways to reduce the cost of testing. With David
 Owen, we tried some AI techniques for searching formal models for
 violations to temporal logic queries.  With several other graduate
@@ -43,86 +52,69 @@ students (most notably, Justin diStefano) we tried data mining methods
 to predict where to best focus the testing effort. All cool stuff, to
 be sure, but the basic economics message of the above "v-diagram"
 remains: testing consume around half your development time.
-</p>
-<p>
+
 Kent Beck has decided to turn a vice into a virtue.  I read his
 "test-driven development" (TDD) approach as something like this:
-</p>
-<ul>
-<li> Granted: we will spend most of our development time testing the code.
-<li> Consequently: redesign the development process around testing.
-</ul>
-<p>
-In TDD, the <em>first</em> thing a programmer does on a new project is to
+
++ Granted: we will spend most of our development time testing the code.
++ Consequently: redesign the development process around testing.
+
+In TDD, the _first_ thing a programmer does on a new project is to
 write a test that fails (the idea is to ensure that the test really
 works and can catch an error).
 Also, ideally, the programmer ends her day with a broken test. Next morning,
 the first thing she does is run that test again, then works on fixing it.
 This reduces the time requied to "swap in" at the start of the day.
-</p>
-<p>
+
 TDD has rules:
-</p>
-<ul>
-<li> PLANNING rules
-<ul>
-<ul>
-<li> User stories are written. (a.k.a. lots of demos)
-<li> Make frequent small releases (a.k.a. shows a string of demos)
-<li> Fix it when it breaks (ak.a. code run break fix is the usual cycle)
-</ul>
-</ul>
-<li> CODING rules
-<ul>
-<ul>
-<li> Code the unit test first.
-</ul>
-</ul>
-<li> TESTING rules
-<ul>
-<ul>
-<li> All code must have unit tests.
-<li> All code must pass all unit tests before it  can be released.
-<li> When a bug is found tests are created.
-<li> Acceptance tests are run often and the score is published.
-</ul></ul></ul>
-<p>
+
++ PLANNING rules
+  + User stories are written. (a.k.a. lots of demos)
+  + Make frequent small releases (a.k.a. shows a string of demos)
+  + Fix it when it breaks (ak.a. code run break fix is the usual cycle)
++ CODING rules
+  + Code the unit test first.
++ TESTING rules
+  + All code must have unit tests.
+  + All code must pass all unit tests before it  can be released.
+  + When a bug is found tests are created.
+  + Acceptance tests are run often and the score is published.
+
 A shorter way of saying the above is this: red, green, refactor.
-</p>
-<ul>
-<li> Red: find failed tests;
-<li> Green: fix them;
-<li> Refactor: sometimes, use the experience gained from all this testing  to reorganize and improve the code base.
-</ul>
-<p>
+
++ Red: find failed tests;
++ Green: fix them;
++ Refactor: sometimes, use the experience gained from all this testing  to reorganize and improve the code base.
+
 Two principles of TDD are "keep it simple, stupid" (KISS) and "You
 ain't gonna need it" (YAGNI). By focusing on writing only the code
 necessary to pass tests, designs can be cleaner and clearer than is
 often achieved by other methods.  In
-<a href="http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155
-Test-Driven">Development by Example</a>, Kent Beck also suggests the
+[http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155
+Test-Driven Development by Example], Kent Beck also suggests the
 principle "Fake it, till you make it".
-</p>
-<a name="2"></a><h2>From "Tests" to "Demos"</h2>
-<p>
+
+From "Tests" to "Demos"
+=======================
+
 After reading Kent Beck's book "Test-driven development by Example", I
 was struck with how small each test was. When checking oeprations on a
 new abstract data type, just mini-tests are certainly
 appropriate. However, when working with large granularity programs
 (e.g. shell scripts), Kent-style tests seemed to small.
-</p>
-<p>
+
 So in my mind,  I run a (small) variation to TDD. Think about how you might
 present the code to someone else:
-</p>
-<ul>
-<li> what you'd show off;
-<li>  what you'd use to demonstrate the core principles. 
-</ul>
-<p>
+
++ what you'd show off;
++  what you'd use to demonstrate the core principles. 
+
 This variant is called
 "demo-driven development" and it differs from TDD in that each "demo"
 is usually a seperate script comprising "large-grain tests" that
 demonstrate some functionality.
 Where as TDD demands thousands of tests,
 DDD (demo-driven development) demands dozens (or less) of demonstration scripts.
+
+
+
