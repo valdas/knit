@@ -51,7 +51,7 @@ function listp(i)    { return Is[i] ~ /l$/ }
 function headingp(i) { return Is[i] ~ /[hH]/ }
 function kind(all,n,line2) {
   if (n==1)                      return "h1"
-  if (all   ~ /^[ /t]/)          return "pre";
+  if (all   ~ /^[ \t]/)          return "pre";
   if (all   ~ /^===== /)         return "h2";      
   if (all   ~ /^==== /)          return "h3";      
   if (all   ~ /^=== /)           return "h4";  
