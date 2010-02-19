@@ -18,29 +18,7 @@
 
 KNIT Coding Conventions
 
-Variables
-=========
-
-Naming conventions
-------------------
-
-Label all your global variables as MixedCase.
-
-Label all your locals with a leading lowerCase letter.
-
-This convention makes it easier to find escaped globals. 
-
-Globals
--------
-
-Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
-
-Functions, not Patterns
-=======================
-
-Assume that most of your code will be AWK functions, not top-level functions.
-
-This will make reusing it in other applications.
+This is a rapidly changing file.
 
 Applications
 ============
@@ -51,4 +29,44 @@ Applications are built in their own directory and have have
 + Makefile : the controller for building, testing, etc
 + etc/tests : a sub-directory for examples.
 
+Tests
+=====
 
+Everything released has a test/demo call.
+
+AWK Conventions
+===============
+
+No blank lines in functions
+---------------------------
+
+XXX
+
+Variables
+---------
+
+Naming conventions
+++++++++++++++++++
+
+Label all your global variables as MixedCase.
+
+Label all your locals with a leading lowerCase letter.
+
+This convention makes it easier to find escaped globals. 
+
+Globals
++++++++
+
+Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
+
+Functions, not Patterns
+-----------------------
+
+Assume that most of your code will be AWK functions, not top-level functions.
+
+This will make reusing it in other applications.
+
+Spaced locals
+-------------
+
+XXX
