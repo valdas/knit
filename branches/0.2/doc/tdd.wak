@@ -33,7 +33,7 @@ _I should be able to write a test in any language. --J. Random Hacker._
 If there is anything that is constant across all programming languages,
 it is the need to test the code. Every programming has to be debugged.
 
-+ "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949
++ "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs."<br>-- Maurice Wilkes, 1949
 
 Wilkes is pointing out that the time required to debug a system is
 surprisingly large- over half the effort of building.  According to

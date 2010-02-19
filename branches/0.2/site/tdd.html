@@ -13,14 +13,16 @@
 <ul>
 <li> <a href="#7">run</a>
 <li> <a href="#8">cache</a>
+<li> <a href="#9">test</a>
 </ul>
-<li> <a href="#9">Using Multiple Tests</a>
+<li> <a href="#10">Using Multiple Tests</a>
 <ul>
-<li> <a href="#10">caches</a>
-<li> <a href="#11">score</a>
+<li> <a href="#11">caches</a>
+<li> <a href="#12">tests</a>
+<li> <a href="#13">score</a>
 </ul>
 </ul>
-<li> <a href="#12">Author</a>
+<li> <a href="#14">Author</a>
 </ul>
 
 <a name="1"></a><h2>Introduction</h2>
@@ -36,7 +38,7 @@ If there is anything that is constant across all programming languages,
 it is the need to test the code. Every programming has to be debugged.
 </p>
 <ul>
-<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs.<br>-- Maurice Wilkes, 1949
+<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs."<br>-- Maurice Wilkes, 1949
 </ul>
 <p>
 Wilkes is pointing out that the time required to debug a system is
@@ -211,10 +213,7 @@ understand what it should be doing, you can cache that result; e.g.
 Note that, for hand-crafted test output, you should not cache the output. The output of (e.g.) eg4
 can be generated manually and stored in $(Tests)/eg4.
 </p>
-<pre>
-test
-++++
-</pre>
+<a name="9"></a><h4>test</h4>
 <p>
 The <tt>test</tt> command compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
 Else, "FAIL" is printed.
@@ -225,9 +224,9 @@ Else, "FAIL" is printed.
 <p>
 The remaining rules (<tt>caches</tt>, <tt>tests</tt>, <tt>score</tt>) handle mulitple tests.
 </p>
-<a name="9"></a><h3>Using Multiple Tests</h3>
+<a name="10"></a><h3>Using Multiple Tests</h3>
 
-<a name="10"></a><h4>caches</h4>
+<a name="11"></a><h4>caches</h4>
 <p>
 <tt>caches</tt> is used when you are happy that all your tests are currently generating the
 right output. In that happy case, you can reset the contents of all cached outputs with:
@@ -238,10 +237,7 @@ right output. In that happy case, you can reset the contents of all cached outpu
 <p>
 Note: don't do this very often, since it blasts all your carefully written tests.
 </p>
-<pre>
-tests
-+++++
-</pre>
+<a name="12"></a><h4>tests</h4>
 <p>
 This rule helps when the test outputs are really verbose. It runs all the tests,
 but just prints the PASSED and FAILED information. It can be called with:
@@ -249,7 +245,7 @@ but just prints the PASSED and FAILED information. It can be called with:
 <pre>
  make tests
 </pre>
-<a name="11"></a><h4>score</h4>
+<a name="13"></a><h4>score</h4>
 <p>
 This rule offers a final summary.  It runs all the tests,
 but just prints the number of times  PASSED and FAILED were seen on the output.
@@ -258,6 +254,6 @@ It can be called with:
 <pre>
  make tests
 </pre>
-<a name="12"></a><h2>Author</h2>
+<a name="14"></a><h2>Author</h2>
 <p>
 Tim Menzies
