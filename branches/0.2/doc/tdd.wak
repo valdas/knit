@@ -145,7 +145,7 @@ Makefile for TDD.
 		then echo PASSED $u ; \
 		else echo FAILED $u,  got $(Tmp)/$u.got; \
 	fi
-
+ 
  caches :  build #: run 'cache' on all egs
 	@$(foreach x, $(Egs), $(MAKE) u=$x cache;) 
  
@@ -158,8 +158,10 @@ Makefile for TDD.
 
 The code assumes some magic variables:
 
-+ $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with `eg` is a test and collected into `$(Egs)`.
 + $(Tests) is a directory to stored expected test outcomes. By default, this is `etc/tests`.
++ $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with `eg` is a test and collected into `$(Egs)`. This variable can be calculated from the Makefile.
+
+  Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
 
 Using One Test
 --------------
