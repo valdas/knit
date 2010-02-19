@@ -22,7 +22,25 @@
 <li> <a href="#13">score</a>
 </ul>
 </ul>
-<li> <a href="#14">Author</a>
+<li> <a href="#14">Hints on Writing Tests</a>
+<ul>
+<li> <a href="#15">How to name examples</a>
+<li> <a href="#16">eg0</a>
+<li> <a href="#17">Introduce yourself</a>
+<li> <a href="#18">Spy on yourself</a>
+<ul>
+<li> <a href="#19">Spying with Awk</a>
+</ul>
+<li> <a href="#20">Writing one-liners</a>
+<ul>
+<ul>
+<li> <a href="#21">Writing one-liners in AWK</a>
+</ul>
+</ul>
+<li> <a href="#22">Calling a demo function</a>
+<li> <a href="#23">Seed control</a>
+</ul>
+<li> <a href="#24">Author</a>
 </ul>
 
 <a name="1"></a><h2>Introduction</h2>
@@ -252,8 +270,152 @@ but just prints the number of times  PASSED and FAILED were seen on the output.
 It can be called with:
 </p>
 <pre>
- make tests
+ make score
 </pre>
-<a name="14"></a><h2>Author</h2>
+<a name="14"></a><h2>Hints on Writing Tests</h2>
+
+<a name="15"></a><h3>How to name examples</h3>
+<p>
+All examples are Makefile rules. Each example starts with <tt>eg</tt>. There
+are no spaces to the left of the example name. For example:
+</p>
+<pre>
+ eg0: build
+ eg1: eg0
+    echo "I am the first test"
+</pre>
+<a name="16"></a><h3>eg0</h3>
+<p>
+Always write an eg0 that does any setup stuff needed before any test can run. E.g. in your app's <tt>Makefile</tt>,
+it is common for <tt>eg0</tt> to build the system.
+</p>
+<pre>
+ eg0 :
+     build
+</pre>
+<p>
+Then, make that <tt>eg0</tt> a depednent of all other tests. For example:
+</p>
+<pre>
+ eg1 : eg0
+     echo "I am the first test"
+</pre>
+<a name="17"></a><h3>Introduce yourself</h3>
+<p>
+Each test should start with <tt>$I;</tt> (which prints a little introduction script).
+</p>
+<a name="18"></a><h3>Spy on yourself</h3>
+<p>
+Tests can be <tt>$(Run)</tt>s or <tt>$(Spy)</tt>s. <tt>Run</tt> just <em>does</em>, while <tt>Spy</tt>
+will <tt>Run</tt>, then print lots of debugging information. 
+In the following example, some application has tests that
+run the application using some command line flags:
+</p>
+<pre>
+ -i $(Tests)/qualifiers.eg
+</pre>
+<p>
+Exactly <em>what</em> the application does with those flags is not the point of this
+example. What is relevant is the what is <em>different</em> about <tt>Run</tt>ing
+and <tt>Spy</tt>ing:
+						
+ eg2 : eg0 
+     $(Run) -i $(Tests)/qualifiers.eg
+ eg3 : eg0
+     $(Spy) -i $(Tests)/qualifiers.eg
+</p>
+<p>
+The <tt>eg1</tt> rule just runs the application. However, the <tt>eg2</tt> rule generates 
+a lot of debugging output.  The nature of
+that debugging information is langauge-specific but, unless it is slow
+to generate, it is best to always <tt>Spy</tt>.  
+</p>
+<a name="19"></a><h4>Spying with Awk</h4>
+<p>
+When <tt>Spy</tt>ing on Awk code, the code is called as follows:
+</p>
+<pre>
+   $(Tmp)     = $(HOME)/tmp # defined in lib/make/dirs.mk
+   $(Vars)    = $(Tmp)/vars.out 
+   $(Profile) = $(Tmp)/profile.out
+   $(Spy)     = $(Pgawk) --dump-variables="$(Vars)" \
+                         --profile="$(Profile)" $(Loads) 
+</pre>
+<p>
+So <tt>Spy</tt>ing on awk code dumps a list of the globals into <tt>$(Tmp)/vars.out</tt> and
+a profile listing of how many times each lines was called into <tt>$(Profile)/profile.out</tt>.
+</p>
+<p>
+Using  <tt>$(Tmp)/vars.out</tt>,
+it is possible to  find variables that were meant to be local, but have escaped into the global space.
+To do so, adopt the following coding convention: 
+</p>
+<ul>
+<li> Label all your global variables as MixedCase 
+<li> Label all your locals with a leading lowerCase letter.
+</ul>
+<p>
+Then, once you've <tt>Spy</tt>-ed, the escaped locals will stand out in the <tt>$(Vars)</tt> entry.
+</p>
+<p>
+Using <tt>$(Tmp)/profile.out</tt> is is possible to find hotspots or deadspots in the code. This profile output
+lists how many times each line of code was called.  
+</p>
+<ul>
+<li> If a line of code is never called by any test, it is  possibly dead code. 
+<li> If a line of code is called (say) 1,000,000 times, then that is a clear candidate for optimization.
+<li> If a line of code is a condition, and it is called (say) 100 times, but the body of the condition is never called, then maybe there is something wrong with the code.
+</ul>
+<p>
+To get a quick viewing of the profile and the variables, use <tt>$(Dump)</tt>; e.g.
+</p>
+<pre>
+ eg4 : eg0
+     $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
+</pre>
+<p>
+This will dump <tt>$(Tmp)/profile.out</tt> and <tt>$(Tmp)/vars.out</tt> to the screen.
+</p>
+<a name="20"></a><h3>Writing one-liners</h3>
+<p>
+Sometimes, rather than test the whole application, the author wants to test one little function
+(kind of a micro unit test). For this purpose, use <tt>$a</tt> and <tt>$z$</tt>. e.g.
+</p>
+<pre>
+ eg5 : build
+        @$a help() $z
+</pre>
+<p>
+If you want to <tt>$(Spy)</tt>, rather than just <tt>$(Run)</tt>, then use <tt>$A</tt> and <tt>$Z</tt> instead of <tt>$a</tt>, <tt>$z</tt>.
+</p>
+<a name="21"></a><h5>Writing one-liners in AWK</h5>
+<p>
+The above code orchestrates calling the above function in a BEGIN block, with the global <tt>TEST</tt> set to one:
+</p>
+<pre>
+ #running
+ a = $(Run) -v Test=1 --source 'BEGIN {#
+ z = ; exit}'
+ 
+ #spying
+ A = $(Spy) -v Test=1  --source 'BEGIN {#
+ Z = ; exit}'
+</pre>
+<a name="22"></a><h3>Calling a demo function</h3>
+<p>
+Also, if your code contains a function whose name starts with <tt>demo</tt>, then you can orchestrate calling that
+code from a Makefile as follows:
+</p>
+<pre>
+  make u=rss demo
+</pre>
+<p>
+(XXXnote: currently broken)
+</p>
+<a name="23"></a><h3>Seed control</h3>
+<p>
+XXXL need notes on how to handle seeds.
+</p>
+<a name="24"></a><h2>Author</h2>
 <p>
 Tim Menzies
