@@ -256,6 +256,9 @@ Introduce yourself
 
 Each test should start with `$I;` (which prints a little introduction script).
 
+ eg2 : eg0
+     $I; echo "I am the first test"
+
 Spy on yourself
 ---------------
 
@@ -270,10 +273,10 @@ Exactly _what_ the application does with those flags is not the point of this
 example. What is relevant is the what is _different_ about `Run`ing
 and `Spy`ing:
 						
- eg2 : eg0 
-     $(Run) -i $(Tests)/qualifiers.eg
- eg3 : eg0
-     $(Spy) -i $(Tests)/qualifiers.eg
+ eg3 : eg0 
+     $I; $(Run) -i $(Tests)/qualifiers.eg
+ eg4 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg
 
 The `eg1` rule just runs the application. However, the `eg2` rule generates 
 a lot of debugging output.  The nature of
@@ -312,8 +315,8 @@ lists how many times each line of code was called.
 
 To get a quick viewing of the profile and the variables, use `$(Dump)`; e.g.
 
- eg4 : eg0
-     $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
+ eg5 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
 
 This will dump `$(Tmp)/profile.out` and `$(Tmp)/vars.out` to the screen.
 
@@ -323,8 +326,8 @@ Writing one-liners
 Sometimes, rather than test the whole application, the author wants to test one little function
 (kind of a micro unit test). For this purpose, use `$a` and `$z$`. e.g.
 
- eg5 : build
-        @$a help() $z
+ eg6 : build
+        $I; $a help() $z
 
 If you want to `$(Spy)`, rather than just `$(Run)`, then use `$A` and `$Z` instead of `$a`, `$z`.
 
