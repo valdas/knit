@@ -304,6 +304,10 @@ Then, make that <tt>eg0</tt> a depednent of all other tests. For example:
 <p>
 Each test should start with <tt>$I;</tt> (which prints a little introduction script).
 </p>
+<pre>
+ eg2 : eg0
+     $I; echo "I am the first test"
+</pre>
 <a name="18"></a><h3>Spy on yourself</h3>
 <p>
 Tests can be <tt>$(Run)</tt>s or <tt>$(Spy)</tt>s. <tt>Run</tt> just <em>does</em>, while <tt>Spy</tt>
@@ -319,10 +323,10 @@ Exactly <em>what</em> the application does with those flags is not the point of 
 example. What is relevant is the what is <em>different</em> about <tt>Run</tt>ing
 and <tt>Spy</tt>ing:
 						
- eg2 : eg0 
-     $(Run) -i $(Tests)/qualifiers.eg
- eg3 : eg0
-     $(Spy) -i $(Tests)/qualifiers.eg
+ eg3 : eg0 
+     $I; $(Run) -i $(Tests)/qualifiers.eg
+ eg4 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg
 </p>
 <p>
 The <tt>eg1</tt> rule just runs the application. However, the <tt>eg2</tt> rule generates 
@@ -370,8 +374,8 @@ lists how many times each line of code was called.
 To get a quick viewing of the profile and the variables, use <tt>$(Dump)</tt>; e.g.
 </p>
 <pre>
- eg4 : eg0
-     $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
+ eg5 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
 </pre>
 <p>
 This will dump <tt>$(Tmp)/profile.out</tt> and <tt>$(Tmp)/vars.out</tt> to the screen.
@@ -382,8 +386,8 @@ Sometimes, rather than test the whole application, the author wants to test one 
 (kind of a micro unit test). For this purpose, use <tt>$a</tt> and <tt>$z$</tt>. e.g.
 </p>
 <pre>
- eg5 : build
-        @$a help() $z
+ eg6 : build
+        $I; $a help() $z
 </pre>
 <p>
 If you want to <tt>$(Spy)</tt>, rather than just <tt>$(Run)</tt>, then use <tt>$A</tt> and <tt>$Z</tt> instead of <tt>$a</tt>, <tt>$z</tt>.
