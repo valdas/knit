@@ -1,18 +1,45 @@
 <h1>KNIT Coding Conventions</h1>
 
 <ul>
-<li> <a href="#1">Variables</a>
+<li> <a href="#1">Applications</a>
+<li> <a href="#2">Tests</a>
+<li> <a href="#3">AWK Conventions</a>
 <ul>
-<li> <a href="#2">Naming conventions</a>
-<li> <a href="#3">Globals</a>
+<li> <a href="#4">No blank lines in functions</a>
+<li> <a href="#5">Variables</a>
+<ul>
+<li> <a href="#6">Naming conventions</a>
+<li> <a href="#7">Globals</a>
 </ul>
-<li> <a href="#4">Functions, not Patterns</a>
-<li> <a href="#5">Applications</a>
+<li> <a href="#8">Functions, not Patterns</a>
+<li> <a href="#9">Spaced locals</a>
+</ul></ul>
+<p>
+This is a rapidly changing file.
+</p>
+<a name="1"></a><h2>Applications</h2>
+<p>
+Applications are built in their own directory and have have
+</p>
+<ul>
+<li> app.wak : the main driver
+<li> Makefile : the controller for building, testing, etc
+<li> etc/tests : a sub-directory for examples.
 </ul>
 
-<a name="1"></a><h2>Variables</h2>
+<a name="2"></a><h2>Tests</h2>
+<p>
+Everything released has a test/demo call.
+</p>
+<a name="3"></a><h2>AWK Conventions</h2>
 
-<a name="2"></a><h3>Naming conventions</h3>
+<a name="4"></a><h3>No blank lines in functions</h3>
+<p>
+XXX
+</p>
+<a name="5"></a><h3>Variables</h3>
+
+<a name="6"></a><h4>Naming conventions</h4>
 <p>
 Label all your global variables as MixedCase.
 </p>
@@ -22,23 +49,17 @@ Label all your locals with a leading lowerCase letter.
 <p>
 This convention makes it easier to find escaped globals. 
 </p>
-<a name="3"></a><h3>Globals</h3>
+<a name="7"></a><h4>Globals</h4>
 <p>
 Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
 </p>
-<a name="4"></a><h2>Functions, not Patterns</h2>
+<a name="8"></a><h3>Functions, not Patterns</h3>
 <p>
 Assume that most of your code will be AWK functions, not top-level functions.
 </p>
 <p>
 This will make reusing it in other applications.
 </p>
-<a name="5"></a><h2>Applications</h2>
+<a name="9"></a><h3>Spaced locals</h3>
 <p>
-Applications are built in their own directory and have have
-</p>
-<ul>
-<li> app.wak : the main driver
-<li> Makefile : the controller for building, testing, etc
-<li> etc/tests : a sub-directory for examples.
-</ul>
+XXX
