@@ -1,0 +1,44 @@
+<h1>KNIT Coding Conventions</h1>
+
+<ul>
+<li> <a href="#1">Variables</a>
+<ul>
+<li> <a href="#2">Naming conventions</a>
+<li> <a href="#3">Globals</a>
+</ul>
+<li> <a href="#4">Functions, not Patterns</a>
+<li> <a href="#5">Applications</a>
+</ul>
+
+<a name="1"></a><h2>Variables</h2>
+
+<a name="2"></a><h3>Naming conventions</h3>
+<p>
+Label all your global variables as MixedCase.
+</p>
+<p>
+Label all your locals with a leading lowerCase letter.
+</p>
+<p>
+This convention makes it easier to find escaped globals. 
+</p>
+<a name="3"></a><h3>Globals</h3>
+<p>
+Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
+</p>
+<a name="4"></a><h2>Functions, not Patterns</h2>
+<p>
+Assume that most of your code will be AWK functions, not top-level functions.
+</p>
+<p>
+This will make reusing it in other applications.
+</p>
+<a name="5"></a><h2>Applications</h2>
+<p>
+Applications are built in their own directory and have have
+</p>
+<ul>
+<li> app.wak : the main driver
+<li> Makefile : the controller for building, testing, etc
+<li> etc/tests : a sub-directory for examples.
+</ul>

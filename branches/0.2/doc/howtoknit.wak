@@ -1,0 +1,54 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+KNIT Coding Conventions
+
+Variables
+=========
+
+Naming conventions
+------------------
+
+Label all your global variables as MixedCase.
+
+Label all your locals with a leading lowerCase letter.
+
+This convention makes it easier to find escaped globals. 
+
+Globals
+-------
+
+Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
+
+Functions, not Patterns
+=======================
+
+Assume that most of your code will be AWK functions, not top-level functions.
+
+This will make reusing it in other applications.
+
+Applications
+============
+
+Applications are built in their own directory and have have
+
++ app.wak : the main driver
++ Makefile : the controller for building, testing, etc
++ etc/tests : a sub-directory for examples.
+
+
