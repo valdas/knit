@@ -332,7 +332,7 @@ Sometimes, rather than test the whole application, the author wants to test one 
 If you want to `$(Spy)`, rather than just `$(Run)`, then use `$A` and `$Z` instead of `$a`, `$z`.
 
 Writing one-liners in AWK
-_________________________
++++++++++++++++++++++++++
 
 The above code orchestrates calling the above function in a BEGIN block, with the global `TEST` set to one:
 
