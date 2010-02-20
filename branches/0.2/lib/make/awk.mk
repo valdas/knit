@@ -35,8 +35,8 @@ $(Lib)/%.awk : %.wak
 
 $(Html)/%.html : %.wak
 	cat $< | \
-	$(Gawk0) -f $(Knit)/lib/awk/rinclude.awk | \
-	$(Gawk0) -f $(Knit)/lib/awk/markup.awk   > $@
+	$(Gawk0) -f $(Knit)/lib/awk/rinclude.awk |  \
+ 	$(Gawk0) -f $(Knit)/lib/awk/markup.awk   > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out
