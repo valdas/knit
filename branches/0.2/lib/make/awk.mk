@@ -25,18 +25,18 @@ $(Tmp)/knit.tmp : $(LibAwks)
 	@(cat $(Knit)/etc/knit.txt; echo "# Built on `date` by $(USER). ") >> $@
 	@cat $(Knit)/etc/copyrite.txt >> $@
 	@$(foreach f,$^,\
-		(printf "\n# $(shell basename $f) \n"; \
+		(printf "\n# $(Site)$(subst .awk,,$(shell basename $f)) \n"; \
 		$(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
 	@chmod a+rx $@
-	@echo $(Tmp)/knit.tmp
-
 
 $(Lib)/%.awk : %.wak
 	 cat $< | \
          $(Gawk0) -f $(Knit)/lib/awk/comment.awk   > $@
 
 $(Html)/%.html : %.wak
-	$(Gawk0) -f $(Knit)/lib/awk/markup.awk $< > $@
+	cat $< | \
+	$(Gawk0) -f $(Knit)/lib/awk/rinclude.awk | \
+	$(Gawk0) -f $(Knit)/lib/awk/markup.awk   > $@
 
 Vars = $(Tmp)/vars.out
 Profile = $(Tmp)/profile.out

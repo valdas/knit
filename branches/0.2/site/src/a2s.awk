@@ -14,6 +14,8 @@
 #Example
 #=======
 
+#@include etc/tests/eg2
+
 #Code
 #====
 
@@ -26,16 +28,16 @@
 #----
 
  function a2s(a,sep,  start, stop,  tmp, out,i) { 
-     sep   = default(sep,",")
-     start = start ? start : 1
-     stop  = stop  ? stop  : a[0]
+     sep   = default(sep,   ",")
+     start = default(start, 1)
+     stop  = default(stop,  a[0]) 
      out = a[start]
      for(i=start+1;i<=stop;i++)
          out = out sep a[i]     
      return out
- }
+ }  
 
-#Author
+#Author      
 #======
 
 #by Tim Menzies

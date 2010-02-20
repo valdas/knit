@@ -1,65 +1,55 @@
-<h1>KNIT Coding Conventions</h1>
-
-<ul>
-<li> <a href="#1">Applications</a>
-<li> <a href="#2">Tests</a>
-<li> <a href="#3">AWK Conventions</a>
-<ul>
-<li> <a href="#4">No blank lines in functions</a>
-<li> <a href="#5">Variables</a>
-<ul>
-<li> <a href="#6">Naming conventions</a>
-<li> <a href="#7">Globals</a>
-</ul>
-<li> <a href="#8">Functions, not Patterns</a>
-<li> <a href="#9">Spaced locals</a>
-</ul></ul>
-<p>
-This is a rapidly changing file.
-</p>
-<a name="1"></a><h2>Applications</h2>
-<p>
-Applications are built in their own directory and have have
-</p>
-<ul>
-<li> app.wak : the main driver
-<li> Makefile : the controller for building, testing, etc
-<li> etc/tests : a sub-directory for examples.
-</ul>
-
-<a name="2"></a><h2>Tests</h2>
-<p>
-Everything released has a test/demo call.
-</p>
-<a name="3"></a><h2>AWK Conventions</h2>
-
-<a name="4"></a><h3>No blank lines in functions</h3>
-<p>
-XXX
-</p>
-<a name="5"></a><h3>Variables</h3>
-
-<a name="6"></a><h4>Naming conventions</h4>
-<p>
-Label all your global variables as MixedCase.
-</p>
-<p>
-Label all your locals with a leading lowerCase letter.
-</p>
-<p>
-This convention makes it easier to find escaped globals. 
-</p>
-<a name="7"></a><h4>Globals</h4>
-<p>
-Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
-</p>
-<a name="8"></a><h3>Functions, not Patterns</h3>
-<p>
-Assume that most of your code will be AWK functions, not top-level functions.
-</p>
-<p>
-This will make reusing it in other applications.
-</p>
-<a name="9"></a><h3>Spaced locals</h3>
-<p>
-XXX
+<h1>  # -*- mode: Awk; -*-  vim: set filetype=awk : 
+  #
+  # This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+  # tim@menzies.us.
+  #
+  # KNIT is free software: you can redistribute it and/or modify
+  # it under the terms of the GNU General Public License as published by
+  # the Free Software Foundation, either version 3 of the License, or
+  # (at your option) any later version.
+  #
+  # KNIT is distributed in the hope that it will be useful,
+  # but WITHOUT ANY WARRANTY; without even the implied warranty of
+  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  # GNU General Public License for more details.
+  #
+  # You should have received a copy of the GNU General Public License
+  # along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+  
+  KNIT Coding Conventions
+  
+  This is a rapidly changing file.
+  
+  Applications
+  ============
+  
+  Applications are built in their own directory and have have
+  
+  + app.wak : the main driver
+  + Makefile : the controller for building, testing, etc
+  + etc/tests : a sub-directory for examples.
+  
+  Tests
+  =====
+  
+  Everything released has a test/demo call.
+  
+  Source Code
+  ===========
+  
+  Source code is offered in .wak files.
+  
+  Source code starts with KNIT copyright statement (see the file `head`).
+  
+  Verbatim text is defined in paragraphs indented by _two_ white space characters.
+  
+  Source code is defined  in paragraphs  indended by _one_ white space character.
+  Source code functions cannot have blank lines. If you really need white space lines
+  between (e.g.) pairs of related functions, add in 3 blank characters  at the front of those
+  lines.
+  
+  AWK Souce Code Conventions
+  --------------------------
+   
+  See [?awkidioms].
+  </h1>
