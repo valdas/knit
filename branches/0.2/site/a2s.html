@@ -1,45 +1,46 @@
-<h1>a2s</h1>
-
-<ul>
-<li> <a href="#1">Synopsis</a>
-<li> <a href="#2">Example</a>
-<li> <a href="#3">Code</a>
-<ul>
-<li> <a href="#4">Uses</a>
-<li> <a href="#5">Main</a>
-</ul>
-<li> <a href="#6">Author</a>
-</ul>
-<p>
-Convert an array into a string. 
-</p>
-<a name="1"></a><h2>Synopsis</h2>
-<pre>
-  a2s(a [,sep,start,stop])
-</pre>
-<p>
-Generates a string starting from position <em>start</em> (defaults to 1) to position <em>stop</em> (defaults to length of array).
-</p>
-<a name="2"></a><h2>Example</h2>
-
-<a name="3"></a><h2>Code</h2>
-
-<a name="4"></a><h3>Uses</h3>
-<p>
-<a href="?default">default</a> 
-</p>
-<a name="5"></a><h3>Main</h3>
-<pre>
- function a2s(a,sep,  start, stop,  tmp, out,i) { 
-     sep   = default(sep,",")
-     start = start ? start : 1
-     stop  = stop  ? stop  : a[0]
-     out = a[start]
-     for(i=start+1;i&lt;=stop;i++)
-         out = out sep a[i]     
-     return out
- }
-</pre>
-<a name="6"></a><h2>Author</h2>
-<p>
-by Tim Menzies
+<h1>  # -*- mode: Awk; -*-  vim: set filetype=awk : 
+  
+  a2s
+  
+  Convert an array into a string. 
+  
+  Synopsis
+  ========
+  
+    a2s(a [,sep,start,stop])
+  
+  Generates a string starting from position _start_ (defaults to 1) to position _stop_ (defaults to length of array).
+  
+  Example
+  =======
+  
+  
+  ----| eg2 |--------------
+  
+  a:b:c:d -> b,c,d
+  
+  Code
+  ====
+  
+  Uses
+  ----
+  
+  @uses default
+  
+  Main
+  ----
+  
+   function a2s(a,sep,  start, stop,  tmp, out,i) { 
+       sep   = default(sep,   ",")
+       start = default(start, 1)
+       stop  = default(stop,  a[0]) 
+       out = a[start]
+       for(i=start+1;i<=stop;i++)
+           out = out sep a[i]     
+       return out
+   }  
+  
+  Author      
+  ======
+  
+  by Tim Menzies</h1>

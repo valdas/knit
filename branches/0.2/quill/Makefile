@@ -47,15 +47,29 @@ about:
 include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
 #---------------------------------------------------------------------------
 
-Waks = $(subst .wak,,$(subst quill.wak,,$(shell ls *.wak)))
+Files = $(subst quill.wak,,$(shell ls *.wak))
 
-builds 	: 
+Waks = $(subst .wak,,$(Files))
+
+builds 	: quill.wak quillSave
+
+quill.wak : $(Files)
 	@echo "# -*- mode: Awk; -*-  vim: set filetype=awk :" > quill.wak
 	@printf "\nThis is an auto-generated file. Do not edit.\n" >> quill.wak
 	@printf "\n@uses" >> quill.wak
 	@$(foreach i,$(Waks), echo -n " $i" >> quill.wak;)
 	@printf "\n\n function demoQuill() { print \"This is Quill.\" }\n\n" >> quill.wak
 	@$(MAKE) -s This=quill build
+
+quillSave :
 	@cd $(Lib); svn -q add *;
 	@cd $(Old); svn  -q add *;
 	@cd $(Html); svn  -q add *; svn commit -m "updating web site"
+
+eg1 : quill.wak
+	@$I; $a print default("123","456"), default("","789"), default(0,"0ab") $z
+
+eg2 : quill.wak
+	@$I; $a S1="a:b:c:d"; \
+            splot(S1,tmp,":"); \
+            print S1 " -> " a2s(tmp, ",",2); $z;
