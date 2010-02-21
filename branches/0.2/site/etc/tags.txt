@@ -14,6 +14,9 @@ install.html  ;Admin ;Feb ;2010        ;Install instructions for this site
 knitfiles.html ;Admin ;Feb ;2010       ;Notes on the files inside KNIT
 tinytim.html	;Timm ;Web ;Feb ;2010       ;Tiny Tim: a tiny web-site manager
 howtoknit.html  ;Timm ;Knit;Feb;2010        ;KNIT: coding conventions
+default.html  ;Timm ;Quill;Feb;2010        ;QUILL: setting defaults
+splot.html  ;Timm ;Quill;Feb;2010        ;QUILL: splitting strings into arrays
+awkidioms.html  ;Timm ;Knit;Feb;2010        ;AWK idioms
 
 dsl.html     ;Timm; Admin;Feb; 2010                          ; Domain-specific languages
 literate.html     ;Timm; Lit;Feb; 2010                          ; Literate Programming
