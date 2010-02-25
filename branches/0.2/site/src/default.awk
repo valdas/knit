@@ -20,9 +20,45 @@
 
 #Sets default values.
 
+#Synopsis
+#========
+
+#`value = default(value,default)`
+
+#Resets `value` to `default` if the `value` is currently the empty string.
+
+#Motivation
+#==========
+
+#Sometimes, AWK functions called with fewer parameters than those
+#defined in the function header. This lets the user of a function
+#skip supplying standard default values.  Inside that function,
+#`default` checks and resets these missing values to some standard
+#defaults.
+
+#Example
+#=======
+
+#Input:
+
+#  print default("123","456");
+#  print default("","789");
+#  print default(0,"0ab"); 
+
+#Output:
+
+#  123     # No change the value.
+#  789     # Value is the empty string; return the default.
+#  0       # 0 is still a value. Return the default.
+
+#Code
+#====
+
  function default(value, d) {
 	 return value=="" ? d: value
  }
 
-#by Tim Menzies
+#Author
+#======
+#Tim Menzies
 

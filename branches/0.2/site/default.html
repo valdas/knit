@@ -1,11 +1,51 @@
 <h1>default</h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Motivation</a>
+<li> <a href="#3">Example</a>
+<li> <a href="#4">Code</a>
+<li> <a href="#5">Author</a>
+</ul>
 <p>
 Sets default values.
 </p>
+<a name="1"></a><h2>Synopsis</h2>
+<p>
+<tt>value = default(value,default)</tt>
+</p>
+<p>
+Resets <tt>value</tt> to <tt>default</tt> if the <tt>value</tt> is currently the empty string.
+</p>
+<a name="2"></a><h2>Motivation</h2>
+<p>
+Sometimes, AWK functions called with fewer parameters than those
+defined in the function header. This lets the user of a function
+skip supplying standard default values.  Inside that function,
+<tt>default</tt> checks and resets these missing values to some standard
+defaults.
+</p>
+<a name="3"></a><h2>Example</h2>
+<p>
+Input:
+</p>
+<pre>
+  print default("123","456");
+  print default("","789");
+  print default(0,"0ab"); 
+</pre>
+<p>
+Output:
+</p>
+<pre>
+  123     # No change the value.
+  789     # Value is the empty string; return the default.
+  0       # 0 is still a value. Return the default.
+</pre>
+<a name="4"></a><h2>Code</h2>
 <pre>
  function default(value, d) {
 	 return value=="" ? d: value
  }
 </pre>
-<p>
-by Tim Menzies
+<a name="5"></a><h2>Author</h2>
