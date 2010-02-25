@@ -96,16 +96,16 @@ Code
 Uses
 ----
   
-@uses bias trim a2s stack
+@uses default bias trim a2s stack
 
 Main
 ----
 
  function anyStrings(string,   skew,repeats,sep,             \
                      pmax, paras,para,lines,freq, thing,cdf,memo,out) {
-     skew    = skew    ? skew    : 1
-     repeats = repeats ? repeats : 1
-     sep     = sep     ? sep     : "\n"
+     skew    = default(skew,   1)
+     repeats = default(repeat, 1)
+     sep     = default(sep,    "\n")
      pmax = split(string,paras,/\n\n/)     
      for(para=1; para<=pmax; para++) {
          lines[0]    = split(paras[para],lines,/\n/)       
