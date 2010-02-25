@@ -12,7 +12,7 @@ Sets default values.
 </p>
 <a name="1"></a><h2>Synopsis</h2>
 <pre>
- value = default(value,default)
+  value = default(value,default)
 </pre>
 <p>
 Resets <tt>value</tt> to <tt>default</tt> if the <tt>value</tt> is currently the empty string.
@@ -24,6 +24,9 @@ defined in the function header. This lets the user of a function
 skip supplying standard default values.  Inside that function,
 <tt>default</tt> checks and resets these missing values to some standard
 defaults.
+</p>
+<p>
+To this used in action, see many QUILL functions including <a href="?a2s">a2s</a>.
 </p>
 <a name="3"></a><h2>Example</h2>
 <p>
