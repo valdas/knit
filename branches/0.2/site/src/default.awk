@@ -23,7 +23,7 @@
 #Synopsis
 #========
 
- value = default(value,default)
+#  value = default(value,default)
 
 #Resets `value` to `default` if the `value` is currently the empty string.
 
@@ -35,6 +35,8 @@
 #skip supplying standard default values.  Inside that function,
 #`default` checks and resets these missing values to some standard
 #defaults.
+
+#To this used in action, see many QUILL functions including [?a2s a2s].
 
 #Example
 #=======
