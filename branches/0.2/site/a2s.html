@@ -22,10 +22,18 @@ Generates a string starting from position <em>start</em> (defaults to 1) to posi
 defaults to length of array).
 </p>
 <a name="2"></a><h2>Example</h2>
+<p>
+Input: 
+</p>
 <pre>
-  
-  ----| eg2 |--------------
-  
+  S1="a:b:c:d"; \
+  splot(S1,tmp,":"); \
+  print S1 " -> " a2s(tmp, ",",2); 
+</pre>
+<p>
+Output:
+</p>
+<pre>
   a:b:c:d -> b,c,d
 </pre>
 <a name="3"></a><h2>Code</h2>

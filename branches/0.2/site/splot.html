@@ -1,11 +1,44 @@
 <h1>splot</h1>
+
+<ul>
+<li> <a href="#1">Synposis</a>
+<li> <a href="#2">Example</a>
+<li> <a href="#3">Code</a>
+<li> <a href="#4">Author</a>
+</ul>
 <p>
 A variant of <tt>split</tt>. Divides a list. Adds size of list to the first item.
 </p>
+<a name="1"></a><h2>Synposis</h2>
+<pre>
+  splot(string,array [,sep])
+</pre>
+<p>
+Splits <tt>string</tt> iinto <tt>array</tt>. divided on <tt>sep</tt> (defaults to FS). Stores size of
+<tt>array</tt> in <tt>array[0]</tt>. Returns the size of the array.
+</p>
+<a name="2"></a><h2>Example</h2>
+<p>
+Input:
+</p>
+<pre>
+  splot("a:b:c:d",A,":"); 
+  for(I=1;I&lt;=A[0];I++) 
+     print I " " A[I] 
+</pre>
+<p>
+Output:
+</p>
+<pre>
+  1 a
+  2 b
+  3 c
+  4 d
+</pre>
+<a name="3"></a><h2>Code</h2>
 <pre>
  function splot(string,array,   sep) {
     array[0]= split(string,array, sep)
-}
+ }
 </pre>
-<p>
-by Tim Menzies
+<a name="4"></a><h2>Author</h2>

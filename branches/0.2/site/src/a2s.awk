@@ -15,7 +15,15 @@
 #Example
 #=======
 
-#@include etc/tests/eg2
+#Input: 
+
+#  S1="a:b:c:d"; \
+#  splot(S1,tmp,":"); \
+#  print S1 " -> " a2s(tmp, ",",2); 
+
+#Output:
+
+#  a:b:c:d -> b,c,d
 
 #Code
 #====
