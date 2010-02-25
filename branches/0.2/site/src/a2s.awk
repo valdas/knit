@@ -9,7 +9,8 @@
 
 #  a2s(a [,sep,start,stop])
 
-#Generates a string starting from position _start_ (defaults to 1) to position _stop_ (defaults to length of array).
+#Generates a string starting from position _start_ (defaults to 1) to position _stop_ 
+#defaults to length of array).
 
 #Example
 #=======
