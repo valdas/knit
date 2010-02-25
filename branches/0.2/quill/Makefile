@@ -49,6 +49,18 @@ eg1 : quill.wak
 	@$I; $a print default("123","456"), default("","789"), default(0,"0ab") $z
 
 eg2 : quill.wak
+	@$I; $a splot("a:b:c:d",A,":"); for(I=1;I<=A[0];I++) print I " " A[I] $z
+
+eg3 : quill.wak
 	@$I; $a S1="a:b:c:d"; \
             splot(S1,tmp,":"); \
             print S1 " -> " a2s(tmp, ",",2); $z;
+
+eg10 : quill.wak
+	@$I; $a srand(1); \
+		    RS=FS="\r\r\r"; \
+			getline String <"etc/tests/anyStrings.in"; \
+			N=10; \
+			while(N--) \
+			   print "\n" anyStrings(String)  \
+		 $z
