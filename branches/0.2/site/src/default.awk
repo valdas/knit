@@ -23,7 +23,7 @@
 #Synopsis
 #========
 
-#`value = default(value,default)`
+ value = default(value,default)
 
 #Resets `value` to `default` if the `value` is currently the empty string.
 
@@ -60,5 +60,6 @@
 
 #Author
 #======
+
 #Tim Menzies
 
