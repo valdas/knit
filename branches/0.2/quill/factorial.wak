@@ -24,7 +24,7 @@ Example
 (KNIT programmers can  run this example using _cd quill; make eg09_.)
 
 Input...
- 
+
   for(I=1;I<=20;I++) 
      print I " " factorial(I)
 
@@ -63,5 +63,8 @@ Code
      return out
  }
 
+Author
+======
 
+Tim Menzies
 
