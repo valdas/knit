@@ -52,3 +52,7 @@ Normal distribution
    return sqrt((sumSq-((sumX*sumX)/n))/(n-1));
  }
 
+Author
+======
+
+Tim Menzies
