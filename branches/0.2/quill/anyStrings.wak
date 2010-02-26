@@ -46,6 +46,8 @@ quarter of the time and the last appear at much lower frequencies.
 Example
 =======
 
+(KNIT programmers can run this example using _cd quill; make eg10_).
+
 In the example, the file `etc/tests/anyStrings.in` contains
 the string of quotes shown above.
 

@@ -24,10 +24,10 @@ Normal distribution
 	m["s2"] += x^2
  }
  function nmean(x,m) {
-	return m["s"] / += m["n"]
+	return m["s"] / m["n"]
  }
  function nsd(x,m) {
-	return sf(m["s2"],m["s"] / += m["n"]
+     return sf(m["s2"],m["s"],m["n"])
  }
  function gaussianPdf(m,s,x) {
    return 1/(s*sqrt(2*Pi))^(-1*(x-m)^2/(2*s*s))

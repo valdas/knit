@@ -41,6 +41,8 @@ To this used in action, see many QUILL functions including [?a2s a2s].
 Example
 =======
 
+(KNIT programmers can  run this example using _cd quill; make eg1_.)
+
 Input:
 
   print default("123","456");

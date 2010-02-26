@@ -1,0 +1,33 @@
+<h1>Factorial</h1>
+
+<ul>
+<li> <a href="#1">Example</a>
+</ul>
+
+<a name="1"></a><h2>Example</h2>
+<p>
+Input...
+ 
+    print  2 " " factorial(2) 
+    print  5 " " factorial(5) 
+    print 10 " " factorial(10) 
+    print 20 " " factorial(20) 
+    print 20 " " factorial(40) 
+</p>
+<p>
+Output...
+</p>
+<pre>
+    
+Code
+====
+
+
+ function factorial(n,  out,i) {
+     if (n &lt; 1) 
+         return 1;
+     out = 1
+     for(i=2;i&lt;=n;i++) 
+         out *= i
+     return out
+ }

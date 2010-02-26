@@ -25,6 +25,10 @@
 
 #  a:b:c:d -> b,c,d
 
+#To run this example
+
+#  cd quill; make eg3
+
 #Code
 #====
 
