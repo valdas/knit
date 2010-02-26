@@ -1,14 +1,27 @@
 ## -*- mode: Awk; -*-  vim: set filetype=awk : 
-#@uses warning
 
 #barph
 
 #Prints a string that exits with a non-zero status.
+
+#Code
+#====
+
+#Uses
+#----
+
+#@uses warning
+
+#Main
+#----
 
  function barph(str) {
      warning(str)
      exit 1; 
  }
 
-#by Tim Menzies
+#Author
+#======
+
+#Tim Menzies
 

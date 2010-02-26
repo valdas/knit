@@ -1,12 +1,24 @@
 <h1>basename</h1>
+
+<ul>
+<li> <a href="#1">Example</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
+</ul>
 <p>
 Return the basename of a path.
 </p>
+<a name="1"></a><h2>Example</h2>
+<p>
+(KNIT programmers can  run this example using <em>cd quill; make eg11</em>.)
+</p>
+<a name="2"></a><h2>Code</h2>
 <pre>
  function basename(path,  n,tmp) {
     n = split(path,tmp,/\//)
     return tmp[n]
  }
 </pre>
+<a name="3"></a><h2>Author</h2>
 <p>
-by Tim Menzies
+Tim Menzies

@@ -1,5 +1,4 @@
 ## -*- mode: Awk; -*-  vim: set filetype=awk : 
-#@uses barph
 
 #assert
 
@@ -7,6 +6,14 @@
 
 #Code
 #====
+
+#Uses
+#----
+
+#@uses barph
+
+#Main
+#----
 
  function assert(check,str) {
      if (! check)

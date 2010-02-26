@@ -2,20 +2,30 @@
 
 <ul>
 <li> <a href="#1">Code</a>
-<li> <a href="#2">Notes</a>
-<li> <a href="#3">Author</a>
+<ul>
+<li> <a href="#2">Uses</a>
+<li> <a href="#3">Main</a>
+</ul>
+<li> <a href="#4">Notes</a>
+<li> <a href="#5">Author</a>
 </ul>
 <p>
 If some check fails, print an error message then die. 
 </p>
 <a name="1"></a><h2>Code</h2>
+
+<a name="2"></a><h3>Uses</h3>
+<p>
+<a href="?barph">barph</a> 
+</p>
+<a name="3"></a><h3>Main</h3>
 <pre>
  function assert(check,str) {
      if (! check)
      	barph(str)
  }
 </pre>
-<a name="2"></a><h2>Notes</h2>
+<a name="4"></a><h2>Notes</h2>
 <p>
 The version shown here is very simple, uses no globals, and dies
 the <em>first</em> time that any assert fails. Arnold Robbins has a
@@ -25,6 +35,6 @@ fails. Rather, the whole program runs and if any of his asserts
 sets the global flag '<em>assert</em>exit', then the program exits with
 a non-zero exit status.
 </p>
-<a name="3"></a><h2>Author</h2>
+<a name="5"></a><h2>Author</h2>
 <p>
 Tim Menzies

@@ -1,5 +1,5 @@
 # -*- mode: Awk; -*-  vim: set filetype=awk : 
-@uses barph
+
 
 assert
 
@@ -7,6 +7,14 @@ If some check fails, print an error message then die.
 
 Code
 ====
+
+Uses
+----
+
+@uses barph
+
+Main
+----
 
  function assert(check,str) {
      if (! check)

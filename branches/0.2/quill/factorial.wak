@@ -23,7 +23,7 @@ Example
 
 (KNIT programmers can  run this example using _cd quill; make eg09_.)
 
-Input...
+Input... 
 
   for(I=1;I<=20;I++) 
      print I " " factorial(I)
