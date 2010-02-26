@@ -67,3 +67,8 @@ eg10 : quill.wak
 			while(N--) \
 			   print "\n" anyStrings(String)  \
 		 $z
+
+eg11 : quill.wak
+	@$I; $a print basename("/hOME/timm/opt/bin/gawk");\
+            print basename("gawk")   \
+         $z

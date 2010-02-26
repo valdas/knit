@@ -4,10 +4,21 @@
 
 #Return the basename of a path.
 
+#Example
+#=======
+
+#(KNIT programmers can  run this example using _cd quill; make eg11_.)
+
+#Code
+#====
+
  function basename(path,  n,tmp) {
     n = split(path,tmp,/\//)
     return tmp[n]
  }
 
-#by Tim Menzies
+#Author
+#======
+
+#Tim Menzies
 
