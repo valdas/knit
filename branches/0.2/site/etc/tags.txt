@@ -18,6 +18,9 @@ default.html  ;Timm ;Quill;Feb;2010        ;QUILL: setting defaults
 splot.html  ;Timm ;Quill;Feb;2010        ;QUILL: splitting strings into arrays
 awkidioms.html  ;Timm ;Knit;Feb;2010        ;AWK idioms
 
+factorial.html ;Timm ;Maths;Feb; 2010 ;Factorial function
+normal.html ;Timm ;Maths;Feb; 2010 ;Normal function (stats)
+
 dsl.html     ;Timm; Admin;Feb; 2010                          ; Domain-specific languages
 literate.html     ;Timm; Lit;Feb; 2010                          ; Literate Programming
 tdd.html     ;Timm; Lit;Feb; 2010                          ; Test-Driven Development
