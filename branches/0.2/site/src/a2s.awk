@@ -15,6 +15,8 @@
 #Example
 #=======
 
+#(KNIT programmers can run this example using _cd quill; make eg3_).
+
 #Input: 
 
 #  S1="a:b:c:d"; \
@@ -24,10 +26,6 @@
 #Output:
 
 #  a:b:c:d -> b,c,d
-
-#To run this example
-
-#  cd quill; make eg3
 
 #Code
 #====

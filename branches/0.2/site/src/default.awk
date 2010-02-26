@@ -41,6 +41,8 @@
 #Example
 #=======
 
+#(KNIT programmers can  run this example using _cd quill; make eg1_.)
+
 #Input:
 
 #  print default("123","456");
@@ -52,10 +54,6 @@
 #  123     # No change the value.
 #  789     # Value is the empty string; return the default.
 #  0       # 0 is still a value. Return the default.
-
-#To run this example:
-
-#  cd quill; make eg1
 
 #Code
 #====
