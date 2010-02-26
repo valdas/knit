@@ -28,6 +28,10 @@
 #  3 c
 #  4 d
 
+#To run this example...
+
+#  cd quill; mmake eg2
+
 #Code
 #====
 

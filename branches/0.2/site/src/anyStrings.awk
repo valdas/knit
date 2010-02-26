@@ -90,6 +90,10 @@
 #  "Simplicity is the ultimate sophistication."
 #  -- Leonardo da Vinci
 
+#To run this example:
+
+#  cd quill;  make eg10
+
 #Code
 #====
 

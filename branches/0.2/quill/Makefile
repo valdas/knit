@@ -55,14 +55,9 @@ eg3 : quill.wak
 	@$I; $a S1="a:b:c:d"; \
             splot(S1,tmp,":"); \
             print S1 " -> " a2s(tmp, ",",2); $z;
-eg09 :
-	@$a \
-			print 2 " " factorial(2) ;\
-			print 5 " " factorial(5) ; \
-			print 10 " " factorial(10) ;\
-			print 20 " " factorial(20) ;\
-			print 20 " " factorial(40) ;\
-	$z
+
+eg09 : quill.wak
+	@$a  for(I=1;I<=20;I++) print I " " factorial(I) $z
 
 eg10 : quill.wak
 	@$I; $a srand(1); \

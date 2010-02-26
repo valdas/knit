@@ -53,6 +53,10 @@
 #  789     # Value is the empty string; return the default.
 #  0       # 0 is still a value. Return the default.
 
+#To run this example:
+
+#  cd quill; make eg1
+
 #Code
 #====
 

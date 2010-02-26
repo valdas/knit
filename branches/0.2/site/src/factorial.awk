@@ -16,11 +16,30 @@
 ## You should have received a copy of the GNU General Public License
 ## along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
- function factorial(n,  result,i) {
-    result = 1;
-	if (n < 1) return result;
-	for(i=2;i<=n;i++)
-		result *= n
-	return result
+#Factorial
+
+#Example
+#=======
+
+#Input...
+
+#    print  2 " " factorial(2) 
+#    print  5 " " factorial(5) 
+#    print 10 " " factorial(10) 
+#    print 20 " " factorial(20) 
+#    print 20 " " factorial(40) 
+
+#Output...
+
+#Code
+#====
+
+ function factorial(n,  out,i) {
+     if (n < 1) 
+         return 1;
+     out = 1
+     for(i=2;i<=n;i++) 
+         out *= i
+     return out
  }
 
