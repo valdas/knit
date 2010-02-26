@@ -2,27 +2,48 @@
 
 <ul>
 <li> <a href="#1">Example</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
 </ul>
 
 <a name="1"></a><h2>Example</h2>
 <p>
-Input...
- 
-    print  2 " " factorial(2) 
-    print  5 " " factorial(5) 
-    print 10 " " factorial(10) 
-    print 20 " " factorial(20) 
-    print 20 " " factorial(40) 
+(KNIT programmers can  run this example using <em>cd quill; make eg09</em>.)
 </p>
+<p>
+Input... 
+</p>
+<pre>
+  for(I=1;I&lt;=20;I++) 
+     print I " " factorial(I)
+</pre>
 <p>
 Output...
 </p>
 <pre>
-    
-Code
-====
-
-
+   1 1
+   2 2
+   3 6
+   4 24
+   5 120
+   6 720
+   7 5040
+   8 40320
+   9 362880
+  10 3628800 
+  11 39916800
+  12 479001600
+  13 6227020800
+  14 87178291200
+  15 1307674368000
+  16 20922789888000
+  17 355687428096000
+  18 6402373705728000
+  19 121645100408832000
+  20 2432902008176640000
+</pre>
+<a name="2"></a><h2>Code</h2>
+<pre>
  function factorial(n,  out,i) {
      if (n &lt; 1) 
          return 1;
@@ -31,3 +52,7 @@ Code
          out *= i
      return out
  }
+</pre>
+<a name="3"></a><h2>Author</h2>
+<p>
+Tim Menzies

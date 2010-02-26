@@ -16,51 +16,40 @@
 ## You should have received a copy of the GNU General Public License
 ## along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
-#Factorial
+#Normal distribution
 
-#Example
-#=======
-
-#(KNIT programmers can  run this example using _cd quill; make eg09_.)
-
-#Input... 
-
-#  for(I=1;I<=20;I++) 
-#     print I " " factorial(I)
-
-#Output...
-
-#   1 1
-#   2 2
-#   3 6
-#   4 24
-#   5 120
-#   6 720
-#   7 5040
-#   8 40320
-#   9 362880
-#  10 3628800 
-#  11 39916800
-#  12 479001600
-#  13 6227020800
-#  14 87178291200
-#  15 1307674368000
-#  16 20922789888000
-#  17 355687428096000
-#  18 6402373705728000
-#  19 121645100408832000
-#  20 2432902008176640000
-
-#Code
-#====
-
- function factorial(n,  out,i) {
-     if (n < 1) 
-         return 1;
-     out = 1
-     for(i=2;i<=n;i++) 
-         out *= i
-     return out
+ function nkeep(x,m) {
+	m["n"]++;
+	m["s"]  += x
+	m["s2"] += x^2
+ }
+ function nmean(x,m) {
+	return m["s"] / m["n"]
+ }
+ function nsd(x,m) {
+     return sf(m["s2"],m["s"],m["n"])
+ }
+ function gaussianPdf(m,s,x) {
+   return 1/(s*sqrt(2*Pi))^(-1*(x-m)^2/(2*s*s))
+ }
+ function normal(m,s) {
+   return m+box_muller()*s;
+ }
+ function box_muller(m,s,    n,x1,x2,w) {
+   w=1;
+   while (w >= 1) {
+     x1= 2.0 * rand() - 1;
+     x2= 2.0 * rand() - 1;
+     w = x1*x1 + x2*x2};
+   w = sqrt((-2.0 * log(w))/w);
+   return x1 * w;
+ }
+ function mean(sumX,n) {
+   return sumX/n;
+ }
+ function sd(sumSq,sumX,n) {
+   # find  sd of a normal distribution
+   return sqrt((sumSq-((sumX*sumX)/n))/(n-1));
  }
 
 #Author

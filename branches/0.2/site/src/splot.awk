@@ -15,6 +15,8 @@
 #Example
 #=======
 
+#(KNIT programmers can run this example using _cd quill; make eg2_).
+
 #Input:
 
 #  splot("a:b:c:d",A,":"); 
@@ -27,10 +29,6 @@
 #  2 b
 #  3 c
 #  4 d
-
-#To run this example...
-
-#  cd quill; mmake eg2
 
 #Code
 #====

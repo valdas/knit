@@ -46,6 +46,8 @@
 #Example
 #=======
 
+#(KNIT programmers can run this example using _cd quill; make eg10_).
+
 #In the example, the file `etc/tests/anyStrings.in` contains
 #the string of quotes shown above.
 
@@ -89,10 +91,6 @@
 
 #  "Simplicity is the ultimate sophistication."
 #  -- Leonardo da Vinci
-
-#To run this example:
-
-#  cd quill;  make eg10
 
 #Code
 #====
