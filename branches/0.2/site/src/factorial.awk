@@ -26,11 +26,11 @@
 #Input... 
 
 #  for(I=1;I<=20;I++) 
-#     print I " " factorial(I)
+#     print I " " factorial(I) 
 
 #Output...
 
-#    1 1
+#   1 1
 #   2 2
 #   3 6
 #   4 24
@@ -66,5 +66,5 @@
 #Author
 #======
 
-#by Tim Menzies
+#Tim Menzies
 
