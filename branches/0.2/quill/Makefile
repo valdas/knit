@@ -1,4 +1,4 @@
-# -*- mode: Awk; -*-  vim: set filetype=awk : 
+# -*- mode: Makefile; -*-  vim: set filetype=Makefile : 
 #
 # This file is part of KNIT; copyright (C) 2010 by Tim Menzies
 # tim@menzies.us.
@@ -30,7 +30,7 @@ Files = $(subst quill.wak,,$(shell ls *.wak))
 
 Waks = $(subst .wak,,$(Files))
 
-builds 	: quill.wak quillSave
+builds 	: quill.wak quillHtml quillSave
 
 quill.wak : $(Files)
 	@echo "# -*- mode: Awk; -*-  vim: set filetype=awk :" > quill.wak
@@ -39,6 +39,9 @@ quill.wak : $(Files)
 	@$(foreach i,$(Waks), echo -n " $i" >> quill.wak;)
 	@printf "\n\n function demoQuill() { print \"This is Quill.\" }\n\n" >> quill.wak
 	@$(MAKE) -s This=quill build
+
+quillHtml : 
+	@$(foreach i,$(Waks), $(MAKE) -q This=$i build; )
 
 quillSave :
 	@cd $(Lib); svn -q add *;
@@ -72,3 +75,10 @@ eg11 : quill.wak
 	@$I; $a print basename("/hOME/timm/opt/bin/gawk");\
             print basename("gawk")   \
          $z
+
+eg12 : quill.wak
+	@$I; $(MAKE) u=biasDemo  demo
+
+eg13: quill.wak
+	@$I; $a  N=cat("etc/tests/eg13.in",All); \
+                 o(All,"cat",N) $z

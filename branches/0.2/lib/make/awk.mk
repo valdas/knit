@@ -15,8 +15,6 @@ LatestBuild = $(Lib)/$(This)
 build : buildAwks buildHtmls #: Build executables and htmls
 
 buildAwks: $(Tmp)/knit.tmp 
-	@ cp $(Tmp)/knit.tmp $(OldBuild)
-	@ cp $(Tmp)/knit.tmp $(LatestBuild)
 
 buildHtmls: $(HtmlHtmls)
 
@@ -28,6 +26,8 @@ $(Tmp)/knit.tmp : $(LibAwks)
 		(printf "\n# $(Site)$(subst .awk,,$(shell basename $f)) \n"; \
 		$(Gawk0) '/^#/{next}/^[ \t]*$$/{next}{print}'  $f) >> $@;)
 	@chmod a+rx $@
+	@ cp $(Tmp)/knit.tmp $(OldBuild)
+	@ cp $(Tmp)/knit.tmp $(LatestBuild)
 
 $(Lib)/%.awk : %.wak
 	 cat $< | \
@@ -59,5 +59,6 @@ awk :
 	@printf "spy $(Spy)\n\n"
 	@printf "$a $(One) $z"
 
-one : 
-	@$a $(One) $z
+demo : 
+	@$a $(shell $(Demo)) $z
+
