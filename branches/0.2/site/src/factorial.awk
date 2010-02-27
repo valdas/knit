@@ -18,6 +18,8 @@
 
 #Factorial
 
+#@uses default
+
 #Example
 #=======
 
