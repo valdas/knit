@@ -64,7 +64,7 @@
 #Uses
 #----
 
-#@uses slurp 
+#@uses slurp
 
 #Main
 #----
