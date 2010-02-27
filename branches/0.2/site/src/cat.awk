@@ -45,20 +45,21 @@
 
 #Output...
 
-#  cat[ 1 ]  = [ The Pyramid Texts are a collection of ancient Egyptian religious ]
-#  cat[ 2 ]  = [ texts from the time of the Old Kingdom. Written in Old Egyptian, ]
-#  cat[ 3 ]  = [ the pyramid texts were carved on the walls and sarcophagi of the ]
-#  cat[ 4 ]  = [ pyramids at Saqqara during the 5th and 6th Dynasties of the Old ]
-#  cat[ 5 ]  = [ Kingdom. The oldest of the texts date to between 2400-2300 BC. ]
-#  cat[ 6 ]  = [  ]
-#  cat[ 7 ]  = [ Example: ]
-#  cat[ 8 ]  = [  ]
-#  cat[ 9 ]  = [  Oho! Oho! Rise up, O Teti! ]
-#  cat[ 10 ] = [  Take your head, collect your bones, ]
-#  cat[ 11 ] = [  Gather your limbs, shake the earth from your flesh! ]
-#  cat[ 12 ] = [  Take your bread that rots not, your beer that sours not, ]
-#  cat[ 13 ] = [  Stand at the gates that bar the common people! ]
-#  cat[ 14 ] = [  ]
+#cat[ 1 ]  = [ The Pyramid Texts are a collection of ancient Egyptian ]
+#cat[ 2 ]  = [ religious texts from the time of the Old Kingdom. ]
+#cat[ 3 ]  = [ Written in Old Egyptian, the pyramid texts were carved ]
+#cat[ 4 ]  = [ on the walls and sarcophagi of the pyramids at Saqqara ]
+#cat[ 5 ]  = [ during the 5th and 6th Dynasties of the Old Kingdom. ]
+#cat[ 6 ]  = [ The oldest of the texts date to between 2400-2300 BC. ]
+#cat[ 7 ]  = [  ]
+#cat[ 8 ]  = [ Example: ]
+#cat[ 9 ]  = [  ]
+#cat[ 10 ] = [  Oho! Oho! Rise up, O Teti! ]
+#cat[ 11 ] = [  Take your head, collect your bones, ]
+#cat[ 12 ] = [  Gather your limbs, shake the earth from your flesh! ]
+#cat[ 13 ] = [  Take your bread that rots not, your beer that sours not, ]
+#cat[ 14 ] = [  Stand at the gates that bar the common people! ]
+#cat[ 15 ] = [  ]
 
 #Uses
 #----
