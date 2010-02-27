@@ -1,4 +1,20 @@
 ## -*- mode: Awk; -*-  vim: set filetype=awk : 
+##
+## This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+## tim@menzies.us.
+##
+## KNIT is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## KNIT is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
 #cat
 
@@ -17,65 +33,37 @@
 #Code
 #====
 
-#Uses
-#----
-
-#@uses slurp o
-
 #Demo
 #----
 
- function demoCat(   n,all) {
-     n=cat("cat.wak",all)
-     o(all,"cat",n)
- }
+#(KNIT programmers can run this example using _cd quill; eg13_.)
 
-#Output:
+#Input...
 
-#  cat[ 1 ]   =   [ # -*- mode: Awk; -*-  vim: set filetype=awk :  ]
-#  cat[ 2 ]   =   [  ]
-#  cat[ 3 ]   =   [ cat ]
-#  cat[ 4 ]   =   [  ]
-#  cat[ 5 ]   =   [ Synopsis ]
-#  cat[ 6 ]   =   [ ======== ]
-#  cat[ 7 ]   =   [   ]
-#  cat[ 8 ]   =   [   cat(file,array,seperator) ]
-#  cat[ 9 ]   =   [  ]
-#  cat[ 10 ]  =   [ Split the contents of _file_ into an  _array_, divided by a _seperator_. ]
-#  cat[ 11 ]  =   [  ]
-#  cat[ 12 ]  =   [ Example ]
-#  cat[ 13 ]  =   [ ======= ]
-#  cat[ 14 ]  =   [  ]
-#  cat[ 15 ]  =   [   cat("config.txt",contents,"\n") ]
-#  cat[ 16 ]  =   [  ]
-#  cat[ 17 ]  =   [ Code ]
-#  cat[ 18 ]  =   [ ==== ]
-#  cat[ 19 ]  =   [  ]
-#  cat[ 20 ]  =   [ Uses ]
-#  cat[ 21 ]  =   [ ---- ]
-#  cat[ 22 ]  =   [  ]
-#  cat[ 23 ]  =   [ @uses slurp o ]
-#  cat[ 24 ]  =   [  ]
-#  cat[ 25 ]  =   [ Demo ]
-#  cat[ 26 ]  =   [ ---- ]
-#  cat[ 27 ]  =   [  ]
-#  cat[ 28 ]  =   [  function demoCat(   n,all) { ]
-#  cat[ 29 ]  =   [      n=cat("cat.wak",all) ]
-#  cat[ 30 ]  =   [      o(all,"cat",n) ]
-#  cat[ 31 ]  =   [  } ]
-#  cat[ 32 ]  =   [  ]
-#  cat[ 33 ]  =   [ Main ]
-#  cat[ 34 ]  =   [ ---- ]
-#  cat[ 35 ]  =   [  ]
-#  cat[ 36 ]  =   [  function cat(file,all,sep) {  ]
-#  cat[ 37 ]  =   [     return slurp("cat " file,all,sep)  ]
-#  cat[ 38 ]  =   [  } ]
-#  cat[ 39 ]  =   [  ]
-#  cat[ 40 ]  =   [ Author ]
-#  cat[ 41 ]  =   [ ====== ]
-#  cat[ 42 ]  =   [  ]
-#  cat[ 43 ]  =   [ Tim Menzies ]
-#  cat[ 44 ]  =   [  ]
+#  N=cat("etc/tests/eg13.in",All);
+#  o(All,"cat",N)
+
+#Output...
+
+#  cat[ 1 ]  = [ The Pyramid Texts are a collection of ancient Egyptian religious ]
+#  cat[ 2 ]  = [ texts from the time of the Old Kingdom. Written in Old Egyptian, ]
+#  cat[ 3 ]  = [ the pyramid texts were carved on the walls and sarcophagi of the ]
+#  cat[ 4 ]  = [ pyramids at Saqqara during the 5th and 6th Dynasties of the Old ]
+#  cat[ 5 ]  = [ Kingdom. The oldest of the texts date to between 2400-2300 BC. ]
+#  cat[ 6 ]  = [  ]
+#  cat[ 7 ]  = [ Example: ]
+#  cat[ 8 ]  = [  ]
+#  cat[ 9 ]  = [  Oho! Oho! Rise up, O Teti! ]
+#  cat[ 10 ] = [  Take your head, collect your bones, ]
+#  cat[ 11 ] = [  Gather your limbs, shake the earth from your flesh! ]
+#  cat[ 12 ] = [  Take your bread that rots not, your beer that sours not, ]
+#  cat[ 13 ] = [  Stand at the gates that bar the common people! ]
+#  cat[ 14 ] = [  ]
+
+#Uses
+#----
+
+#@uses slurp 
 
 #Main
 #----
