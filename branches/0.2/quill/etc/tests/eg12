@@ -1,0 +1,35 @@
+
+----| eg12 |--------------
+
+
+---| numericBiasDemo |--------
+1 1026 (10%)
+2 1960 (20%)
+3 3027 (30%)
+4 3986 (40%)
+
+---| biasPairsDemo |--------
+durian,1,banana,3,carrot,2,apple,4
+apple 4022 (40%)
+banana 2976 (30%)
+carrot 2032 (20%)
+durian 969 (10%)
+
+---| discreteBiasDemo |--------
+cdf[ 4 ]	=	 [ 1 ]
+cdf[ -1 ]	=	 [ 100.003 ]
+cdf[ -2 ]	=	 [ 200.007 ]
+cdf[ -3 ]	=	 [ 300.009 ]
+cdf[ -4 ]	=	 [ 400.008 ]
+cdf[ 0 ]	=	 [ 4 ]
+cdf[ 1 ]	=	 [ 0.0999998 ]
+cdf[ 2 ]	=	 [ 0.300001 ]
+cdf[ 3 ]	=	 [ 0.600002 ]
+memo[ 200.007 ]	=	 [ carrot ]
+memo[ 400.008 ]	=	 [ apple ]
+memo[ 300.009 ]	=	 [ banana ]
+memo[ 100.003 ]	=	 [ durian ]
+durian 1008 (10%)
+carrot 1938 (19%)
+banana 3086 (31%)
+apple 3967 (40%)
