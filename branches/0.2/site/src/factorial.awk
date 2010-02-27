@@ -28,7 +28,7 @@
 #  for(I=1;I<=20;I++) 
 #     print I " " factorial(I) 
 
-#Output...
+#Output... 
 
 #    1 1
 #   2 2
