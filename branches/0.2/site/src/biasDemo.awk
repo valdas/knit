@@ -2,7 +2,9 @@
 
 #biasDemo
 
-#A tutorial on using the [bias] code.
+#This is a tutorial on using the [bias] code.
+
+#(KNIT programmers can run this demo using _cd quill; make eg11_.)
 
 #Uses Cases
 #==========
