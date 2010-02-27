@@ -21,7 +21,7 @@
 #Example
 #=======
 
-#(KNIT programmers can  run this example using _cd quill; make eg09_.)
+#(KNIT programmers can  run this example using _cd quill; make eg09_.) 
 
 #Input... 
 
