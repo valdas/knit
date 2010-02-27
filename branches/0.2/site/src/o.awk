@@ -2,7 +2,7 @@
 
 #o
 
-#Print an array. 
+#Print an array in some ordering.
 
 #Synopsis
 #========
@@ -27,11 +27,11 @@
      if (control ~ /^[0-9]/)  {
          if (control==0)
              o1(a,str)
-	 else
+         else
              for(i=1;i<=control;i++)
                  print oprim(str,i,a)
      } else
-	 if (0 in a)        # sometimes i store array size in a[0]
+         if (0 in a)        # sometimes i store array size in a[0]
 	     o(a,str,a[0])         
          else {
              com = control ? control : " -n -k 2" 

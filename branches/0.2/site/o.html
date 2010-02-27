@@ -11,7 +11,7 @@
 <li> <a href="#6">Author</a>
 </ul>
 <p>
-Print an array. 
+Print an array in some ordering.
 </p>
 <a name="1"></a><h2>Synopsis</h2>
 <pre>
@@ -34,11 +34,11 @@ Print an array.
      if (control ~ /^[0-9]/)  {
          if (control==0)
              o1(a,str)
-	 else
+         else
              for(i=1;i&lt;=control;i++)
                  print oprim(str,i,a)
      } else
-	 if (0 in a)        # sometimes i store array size in a[0]
+         if (0 in a)        # sometimes i store array size in a[0]
 	     o(a,str,a[0])         
          else {
              com = control ? control : " -n -k 2" 
@@ -47,8 +47,7 @@ Print an array.
                  print oprim(str,i,a) | com;
              close(com); }
  }
-
-
+ 
  function oprim(str,i,a,  j) {
      j=i
      gsub(SUBSEP,",",j) 
