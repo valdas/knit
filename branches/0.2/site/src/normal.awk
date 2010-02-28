@@ -18,6 +18,8 @@
 
 #Normal distribution
 
+#@uses math
+
  function nkeep(x,m) {
 	m["n"]++;
 	m["s"]  += x
@@ -44,11 +46,7 @@
    w = sqrt((-2.0 * log(w))/w);
    return x1 * w;
  }
- function mean(sumX,n) {
-   return sumX/n;
- }
  function sd(sumSq,sumX,n) {
-   # find  sd of a normal distribution
    return sqrt((sumSq-((sumX*sumX)/n))/(n-1));
  }
 

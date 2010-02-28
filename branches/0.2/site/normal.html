@@ -3,6 +3,9 @@
 <ul>
 <li> <a href="#1">Author</a>
 </ul>
+<p>
+<a href="?math">math</a> 
+</p>
 <pre>
  function nkeep(x,m) {
 	m["n"]++;
@@ -30,11 +33,7 @@
    w = sqrt((-2.0 * log(w))/w);
    return x1 * w;
  }
- function mean(sumX,n) {
-   return sumX/n;
- }
  function sd(sumSq,sumX,n) {
-   # find  sd of a normal distribution
    return sqrt((sumSq-((sumX*sumX)/n))/(n-1));
  }
 </pre>

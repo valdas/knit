@@ -82,3 +82,32 @@ eg12 : quill.wak
 eg13: quill.wak
 	@$I; $a  N=cat("etc/tests/eg13.in",All); \
                  o(All,"cat",N) $z
+
+eg14: quill.wak
+	@$I; $a s2a("What,gizmo,Why,A wonderful thing,When,2010,Who,Tim Menzies",Opt); \
+                copyleft() $z
+
+eg15: quill.wak
+	@$I; $a S="Tim `rm -rf $$HOME/*` Menzies"; print S " ==> " deShell(S); $z
+
+eg16: quill.wak
+	@$I; $a for(I= -5;I<=5;I++) \
+                  print I " is" (oddp(I) ? "" : " not") " an odd number" ;\
+	        print "";\
+                for(I= -5;I<=5;I++) \
+                  print I " is" (evenp(I) ? "" : " not") " an even number" ;\
+                print "";\
+                for(I= -5;I<=5;I++) \
+                  print "the absolute value of " I " is " abs(I);\
+		srand(1);\
+		print "";\
+		I=10; while(I--) {X=rand()*10 - 5 ; print X " rounds to " round(X)};\
+		print "";\
+                print "The mean of (3,5) is " mean(3+5,2) ;\
+		print "";\
+		print "A number between 3 and 3 is " between(3,3);\
+		print "";\
+		print "A number between 3 and 5 is " between(3,5);\
+		print "";\
+                print "The most and least of (3,5) is (" most(3,5) ", " least(3,5) ")";\
+             $z
