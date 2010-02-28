@@ -1,7 +1,55 @@
 <h1>copyleft</h1>
+
+<ul>
+<li> <a href="#1">Example</a>
+<li> <a href="#2">Code</a>
+<ul>
+<li> <a href="#3">Globals</a>
+<li> <a href="#4">Main</a>
+</ul>
+<li> <a href="#5">Author</a>
+</ul>
 <p>
 Prints the GNU license.
 </p>
+<a name="1"></a><h2>Example</h2>
+<p>
+(KNIT programmers can run this example using <em>cd quill;make eg14</em>).
+</p>
+<p>
+Input...
+</p>
+<pre>
+  s2a("What,gizmo,Why,A wonderful thing,When,2010,Who,Tim Menzies",Opt);
+  copyleft() 
+</pre>
+<p>
+Output...
+</p>
+<pre>
+  gizmo : A wonderful thing
+  Copyright 2010 by Tim Menzies (GPL version 3)
+   
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+   
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+   
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see &lt;http://www.gnu.org/licenses/>.
+</pre>
+<a name="2"></a><h2>Code</h2>
+
+<a name="3"></a><h3>Globals</h3>
+<p>
+This code assumes that the <tt>Opt</tt> array has fields for <em>What</em>, <em>Why</em>, <em>When</em>, _Who.
+</p>
+<a name="4"></a><h3>Main</h3>
 <pre>
  function copyleft() {
     about();
@@ -22,8 +70,7 @@ Prints the GNU license.
  }
  function about() {
     print Opt["What"] " : " Opt["Why"];
-    print "Copyright " Opt["When"] " " Opt["Who"] " (GPL version 3)";
+    print "Copyright " Opt["When"] " by " Opt["Who"] " (GPL version 3)";
  }
 </pre>
-<p>
-by Tim Menzies
+<a name="5"></a><h2>Author</h2>

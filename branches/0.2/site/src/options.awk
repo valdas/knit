@@ -41,9 +41,9 @@
 
  function opt(x) {
      if  (x in Opt) 
-		return Opt[x] 
-	else
-	 	barph(Opt["What"] " option ["x"] unknown")
+         return Opt[x] 
+     else
+         barph(Opt["What"] " option ["x"] unknown")
  }
 
 #Main driver
