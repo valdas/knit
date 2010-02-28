@@ -1,0 +1,4 @@
+
+----| eg15 |--------------
+
+Tim `rm -rf $HOME/*` Menzies ==> Tim rm -rf HOME/* Menzies
