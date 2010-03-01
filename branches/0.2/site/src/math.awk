@@ -48,6 +48,11 @@
             return min 
         return min+ ((max-min)*rand())
  }
+ function within(n,min,max) {
+	if (n < min) return min
+	if (n > max) return max
+    return n
+ }
 
 #Author
 #======

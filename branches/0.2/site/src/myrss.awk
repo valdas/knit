@@ -39,7 +39,9 @@
 #Input...
 
 #   print "<ul>\n<li>"
-#   print myrss("$(Repo)/quill/etc/tests/lawker.rss",5,"\n\n<li>")
+#   print myrss("knit.googlecode.com/svn/branches/0.2/quill/etc/tests/lawker.rss",
+#               5,
+#               "\n\n<li>")
 #   print "\n</ul>"
 
 #Output...

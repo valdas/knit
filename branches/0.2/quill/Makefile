@@ -48,6 +48,9 @@ quillSave :
 	@cd $(Old); svn  -q add *;
 	@cd $(Html); svn  -q add *; svn commit -m "updating web site"
 
+#-----------------------------------------------------------------------------
+Repo=knit.googlecode.com/svn/branches/0.2
+
 eg1 : quill.wak
 	@$I; $a print default("123","456"), default("","789"), default(0,"0ab") $z
 
@@ -111,3 +114,11 @@ eg16: quill.wak
 		print "";\
                 print "The most and least of (3,5) is (" most(3,5) ", " least(3,5) ")";\
              $z
+
+eg17: quill.wak
+	@$I
+	@ $a print "<ul>\n<li>" myrss("$(Repo)/quill/etc/tests/lawker.rss",5,"\n\n<li>") "\n</ul>" $z
+
+eg18: quill.wak
+	@$I;
+	@$a srand(1); nsample(50,10,200,a); quartile(a) $z

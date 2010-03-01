@@ -31,36 +31,40 @@ structure. The following command will show that structure.
 Note that _myRss_ imports the above into an array _all_, split on ">"
 (see the function _myRss1_).
 
-Code
-====
+Example
+=======
 
-Demo
-----
+(KNIT programmers can run this using _cd quill; make eg17_.)
 
- function demoRss() {  
-     print "<ul>"
-     print  "<li>" myrss("lawker.blogspot.com/feeds/posts/default?alt=rss",
-			 5,
-			 "\n<li>")  
-     print "</ul>"
- }
+Input...
 
+   print "<ul>\n<li>"
+   print myrss("knit.googlecode.com/svn/branches/0.2/quill/etc/tests/lawker.rss",
+               5,
+               "\n\n<li>")
+   print "\n</ul>"
 
-Outputs:
+Output...
 
   <ul>
-  <li><a href="http://awk.info/poll/">Dec 26</a>
-    Arnold Robbins asks this community to comment on 
-    different methods to implement file inclusion in Gawk.
-  <li><a href="http://awk.info/?tools/server">Dec 26</a>
-    Michael Sanders implements a web server, in very few lines, using Gawk.
-  <li><a href="http://awk.info/?j">Dec 26</a>
-    Ed Morton and Kenny McCormack show us Awk's  equivalent to VI's "J" command.
-  <li><a href="http://awk.info/?wst">Dec 26</a>
-    Dan Nielsen shows us how to draw Sierpinski Triangles.
-  <li><a href="http://awk.info/?tools/adoc">Dec 26</a>
-    Peter Ivanyi and Roman Putanowicz generate Latex doco from program comments.
+  <li><a href="http://awk.info/?tools/xmonthly">Mar 01</a>:
+   Michael Sanders demos an X-windows GUI for AWK.
+  
+  <li><a href="http://awk.info/?awk100/patentMatrix">Mar 01</a>:
+   Awk100#24: A. Lahm and E. de Rinaldis' patent search, in AWK
+  
+  <li><a href="http://awk.info/?news/cookbook">Feb 28</a>:
+   Tim Menzies asks this community to write an AWK cookbook.
+  
+  <li><a href="http://awk.info/?news/debugger">Feb 28</a>:
+   Arnold Robbins announces a new debugger for GAWK.
+  
+  <li><a href="http://awk.info/?awk100/023vitamina">Feb 28</a>:
+   Awk100#23: Premysl Janouch offers a IRC bot, In AWK
   </ul>
+
+Code
+====
 
 Uses 
 ----
