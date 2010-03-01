@@ -3,9 +3,9 @@
 <ul>
 <li> <a href="#1">Synopsis</a>
 <li> <a href="#2">Tips</a>
-<li> <a href="#3">Code</a>
+<li> <a href="#3">Example</a>
+<li> <a href="#4">Code</a>
 <ul>
-<li> <a href="#4">Demo</a>
 <li> <a href="#5">Uses </a>
 <li> <a href="#6">Main </a>
 <li> <a href="#7">Formatting</a>
@@ -46,36 +46,41 @@ structure. The following command will show that structure.
 Note that <em>myRss</em> imports the above into an array <em>all</em>, split on ">"
 (see the function <em>myRss1</em>).
 </p>
-<a name="3"></a><h2>Code</h2>
-
-<a name="4"></a><h3>Demo</h3>
+<a name="3"></a><h2>Example</h2>
+<p>
+(KNIT programmers can run this using <em>cd quill; make eg17</em>.)
+</p>
+<p>
+Input...
+</p>
 <pre>
- function demoRss() {  
-     print "&lt;ul>"
-     print  "&lt;li>" myrss("lawker.blogspot.com/feeds/posts/default?alt=rss",
-			 5,
-			 "\n&lt;li>")  
-     print "&lt;/ul>"
- }
+   print "&lt;ul>\n&lt;li>"
+   print myrss("$(Repo)/quill/etc/tests/lawker.rss",5,"\n\n&lt;li>")
+   print "\n&lt;/ul>"
 </pre>
 <p>
-Outputs:
+Output...
 </p>
 <pre>
   &lt;ul>
-  &lt;li>&lt;a href="http://awk.info/poll/">Dec 26&lt;/a>
-    Arnold Robbins asks this community to comment on 
-    different methods to implement file inclusion in Gawk.
-  &lt;li>&lt;a href="http://awk.info/?tools/server">Dec 26&lt;/a>
-    Michael Sanders implements a web server, in very few lines, using Gawk.
-  &lt;li>&lt;a href="http://awk.info/?j">Dec 26&lt;/a>
-    Ed Morton and Kenny McCormack show us Awk's  equivalent to VI's "J" command.
-  &lt;li>&lt;a href="http://awk.info/?wst">Dec 26&lt;/a>
-    Dan Nielsen shows us how to draw Sierpinski Triangles.
-  &lt;li>&lt;a href="http://awk.info/?tools/adoc">Dec 26&lt;/a>
-    Peter Ivanyi and Roman Putanowicz generate Latex doco from program comments.
+  &lt;li>&lt;a href="http://awk.info/?tools/xmonthly">Mar 01&lt;/a>:
+   Michael Sanders demos an X-windows GUI for AWK.
+  
+  &lt;li>&lt;a href="http://awk.info/?awk100/patentMatrix">Mar 01&lt;/a>:
+   Awk100#24: A. Lahm and E. de Rinaldis' patent search, in AWK
+  
+  &lt;li>&lt;a href="http://awk.info/?news/cookbook">Feb 28&lt;/a>:
+   Tim Menzies asks this community to write an AWK cookbook.
+  
+  &lt;li>&lt;a href="http://awk.info/?news/debugger">Feb 28&lt;/a>:
+   Arnold Robbins announces a new debugger for GAWK.
+  
+  &lt;li>&lt;a href="http://awk.info/?awk100/023vitamina">Feb 28&lt;/a>:
+   Awk100#23: Premysl Janouch offers a IRC bot, In AWK
   &lt;/ul>
 </pre>
+<a name="4"></a><h2>Code</h2>
+
 <a name="5"></a><h3>Uses </h3>
 <p>
 <a href="?wget">wget</a> <a href="?trim">trim</a> 
