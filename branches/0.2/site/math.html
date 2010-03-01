@@ -36,6 +36,11 @@ Standard maths stuff.
             return min 
         return min+ ((max-min)*rand())
  }
+ function within(n,min,max) {
+	if (n &lt; min) return min
+	if (n > max) return max
+    return n
+ }
 </pre>
 <a name="3"></a><h2>Author</h2>
 <p>

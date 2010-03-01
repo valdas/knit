@@ -21,6 +21,10 @@
  function gaussianPdf(m,s,x) {
    return 1/(s*sqrt(2*Pi))^(-1*(x-m)^2/(2*s*s))
  }
+ function nsample(m,s,n,a,     i) {
+	for(i=1;i&lt;=n;i++)
+		a[i]=normal(m,s)
+ }
  function normal(m,s) {
    return m+box_muller()*s;
  }
