@@ -121,4 +121,4 @@ eg17: quill.wak
 
 eg18: quill.wak
 	@$I;
-	@$a srand(1); nsample(50,10,200,a); quartile(a) $z
+	@$a srand(1); nsample(50,10,1000,a); quartile(a) $z

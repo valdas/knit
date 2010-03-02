@@ -20,8 +20,9 @@ Print a bar graph showing the 1st,2nd,3rd,4th quartile of some data.
 <a name="3"></a><h3>Main</h3>
 <pre>
  function quartile(data, opt) {
-     s2a("shrink,2,offC,_,medianC,|,onC,*,f,5.1f,truncate,0.05,outer,1",
-         opt,",")
+     s2a("shrink,2,offC, ,medianC,|,onC,*,f,5.1f,"\
+         "truncate,0.2,outerp,1,numsp,0",
+         opt,",",1)
      quartile1(data,opt)
  } 
  function quartile1(data,opt,  f,i,s,s1,n,min,q1,median,q3,max) {
@@ -39,28 +40,31 @@ Print a bar graph showing the 1st,2nd,3rd,4th quartile of some data.
      median= s1[round(2*n/4)];
      q3    = s1[round(3*n/4)];
      max   = s1[n];
-     f=opt["f"]
-     printf("%"f",%"f",%"f",%"f",%"f",[%s]\n",
-            min,q1,median,q3,max,
-            quartile2(min,q1,median,q3,max,opt))
+     if (opt["numsp"]) {
+         f=opt["f"]
+         printf("%"f",%"f",%"f",%"f",%"f",",min,q1,median,q3,max)
+     }
+     printf("[%s]\n",quartile2(min,q1,median,q3,max,opt))
  }
- function quartile2(min,q1,median,q3,max,opt,  i,l,str) {
-     width   = 100 / opt["shrink"]; 
-     min    /= opt["shrink"];
-     q1     /= opt["shrink"] ;
-     median /= opt["shrink"]; 
-     q3     /= opt["shrink"]; 
-     max    /= opt["shrink"]; 
-     print "width " width " min " min " q1 " q1 " median " median " q3 " q3 " max " max
-     for(i= -1*width; i&lt;=width; i++) l[round(i)]= opt["offC"];
-     if (opt["outer"]) {
-            print 22
-            for(i=      min;    i&lt;=q1; i++) l[round(i)]= opt["onC"];
-            for(i=       q3;    i&lt;=max; i++) l[round(i)]= opt["onC"]; }
-     else { for(i=       q1;    i&lt;=q3; i++) l[round(i)]= opt["onC"]; }
+ function quartile2(min,q1,median,q3,max,opt,  width,r,i,l,str) {
+     width   = round(100 / opt["shrink"]); 
+     r       = max - min;
+     q1      = q100(q1,min,r,width)
+     median  = q100(median,min,r,width)
+     q3      = q100(q3,min,r,width)
+     max     = q100(max,min,r,width)
+     min     = q100(min,min,r,width)
+     for(i=1; i&lt;=width; i++) l[i]= opt["offC"]
+     if (opt["outerp"]) {
+            for(i=      min;    i&lt;=q1;  i++)  l[i]= opt["onC"];
+            for(i=       q3;    i&lt;=max; i++)  l[i]= opt["onC"]; }
+     else { for(i=       q1;    i&lt;=q3;  i++)  l[i]= opt["onC"]; }
      l[round(median)] = opt["medianC"]
-     for(i= -1*width; i&lt;=width; i++) str = str l[round(i)];
+     for(i=1; i&lt;=width; i++) str = str l[i];
      return str
+ }
+ function q100(x,min,r,width) {
+     return round((x - min)/r * width)
  }
 </pre>
 <a name="4"></a><h2>Author</h2>
