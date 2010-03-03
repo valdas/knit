@@ -1,31 +1,20 @@
-# -*- mode: Awk; -*-  vim: set filetype=awk : 
-#
-# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
-# tim@menzies.us.
-#
-# KNIT is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# KNIT is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+<h1>The following document is some ideas for how to implement Python into the site.</h1>
 
-The following document is some ideas for how to implement Python into the site.
-
+<ul>
+<li> <a href="#1">Example 1: Priority Queue</a>
+<li> <a href="#2">Example 2: Binary Search Tree with Limited Functionality</a>
+<li> <a href="#3">Notes</a>
+<li> <a href="#4">Author</a>
+</ul>
+<p>
 This document is for personal reference and notes..
 Some Key Points for Python Syntax
 ================================
-
-Example 1: Priority Queue
-=========================
-
+</p>
+<a name="1"></a><h2>Example 1: Priority Queue</h2>
+<pre>
 	class priority_queue:
+
 
 	#__init__() to initialize the priority queue to empty
 	#.enqueue(v, p) to add an element with value v and priority p
@@ -36,34 +25,38 @@ Example 1: Priority Queue
 	#.abandon(n) to get rid of the n lowest-priority elements from the back of the queue
 	#.interval() to return the interval of priorities as a tuple of the form (low, high)
 
+
 		def __init__(self):
 			self.size = 0
 			self.q = []
 
+
 		def rotate(self, n):
-			if (n > self.size-1) | (n < 1):
+			if (n > self.size-1) | (n &lt; 1):
 				print 'Invalid value input. Please give a value of between 1 and ' + str(self.size-1)
 			else:
 				p = self.q[self.size-1][1]
 				for i in range(n):
 					self.q = self.q[1:] + [( self.q[0][0],p)]
 
+
 		def enqueue(self, v, p):
 			low = 0        
 			high = self.size
 			while high > low:
 				mid = (low+high)/2
-				if p < self.q[mid][1]: high = mid
+				if p &lt; self.q[mid][1]: high = mid
 				else: low = mid+1
 			self.q= self.q[:low] + [(v,p)] + self.q[low:]
 			self.size+=1
+
 
 		def Enqueue(self, V, p):
 			low = 0        
 			high = self.size
 			while high > low:
 				mid = (low+high)/2
-				if p < self.q[mid][1]: high = mid
+				if p &lt; self.q[mid][1]: high = mid
 				else: low = mid+1
 			for x in range(len(V)):
 				self.enqueue(V[x],p)
@@ -97,10 +90,9 @@ Example 1: Priority Queue
 			
 		def disp(self):
 			return self.q
-
-Example 2: Binary Search Tree with Limited Functionality
-========================================================
-
+</pre>
+<a name="2"></a><h2>Example 2: Binary Search Tree with Limited Functionality</h2>
+<pre>
 	class bst:
 		def __init__(self, value):
 			self.left = None
@@ -108,13 +100,14 @@ Example 2: Binary Search Tree with Limited Functionality
 			self.value = None
 			self.insert(value)
 
+
 		def insert(self, value):
 			try:
 				for v in value:
 					self.insert(v)
 			except:
 				if self.value is not None:
-					if value <= self.value:
+					if value &lt;= self.value:
 						if self.left is not None:
 							self.left.insert(value)
 						else:
@@ -127,6 +120,7 @@ Example 2: Binary Search Tree with Limited Functionality
 				else:
 					self.value = value
 
+
 		def find_matches(self, value):
 			results = []
 			if self.value == value:
@@ -137,6 +131,7 @@ Example 2: Binary Search Tree with Limited Functionality
 				results += self.right.find_matches(value)
 			return results
 
+
 		def lnr(self):
 			if self.left and self.right:
 				return self.left.lnr() + [self.value] + self.right.lnr()
@@ -146,6 +141,7 @@ Example 2: Binary Search Tree with Limited Functionality
 				return [self.value] + self.right.lnr()
 			else:
 				return [self.value]
+
 
 		def nodes(self):
 			return len(self.lnr())	
@@ -162,18 +158,19 @@ Example 2: Binary Search Tree with Limited Functionality
 			
 			if right > left: return right
 			else: return left
+</pre>
+<a name="3"></a><h2>Notes</h2>
 
+<ul>
+<li> No brackets; only colons
+<ul>
+<li> indentation matters; denotes what a loop/class/function performs
+</ul>
+<li> _<em>init</em>_ is a function that needs to be included in each class (as far as I know)
+<li> functions start with def
+<li> More to come..
+</ul>
 
-Notes
-=====
-
-+ No brackets; only colons
-	+ indentation matters; denotes what a loop/class/function performs
-+ __init__ is a function that needs to be included in each class (as far as I know)
-+ functions start with def
-+ More to come..
-
-Author
-======
-
+<a name="4"></a><h2>Author</h2>
+<p>
 Zach Cowell
