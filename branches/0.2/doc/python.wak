@@ -16,30 +16,25 @@
 # You should have received a copy of the GNU General Public License
 # along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
 
-The following document is some ideas for how to implement Python into the site.
+Python
 
-This document is for personal reference and notes..
-Some Key Points for Python Syntax
-================================
+About this document
+===================
+
+This is a starting point for me to begin integrating Python into Knit. The code examples found on this page is for reference only.
 
 Example 1: Priority Queue
 =========================
 
+The following code implements a priority queue. A priority queue is an abstract data type that supports adding elements into a queue with an associated priority.
+
+init() to initialize the priority queue to empty	
 	class priority_queue:
-
-	#__init__() to initialize the priority queue to empty
-	#.enqueue(v, p) to add an element with value v and priority p
-	#.Enqueue(V, p) to enqueue all of the elements in the list V in order, all with priority p
-	#.dequeue() to return the value of the front element and remove it
-	#.peek() to return the value of the front element without removing it
-	#.rotate(n) to force the front element to the back of the list, changing its priority minimally; 	do that n times, where n must be between one and the size of the queue minus one.
-	#.abandon(n) to get rid of the n lowest-priority elements from the back of the queue
-	#.interval() to return the interval of priorities as a tuple of the form (low, high)
-
 		def __init__(self):
 			self.size = 0
 			self.q = []
 
+.rotate(n) to force the front element to the back of the list, changing its priority minimally; 	do that n times, where n must be between one and the size of the queue minus one
 		def rotate(self, n):
 			if (n > self.size-1) | (n < 1):
 				print 'Invalid value input. Please give a value of between 1 and ' + str(self.size-1)
@@ -48,6 +43,7 @@ Example 1: Priority Queue
 				for i in range(n):
 					self.q = self.q[1:] + [( self.q[0][0],p)]
 
+.enqueue(v, p) to add an element with value v and priority p
 		def enqueue(self, v, p):
 			low = 0        
 			high = self.size
@@ -58,6 +54,7 @@ Example 1: Priority Queue
 			self.q= self.q[:low] + [(v,p)] + self.q[low:]
 			self.size+=1
 
+.Enqueue(V, p) to enqueue all of the elements in the list V in order, all with priority p
 		def Enqueue(self, V, p):
 			low = 0        
 			high = self.size
@@ -67,22 +64,24 @@ Example 1: Priority Queue
 				else: low = mid+1
 			for x in range(len(V)):
 				self.enqueue(V[x],p)
-			
+.interval() to return the interval of priorities as a tuple of the form (low, high)			
 		def interval(self):
 			low = self.q[0][1]
 			high = self.q[self.size-1][1]
 			toopers = (low,high)
 			
 			return toopers
+
+.abandon(n) to get rid of the n lowest-priority elements from the back of the queue
 			
 		def abandon(self,n):
-			
 			if (n > self.size):
 				print 'Error: Specified value is too high, please choose a number that is not larger than size' + str(self.size)
 			else:
 				self.q = self.q[n:]
 				self.size-=n
-			
+
+.dequeue() to return the value of the front element and remove it			
 		def dequeue(self):
 			if self.size == 0:
 				return None
@@ -91,7 +90,8 @@ Example 1: Priority Queue
 				temp = self.q[0]
 				self.q= self.q[1:]
 				return temp
-			
+
+.peek() to return the value of the front element without removing it			
 		def peek(self):
 			return self.q[0]
 			
