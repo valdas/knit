@@ -72,3 +72,4 @@ imarthur.html	;Who; Arthur	; Jan	; 2010				; I'm Arthur
 imzach.html	;Who; Zach	; Feb	; 2010				; I'm Zach
 imcasey.html	;Who; Casey	; Feb	; 2010				; I'm Casey
 imtim.html  ;Who; Timm ;Feb;2010        ;I'm Tim
+python.html	;Scripting; Zach ; Mar	; 2010;				; Python
