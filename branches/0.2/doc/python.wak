@@ -21,7 +21,7 @@ Python
 About this document
 ===================
 
-This is a starting point for me to begin integrating Python into Knit. The code examples found on this page is for reference only.
+This is a starting point for me to begin integrating Python into Knit. The code examples found on this page are for reference only.
 
 Example 1: Priority Queue
 =========================
@@ -99,6 +99,8 @@ The following code implements a priority queue. A priority queue is an abstract 
 
 Example 2: Binary Search Tree with Limited Functionality
 ========================================================
+
+This is an implementation of a Binary Search Tree. 
 
 	class bst:
 		def __init__(self, value):
