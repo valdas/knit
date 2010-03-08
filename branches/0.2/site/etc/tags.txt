@@ -76,3 +76,4 @@ python.html	;Scripting; Zach ; Mar	; 2010;				; Python
 imben.html	;Who; Ben	; Mar	; 2010				; I'm Ben
 
 test.html	;Text;	Casey	; Mar	; 2010			; Text Test
+txt.html	;Text;	Casey	; Mar	; 2010			; Text
