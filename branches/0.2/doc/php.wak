@@ -25,21 +25,19 @@ On this page you will see some example applications of php(with html)
 
 A Bubble Sort of an Array of size 6
 ===================================
-        <?php //$nums = array($_POST["in01"], $_POST["in02"], $_POST["in03"], $$
+
+This is an example of a bubble sort. The user inputs six numbers into an array, the program prints the array before the sort, and prints the array after the sort.
+        <?php
 
         function printArray($nums, $max)
         {
                 $count=0;
                 while ($count <= $max)
                 {
-
                         echo $nums[$count] . " ";
                         $count++;
-
                 }
         }
-
-
         function swp($nums, $count)
         {
                 $hold=$nums[$count];
@@ -47,17 +45,13 @@ A Bubble Sort of an Array of size 6
                 $nums[$count+1] = $hold;
                 return $nums;
         }
-
         function sortArray($nums, $max)
         {
                 $swap=1;
-
                 while ($swap==1)
                 {
                         $count=0;
-
                         $swap=0;
-
                         while ($count<$max)
                         {
                                 if($nums[$count]>$nums[$count+1])
@@ -65,14 +59,14 @@ A Bubble Sort of an Array of size 6
                                         $nums = swp($nums, $count);
                                         $swap=1;
                                 }
-                $count++;
+	                $count++;
                         }
 
                 }
         return $nums;
 
         }
-
+	//$nums = array($_POST["in01"], $_POST["in02"], $_POST["in03"], $_post[$_POST["in04"], $_POST["in05"], $_POST["in06"]);
         $nums[0] = $_POST["in01"];
         $nums[1] = $_POST["in02"];
         $nums[2] = $_POST["in03"];
