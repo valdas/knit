@@ -1,0 +1,91 @@
+<h1>PHP</h1>
+
+<ul>
+<li> <a href="#1">About this document</a>
+<li> <a href="#2">A Bubble Sort of an Array of size 6</a>
+<li> <a href="#3">The html form for the above bubble sort</a>
+</ul>
+
+<a name="1"></a><h2>About this document</h2>
+<p>
+On this page you will see some example applications of php(with html)
+</p>
+<a name="2"></a><h2>A Bubble Sort of an Array of size 6</h2>
+<pre>
+        function printArray($nums, $max)
+        {
+                $count=0;
+                while ($count &lt;= $max)
+                {
+
+
+                        echo $nums[$count] . " ";
+                        $count++;
+
+
+                }
+        }
+
+
+        function swp($nums, $count)
+        {
+                $hold=$nums[$count];
+                $nums[$count] = $nums[$count+1];
+                $nums[$count+1] = $hold;
+                return $nums;
+        }
+
+
+        function sortArray($nums, $max)
+        {
+                $swap=1;
+
+
+                while ($swap==1)
+                {
+                        $count=0;
+
+
+                        $swap=0;
+
+
+                        while ($count&lt;$max)
+                        {
+                                if($nums[$count]>$nums[$count+1])
+                                {
+                                        $nums = swp($nums, $count);
+                                        $swap=1;
+                                }
+                $count++;
+                        }
+
+
+                }
+        return $nums;
+
+
+        }
+
+
+        $nums[0] = $_POST["in01"];
+        $nums[1] = $_POST["in02"];
+        $nums[2] = $_POST["in03"];
+        $nums[3] = $_POST["in04"];
+        $nums[4] = $_POST["in05"];
+        $nums[5] = $_POST["in06"];
+        $max=5;
+
+
+        echo "the unsorted array is ";
+         printArray($nums, $max);
+
+
+        echo "&lt;br>";
+        $sorted=sortArray($nums, $max);
+
+
+        echo "the sorted array is ";
+        printArray($sorted, $max);
+        ?>
+</pre>
+<a name="3"></a><h2>The html form for the above bubble sort</h2>
