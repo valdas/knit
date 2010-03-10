@@ -1,0 +1,67 @@
+<h1>Java</h1>
+
+<ul>
+<li> <a href="#1">About this document</a>
+<li> <a href="#2">Why use the Java Scripting</a>
+<li> <a href="#3">Code Example 1: Running a script</a>
+<li> <a href="#4">Code Example 2: Hello World</a>
+<li> <a href="#5">Code Example 3: Creating a template of an object</a>
+<li> <a href="#6">Author</a>
+</ul>
+
+<a name="1"></a><h2>About this document</h2>
+<p>
+This document focuses on the specification's and is a step in the process of embedding java into the knit environment. 
+</p>
+<a name="2"></a><h2>Why use the Java Scripting</h2>
+<p>
+Scripting languages are dynamically typed. This means that its possible to create, store and ruse variables without predetermining the variable type.
+</p>
+<p>
+Also, combining java scripting with other scripting languages provides developers an opportunity to leverage their abilities in all these languages. 
+</p>
+<p>
+Finally, applications can be build much faster using java scripting. Commands can be executed repeatedly without a clog on CPU resources.
+</p>
+<a name="3"></a><h2>Code Example 1: Running a script</h2>
+<pre>
+ 	try {
+	jsEngine.eval("print('Hello, world!')");
+	} catch (ScriptException ex) {
+	ex.printStackTrace();
+	}    
+</pre>
+<a name="4"></a><h2>Code Example 2: Hello World</h2>
+<pre>
+	import javax.script.*;
+	public class EvalScript {
+	    public static void main(String[] args) throws Exception {
+	        // create a script engine manager
+	        ScriptEngineManager factory = new ScriptEngineManager();
+	        // create a JavaScript engine
+	        ScriptEngine engine = factory.getEngineByName("JavaScript");
+	        // evaluate JavaScript code from String
+	        engine.eval("print('Hello, World')");
+	    }
+	}
+</pre>
+<a name="5"></a><h2>Code Example 3: Creating a template of an object</h2>
+<pre>
+	function person(firstname,lastname,age,eyecolor)
+	{
+	this.firstname=firstname;
+	this.lastname=lastname;
+	this.age=age;
+	this.eyecolor=eyecolor;
+	}
+
+
+	myFather=new person("John","Doe",50,"blue");
+
+
+	document.write(myFather.firstname + " is " + myFather.age + " years 	old.");
+	&lt;/script>
+</pre>
+<a name="6"></a><h2>Author</h2>
+<p>
+Arthur Otieno
