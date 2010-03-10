@@ -87,8 +87,11 @@ This is an example of a bubble sort. The user inputs six numbers into an array, 
         printArray($sorted, $max);
         ?>
 
+Below is an example of the below code:
+
 The html form for the above bubble sort
 =======================================
+
         <html>
         <body>
         <form action="sort.php" method="post">
