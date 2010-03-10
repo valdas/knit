@@ -1,0 +1,82 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Java
+
+About this document
+===================
+
+This document focuses on the specification's and is a step in the process of embedding java into the knit environment. 
+
+Why use the Java Scripting
+==========================
+
+Scripting languages are dynamically typed. This means that its possible to create, store and ruse variables without predetermining the variable type.
+
+Also, combining java scripting with other scripting languages provides developers an opportunity to leverage their abilities in all these languages. 
+
+Finally, applications can be build much faster using java scripting. Commands can be executed repeatedly without a clog on CPU resources.
+
+
+Code Example 1: Running a script
+================================
+
+ 	try {
+	jsEngine.eval("print('Hello, world!')");
+	} catch (ScriptException ex) {
+	ex.printStackTrace();
+	}    
+
+
+Code Example 2: Hello World
+============================
+
+	import javax.script.*;
+	public class EvalScript {
+	    public static void main(String[] args) throws Exception {
+	        // create a script engine manager
+	        ScriptEngineManager factory = new ScriptEngineManager();
+	        // create a JavaScript engine
+	        ScriptEngine engine = factory.getEngineByName("JavaScript");
+	        // evaluate JavaScript code from String
+	        engine.eval("print('Hello, World')");
+	    }
+	}
+
+
+Code Example 3: Creating a template of an object
+================================================
+
+	function person(firstname,lastname,age,eyecolor)
+	{
+	this.firstname=firstname;
+	this.lastname=lastname;
+	this.age=age;
+	this.eyecolor=eyecolor;
+	}
+
+	myFather=new person("John","Doe",50,"blue");
+
+	document.write(myFather.firstname + " is " + myFather.age + " years 	old.");
+	</script>
+
+
+Author
+======
+
+Arthur Otieno
