@@ -77,7 +77,7 @@ python.html	;Scripting; Zach ; Mar	; 2010;				; Python
 imben.html	;Who; Ben	; Mar	; 2010				; I'm Ben
 php.html	;Scripting; Ben	;Mar	; 2010				; Php
 php01.html	;Scripting; Ben ;Mar	; 2010				; Php example
-sort.html	;Scripting; Ben ;Mar	; 2010				; Php example sort
+sort.php	;Scripting; Ben ;Mar	; 2010				; Php example sort
 
 test.html	;Text;	Casey	; Mar	; 2010			; Text Test
 txt.html	;Text;	Casey	; Mar	; 2010			; Text
