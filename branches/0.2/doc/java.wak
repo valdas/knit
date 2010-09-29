@@ -79,93 +79,93 @@ Code Example 3: Creating a template of an object
 
 Code Example 4: Stack
 ================================================
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+	import java.util.Iterator;
+	import java.util.NoSuchElementException;
 
-public class Stack<Item> implements Iterable<Item> {
-    private int N;          // size
-    private Node first;     // top
+	public class Stack<Item> implements Iterable<Item> {
+	    private int N;          // size
+	    private Node first;     // top
 
-    // helper linked list class
-    private class Node {
-        private Item item;
-        private Node next;
-    }
+	    // helper linked list class
+	    private class Node {
+	        private Item item;
+	        private Node next;
+	    }
 
-    // create empty stack
-    public Stack() {
-        first = null;
-        N = 0;
-    }
+	    // create empty stack
+	    public Stack() {
+	        first = null;
+	        N = 0;
+	    }
+	
+	    public boolean isEmpty() { return first == null; }
+	    public int size()        { return N;             }
+	
 
-    public boolean isEmpty() { return first == null; }
-    public int size()        { return N;             }
-
-
-    // recently added item
-    public Item peek() {
-        return first.item;
-    }
-
-
-    // add to stack
-    public void push(Item item) {
-        Node oldfirst = first;
-        first = new Node();
-        first.item = item;
-        first.next = oldfirst;
-        N++;
-    }
-
-    // delete and return recently added
-    public Item pop() {
-        if (isEmpty()) throw new RuntimeException("Stack underflow");
-        Item item = first.item;        // save 
-        first = first.next;            // delete 
-        N--;
-        return item;                   // return 
-    }
-
-    // string representation 
-    public String toString() {
-        String s = "";
-        for (Node x = first; x != null; x = x.next) {
-            s += x.item + ", ";
-        }
-        return "[ " + s + "]";
-    }
+	    // recently added item
+	    public Item peek() {
+	        return first.item;
+	    }
 
 
-    public Iterator<Item> iterator()  { return new StackIterator();  }
+	    // add to stack
+	    public void push(Item item) {
+	        Node oldfirst = first;
+	        first = new Node();
+	        first.item = item;
+	        first.next = oldfirst;
+	        N++;
+	    }
 
-    // an iterator
-    private class StackIterator implements Iterator<Item> {
-        private Node current = first;
-        public boolean hasNext()  { return current != null;                     }
-        public void remove()      { throw new UnsupportedOperationException();  }
+	    // delete and return recently added
+	    public Item pop() {
+	        if (isEmpty()) throw new RuntimeException("Stack underflow");
+	        Item item = first.item;        // save 
+	        first = first.next;            // delete 
+	        N--;
+	        return item;                   // return 
+	    }
 
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            Item item = current.item;
-            current = current.next; 
-            return item;
-        }
- }
+	    // string representation 
+	    public String toString() {
+	        String s = "";
+	        for (Node x = first; x != null; x = x.next) {
+	            s += x.item + ", ";
+	        }
+	        return "[ " + s + "]";
+	    }
 
-    public static void main(String[] args) {
 
-        Stack<String> s1 = new Stack<String>();
-        s1.push("January");
-        s1.push("February");
-        s1.push("March");
-        System.out.println(s1.pop());
-        s1.push("April");
-        System.out.println(s1.pop());
-        s1.push("May B");
-        while (!s1.isEmpty()) {
-            System.out.println(s1.pop());
-        }
-}}
+	    public Iterator<Item> iterator()  { return new StackIterator();  }
+
+	    // an iterator
+	    private class StackIterator implements Iterator<Item> {
+	        private Node current = first;
+	        public boolean hasNext()  { return current != null;                     }
+	        public void remove()      { throw new UnsupportedOperationException();  }
+
+	        public Item next() {
+	            if (!hasNext()) throw new NoSuchElementException();
+	            Item item = current.item;
+	            current = current.next; 
+	            return item;
+	        }
+	 }
+
+	    public static void main(String[] args) {
+
+	        Stack<String> s1 = new Stack<String>();
+	        s1.push("January");
+	        s1.push("February");
+	        s1.push("March");
+	        System.out.println(s1.pop());
+	        s1.push("April");
+	        System.out.println(s1.pop());
+	        s1.push("May B");
+	        while (!s1.isEmpty()) {
+	            System.out.println(s1.pop());
+	        }
+	}}
 
 Code Example 5: Stack
 ================================================
