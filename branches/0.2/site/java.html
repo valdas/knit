@@ -66,6 +66,10 @@ Finally, applications can be build much faster using java scripting. Commands ca
 </pre>
 <a name="6"></a><h2>Code Example 4: Stack</h2>
 <pre>
+	import java.util.Iterator;
+	import java.util.NoSuchElementException;
+
+
 	public class Stack&lt;Item> implements Iterable&lt;Item> {
 	    private int N;          // size
 	    private Node first;     // top

@@ -79,6 +79,7 @@ Code Example 3: Creating a template of an object
 
 Code Example 4: Stack
 ================================================
+
 	import java.util.Iterator;
 	import java.util.NoSuchElementException;
 
