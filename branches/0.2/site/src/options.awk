@@ -64,22 +64,22 @@
  }
  function ok2go1(opt,input,n,  key,i,j,k,tmp) {
      for(i=1;i<=n;i++)  { # 1: explore argstill no more flags
-	 	key = input[i]
+	 key = input[i]
 	 if (sub(/^[-]+/,"",key))  { # 1a: we have a new flag
 	     if (key in opt)         # 1b: if legal flag, change its value
 		 	# 1c: if upper case flag grab value from command line 
-		 	opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
+		 opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
 	     else 
-			barph("-"key" unknown. Try -h for help.")
+		 barph("-"key" unknown. Try -h for help.")
 	 } else { 
-			i--; break 
-		}
+	     i--; break 
+	 }
      }
      for(j=i+1;j<=n;j++)  # 2: clear the flags from n, input 
-	 	tmp[j-i]=input[j]
+	 tmp[j-i]=input[j]
      split("",input,"")
      for(k in tmp) 
-	 	input[k] = tmp[k]
+	 input[k] = tmp[k]
      n -= i
      return n
  }
