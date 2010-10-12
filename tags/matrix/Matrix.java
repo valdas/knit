@@ -46,7 +46,7 @@ public class Matrix {
           System.out.println("Please enter element "+i+"," +j + " of the second matrix."); 
           board2[i][j] = in.nextInt();
         }}   
-  System.out.println();p.println("The added result of these two matrices are :");
+  System.out.println();
     for (int i = 0; i < ROWS; i++){
       p.println();
         for (int j = 0; j < COLUMNS; j++){
