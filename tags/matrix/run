@@ -1,19 +1,9 @@
 #!/bin/sh
 
 javac Matrix.java
-java -classpath . Matrix
+cat $1.in | java -classpath . Matrix 
 
-read 2
-read 1
-read 1
-read 1
-read 1
-read 0
-read 0
-read 0
-read 0
-
-if diff myfile.txt testfile1 >/dev/null ; then
+if diff myfile.txt $1.out  >/dev/null ; then
 	echo Test 1 PASSES
 else 
 	echo Test 2 FAILS
