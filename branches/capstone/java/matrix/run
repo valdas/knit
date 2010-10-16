@@ -1,0 +1,10 @@
+#!/bin/sh
+
+javac Matrix.java
+cat $1.in | java -classpath . Matrix 
+
+if diff outfile $1.out  >/dev/null ; then
+	echo Test $1 PASSES
+else 
+	echo Test $1 FAILS
+fi
