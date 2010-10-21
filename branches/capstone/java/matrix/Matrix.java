@@ -19,7 +19,7 @@ public class Matrix {
                 {
                         // Create a new file output stream
                         // connected to "myfile.txt"
-                        out = new FileOutputStream("outfile");
+                        out = new FileOutputStream("tests/tmp/outfile");
                         // Connect print stream to the output stream
                         p = new PrintStream( out );
    int[][] board,board2;
