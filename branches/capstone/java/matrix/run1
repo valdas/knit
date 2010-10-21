@@ -1,0 +1,50 @@
+#!/bin/sh
+
+
+PROJNAME="Matrix"
+FILE="tests/reports/report"
+PROJOUT="tests/tmp/outfile"
+
+Language=$1
+shift
+Todo=$*
+
+. ${Language}.sh 
+
+for i in $Todo
+do
+	one $i
+done
+
+one() {
+if diff $PROJOUT tests/$1.out  >/dev/null ; then
+	echo Test $1 PASSES
+	result="PASSED"
+else
+	echo Test $1 FAILS
+	result="FAILED"
+fi
+}
+
+#This is a HTML implementation of exporting data to a HTML table; It's messy so I'm going to try another route
+#echo $PROJNAME $1 $(date) $(whoami) $result | awk 'BEGIN{print("<table>")}{print("<tr><td>",$1,"</td><td>",$2,"</td><td>",$3,"",$4,"",$5,"", $6,"", $7,"" $8,"</td><td>",$9,"</td><td>",$10,"</td></tr>")}END{print("</table>")}' >> tests/reports/report.html
+
+if [ ! -e $FILE ]; then
+	touch $FILE
+	echo -e "Project\t\tTest\t\tDate\t\t\t\tRan By\t\tResult" >> $FILE
+	echo -e "======================================================================================" >> $FILE
+fi
+
+echo -e $PROJNAME"\t\t"$1"\t"$(date)"\t"$(whoami)"\t\t"$result >> $FILE
+
+# Cleanup tmp folder, class file
+if [ -e $PROJOUT ]; then
+	rm $PROJOUT
+fi
+
+if [ -e $PROJNAME.class ]; then
+	rm $PROJNAME.class
+fi
+
+# Auto commit the report
+svn commit -m "AUTO COMMIT: Project $PROJNAME Test $1 $result !"
