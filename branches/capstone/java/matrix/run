@@ -28,8 +28,8 @@ fi
 
 echo -e $PROJNAME"\t\t"$1"\t"$(date)"\t"$(whoami)"\t\t"$result >> $FILE
 
-
-
 if [ -e $PROJOUT ]; then
 	rm $PROJOUT
 fi
+
+svn commit -m "AUTO COMMIT: $PROJNAME:$1 $result"
