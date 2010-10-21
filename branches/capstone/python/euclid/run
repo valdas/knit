@@ -1,0 +1,41 @@
+#!/bin/sh
+
+
+PROJNAME="euclid"
+FILE="tests/reports/report"
+PROJOUT="tests/tmp/outfile"
+
+python ${PROJNAME}.py
+cat tests/$1.in | python -classpath . ${PROJNAME}
+
+if diff $PROJOUT tests/$1.out  >/dev/null ; then
+        echo Test $1 PASSES
+        result="PASSED"
+else
+        echo Test $1 FAILS
+        result="FAILED"
+fi
+
+
+#This is a HTML implementation of exporting data to a HTML table; It's messy so I'm going to try another route
+
+if [ ! -e $FILE ]; then
+        touch $FILE
+        echo -e "Project\t\tTest\t\tDate\t\t\t\tRan By\t\tResult" >> $FILE
+        echo -e "======================================================================================" >> $FILE
+fi
+
+echo -e $PROJNAME"\t\t"$1"\t"$(date)"\t"$(whoami)"\t\t"$result >> $FILE
+
+# Cleanup tmp folder, class file
+if [ -e $PROJOUT ]; then
+        rm $PROJOUT
+fi
+
+if [ -e $PROJNAME.class ]; then
+        rm $PROJNAME.class
+fi
+
+# Auto commit the report
+svn commit -m "AUTO COMMIT: Project $PROJNAME Test $1 $result !"
+
