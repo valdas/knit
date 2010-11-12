@@ -1,0 +1,63 @@
+<ul>
+</ul>
+
+<pre>
+        <?php
+
+        function printArray($nums, $max)
+        {
+                $count=0;
+                while ($count <= $max)
+                {
+                        echo $nums[$count] . " ";
+                        $count++;
+                }
+        }
+        function swp($nums, $count)
+        {
+                $hold=$nums[$count];
+                $nums[$count] = $nums[$count+1];
+                $nums[$count+1] = $hold;
+                return $nums;
+        }
+        function sortArray($nums, $max)
+        {
+                $swap=1;
+                while ($swap==1)
+                {
+                        $count=0;
+                        $swap=0;
+                        while ($count<$max)
+                        {
+                                if($nums[$count]>$nums[$count+1])
+                                {
+                                        $nums = swp($nums, $count);
+                                        $swap=1;
+                                }
+	                $count++;
+                        }
+
+                }
+        return $nums;
+
+        }
+	//$nums = array($_POST["in01"], $_POST["in02"], $_POST["in03"], $_post[$_POST["in04"], $_POST["in05"], $_POST["in06"]);
+        $nums[0] = $_POST["in01"];
+        $nums[1] = $_POST["in02"];
+        $nums[2] = $_POST["in03"];
+        $nums[3] = $_POST["in04"];
+        $nums[4] = $_POST["in05"];
+        $nums[5] = $_POST["in06"];
+        $max=5;
+
+        echo "the unsorted array is ";
+         printArray($nums, $max);
+
+
+        echo "<br>";
+        $sorted=sortArray($nums, $max);
+
+
+        echo "the sorted array is ";
+        printArray($sorted, $max);
+        ?></pre>
