@@ -16,7 +16,7 @@ public class Palindrome{
   
     pally = pally.trim();
     pally = pally.toLowerCase();
-    pally = pall.superTrim;
+    pally = pally.superTrim;
     
     
     
