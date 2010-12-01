@@ -3,10 +3,9 @@
 
 PROJNAME="euclid"
 FILE="tests/reports/report"
-PROJOUT="tests/tmp/outfile"
+PROJOUT="tests/tmp/test1.out"
 
 python ${PROJNAME}.py
-cat tests/$1.in | python -classpath . ${PROJNAME}
 
 if diff $PROJOUT tests/$1.out  >/dev/null ; then
         echo Test $1 PASSES
