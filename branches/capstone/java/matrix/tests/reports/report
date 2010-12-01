@@ -13,3 +13,4 @@ Matrix		testfile1	Thu Oct 21 03:01:18 EDT 2010	zcowell		PASSED
 Matrix		thisfails	Thu Oct 21 04:13:04 EDT 2010	zcowell		FAILED
 Matrix		testfile1	Thu Oct 21 08:01:43 EDT 2010	zcowell		PASSED
 Matrix		testfile1	Wed Dec 1 15:03:51 EST 2010	zcowell		PASSED
+Matrix		thisfails	Wed Dec 1 15:04:03 EST 2010	zcowell		FAILED
