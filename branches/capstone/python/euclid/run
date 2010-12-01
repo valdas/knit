@@ -3,7 +3,7 @@
 
 PROJNAME="euclid"
 FILE="tests/reports/report"
-PROJOUT="tests/tmp/test1.out"
+PROJOUT="tests/tmp/outfile"
 
 python ${PROJNAME}.py
 
