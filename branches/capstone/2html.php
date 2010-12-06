@@ -17,12 +17,18 @@ function w2File($new, $line, $outCont, $old, $hCount, $q)
 		if ($new==3)
 			fwrite($outCont,"<a name=".$q.(string)$hCount.$q."></a><h2>");
 		if ($new==4)
+			{
 			fwrite($outCont,"<li>");
+			$line=substr($line,1);
+			}
 	}
 	else//if ($new==$old)
 	{
 		if ($new==4)
+		{
 			fwrite($outCont,"<li>");
+			$line=substr($line,1);
+		}
 	}
 	fwrite($outCont,$line);
 	if ($new==3)
