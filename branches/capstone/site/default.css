@@ -1,0 +1,152 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #5C915C;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0px;
+}
+
+body, th, td, input, textarea, select {
+	font-family: "Trebuchet MS", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #8B8B8B;
+}
+
+p, blockquote, ul, ol, dl {
+	margin-top: 0px;
+	margin-bottom: 1em;
+	text-align: justify;
+}
+
+.text1 {
+	letter-spacing: -4px;
+	padding-left: 20px;
+	font-size: 32px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #315931;
+}
+
+.text2 {
+	background: url(images/img4.gif) no-repeat left 60%;
+	padding-left: 15px;
+	letter-spacing: -2px;
+	font-size: 24px;
+	color: #579A64;
+}
+
+.text3 {
+	padding-bottom: 5px;
+	padding-left: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: 9px;
+	color: #8B8B8B;
+}
+
+.text4 {
+	font-weight: bold;
+	color: #1EA969;
+}
+
+.text5 {
+	text-align: center;
+	font-size: 10px;
+	color: #66AB6A;
+}
+
+.text6 {
+	padding-bottom: 5px;
+	padding-left: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: 9px;
+	color: #8B8B8B;
+}
+
+a {
+	color: #1EA969;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.link1{
+	background: url(images/img12.gif) no-repeat left 85%;
+	padding-top: 15px;
+	padding-left: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 11px;
+	color: #315931;
+}
+
+.style1 {
+}
+
+.style1 a {
+}
+
+.style1 a:hover {
+}
+
+.bg1 {
+	background-color: #FFFFFF;
+}
+
+
+.bg2 {
+	background: url(images/img7.jpg) repeat-y left top;
+}
+
+.bg3 {
+	background: url(images/img5.gif) repeat-x left top;
+}
+
+.bg4 {
+	background: url(images/img3.jpg) no-repeat left top;
+	height: 71px;
+}
+
+.bg5 {
+	background: url(images/img1.jpg) no-repeat left top;
+	height: 62px;
+}
+
+.bg6 {
+	background: url(images/img2.jpg) no-repeat left top;
+	height: 260px;
+}
+
+.align-justify { text-align: justify; }
+.align-right { text-align: right; }
+
+img { border: none; }
+
+.img1 {
+	float: left;
+	margin: 3px 15px 0px 0px;
+}
+
+.img2 {
+	float: right;
+	margin: 3px 0px 0px 15px;
+}
+
+hr { display: none; }
+
+.hr1 {
+	height: 1px;
+}
+

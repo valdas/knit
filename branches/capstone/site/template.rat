@@ -1,0 +1,42 @@
+$NOCRLF=0
+$NAME=Basic HTML Page
+$FILEEXT=htm
+$DATEFORMAT=dd/mm/yyyy
+$TIMEFORMAT=hh:mm:ss
+<HTML>
+    <HEAD>
+        <TITLE>
+            %FeedTitle%
+        </TITLE>
+    </HEAD>
+    <BODY>
+<!-- ExtraLabs Software: http://www.extralabs.net -->
+
+        <A href="%FeedLink%"><H1>%FeedTitle%</H1></A>
+	%ImageItem%<br>
+        %FeedDescription%<br><br>
+        <TABLE width="100%">
+            %BeginItemsRecord%
+            <TR>
+                <TD>
+                    %ItemPubTime%
+		<BR>
+                </TD>
+            </TR>
+            <TR>
+                <TD>
+                    <B><A href="%ItemLink%">%ItemTitle%</A></B>
+                </TD>
+            </TR>
+            <TR>
+                <TD><BR>
+                    %ItemDescription%
+                    <BR>
+			<BR>
+                </TD>
+            </TR>
+            %EndItemsRecord%
+        </TABLE>
+
+    </BODY>
+</HTML>
