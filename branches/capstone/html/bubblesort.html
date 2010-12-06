@@ -7,9 +7,7 @@
 
 <pre>
         <?php
-</pre>
 
-<pre>
         function printArray($nums, $max)
         {
                 $count=0;
@@ -42,14 +40,10 @@
                                 }
 	                $count++;
                         }
-</pre>
 
-<pre>
                 }
         return $nums;
-</pre>
 
-<pre>
         }
 	//$nums = array($_POST["in01"], $_POST["in02"], $_POST["in03"], $_post[$_POST["in04"], $_POST["in05"], $_POST["in06"]);
         $nums[0] = $_POST["in01"];
@@ -59,21 +53,15 @@
         $nums[4] = $_POST["in05"];
         $nums[5] = $_POST["in06"];
         $max=5;
-</pre>
 
-<pre>
         echo "the unsorted array is ";
          printArray($nums, $max);
-</pre>
 
 
-<pre>
         echo "<br>";
         $sorted=sortArray($nums, $max);
-</pre>
 
 
-<pre>
         echo "the sorted array is ";
         printArray($sorted, $max);
         ?></pre>

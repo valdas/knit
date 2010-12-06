@@ -88,10 +88,8 @@ for($c=2; $c<=$lineNum; $c++)
                 $mode=4;
 	else if ($lLine[0]==$space || substr($lLine,0,1)==$tab)
 		$mode=2;
-	else if (strlen($lLine)>1)
+	else if (strlen($lLine)>0)
 		$mode=1;
-	else //if (Strlen($lLine)<1)
-		$mode=5;
 	if ($lLine[0]!=$header)
 		$old=w2file($mode, $lLine, $outCont,$old, $hCount, $q);
 }
