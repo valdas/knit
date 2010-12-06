@@ -1,6 +1,5 @@
 
 <?php
-
 function w2File($new, $line, $outCont, $old, $hCount, $q)
 {
 	if ($new!=$old)
@@ -9,12 +8,21 @@ function w2File($new, $line, $outCont, $old, $hCount, $q)
 			fwrite($outCont,"</p>\n");
 		if ($old==2)
 			fwrite($outCont,"</pre>\n");
+		if ($old==4)
+			fwrite($outCont,"\n");
 		if ($new==1)
 			fwrite($outCont, "<p>\n");
 		if ($new==2)
 			fwrite($outCont,"<pre>\n");
 		if ($new==3)
 			fwrite($outCont,"<a name=".$q.(string)$hCount.$q."></a><h2>");
+		if ($new==4)
+			fwrite($outCont,"<li>");
+	}
+	else//if ($new==$old)
+	{
+		if ($new==4)
+			fwrite($outCont,"<li>");
 	}
 	fwrite($outCont,$line);
 	if ($new==3)
@@ -25,14 +33,13 @@ function w2File($new, $line, $outCont, $old, $hCount, $q)
 	fwrite($outCont,"\n");
 	$old=$new;
 	return $old;
-	
 }
 
 $q='"';
 $header='=';
 $space=' ';
 $tab="\t";
-
+$list='+';
 $inVar = "convFile";
 $lineNum = count(file($inVar));
 $inCont=fopen($inVar, 'r');
@@ -46,18 +53,15 @@ $hCount=1;
 fwrite($outCont, "<ul>\n");
 for($c=1; $c<=$lineNum; $c++)
 {
-	
 	if ($c>1)
 		$lLine=substr($tLine,0,-1);
 	$tLine=fgets($inCont);
-	
 	if ($tLine[0]==$header)
 	{
 		$write2="<li><a href=".$q."#".(string)$hCount.$q.'>'.$lLine."</a>\n";
 		fwrite($outCont, $write2);
 		$hCount++;
 	}
-	
 }
 fwrite($outCont, "</ul>\n\n");
 
@@ -80,10 +84,14 @@ for($c=2; $c<=$lineNum; $c++)
 		$mode=3;
 		$hCount++;
 	}
+        else if ($lLine[0]==$list)
+                $mode=4;
 	else if ($lLine[0]==$space || substr($lLine,0,1)==$tab)
 		$mode=2;
-	else if (strlen($lLine)>0)
+	else if (strlen($lLine)>1)
 		$mode=1;
+	else //if (Strlen($lLine)<1)
+		$mode=5;
 	if ($lLine[0]!=$header)
 		$old=w2file($mode, $lLine, $outCont,$old, $hCount, $q);
 }
