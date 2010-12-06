@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for file in code/*.ida
+do
+cp $file srcFile
+php 2src.php
+mv rmv `echo $file | sed 's/\(.*\.\)ida/\1/'`
+mv `echo $file | sed 's/\(.*\.\)ida/\1/'` source/
+rm srcFile
+done
