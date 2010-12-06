@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww17360\viewh15120\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs24 \cf0 <?xml version="1.0" encoding="ISO-8859-1" ?>\
+ <rss version="0.91">\
+\
+ <channel>\
+ <title>Smart IDE Demos</title>\
+ <link>http://code.google.com/p/knit/source/browse/branches/capstone/html/</link>\
+ <description>Smart IDE Demos</description>\
+ <language>en-us</language>\
+\
+ <image>\
+ <title>Stephen's Web</title>\
+ <url>/images/rss.gif</url>\
+ <link>http://www.downes.ca</link>\
+ <width>90</width>\
+ <height>36</height>\
+ </image>\
+\
+<item>\
+ <title>Attack Update</title>\
+ <link>http://code.google.com/p/knit/source/browse/branches/capstone/html/</link>\
+ <description>\
+Test Data\
+ </description>\
+ </item>\
+ <item>\
+ <title>Attack on Downes.ca</title>\
+ <link>http://www.downes.ca</link>\
+ <description>\
+ Downes.ca was off the air for a few days\
+following a denial of service attack. We are back for now\
+but things are still touch and go. I'll keep you posted. \
+By Stephen Downes, July 21, 2003\
+ </description>\
+ </item>\
+ </channel>\
+ </rss>\
+}
