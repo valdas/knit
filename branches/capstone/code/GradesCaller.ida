@@ -1,10 +1,9 @@
 java
-/* Zach Cowell - zcowell
+/*Zach Cowell - zcowell
 CS 110 LAB
 Sept 27, 2007
 Brandi Shafer
 Program: GradesCaller.java
-*/
 
  public class GradesCaller {
  private int x;  

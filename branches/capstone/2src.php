@@ -9,8 +9,9 @@ $outCont=fopen($outVar, 'w');
 
 for($c=1; $c<=$lineNum; $c++)
 {
-	if ($lLine[0]==$space || substr($lLine,0,1)==$tab)
-		fwrite($outCont,$tLine);
+	$Line=fgets($inCont);
+	if ($Line[0]==$space || substr($Line,0,1)==$tab)
+		fwrite($outCont,$Line);
 }
 fclose($inCont);
 fclose($outCont);
