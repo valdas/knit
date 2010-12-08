@@ -34,7 +34,7 @@ if [ -e $PROJOUT ]; then
         rm $PROJOUT
 fi
 
-if[ -e $RPOJIN ];
+if[ -e $RPOJIN ]; then
 	rm $PROJIN
 fi
 
