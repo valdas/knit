@@ -1,12 +1,13 @@
+java
 /* Zach Cowell - zcowell
- CS 110 LAB
- Oct 11th
- Brandi Shafer
- Program: GPA.java
+CS 110 LAB
+Oct 11th
+Brandi Shafer
+Program: GPA.java
 */
-import java.util.Scanner;
+ import java.util.Scanner;
 
-public class Gpa{
+ public class Gpa{
   public static void main(String [] args){
     Scanner in = new Scanner(System.in);
     System.out.print("Input your grade values (0-100, negative number terminates): ");
@@ -35,4 +36,4 @@ public class Gpa{
     double gpa = value / i;
     System.out.println("Your GPA is : " +gpa);
   }
-}
+ }
