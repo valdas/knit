@@ -3,7 +3,6 @@
 
 PROJNAME="euclid"
 FILE="tests/reports/report"
-PROJIN="tests/tmp/infile"
 PROJOUT="tests/tmp/outfile"
 
 cp tests/$1 tests/tmp/infile
@@ -32,6 +31,7 @@ echo -e $PROJNAME"\t\t"$1"\t"$(date)"\t"$(whoami)"\t\t"$result >> $FILE
 # Cleanup tmp folder, class file
 if [ -e $PROJOUT ]; then
         rm $PROJOUT
+	rm tests/tmp/infile
 fi
 
 if [ -e $PROJNAME.class ]; then
