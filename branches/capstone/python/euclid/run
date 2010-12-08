@@ -34,6 +34,10 @@ if [ -e $PROJOUT ]; then
         rm $PROJOUT
 fi
 
+if[ -e $RPOJIN ];
+	rm $PROJIN
+fi
+
 if [ -e $PROJNAME.class ]; then
         rm $PROJNAME.class
 fi
