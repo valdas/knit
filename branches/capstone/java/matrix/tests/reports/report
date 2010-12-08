@@ -19,3 +19,4 @@ Matrix		testfile1	Wed Dec 1 16:26:40 EST 2010	zcowell		PASSED
 Matrix		testfile1	Mon Dec 6 12:42:33 EST 2010	ccorder2	PASSED
 Matrix		testfile1	Mon Dec 6 12:58:22 EST 2010	ccorder2	PASSED
 Matrix		thisfails	Mon Dec 6 12:59:26 EST 2010	ccorder2	FAILED
+Matrix			Tue Dec 7 22:30:16 EST 2010	bbutler7		FAILED
