@@ -2,7 +2,7 @@
 
 for file in code/*.ida
 do
-language=$(head -1 $file)|sed 's/\(.*\.\)\r/\1/'
+language=$(head -1 $file)
 cp $file srcFile
 php 2src.php &>/dev/null
 mkdir sourceCD/$language/`basename $file .ida`
