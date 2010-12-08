@@ -3,12 +3,10 @@
 for file in code/*.ida
 do
 language=$(head -1 $file)
-echo $language
 language=$(head -1 $file)|sed 's/\(.*\.\)\r/\1/'
 echo $language
-cp $file srcFile
+mv $file srcFile
 php 2src.php &>/dev/null
 mkdir source/$language/`basename $file .ida`
-echo "made the directory"
-cp rmv source/$language/`basename $file .ida`/`basename $file ida`$language
+mv rmv source/$language/`basename $file .ida`/`basename $file ida`$language
 done
