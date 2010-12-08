@@ -1,5 +1,6 @@
 #!/bin/sh
 
+addingstuff
 
 PROJNAME="Matrix"
 FILE="tests/reports/report"
