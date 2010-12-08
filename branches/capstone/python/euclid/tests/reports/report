@@ -23,3 +23,4 @@ euclid		test1	Wed Dec 8 06:46:20 EST 2010	ccorder2		FAILED
 euclid		test1	Wed Dec 8 06:50:36 EST 2010	ccorder2		PASSED
 euclid		fail1	Wed Dec 8 06:53:57 EST 2010	ccorder2		FAILED
 fib		test2	Wed Dec 8 11:01:10 EST 2010	ccorder2		FAILED
+fib		test2	Wed Dec 8 11:10:59 EST 2010	ccorder2		PASSED
