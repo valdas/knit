@@ -24,5 +24,5 @@ for line in f:
 f.close()
 
 f = open('tests/tmp/outfile','w')
-s = word_count(int(a[0]))
+s = word_count(a[0])
 f.write(str(s))
