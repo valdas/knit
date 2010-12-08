@@ -6,7 +6,7 @@ FILE="tests/reports/report"
 PROJIN="tests/tmp/infile"
 PROJOUT="tests/tmp/outfile"
 
-cp tests/$1 "tests/tmp/infile"
+cp tests/$1 tests/tmp/infile
 
 python ${PROJNAME}.py
 
