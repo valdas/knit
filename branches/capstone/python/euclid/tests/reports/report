@@ -14,3 +14,4 @@ euclid		test1	Tue Dec 7 23:29:09 EST 2010	zcowell		PASSED
 euclid		fail1.	Wed Dec 8 01:16:26 EST 2010	ccorder2		FAILED
 euclid		fail1.in	Wed Dec 8 01:17:52 EST 2010	ccorder2		FAILED
 euclid		fail1	Wed Dec 8 01:28:34 EST 2010	ccorder2		FAILED
+euclid		euclid.py	Wed Dec 8 05:57:20 EST 2010	ccorder2		FAILED
