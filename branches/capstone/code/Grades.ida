@@ -1,15 +1,16 @@
+java
 /* Zach Cowell - zcowell
- CS 110 LAB
- Sept 27, 2007
- Brandi Shafer
- Program: Grades.java
+CS 110 LAB
+Sept 27, 2007
+Brandi Shafer
+Program: Grades.java
 */
 
 
 
-import java.util.Scanner;
+ import java.util.Scanner;
 
-public class Gpa{
+ public class Gpa{
   public static void main(String [] args){
     
     Scanner in = new Scanner(System.in);
@@ -53,4 +54,4 @@ public class Gpa{
     String str = dig1.split(theGrade);
     System.out.println("Your GPA is : " +gpa);
   }
-}
+ }

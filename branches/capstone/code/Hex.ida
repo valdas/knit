@@ -1,15 +1,16 @@
+java
 /* Zach Cowell - zcowell
- CS 110 LAB
- Sept 20, 2007
- Brandi Shafer
- Program: Hex.java
+CS 110 LAB
+Sept 20, 2007
+Brandi Shafer
+Program: Hex.java
 */
 
 
 
-import java.util.Scanner;
+ import java.util.Scanner;
 
-public class Hex{
+ public class Hex{
   public static void main(String [] args){
     Scanner in = new Scanner(System.in);
     System.out.print("Input your 4 digit hex number: ");
@@ -36,4 +37,4 @@ public class Hex{
     
     System.out.println("The number converted is "+ans);
   }
-}
+ }

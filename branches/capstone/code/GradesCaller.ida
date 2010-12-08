@@ -1,19 +1,20 @@
+java
 /* Zach Cowell - zcowell
- CS 110 LAB
- Sept 27, 2007
- Brandi Shafer
- Program: GradesCaller.java
+CS 110 LAB
+Sept 27, 2007
+Brandi Shafer
+Program: GradesCaller.java
 */
 
-public class GradesCaller {
-private int x;  
+ public class GradesCaller {
+ private int x;  
  
-public GradesCaller (int num) {
+ public GradesCaller (int num) {
    num=x;
-}
+ }
   
-  
-public String split(int num) { 
+
+ public String split(int num) { 
 
   String str;
   
@@ -43,5 +44,5 @@ public String split(int num) {
   }
  
   return str;
-}
-}
+ }
+ }
