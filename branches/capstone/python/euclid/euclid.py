@@ -13,7 +13,7 @@ def euclid(a,b):
 
 i = 0
 a = []
-f = open('tests/test1.in','r')
+f = open('tests/tmp/infile.in','r')
 for line in f:
         a.append(line)
 f.close()
