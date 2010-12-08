@@ -1,23 +1,24 @@
-<?php
-include 'proof.php';
-include 'disproof.php';
+php
+ <?php
+ include 'proof.php';
+ include 'disproof.php';
 
-$p= new proof();
-$d= new disproof();
+ $p= new proof();
+ $d= new disproof();
 
-echo "\n proof \n";
-echo $p::get1()."\n";
-echo $p::get2()."\n";
-echo $p::get3()."\n";
-echo $p::get4()."\n";
-echo $p::get5()."\n";
+ echo "\n proof \n";
+ echo $p::get1()."\n";
+ echo $p::get2()."\n";
+ echo $p::get3()."\n";
+ echo $p::get4()."\n";
+ echo $p::get5()."\n";
 
 
-echo "\n disproof \n";
-echo $d::get1()."\n";
-echo $d::get2()."\n";
-echo $d::get3()."\n";
-echo $d::get4()."\n";
-echo $d::get5()."\n";
-?>
+ echo "\n disproof \n";
+ echo $d::get1()."\n";
+ echo $d::get2()."\n";
+ echo $d::get3()."\n";
+ echo $d::get4()."\n";
+ echo $d::get5()."\n";
+ ?>
 
