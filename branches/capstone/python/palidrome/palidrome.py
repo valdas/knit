@@ -14,3 +14,13 @@ def palidrome(text):
             if text[i] != text[-i-1]: return False
     return True
 
+i = 0
+a = []
+f = open('tests/tmp/infile','r')
+for line in f:
+        a.append(line)
+f.close()
+
+f = open('tests/tmp/outfile','w')
+s = palidrome(a[0])
+f.write(str(s))
