@@ -6,7 +6,7 @@ FILE="tests/reports/report"
 PROJIN="tests/tmp/infile"
 PROJOUT="tests/tmp/outfile"
 
-cp $1 $PROJIN
+cp $1 "tests/tmp/infile"
 
 python ${PROJNAME}.py
 
@@ -32,10 +32,6 @@ echo -e $PROJNAME"\t\t"$1"\t"$(date)"\t"$(whoami)"\t\t"$result >> $FILE
 # Cleanup tmp folder, class file
 if [ -e $PROJOUT ]; then
         rm $PROJOUT
-fi
-
-if[ -e $RPOJIN ]; then
-	rm $PROJIN
 fi
 
 if [ -e $PROJNAME.class ]; then
