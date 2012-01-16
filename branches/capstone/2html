@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for file in code/*.ida
+do
+cp $file convFile 
+php 2html.php
+mv del `echo $file | sed 's/\(.*\.\)ida/\1html/'`
+mv `echo $file | sed 's/\(.*\.\)ida/\1html/'` html/
+rm convFile
+done

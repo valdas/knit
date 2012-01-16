@@ -1,0 +1,14 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#trim
+
+#Returns a string after removing leading and trailing blanks.
+
+ function trim(s) {
+	sub(/^[ \t\r\n]*/,"",s)
+	sub(/[ \t\r\n]*$/,"",s)
+	return s
+ } 
+
+#by Tim Menzies
+

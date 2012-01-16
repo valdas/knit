@@ -1,0 +1,55 @@
+``name``   Tim Menzies
+``office`` 841a
+``phone``  28361
+``quotes``
+13
+"Because easy is not wrong."
+-- Ronald Loui
+
+12
+"Simplify, then add lightness."
+-- Colin Chapman
+
+11
+"Out of clutter, find simplicity"
+-- Albert Einstein
+
+10
+"Simplicity is the ultimate sophistication."
+-- Leonardo da Vinci
+
+9
+"Good design is as little design as possible."
+-- Dieter Rams
+
+8
+"Simplify means to eliminate the unnecessary"
+-- Hans Hoffman
+
+7
+"Plurality should not be assumed without necessity."
+-- William of Ockham
+
+6
+"If it's stupid, and it works, it isn't stupid."
+-- Murphy's laws of combat. 
+
+5
+"Perfection: when there is nothing left to take away."
+-- Antoine de Saint-Exupery
+
+4
+"Simplicity does not precede complexity, but follows it."
+-- Alan Perlis
+
+3
+"Our life is frittered away by detail... simplify, simplify."
+-- Henry Thoreau
+
+2
+"Any simple idea will be worded in the most complicated way."
+-- Malek's Law
+
+1
+"Thank you for turning a simple transaction into a bizarre ritual."
+-- Anon

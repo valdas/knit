@@ -1,0 +1,180 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Python
+
+About this document
+===================
+
+This is a starting point for me to begin integrating Python into Knit. The code examples found on this page are for reference only.
+
+Example 1: Priority Queue
+=========================
+
+The following code implements a priority queue. A priority queue is an abstract data type that supports adding elements into a queue with an associated priority.
+
+	##init() to initialize the priority queue to empty	
+		class priority_queue:
+			def __init__(self):
+				self.size = 0
+				self.q = []
+
+	##.rotate(n) to force the front element to the back of the list, changing its priority minimally; 	do that n times, where n must be between one and the size of the queue minus one
+			def rotate(self, n):
+				if (n > self.size-1) | (n < 1):
+					print 'Invalid value input. Please give a value of between 1 and ' + str(self.size-1)
+				else:
+					p = self.q[self.size-1][1]
+					for i in range(n):
+						self.q = self.q[1:] + [( self.q[0][0],p)]
+
+	##.enqueue(v, p) to add an element with value v and priority p
+			def enqueue(self, v, p):
+				low = 0        
+				high = self.size
+				while high > low:
+					mid = (low+high)/2
+					if p < self.q[mid][1]: high = mid
+					else: low = mid+1
+				self.q= self.q[:low] + [(v,p)] + self.q[low:]
+				self.size+=1
+
+	##.Enqueue(V, p) to enqueue all of the elements in the list V in order, all with priority p
+			def Enqueue(self, V, p):
+				low = 0        
+				high = self.size
+				while high > low:
+					mid = (low+high)/2
+					if p < self.q[mid][1]: high = mid
+					else: low = mid+1
+				for x in range(len(V)):
+					self.enqueue(V[x],p)
+	## .interval() to return the interval of priorities as a tuple of the form (low, high)			
+			def interval(self):
+				low = self.q[0][1]
+				high = self.q[self.size-1][1]
+				toopers = (low,high)
+				
+				return toopers
+
+	##.abandon(n) to get rid of the n lowest-priority elements from the back of the queue		
+			def abandon(self,n):
+				if (n > self.size):
+					print 'Error: Specified value is too high, please choose a number that is not larger than size' + str(self.size)
+				else:
+					self.q = self.q[n:]
+					self.size-=n
+
+	##.dequeue() to return the value of the front element and remove it			
+			def dequeue(self):
+				if self.size == 0:
+					return None
+				else:
+					self.size-=1
+					temp = self.q[0]
+					self.q= self.q[1:]
+					return temp
+
+	##.peek() to return the value of the front element without removing it			
+			def peek(self):
+				return self.q[0]
+				
+			def disp(self):
+				return self.q
+
+Example 2: Binary Search Tree with Limited Functionality
+========================================================
+
+This is an implementation of a Binary Search Tree. 
+
+	class bst:
+		def __init__(self, value):
+			self.left = None
+			self.right = None
+			self.value = None
+			self.insert(value)
+
+		def insert(self, value):
+			try:
+				for v in value:
+					self.insert(v)
+			except:
+				if self.value is not None:
+					if value <= self.value:
+						if self.left is not None:
+							self.left.insert(value)
+						else:
+							self.left = bst(value)
+					else:
+						if self.right is not None:
+							self.right.insert(value)
+						else:
+							self.right = bst(value)
+				else:
+					self.value = value
+
+		def find_matches(self, value):
+			results = []
+			if self.value == value:
+				results += [self]
+			if self.left:
+				results += self.left.find_matches(value)
+			if self.right:
+				results += self.right.find_matches(value)
+			return results
+
+		def lnr(self):
+			if self.left and self.right:
+				return self.left.lnr() + [self.value] + self.right.lnr()
+			elif self.left:
+				return self.left.lnr() + [self.value]
+			elif self.right:
+				return [self.value] + self.right.lnr()
+			else:
+				return [self.value]
+
+		def nodes(self):
+			return len(self.lnr())	
+			
+		def height(self):
+			left=0
+			right=0
+			
+			if self.left is not None and self.right is not None:
+				left = 1+ self.left.height()
+				right = 1+ self.right.height()
+			elif self.left is not None: left = 1 + self.left.height()
+			elif self.right is not None: right = 1 + self.right.height()
+			
+			if right > left: return right
+			else: return left
+
+
+Notes
+=====
+
++ No brackets; only colons
+	+ indentation matters; denotes what a loop/class/function performs
++ __init__ is a function that needs to be included in each class (as far as I know)
++ functions start with def
++ More to come..
+
+Author
+======
+
+Zach Cowell

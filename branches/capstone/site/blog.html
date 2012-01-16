@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demos</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	background-color: #13220B;
+}
+-->
+</style>
+<link href="smart_ide.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0" class="bg1">
+	<tr>
+		<td class="text1" style="height: 50px;">the smart ide </td>
+	</tr>
+	
+	<tr>
+		<td class="bg5"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 62px; padding-top: 15px;">
+			<tr align="center">
+				<td width="15%"><a href="index.html" class="link1">homepage</a></td>
+				<td width="19%"><a href="about.html" class="link1">about smart ide </a></td>
+				<td width="19%"><a href="documents.html" class="link1">Documents</a></td>
+				<td width="15%"><a href="demos.html" class="link1">DEMOS</a></td>
+				<td width="14%"><a href="download.html" class="link1">download</a></td>
+				<td width="18%"><a href="sitemap.html" class="link1">sitemap </a></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td valign="top" class="bg6">&nbsp;</td>
+	</tr>
+	<tr>
+		<td><table width="780" border="0" cellspacing="0" cellpadding="0">
+				<tr valign="top">
+					<td width="20">&nbsp;</td>
+					<td width="197"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img src="images/spacer.gif" alt="" width="30" height="30" /></td>
+							</tr>
+							<tr>
+								<td class="text2">news and updates </td>
+							</tr>
+							<tr>
+								<td class="text3">&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="bg3"><img src="images/spacer.gif" alt="" width="100" height="1" /></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td><p class="text4">[ 2010.02.09 ] Reworking the structure to Knit2 </p>
+									<p><img src="images/work.jpg" alt="" width="80" height="80" class="img1" />Adapted from the previous Knit structure, we are reworking the whole system to setup Knit2. The main goal is to come up with a language that supports markup, website update, version control, test engine and in-line text to executable code. </p>
+									<p><a href="updates.html">Read Full Article</a> </p></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="bg3"><img src="images/spacer.gif" alt="" width="100" height="1" /></td>
+							</tr>
+							<tr>
+								<td><img src="images/spacer.gif" alt="" width="30" height="30" /></td>
+							</tr>
+							<tr>
+								<td><p class="text4">[ 2010.13.10 ] Revising the Design Proposal Document </p>
+									<p><img src="images/doc.jpg" alt="" width="80" height="80" class="img1" />A lot has changed since the last draft of the design proposal document was submitted. The new structure and specifications among other things are being included in this new document. </p>
+									<p align="left"><a href="updates.html">Read Full Article</a> </p>
+									<img src="images/spacer.gif" alt="" width="100" height="1" /></td>
+							</tr>
+							<tr>
+								<td><img src="images/spacer.gif" alt="" width="100" height="1" />
+							    <p><a href="updates.html">Previous Updates </a></p></td>
+							</tr>
+				  </table></td>
+					<td width="16">&nbsp;</td>
+					<td width="527"><table width="413" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="413"><p><img src="images/spacer.gif" alt="" width="30" height="30" /></p>
+							    <p><div id="cse" style="width: 30">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en', style : google.loader.themes.GREENSKY});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('014731735900021811640:a81ztml3jfu');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script>
+
+
+      &nbsp;</p></td>
+							</tr>
+							<tr>
+								<td><img src="images/img6.jpg" alt="" width="413" height="24" /></td>
+							</tr>
+							<tr>
+								<td class="bg2"><table width="373" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tr>
+											<td class="text2">Demos</td>
+										</tr>
+										<tr>
+											<td class="text3">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="bg3"><img src="images/spacer.gif" alt="" width="100" height="1" /></td>
+										</tr>
+										<tr>
+											<td><p>&nbsp;</p>
+										    <p>&nbsp;</p>
+
+											<?php 
+   include "./rss_export.php";
+
+   $rss_feed=" ";
+
+   $template="template.rat";
+
+   $DateFormat="d M y, h:m:s"; 
+
+
+if (isset($_REQUEST["RSSFILE"])) {
+  $rss_feed = $_REQUEST["RSSFILE"];
+}
+
+if (isset($_REQUEST["TEMPLATE"])) {
+  $template = $_REQUEST["TEMPLATE"];
+}
+
+$FeedMaxItems = 5000;
+if (isset($_REQUEST["MAXITEMS"])) {
+  $FeedMaxItems = $_REQUEST["MAXITEMS"];
+}
+
+$RandomItems=0;
+if (isset($_REQUEST["RANDOM"])) {
+  $RandomItems = $_REQUEST["RANDOM"];
+}
+
+   error_reporting(E_ERROR);	
+   $rss = new RSS_export; 
+   $rss->cache_dir = './temp'; 
+   $rss->cache_time = 1200; 
+   $from = 1;
+   $rss->date_format = $DateFormat;
+   if ($rs = $rss->get($rss_feed)) 
+    { 
+     $theData = file($template);
+     $count = 0;
+     $from = -1;
+     foreach($theData as $line)
+      {
+        if ((strstr($line,"NOCRLF=")) || (strstr($line,"NAME=")) || (strstr($line,"FILEEXT=")) || (strstr($line,"DATEFORMAT=")) || (strstr($line,"TIMEFORMAT="))) {
+        $line="";
+        }   
+	$line=str_replace("%Copyright%", "$rs[copyright]\n", $line); 
+        $line=str_replace("%Copyright%", "", $line); 
+        $line=str_replace("%Language%", "$rs[language]\n", $line); 
+        $line=str_replace("%Language%", "", $line); 
+        $line=str_replace("%Editor%", "$rs[managingEditor]\n", $line); 
+        $line=str_replace("%Editor%", "", $line); 
+        $line=str_replace("%Webmaster%", "$rs[webMaster]\n", $line); 
+        $line=str_replace("%Webmaster%", "", $line); 
+        $line=str_replace("%FeedPubTime%", "$rs[lastBuildDate]\n", $line); 
+        $line=str_replace("%FeedPubTime%", "", $line); 
+        $line=str_replace("%Rating%", "$rs[rating]\n", $line); 
+        $line=str_replace("%Rating%", "", $line); 
+        $line=str_replace("%Docs%", "$rs[docs]\n", $line); 
+        $line=str_replace("%Docs%", "", $line); 
+
+        $line=str_replace("%FeedTitle%", "$rs[title]\n", $line); 
+        // $line=str_replace("%FeedLink%", "<a href=\"$rs[link]\">$rs[title]</a>\n", $line); 
+        $line=str_replace("%FeedLink%", "$rs[link]\n", $line); 
+        $line=str_replace("%FeedDescription%", $rs[description], $line);
+
+        $line=str_replace("&lt;", "<", $line);
+        $line=str_replace("&gt;", ">", $line);
+
+        $line=str_replace("&nbsp;", " ", $line);
+        $line=str_replace("&quot;", " ", $line);
+        $line=str_replace("&copy;", " ", $line);
+        $line=str_replace("&reg;", " ", $line);
+        $line=str_replace("&trade;", " ", $line);
+        $line=str_replace("&euro;", "?", $line);
+        $line=str_replace("&bdquo;", " ", $line);
+        $line=str_replace("&ldquo;", " ", $line);
+        $line=str_replace("&laquo;", " ", $line);
+        $line=str_replace("&raquo;", " ", $line);
+        $line=str_replace("&sect;", " ", $line);
+        $line=str_replace("&amp;", "&", $line);
+        $line=str_replace("&#151;", " ", $line);
+        $line=str_replace("&apos;", "'", $line);
+        if ($rs['image_url'] != '') { 
+           $line=str_replace("%ImageItem%", "<a href=\"$rs[image_link]\"><img src=\"$rs[image_url]\" alt=\"$rs[image_title]\" vspace=\"1\" border=\"0\" /></a>\n", $line);
+         }
+          else {
+           $line=str_replace("%ImageItem%", "", $line);
+         }
+        $count = $count+1;
+	if (strstr($line,"%BeginItemsRecord%")){
+        $from = $count; 
+        }   
+	if ($from == -1){ echo $line;}
+     } 
+
+        $linecount = 0;
+
+        foreach($rs['items'] as $item)
+        {
+
+        if ($RandomItems == 1) {
+
+           $seeder = hexdec(substr(md5(microtime()), -8)) & 0x7fffffff;
+ 	   mt_srand($seeder);
+           $c=mt_rand(0,1);
+           if ($c == 0) {
+              $seeder = hexdec(substr(md5(microtime()), -8)) & 0x7fffffff;
+ 	      mt_srand($seeder);
+              continue;
+              }
+        } 
+
+        if ($linecount == $FeedMaxItems) {
+           break;
+           }
+        ++$linecount;
+       
+       $strcount=0;	
+       foreach($theData as $line){
+          $strcount=$strcount+1;
+          if ($strcount>=$from){ 
+          $line=str_replace("%BeginItemsRecord%", "", $line);
+          $line=str_replace("%ItemTitle%", $item['title'], $line);
+          $line=str_replace("%ItemLink%", $item['link'], $line);
+          $line=str_replace("%ItemDescription%",$item['description'], $line);
+          $line=str_replace("%ItemPubTime%", $item['pubDate'], $line);
+          $line=str_replace("%ItemPubTime%", "", $line);
+
+          $line=str_replace("%EndItemsRecord%", "", $line);
+
+          $line=str_replace("&lt;", "<", $line);
+          $line=str_replace("&gt;", ">", $line);
+          $line=str_replace("&nbsp;", " ", $line);
+          $line=str_replace("&quot;", " ", $line);
+          $line=str_replace("&copy;", " ", $line);
+          $line=str_replace("&reg;", " ", $line);
+          $line=str_replace("&trade;", " ", $line);
+          $line=str_replace("&euro;", "?", $line);
+          $line=str_replace("&bdquo;", " ", $line);
+          $line=str_replace("&ldquo;", " ", $line);
+          $line=str_replace("&laquo;", " ", $line);
+          $line=str_replace("&raquo;", " ", $line);
+          $line=str_replace("&sect;", " ", $line);
+          $line=str_replace("&amp;", "&", $line);
+          $line=str_replace("&#151;", " ", $line);
+          $line=str_replace("&apos;", "'", $line);
+
+   	  echo $line;           }
+	  }
+         } 
+   } 
+   else 
+   { 
+    echo "Error"; 
+   } 
+?> 
+
+											
+										    <p>&nbsp;</p></td>
+										</tr>
+										<tr>
+											<td width="373"><p>Subscribe to RSS </p>
+										  </td>
+										</tr>
+									</table></td>
+							</tr>
+							<tr>
+								<td><img src="images/img8.jpg" alt="" width="413" height="16" /></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+				  </table></td>
+					<td width="20">&nbsp;</td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+		<td class="bg4"><h3 class="text5">Copyright © 2006 smartide.com. Designed by <a href="">Group 6 </a></h3></td>
+	</tr>
+</table>
+<div style="text-align: center; font-size: 0.75em;">  </div></body>
+</html>

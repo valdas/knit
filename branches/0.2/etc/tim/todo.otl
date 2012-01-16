@@ -1,0 +1,174 @@
+tinytim
+	add the plugin hook
+	add the plugins awk files
+quill
+	utils
+		malign
+		normalize
+		bore
+	Stats
+		mann whitney
+		wilcoxon
+		ttest
+		wlt visualization
+		quartile
+		nomograms
+		b^2/(b+a)
+Dsl
+	roles
+	qr2
+Learning
+	discretization
+		nbins
+		30
+		ewd
+	feature selection
+		variance
+		info gain
+		bore
+		tf*idf
+	sampling
+		sub
+		super
+		micro
+	case selection
+		lococomo
+		clustering
+			GAC
+			GRID
+			recursive 2means
+			k-means
+			k-means++
+			genic
+			genic2
+			single pass k-means
+	classification
+		rdr
+		ckump
+		hyperpipes
+		density
+		naive bayes
+		which
+		keys2
+		prism
+		prism+
+	regression
+		local calibrartion
+apps
+	cocomo
+		sampling
+
+BUG
+	remaking quill breaks penny
+
+ENHANCE
+	variables on the web pages
+	tags on the web pages
+
+add tags top of page 
+add two kinds of pre: code and dull
+make links all "?"
+
+autogen the site map
+
+=========================
+
+need some scripting tricl
+
+web site
+	need a page for "support"
+	need a 404 page
+
+brian
+	who is the chair of the systems committee
+
+build pennl tania re ekrem
+
+awk.info
+	safe slurping 
+			restore our globals
+			remember to deshell
+ai
+	listing of the lisp code. cog patterns, my patterns paper 
+	
+fred
+	too many [[[ in header
+make
+	change all gawk to gawk0 for the gawk utils
+slots
+	anyStrings
+		blank outout
+Adam
+	: explain adtrees 
+Ashutosh 
+	note
+		: please use the makefile to generate the paper. it stores all the
+		: temp files in ~/tmp (so if that directory does not exist, you will
+		: have to make it). the script is useful since if you make tml files
+		: (e.g. RHE_paper.bbl) and i make the same tmp files, subversion vers
+		: confused about who owns what. 
+		usage
+			: type "make"
+	
+	title
+		Learning Patterns of University Student Retention?
+	Introduction
+		: what is the value of figs1,2? delete?
+	Footnotes
+		: please check footnotes for questions from me to you.
+	Table 1
+		: please horiztonal line between the results of each author. i found
+		: (e.g.) Herzog (2005) to be hard to read
+	Hypotheses
+		: we never list the hypotheses
+	Which classifiers were used by past research?
+
+AWK.info
+	jan
+		safe slurping
+
+=======================================================
+
+MIL
+	ous
+		: essay : due jan 31
+		: paper. 
+	ekrem
+		: update promise website by end feb
+	andrew 
+		tutorial
+			: ripple down rules
+	cool tools
+		: any?
+	adam2
+		mann whitney debug
+		neighborhoods
+		visualizer of data sets ?(predictor for success)
+		closer neighborhoods
+	fayola
+		fibre models
+			: implement
+		essay: jan31
+			: prototype learning
+		essay feb28
+			: results of clustering over 10 data sets for discrete data
+			: statistical comparison of results
+	zach
+		numeric clstering
+			:results of clustering the output from the forensics  models
+	greg
+		say hello from china
+	adam1 
+		mdp
+			: table of ignored/used components
+			: change graphs to steps
+			: does the ceiling efffect hold in the regions of dense defects?
+		student data
+			: meeting 1:30
+	bryan 
+		ridor trees sizes
+			: that check on the sizes of the ridor trees. 
+		paper
+			: finish it
+		also
+			: what else?

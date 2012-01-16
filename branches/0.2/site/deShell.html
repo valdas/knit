@@ -1,0 +1,38 @@
+<h1>deShell</h1>
+
+<ul>
+<li> <a href="#1">Example</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
+</ul>
+<p>
+Prune characters that cause shell exection. Useful for avoiding side-effects
+from strings from malicious users.
+</p>
+<a name="1"></a><h2>Example</h2>
+<p>
+(KNIT programmers can exercise this example using <em>cd quill; make eg15</em>.)
+</p>
+<p>
+Input...
+</p>
+<pre>
+  S="Tim `rm -rf $$HOME/*` Menzies"
+  print S " ==> " deShell(S)
+</pre>
+<p>
+Output...
+</p>
+<pre>
+  Tim `rm -rf $HOME/*` Menzies ==> Tim rm -rf HOME/* Menzies
+</pre>
+<a name="2"></a><h2>Code</h2>
+<pre>
+ function deShell(str) {
+     gsub(/["`\$;\|&>&lt;]/,"",str);
+     return str
+ }
+</pre>
+<a name="3"></a><h2>Author</h2>
+<p>
+Tim Menzies

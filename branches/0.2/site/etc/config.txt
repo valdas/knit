@@ -1,0 +1,134 @@
+``Title``           Mastering the art of AWK
+``Tags``            http://knit.googlecode.com/svn/branches/0.2/site/etc/tags.txt
+``Site``            http://knit.googlecode.com/svn/branches/0.2/site
+``Default``         index.html
+``NotFound``	    404.html
+``Template``        http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/index.html
+``home``            http://artofawk.net
+``description``     The art of AWK: how to do more, with less
+``keywords``        AWK, design, less is more
+``author``          Tim Menzies 
+``favicon``         http://knit.googlecode.com/svn/branches/0.2/share/img/bracket.ico
+``css-main``        img/style.css
+``css-print``       img/print.css
+``theme``           http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF
+``download``	    http://knit.googlecode.com/svn/tags
+``share``           http://knit.googlecode.com/svn/branches/0.2/share
+``menu``            <a href="?index">Home</a> | 
+                    <a href="?sitemap">Contents</a> | 
+                    <a href="?crossIndex">Index</a>   |
+                    <a href="?faqs">FAQ</a> |
+		    <a href="?install">Install</a> |
+		       <a href="http://code.google.com/p/knit/issues/list">Bugs</a> |
+                    <a href="?contacts">Contact</a>  
+``logo``            <center>
+<a href="http://www.mikelangman.co.uk/"><img  width="140"
+		          src="http://knit.googlecode.com/svn/branches/0.2/site/etc/themes/EWnF/img/leaves_brown.jpg"></a><br>
+                    The Art of <strike>Auk</strike> AWK: <br>how do more, with less.
+		    </center>
+             
+``footer``         <p> 
+                     &copy; 2010 Tim Menzies. Design from  <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
+                     &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
+``google-verify``    <meta name="google-site-verification" content="oqBRhz9HAKKij8vaqKnIpmVwHuRcbnAunicF6ClybPA" />
+``google-analytics`` <script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				</script>
+				<script type="text/javascript">
+				try {
+				var pageTracker = _gat._getTracker("UA-3798687-6");
+				pageTracker._trackPageview();
+				} catch(err) {}</script>
+``outbrain-verify`` <input type="hidden" name="OBKey" value="osmrOhG3GtMLBrR57TCKZA=="/> 
+                    <script LANGUAGE="JavaScript">var OBCTm=1263101123123; </script>
+                    <script LANGUAGE="JavaScript" src="http://widgets.outbrain.com/claim.js"> </script> 
+
+``search-box``      <form action="http://www.google.com/cse" id="cse-search-box"> 
+                         <p> 
+                         <input type="hidden" name="cx" value="015406670773682269893:d4mefvjd3zw" /> 
+                         <input type="hidden" name="ie" value="UTF-8" /> 
+                         <input type="text" name="q" value=" " size="15" /> 
+                         <input type="submit" name="sa" value="Find" /> 
+                    </form> 
+``syntaxHighligher``
+    <link href='hilite/styles/shCore.css' rel='stylesheet' type='text/css'/> 
+    <link href='hilite/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/> 
+    <script src='hilite/scripts/shCore.js' type='text/javascript'></script> 
+    <script src='hilite/scripts/shBrushCpp.js' type='text/javascript'></script> 
+    <script src='hilite/scripts/shBrushCss.js' type='text/javascript'></script> 
+    <script src='hilite/scripts/shBrushXml.js' type='text/javascript'></script> 
+    <script src='hilite/scripts/shBrushPerl.js' type='text/javascript'></script> 
+<!--- script src='hilite/scripts/shBrushPhp.js' type='text/javascript'></script> 
+    <script src='hilite/scripts/shBrushSql.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushVb.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushRuby.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushPython.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushJScript.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushJava.js' type='text/javascript'></script> 
+   <script src='hilite/scripts/shBrushCSharp.js' type='text/javascript'></script ---> 
+   <script language='javascript'> 
+       SyntaxHighlighter.config.bloggerMode = true;
+       SyntaxHighlighter.config.clipboardSwf = 'scripts/clipboard.swf';
+       SyntaxHighlighter.all();
+   </script> 
+ ``quotes``
+1
+"Because easy is not wrong."<br>
+-- Ronald Loui
+
+1
+"Simplify, then add lightness."<br>
+-- Colin Chapman
+
+1
+"Out of clutter, find simplicity."<br>
+-- Albert Einstein
+
+1
+"Simplicity is the ultimate sophistication."<br>
+-- Leonardo da Vinci
+
+1
+"Good design is as little design as possible."<br>
+-- Dieter Rams
+
+1
+"Simplify means to eliminate the unnecessary."<br>
+-- Hans Hoffman
+
+1
+"Plurality should not be assumed without necessity."<br>
+-- William of Ockham
+
+1
+"If it's stupid, and it works, it isn't stupid."<br>
+-- Murphy's laws of combat. 
+
+1
+"Perfection: when there is nothing left to take away."<br>
+-- Antoine de Saint-Exupery
+
+1
+"Simplicity does not precede complexity, but follows it."<br>
+-- Alan Perlis
+
+1
+"Our life is frittered away by detail... simplify, simplify."<br>
+-- Henry Thoreau
+
+1
+"I would give my life for the simplicity on the other side of complexity."<br>
+-- Oliver Wendell Holmes 
+
+1
+"From native simplicity we arrive at more profound simplicity."<br>
+-- Albert Schweitzer
+
+1
+"Simplicity is prerequisite for reliability."<br>
+-- Edsger Dijkstra
+
+1
+"As we understand more things, everything is becoming simpler."<br>
+-- Edward Teller

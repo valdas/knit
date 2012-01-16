@@ -1,0 +1,52 @@
+index.html      ;Admin ;Jan ;2010		;Welcome to the Art of Awk
+success.html    ;Admin ;Jan ;2010 		;You have logged in to the comment system
+404.html      	;Admin ;Jan ;2010 		;Page not found 
+hooray.html     ;Timm; Admin;Jan; 2010                          ; And the people rejoiced
+about.html     ;Timm; Admin;Feb; 2010                          ; About this site
+
+keys2awk.html  ;Timm; Doco;Feb;2010; Four keys to Awk
+
+quill.html	;Timm; Misc; Jan; 2010				; Collection of gawk tools
+
+o.html		;Timm; Debug; Arrays;Strings; Jan; 2010		; Print an array
+a2s.html        ;Timm; Strings; Arrays; Jan; 2010		; Array to strings
+stack.html	;Timm; Arrays;  Jan; 2010			; Stacks
+stackDemo.html	;Timm; Arrays; Jan; 2010			; Stacks (demo)
+
+trim.html	;Timm; Strings; Jan; 2010			; Remove whitespace
+anyStrings.html ;Timm; Strings; Random; Jan; 2010		; Select string a random
+change.html	;Timm; Strings; Jan; 2010			; Change a string
+phrases.html	;Timm; Strings; Jan; 2010     			; Convert strings to phrases
+prints.html	;Timm; Strings; Jan; 2010     			; Print many strings
+s2a.html	;Timm; Strings; Arrays; Strings; Jan; 2010	; String to array
+
+assert.html     ;Timm; Debug; Jan; 2010	     			; Assertions
+barph.html      ;Timm; Debug; Jan; 2010				; Barphing
+warning.html	;Timm; Debug; Jan; 2010				; Warning
+
+cat.html	;Timm; Os; Jan; 2010				; Cat a file
+basename.html	;Timm; Os; Jan; 2010				; Get file basenam
+deShell.html	;Timm; Os; Jan; 2010				; Remove unsafe meta-characters
+slurp.html	;Timm; Os; Web; Jan; 2010   			; Read a file (on disk, across the net)
+
+seed.html	;Timm; Randoms; Jan; 2010	      		; Control random number seeds
+bias.html	;Timm; Random; Jan; 2010			; Biased random selection
+biasDemo.html	;Timm; Random; Jan; 2010			; Biased random selection (demo)
+
+copyleft.html	;Timm; App; Jan; 2010				; Print a copyright notice
+options.html	;Timm; App; Os; Jan; 2010     	   		; Access command-line options
+
+math.html	;Timm; Math; Jan; 2010				; A little maths
+
+myrss.html	;Timm; Web; Rss; Jan; 2010			; Simple RSS feed reader
+wget.html	;Timm; Web; Jan; 2010				; Grab a  web file
+penny.html	;Timm; Web; Jan; 2010				; A content management system
+
+slots.html	;Timm; Macros; Strings;Jan; 2010		; Simple macro language
+slotsDemo.html	;Timm; Macros;Strings; Jan; 2010		; Simple macro language (demo)
+
+helloworld.html ;Timm; Apps; Jan; 2010      			; Hello world
+
+
+
+

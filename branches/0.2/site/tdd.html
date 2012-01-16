@@ -1,0 +1,424 @@
+<h1>Test-Driven Development (in KNIT)</h1>
+
+<ul>
+<li> <a href="#1">Introduction</a>
+<ul>
+<li> <a href="#2">The Need to Test</a>
+<li> <a href="#3">Test-Driven Development (TDD)</a>
+<li> <a href="#4">Demo-Driven Development</a>
+</ul>
+<li> <a href="#5">Language-Indepedent Testing</a>
+<ul>
+<li> <a href="#6">Using One Test</a>
+<ul>
+<li> <a href="#7">run</a>
+<li> <a href="#8">cache</a>
+<li> <a href="#9">test</a>
+</ul>
+<li> <a href="#10">Using Multiple Tests</a>
+<ul>
+<li> <a href="#11">caches</a>
+<li> <a href="#12">tests</a>
+<li> <a href="#13">score</a>
+</ul>
+</ul>
+<li> <a href="#14">Hints on Writing Tests</a>
+<ul>
+<li> <a href="#15">How to name examples</a>
+<li> <a href="#16">eg0</a>
+<li> <a href="#17">Introduce yourself</a>
+<li> <a href="#18">Spy on yourself</a>
+<ul>
+<li> <a href="#19">Spying with Awk</a>
+</ul>
+<li> <a href="#20">Writing one-liners</a>
+<ul>
+<li> <a href="#21">Writing one-liners in AWK</a>
+</ul>
+<li> <a href="#22">Calling a demo function</a>
+<li> <a href="#23">Seed control</a>
+</ul>
+<li> <a href="#24">Author</a>
+</ul>
+
+<a name="1"></a><h2>Introduction</h2>
+
+<a name="2"></a><h3>The Need to Test</h3>
+<p>
+<em>I should be able to write a test in any language. --J. Random Hacker.</em>
+</p>
+<p>
+<a href="``share``img/bug.jpg">
+<img src="``share``/img/bug.jpg" width=300 align=right></a>
+If there is anything that is constant across all programming languages,
+it is the need to test the code. Every programming has to be debugged.
+</p>
+<ul>
+<li> "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs."<br>-- Maurice Wilkes, 1949
+</ul>
+<p>
+Wilkes is pointing out that the time required to debug a system is
+surprisingly large- over half the effort of building.  According to
+Brooks (The Mythical Man Month, 1995), the time required to build
+software divides as follows:
+</p>
+<ul>
+<li> 1/3 in management and planning
+<li> 1/6 in development
+<li> 1/4 in unit test (testing all parts in isolation)
+<li> 1/4 in system testing (testing all parts, in combination) 
+</ul>
+<p>
+Decades later, the same distribution persists. It looks like this (the fractions
+indicate how much of the development time is consumed by each activity):
+<center>
+<img width=400 src="``share``/img/vdiagram.png">
+</center>
+</p>
+<p>
+For years I researched ways to reduce the cost of testing. With David
+Owen, we tried some AI techniques for searching formal models for
+violations to temporal logic queries.  With several other graduate
+students (most notably, Justin diStefano) we tried data mining methods
+to predict where to best focus the testing effort. All cool stuff, to
+be sure, but the basic economics message of the above "v-diagram"
+remains: testing consume around half your development time.
+</p>
+<a name="3"></a><h3>Test-Driven Development (TDD)</h3>
+<p>
+<a href="http://www.threeriversinstitute.org/blog/">Kent Beck</a> has decided to turn a vice into a virtue.  I read his
+"test-driven development" (TDD) approach as something like this:
+</p>
+<ul>
+<li> Granted: we will spend most of our development time testing the code.
+<li> Consequently: redesign the development process around testing.
+</ul>
+<p>
+In TDD, the <em>first</em> thing a programmer does on a new project is to
+write a test that fails (the idea is to ensure that the test really
+works and can catch an error).
+Also, ideally, the programmer ends her day with a broken test. Next morning,
+the first thing she does is run that test again, then works on fixing it.
+This reduces the time requied to "swap in" at the start of the day.
+</p>
+<p>
+TDD has rules:
+</p>
+<ul>
+<li> PLANNING rules
+<ul>
+<ul>
+<li> User stories are written. (a.k.a. lots of demos)
+<li> Make frequent small releases (a.k.a. shows a string of demos)
+<li> Fix it when it breaks (ak.a. code run break fix is the usual cycle)
+</ul>
+</ul>
+<li> CODING rules
+<ul>
+<ul>
+<li> Code the unit test first.
+</ul>
+</ul>
+<li> TESTING rules
+<ul>
+<ul>
+<li> All code must have unit tests.
+<li> All code must pass all unit tests before it  can be released.
+<li> When a bug is found tests are created.
+<li> Acceptance tests are run often and the score is published.
+</ul></ul></ul>
+<p>
+A shorter way of saying the above is this: red, green, refactor.
+</p>
+<ul>
+<li> Red: find failed tests;
+<li> Green: fix them;
+<li> Refactor: sometimes, use the experience gained from all this testing  to reorganize and improve the code base.
+</ul>
+<p>
+Two principles of TDD are "keep it simple, stupid" (KISS) and "You
+ain't gonna need it" (YAGNI). By focusing on writing only the code
+necessary to pass tests, designs can be cleaner and clearer than is
+often achieved by other methods.  In
+<a href="http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155">Test-Driven Development by Example</a>, Kent Beck also suggests the
+principle "Fake it, till you make it".
+</p>
+<a name="4"></a><h3>Demo-Driven Development</h3>
+<p>
+After reading Kent Beck's book "Test-driven development by Example", I
+was struck with how small each test was. When checking oeprations on a
+new abstract data type, just mini-tests are certainly
+appropriate. However, when working with large granularity programs
+(e.g. shell scripts), Kent-style tests seemed to small.
+</p>
+<p>
+So in my mind,  I run a (small) variation to TDD. Think about how you might
+present the code to someone else:
+</p>
+<ul>
+<li> what you'd show off;
+<li>  what you'd use to demonstrate the core principles. 
+</ul>
+<p>
+This variant is called
+"demo-driven development" and it differs from TDD in that each "demo"
+is usually a seperate script comprising "large-grain tests" that
+demonstrate some functionality.
+Where as TDD demands thousands of tests,
+DDD (demo-driven development) demands dozens (or less) of demonstration scripts.
+</p>
+<a name="5"></a><h2>Language-Indepedent Testing</h2>
+<p>
+Writing a harnass for TDD is very simple. Here, in its entirity, is the KNIT
+Makefile for TDD. 
+</p>
+<pre>
+ run : #: run one eg (via make u=test run)
+	@$(MAKE) u=$u $u
+ 
+ cache : #: run one eg and cache result (via make u=test cache)
+	@$(MAKE) run  | tee $(Tests)/$u
+	@echo new test result cached to $(Tests)/$u
+ 
+ test : $(Tests)/$u #: test if the cached result is still current
+	@echo $u >&2
+	@$(MAKE) run | tee $(Tmp)/$u.got 
+	@if  diff -s $(Tmp)/$u.got $(Tests)/$u > /dev/null;  \
+		then echo PASSED $u ; \
+		else echo FAILED $u,  got $(Tmp)/$u.got; \
+	fi
+ 
+ caches :  build #: run 'cache' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x cache;) 
+ 
+ tests : build #: run 'test' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x test;) 
+ 
+ score : #: run 'test' on all egs, collect the scores
+	@$(MAKE) tests | egrep '(PASSED|FAILED)' \
+         | $(Gawk) '{print $$1}' | uniq -c
+</pre>
+<p>
+The code assumes some magic variables:
+</p>
+<ul>
+<li> $(Tests) is a directory to stored expected test outcomes. By default, this is <tt>etc/tests</tt>.
+<li> $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with <tt>eg</tt> is a test and collected into <tt>$(Egs)</tt>. This variable can be calculated from the Makefile.
+</ul>
+<pre>
+  Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
+</pre>
+<a name="6"></a><h3>Using One Test</h3>
+
+<a name="7"></a><h4>run</h4>
+<p>
+<tt>run</tt> executes one test. It tells the Makefile that the name of the test is <tt>$u</tt>, then it
+runs that test. The following shows an example of running one example (called <tt>eg4</tt>):
+</p>
+<pre>
+  make u=eg4 run
+</pre>
+<a name="8"></a><h4>cache</h4>
+<p>
+<tt>cache</tt> lets you define the expected  output of a test. Once you've run your code enough to
+understand what it should be doing, you can cache that result; e.g.
+</p>
+<pre>
+ make u=eg4 cache
+</pre>
+<p>
+Note that, for hand-crafted test output, you should not cache the output. The output of (e.g.) eg4
+can be generated manually and stored in $(Tests)/eg4.
+</p>
+<a name="9"></a><h4>test</h4>
+<p>
+The <tt>test</tt> command compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
+Else, "FAIL" is printed.
+</p>
+<pre>
+ make u=eg4 test
+</pre>
+<p>
+The remaining rules (<tt>caches</tt>, <tt>tests</tt>, <tt>score</tt>) handle mulitple tests.
+</p>
+<a name="10"></a><h3>Using Multiple Tests</h3>
+
+<a name="11"></a><h4>caches</h4>
+<p>
+<tt>caches</tt> is used when you are happy that all your tests are currently generating the
+right output. In that happy case, you can reset the contents of all cached outputs with:
+</p>
+<pre>
+ make caches
+</pre>
+<p>
+Note: don't do this very often, since it blasts all your carefully written tests.
+</p>
+<a name="12"></a><h4>tests</h4>
+<p>
+This rule helps when the test outputs are really verbose. It runs all the tests,
+but just prints the PASSED and FAILED information. It can be called with:
+</p>
+<pre>
+ make tests
+</pre>
+<a name="13"></a><h4>score</h4>
+<p>
+This rule offers a final summary.  It runs all the tests,
+but just prints the number of times  PASSED and FAILED were seen on the output.
+It can be called with:
+</p>
+<pre>
+ make score
+</pre>
+<a name="14"></a><h2>Hints on Writing Tests</h2>
+
+<a name="15"></a><h3>How to name examples</h3>
+<p>
+All examples are Makefile rules. Each example starts with <tt>eg</tt>. There
+are no spaces to the left of the example name. For example:
+</p>
+<pre>
+ eg0: build
+ eg1: eg0
+    echo "I am the first test"
+</pre>
+<a name="16"></a><h3>eg0</h3>
+<p>
+Always write an eg0 that does any setup stuff needed before any test can run. E.g. in your app's <tt>Makefile</tt>,
+it is common for <tt>eg0</tt> to build the system.
+</p>
+<pre>
+ eg0 :
+     build
+</pre>
+<p>
+Then, make that <tt>eg0</tt> a depednent of all other tests. For example:
+</p>
+<pre>
+ eg1 : eg0
+     echo "I am the first test"
+</pre>
+<a name="17"></a><h3>Introduce yourself</h3>
+<p>
+Each test should start with <tt>$I;</tt> (which prints a little introduction script).
+</p>
+<pre>
+ eg2 : eg0
+     $I; echo "I am the first test"
+</pre>
+<a name="18"></a><h3>Spy on yourself</h3>
+<p>
+Tests can be <tt>$(Run)</tt>s or <tt>$(Spy)</tt>s. <tt>Run</tt> just <em>does</em>, while <tt>Spy</tt>
+will <tt>Run</tt>, then print lots of debugging information. 
+In the following example, some application has tests that
+run the application using some command line flags:
+</p>
+<pre>
+ -i $(Tests)/qualifiers.eg
+</pre>
+<p>
+Exactly <em>what</em> the application does with those flags is not the point of this
+example. What is relevant is the what is <em>different</em> about <tt>Run</tt>ing
+and <tt>Spy</tt>ing:
+						
+ eg3 : eg0 
+     $I; $(Run) -i $(Tests)/qualifiers.eg
+ eg4 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg
+</p>
+<p>
+The <tt>eg1</tt> rule just runs the application. However, the <tt>eg2</tt> rule generates 
+a lot of debugging output.  The nature of
+that debugging information is langauge-specific but, unless it is slow
+to generate, it is best to always <tt>Spy</tt>.  
+</p>
+<a name="19"></a><h4>Spying with Awk</h4>
+<p>
+When <tt>Spy</tt>ing on Awk code, the code is called as follows:
+</p>
+<pre>
+   $(Tmp)     = $(HOME)/tmp # defined in lib/make/dirs.mk
+   $(Vars)    = $(Tmp)/vars.out 
+   $(Profile) = $(Tmp)/profile.out
+   $(Spy)     = $(Pgawk) --dump-variables="$(Vars)" \
+                         --profile="$(Profile)" $(Loads) 
+</pre>
+<p>
+So <tt>Spy</tt>ing on awk code dumps a list of the globals into <tt>$(Tmp)/vars.out</tt> and
+a profile listing of how many times each lines was called into <tt>$(Profile)/profile.out</tt>.
+</p>
+<p>
+Using  <tt>$(Tmp)/vars.out</tt>,
+it is possible to  find variables that were meant to be local, but have escaped into the global space.
+To do so, adopt the following coding convention: 
+</p>
+<ul>
+<li> Label all your global variables as MixedCase 
+<li> Label all your locals with a leading lowerCase letter.
+</ul>
+<p>
+Then, once you've <tt>Spy</tt>-ed, the escaped locals will stand out in the <tt>$(Vars)</tt> entry.
+</p>
+<p>
+Using <tt>$(Tmp)/profile.out</tt> is is possible to find hotspots or deadspots in the code. This profile output
+lists how many times each line of code was called.  
+</p>
+<ul>
+<li> If a line of code is never called by any test, it is  possibly dead code. 
+<li> If a line of code is called (say) 1,000,000 times, then that is a clear candidate for optimization.
+<li> If a line of code is a condition, and it is called (say) 100 times, but the body of the condition is never called, then maybe there is something wrong with the code.
+</ul>
+<p>
+To get a quick viewing of the profile and the variables, use <tt>$(Dump)</tt>; e.g.
+</p>
+<pre>
+ eg5 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
+</pre>
+<p>
+This will dump <tt>$(Tmp)/profile.out</tt> and <tt>$(Tmp)/vars.out</tt> to the screen.
+</p>
+<a name="20"></a><h3>Writing one-liners</h3>
+<p>
+Sometimes, rather than test the whole application, the author wants to test one little function
+(kind of a micro unit test). For this purpose, use <tt>$a</tt> and <tt>$z$</tt>. e.g.
+</p>
+<pre>
+ eg6 : build
+        $I; $a help() $z
+</pre>
+<p>
+If you want to <tt>$(Spy)</tt>, rather than just <tt>$(Run)</tt>, then use <tt>$A</tt> and <tt>$Z</tt> instead of <tt>$a</tt>, <tt>$z</tt>.
+</p>
+<a name="21"></a><h4>Writing one-liners in AWK</h4>
+<p>
+The above code orchestrates calling the above function in a BEGIN block, with the global <tt>TEST</tt> set to one:
+</p>
+<pre>
+ #running
+ a = $(Run) -v Test=1 --source 'BEGIN {#
+ z = ; exit}'
+ 
+ #spying
+ A = $(Spy) -v Test=1  --source 'BEGIN {#
+ Z = ; exit}'
+</pre>
+<a name="22"></a><h3>Calling a demo function</h3>
+<p>
+Also, if your code contains a function whose name starts with <tt>demo</tt>, then you can orchestrate calling that
+code from a Makefile as follows:
+</p>
+<pre>
+  make u=rss demo
+</pre>
+<p>
+(XXXnote: currently broken)
+</p>
+<a name="23"></a><h3>Seed control</h3>
+<p>
+XXXL need notes on how to handle seeds.
+</p>
+<a name="24"></a><h2>Author</h2>
+<p>
+Tim Menzies

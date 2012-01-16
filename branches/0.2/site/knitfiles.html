@@ -1,0 +1,374 @@
+<h1>Inside KNIT</h1>
+
+<ul>
+<li> <a href="#1">Apps</a>
+<ul>
+<li> <a href="#2">Standard Structure</a>
+<ul>
+<li> <a href="#3">app/Makefile</a>
+<li> <a href="#4">app/app.wak</a>
+<li> <a href="#5">app/etc/tests/egX</a>
+</ul>
+<li> <a href="#6">Standard Apps</a>
+<ul>
+<li> <a href="#7">Helloworld</a>
+<li> <a href="#8">Penny</a>
+<li> <a href="#9">Quill</a>
+</ul>
+</ul>
+<li> <a href="#10">Core Directories</a>
+<ul>
+<li> <a href="#11">KNIT</a>
+<ul>
+<li> <a href="#12">Makefile</a>
+<li> <a href="#13">head</a>
+</ul>
+<li> <a href="#14">doc</a>
+<ul>
+<li> <a href="#15">doc/faqs.html</a>
+</ul>
+<li> <a href="#16">etc</a>
+<ul>
+<li> <a href="#17">etc/copyrite.txt</a>
+<li> <a href="#18">etc/dotemacs</a>
+<li> <a href="#19">etc/dotknitrc</a>
+</ul>
+<li> <a href="#20">lib</a>
+<ul>
+<li> <a href="#21">lib/awk</a>
+<ul>
+<li> <a href="#22">lib/awk/comment.awk     </a>
+<li> <a href="#23">lib/awk/markup.awk      </a>
+<li> <a href="#24">lib/awk.uses.awk</a>
+</ul>
+<li> <a href="#25">lib/make</a>
+<ul>
+<li> <a href="#26">lib/make/awk.mk</a>
+<li> <a href="#27">lib/make/dirs.mk</a>
+<li> <a href="#28">lib/make/test.mk</a>
+<li> <a href="#29">lib/make/tricks.mk</a>
+</ul>
+</ul>
+<li> <a href="#30">share</a>
+<ul>
+<li> <a href="#31">share/img </a>
+<li> <a href="#32">share/pdf</a>
+</ul>
+<li> <a href="#33">site</a>
+<ul>
+<li> <a href="#34">site/x.html</a>
+<li> <a href="#35">site/etc</a>
+<ul>
+<li> <a href="#36">site/etc/config.txt</a>
+<li> <a href="#37">site/etc/tags.txt</a>
+<li> <a href="#38">site/etc/themes</a>
+<li> <a href="#39">site/etc/themes/themeName/index.html</a>
+</ul>
+<li> <a href="#40">site/src</a>
+<ul>
+<li> <a href="#41">site/src/x</a>
+<li> <a href="#42">site/src/old/x</a>
+</ul></ul></ul></ul>
+<p>
+KNIT divides into <em>core</em> and <em>apps</em>  (application) directories.
+</p>
+<ul>
+<li> <em>App</em> directories have special sub-directories (<tt>etc/tests</tt>) that handle the KNIT test engine.  
+<li> While the <em>core</em> handles the bookkeeping and details of building apps.
+</ul>
+<p>
+This page describes those directories and files, focusing on what
+files need changing to achieve common tasks.
+</p>
+<a name="1"></a><h2>Apps</h2>
+<p>
+Apps are built from parts (lots of <tt>*.wak</tt> files)
+</p>
+<a name="2"></a><h3>Standard Structure</h3>
+<p>
+KNIT is used to build and share apps.  Each app lives in its own directory.
+Within that directory, there is a standard structure.
+</p>
+<pre>
+ KNIT
+ `-- app
+     |-- Makefile
+     |-- app.wak
+     `-- etc
+         `-- tests
+	     |-- eg1
+	     |-- eg2
+		 ...
+</pre>
+<a name="3"></a><h4>app/Makefile</h4>
+<p>
+This is the hook between an app and the rest of KNIT. For example, in the following
+example,the first eight lines define variables and rules assumed by KNIT. Then, line 9
+loads one of the KNIT's language binding files, thus declaring that this app
+is being build from a particular example (in this example, awk). 
+</p>
+<pre>
+ #---------------------------------------------------------------------------
+ This    = helloworld#
+ Version = 0.1#
+ 
+ about: 
+        @echo "$(This) v$(Version): a very small demo KNIT program"
+        @echo "copyright (c) GPL 3.0 2010 Tim Menzies, (tim AT menzies DOT us)"
+ 
+ include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
+ #---------------------------------------------------------------------------
+ 
+ eg0 : build 
+ eg1 : eg0
+        @$I; $(Run)
+ eg2 : eg0
+        $I; $(Spy); $(Dump) 
+ eg3 : build 
+        @$I; $(Run) -a
+</pre>
+<p>
+This is followed by rules that define tests for this app. The use of these rules
+is discussed <a href="?tdd">elsewhere</a>.
+</p>
+<a name="4"></a><h4>app/app.wak</h4>
+<p>
+The main file for the source code. Contains <tt>uses</tt> commands to link it to its dependent code.
+</p>
+<a name="5"></a><h4>app/etc/tests/egX</h4>
+<p>
+Stores the expected output for the <tt>egX</tt> rule of <tt>app/Makefile</tt>. For hints and tips on how
+to create and use these <tt>egX</tt> files, see the page on <a href="?tdd">test-driven development</a>.
+</p>
+<a name="6"></a><h3>Standard Apps</h3>
+
+<a name="7"></a><h4>Helloworld</h4>
+<p>
+<em>helloworld</em> is a simple demonstrator for KNIT. To start a new app, copy an modify
+this directory.
+Discussed <a href="?underconstruction">elsewhere</a>.
+</p>
+<a name="8"></a><h4>Penny</h4>
+<p>
+The web content management system used to generate this site from the current
+KNIT development branch.
+Discussed <a href="?underconstruction">elsewhere</a>.
+</p>
+<a name="9"></a><h4>Quill</h4>
+<p>
+Not really an app, but lots of common functions used by other apps. 
+Discussed <a href="?underconstruction">elsewhere</a>.
+</p>
+<a name="10"></a><h2>Core Directories</h2>
+<p>
+The core directories are:
+</p>
+<pre>
+ KNIT
+ |-- doc
+ |-- etc
+ |-- lib
+ |   |-- awk
+ |   `-- make
+ |-- share
+ |   |-- img
+ |   `-- pdf
+ |-- site
+     |-- etc
+     |   `-- themes
+     `-- src
+         `-- old
+</pre>
+<a name="11"></a><h3>KNIT</h3>
+
+<a name="12"></a><h4>Makefile</h4>
+<p>
+The root of the KNIT directories contains a Makefile that:
+</p>
+<ol>
+<li> Installs the whole system via <tt>make install</tt>. Note: this command needs only to be called once, when KNIT is first downloaded.
+<li> Updates and commit the whole system via <tt>make</tt>. 
+<li> Forces a rebuild of everything via <tt>make -B</tt> (warning, may be slow).
+</ol>
+<p>
+Note: this Makefile knows very little about KNIT. For the most part,
+it just changes to different sub-directories can calls <tt>make</tt> there.
+Hence, you should update this file whenever you build a new app (so it
+knows how to build that app).
+</p>
+<a name="13"></a><h4>head</h4>
+<p>
+<tt>Head</tt> is a file containing a standard header/copyright notice to be included at the start of all KNIT files.
+</p>
+<a name="14"></a><h3>doc</h3>
+<p>
+This is the KNIT documentation project. It contains
+files written in a <a href="?literate">shorthand for quick HTML markup</a>.
+</p>
+<p>
+To update the documentation:
+</p>
+<ol>
+<li> Change to this directory.
+<li> Write a new <tt>.wak</tt> file in this directory.
+<li> Execute <tt>make builds</tt>.
+</ol>
+<p>
+Note that this last step may ask you to update  file <tt>../site/etc/tags.txt</tt>. This file is discussed below.
+</p>
+<a name="15"></a><h4>doc/faqs.html</h4>
+<p>
+Update this file to update the faqs.
+</p>
+<a name="16"></a><h3>etc</h3>
+<p>
+Stores various system config files.
+</p>
+<a name="17"></a><h4>etc/copyrite.txt</h4>
+<p>
+A standard header to be added on top of all build files.
+</p>
+<a name="18"></a><h4>etc/dotemacs</h4>
+<p>
+An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent text with tabs: use spaces instead).
+</p>
+<pre>
+ (load "/Users/timm/opt/knit/etc/dotemacs")
+</pre>
+<a name="19"></a><h4>etc/dotknitrc</h4>
+<p>
+A BASH configuration file to set up important KNIT variables. Change
+this file if your Makefiles need new or different environment
+variables.  To use this file, add something like this line to
+<tt>$HOME/.emacs</tt> (making the appropriate pathname changes):
+</p>
+<pre>
+ . $HOME/opt/knit/etc/dotknitrc $HOME/opt/knit/etc local
+</pre>
+<p>
+Note that the keyword <tt>local</tt> at the end of the above
+command. Currently <tt>etc/dotknitrc</tt> has conditionals that may set
+special variables, if local conditions demand it.  Change those
+conditionals if we find site-specific KNIT install requirements.
+</p>
+<a name="20"></a><h3>lib</h3>
+<p>
+Contains the core scripts of KNIT.
+</p>
+<a name="21"></a><h4>lib/awk</h4>
+<p>
+Contains KNIT's housekeeping scripts.
+</p>
+<a name="22"></a><h5>lib/awk/comment.awk     </h5>
+<p>
+Works out  what is code,
+and what is comment, and adds the comments chars accordingly.
+</p>
+<p>
+It  assumes that paragraphs containing code begin with one
+white space character (a tab or a space) and that all other lines
+must be commented on.
+</p>
+<p>
+Comment.awk also knows about verbatim explanatory text. This
+are paragraphs that begin with more than one white space 
+character (and these are commented on as well).
+</p>
+<a name="23"></a><h5>lib/awk/markup.awk      </h5>
+<p>
+Generates HTML files using a <a href="?literate">convenient shorthand notation</a>.
+</p>
+<a name="24"></a><h5>lib/awk.uses.awk</h5>
+<p>
+Used to find the pathnames of all files needed by the input file. Files to be used are marked with
+</p>
+<pre>
+ @uses file1 file2
+</pre>
+<p>
+The code recurses into all the <tt>uses</tt> files and prints out the used before the user.
+</p>
+<a name="25"></a><h4>lib/make</h4>
+<p>
+Contains the core scripts of KNIT. To build new language bindings 
+for KNIT, copy and modify (e.g.) <tt>awk.mk</tt> to create <tt>newlanguage.mk</tt>.
+</p>
+<a name="26"></a><h5>lib/make/awk.mk</h5>
+<p>
+Language-specific processing for awk.
+</p>
+<a name="27"></a><h5>lib/make/dirs.mk</h5>
+<p>
+Defines the <tt>$(Dirs)</tt> variable that lists all the directories used by KNIT.
+</p>
+<a name="28"></a><h5>lib/make/test.mk</h5>
+<p>
+Defines the KNIT <a href="?tdd">test engine</a>.
+</p>
+<a name="29"></a><h5>lib/make/tricks.mk</h5>
+<p>
+Defines the language-independent processing.
+</p>
+<a name="30"></a><h3>share</h3>
+<p>
+Stores files common to all apps and the core.
+</p>
+<a name="31"></a><h4>share/img </h4>
+<p>
+Stores graphic files.
+</p>
+<a name="32"></a><h4>share/pdf</h4>
+<p>
+Stores Acrobat files.
+</p>
+<a name="33"></a><h3>site</h3>
+<p>
+Stores files relating to KNIT's web site <a href="artofawk.net">artofawk.net</a>.
+</p>
+<a name="34"></a><h4>site/x.html</h4>
+<p>
+The HTML files to be displayed. Many of these are auto-generated by the <tt>doc/*.wak</tt> files.
+</p>
+<a name="35"></a><h4>site/etc</h4>
+<p>
+Configuration files.
+</p>
+<a name="36"></a><h5>site/etc/config.txt</h5>
+<p>
+Defines the variables used around the site (e.g. the site name).
+</p>
+<p>
+Also defines the name of the theme used to display the site. Note: theme-related files are stored
+in <tt>site/etc/theme/themeName/*</tt> (discussed below).
+</p>
+<a name="37"></a><h5>site/etc/tags.txt</h5>
+<p>
+Defines the tags and short headers for each page. Note that the web site only displays files listed in this file.
+</p>
+<a name="38"></a><h5>site/etc/themes</h5>
+<p>
+Defines the theme specific files (images, stylesheets, etc).
+</p>
+<a name="39"></a><h5>site/etc/themes/themeName/index.html</h5>
+<p>
+Template for the web pages. Contains variables marked with ``back ticks ``. This reference variables
+define in <tt>site/etc/config.txt</tt>.
+</p>
+<a name="40"></a><h4>site/src</h4>
+<p>
+Contains source code, suitable for downloading.
+</p>
+<a name="41"></a><h5>site/src/x</h5>
+<p>
+Latest source code files generated from the<tt>*.wak</tt> files. 
+</p>
+<ul>
+<li> If the file contains an extension, then it is just the original file with the comments commented out.
+<li> If the file has no extension, then it is the original source plus all its dependents (as discovered by <tt>lib/awk/uses.awk</tt>).
+</ul>
+
+<a name="42"></a><h5>site/src/old/x</h5>
+<p>
+Source files (including all the dependents), with version numbers
+attached (so if the code updates to a new version you do not trust,
+you can find the older version here).

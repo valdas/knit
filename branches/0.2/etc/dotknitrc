@@ -1,0 +1,20 @@
+if 	[ -n "$1" ]
+then export Knit="$1"
+else export Knit="$HOME/svns/knit/branches/0.2"
+fi
+
+export VPATH="$Knit/quill"
+export SVN_EDITOR="/usr/bin/vim"
+
+if   [ -n "$2" ]
+then export Gawk0="/opt/local/bin/gawk"
+	 export Pgawk="/opt/local/bin/gawk"
+else export Gawk0="`which gawk`"
+     export Pgawk="`which gawk`"
+fi
+
+export Lib="../site/src"
+export Html="../site"
+export Tags="${Knit}/../../tags"
+
+export Gawk="$Gawk0"

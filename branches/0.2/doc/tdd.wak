@@ -1,0 +1,367 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Test-Driven Development (in KNIT)
+
+
+
+Introduction
+============
+
+The Need to Test
+----------------
+
+_I should be able to write a test in any language. --J. Random Hacker._
+
+<a href="``share``img/bug.jpg">
+<img src="``share``/img/bug.jpg" width=300 align=right></a>
+If there is anything that is constant across all programming languages,
+it is the need to test the code. Every programming has to be debugged.
+
++ "Debugging had to be discovered. I can remember the exact instant when I realized that a large part of my life from then on was going to be spent in finding mistakes in my own programs."<br>-- Maurice Wilkes, 1949
+
+Wilkes is pointing out that the time required to debug a system is
+surprisingly large- over half the effort of building.  According to
+Brooks (The Mythical Man Month, 1995), the time required to build
+software divides as follows:
+
++ 1/3 in management and planning
++ 1/6 in development
++ 1/4 in unit test (testing all parts in isolation)
++ 1/4 in system testing (testing all parts, in combination) 
+
+Decades later, the same distribution persists. It looks like this (the fractions
+indicate how much of the development time is consumed by each activity):
+<center>
+<img width=400 src="``share``/img/vdiagram.png">
+</center>
+
+For years I researched ways to reduce the cost of testing. With David
+Owen, we tried some AI techniques for searching formal models for
+violations to temporal logic queries.  With several other graduate
+students (most notably, Justin diStefano) we tried data mining methods
+to predict where to best focus the testing effort. All cool stuff, to
+be sure, but the basic economics message of the above "v-diagram"
+remains: testing consume around half your development time.
+
+Test-Driven Development (TDD)
+-----------------------------
+
+[http://www.threeriversinstitute.org/blog/ Kent Beck] has decided to turn a vice into a virtue.  I read his
+"test-driven development" (TDD) approach as something like this:
+
++ Granted: we will spend most of our development time testing the code.
++ Consequently: redesign the development process around testing.
+
+In TDD, the _first_ thing a programmer does on a new project is to
+write a test that fails (the idea is to ensure that the test really
+works and can catch an error).
+Also, ideally, the programmer ends her day with a broken test. Next morning,
+the first thing she does is run that test again, then works on fixing it.
+This reduces the time requied to "swap in" at the start of the day.
+
+TDD has rules:
+
++ PLANNING rules
+  + User stories are written. (a.k.a. lots of demos)
+  + Make frequent small releases (a.k.a. shows a string of demos)
+  + Fix it when it breaks (ak.a. code run break fix is the usual cycle)
++ CODING rules
+  + Code the unit test first.
++ TESTING rules
+  + All code must have unit tests.
+  + All code must pass all unit tests before it  can be released.
+  + When a bug is found tests are created.
+  + Acceptance tests are run often and the score is published.
+
+A shorter way of saying the above is this: red, green, refactor.
+
++ Red: find failed tests;
++ Green: fix them;
++ Refactor: sometimes, use the experience gained from all this testing  to reorganize and improve the code base.
+
+Two principles of TDD are "keep it simple, stupid" (KISS) and "You
+ain't gonna need it" (YAGNI). By focusing on writing only the code
+necessary to pass tests, designs can be cleaner and clearer than is
+often achieved by other methods.  In
+[http://www.amazon.com/gp/product/0321146530/103-2564761-2872664?v=glance&n=283155 Test-Driven Development by Example], Kent Beck also suggests the
+principle "Fake it, till you make it".
+
+Demo-Driven Development
+-----------------------
+
+After reading Kent Beck's book "Test-driven development by Example", I
+was struck with how small each test was. When checking oeprations on a
+new abstract data type, just mini-tests are certainly
+appropriate. However, when working with large granularity programs
+(e.g. shell scripts), Kent-style tests seemed to small.
+
+So in my mind,  I run a (small) variation to TDD. Think about how you might
+present the code to someone else:
+
++ what you'd show off;
++  what you'd use to demonstrate the core principles. 
+
+This variant is called
+"demo-driven development" and it differs from TDD in that each "demo"
+is usually a seperate script comprising "large-grain tests" that
+demonstrate some functionality.
+Where as TDD demands thousands of tests,
+DDD (demo-driven development) demands dozens (or less) of demonstration scripts.
+
+
+Language-Indepedent Testing
+===========================
+
+Writing a harnass for TDD is very simple. Here, in its entirity, is the KNIT
+Makefile for TDD. 
+
+ run : #: run one eg (via make u=test run)
+	@$(MAKE) u=$u $u
+ 
+ cache : #: run one eg and cache result (via make u=test cache)
+	@$(MAKE) run  | tee $(Tests)/$u
+	@echo new test result cached to $(Tests)/$u
+ 
+ test : $(Tests)/$u #: test if the cached result is still current
+	@echo $u >&2
+	@$(MAKE) run | tee $(Tmp)/$u.got 
+	@if  diff -s $(Tmp)/$u.got $(Tests)/$u > /dev/null;  \
+		then echo PASSED $u ; \
+		else echo FAILED $u,  got $(Tmp)/$u.got; \
+	fi
+ 
+ caches :  build #: run 'cache' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x cache;) 
+ 
+ tests : build #: run 'test' on all egs
+	@$(foreach x, $(Egs), $(MAKE) u=$x test;) 
+ 
+ score : #: run 'test' on all egs, collect the scores
+	@$(MAKE) tests | egrep '(PASSED|FAILED)' \
+         | $(Gawk) '{print $$1}' | uniq -c
+
+The code assumes some magic variables:
+
++ $(Tests) is a directory to stored expected test outcomes. By default, this is `etc/tests`.
++ $(Egs) storing a set of test names. In KNIT, any Makefule rule starting with `eg` is a test and collected into `$(Egs)`. This variable can be calculated from the Makefile.
+
+  Egs  = $(shell grep '^eg' Makefile | sed 's/:.*//')
+
+Using One Test
+--------------
+
+run
++++
+
+`run` executes one test. It tells the Makefile that the name of the test is `$u`, then it
+runs that test. The following shows an example of running one example (called `eg4`):
+
+  make u=eg4 run
+
+cache
++++++
+
+`cache` lets you define the expected  output of a test. Once you've run your code enough to
+understand what it should be doing, you can cache that result; e.g.
+
+ make u=eg4 cache
+
+Note that, for hand-crafted test output, you should not cache the output. The output of (e.g.) eg4
+can be generated manually and stored in $(Tests)/eg4.
+
+test
+++++
+
+The `test` command compares the output of the test to the cache. If it is the same, then "PASSED" is printed.
+Else, "FAIL" is printed.
+
+ make u=eg4 test
+
+The remaining rules (`caches`, `tests`, `score`) handle mulitple tests.
+
+Using Multiple Tests
+--------------------
+
+
+caches
+++++++
+
+`caches` is used when you are happy that all your tests are currently generating the
+right output. In that happy case, you can reset the contents of all cached outputs with:
+
+ make caches
+
+Note: don't do this very often, since it blasts all your carefully written tests.
+
+tests
++++++
+
+This rule helps when the test outputs are really verbose. It runs all the tests,
+but just prints the PASSED and FAILED information. It can be called with:
+
+ make tests
+
+score
++++++
+
+This rule offers a final summary.  It runs all the tests,
+but just prints the number of times  PASSED and FAILED were seen on the output.
+It can be called with:
+
+ make score
+
+Hints on Writing Tests
+======================
+
+How to name examples
+-------------------
+
+All examples are Makefile rules. Each example starts with `eg`. There
+are no spaces to the left of the example name. For example:
+
+ eg0: build
+ eg1: eg0
+    echo "I am the first test"
+
+eg0
+---
+
+Always write an eg0 that does any setup stuff needed before any test can run. E.g. in your app's `Makefile`,
+it is common for `eg0` to build the system.
+
+ eg0 :
+     build
+
+Then, make that `eg0` a depednent of all other tests. For example:
+
+ eg1 : eg0
+     echo "I am the first test"
+
+Introduce yourself
+------------------
+
+Each test should start with `$I;` (which prints a little introduction script).
+
+ eg2 : eg0
+     $I; echo "I am the first test"
+
+Spy on yourself
+---------------
+
+Tests can be `$(Run)`s or `$(Spy)`s. `Run` just _does_, while `Spy`
+will `Run`, then print lots of debugging information. 
+In the following example, some application has tests that
+run the application using some command line flags:
+
+ -i $(Tests)/qualifiers.eg
+
+Exactly _what_ the application does with those flags is not the point of this
+example. What is relevant is the what is _different_ about `Run`ing
+and `Spy`ing:
+						
+ eg3 : eg0 
+     $I; $(Run) -i $(Tests)/qualifiers.eg
+ eg4 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg
+
+The `eg1` rule just runs the application. However, the `eg2` rule generates 
+a lot of debugging output.  The nature of
+that debugging information is langauge-specific but, unless it is slow
+to generate, it is best to always `Spy`.  
+
+Spying with Awk
++++++++++++++++
+
+When `Spy`ing on Awk code, the code is called as follows:
+
+   $(Tmp)     = $(HOME)/tmp # defined in lib/make/dirs.mk
+   $(Vars)    = $(Tmp)/vars.out 
+   $(Profile) = $(Tmp)/profile.out
+   $(Spy)     = $(Pgawk) --dump-variables="$(Vars)" \
+                         --profile="$(Profile)" $(Loads) 
+
+So `Spy`ing on awk code dumps a list of the globals into `$(Tmp)/vars.out` and
+a profile listing of how many times each lines was called into `$(Profile)/profile.out`.
+
+Using  `$(Tmp)/vars.out`,
+it is possible to  find variables that were meant to be local, but have escaped into the global space.
+To do so, adopt the following coding convention: 
+
++ Label all your global variables as MixedCase 
++ Label all your locals with a leading lowerCase letter.
+
+Then, once you've `Spy`-ed, the escaped locals will stand out in the `$(Vars)` entry.
+
+Using `$(Tmp)/profile.out` is is possible to find hotspots or deadspots in the code. This profile output
+lists how many times each line of code was called.  
+
++ If a line of code is never called by any test, it is  possibly dead code. 
++ If a line of code is called (say) 1,000,000 times, then that is a clear candidate for optimization.
++ If a line of code is a condition, and it is called (say) 100 times, but the body of the condition is never called, then maybe there is something wrong with the code.
+
+To get a quick viewing of the profile and the variables, use `$(Dump)`; e.g.
+
+ eg5 : eg0
+     $I; $(Spy) -i $(Tests)/qualifiers.eg; $(Dump);
+
+This will dump `$(Tmp)/profile.out` and `$(Tmp)/vars.out` to the screen.
+
+Writing one-liners
+------------------
+
+Sometimes, rather than test the whole application, the author wants to test one little function
+(kind of a micro unit test). For this purpose, use `$a` and `$z$`. e.g.
+
+ eg6 : build
+        $I; $a help() $z
+
+If you want to `$(Spy)`, rather than just `$(Run)`, then use `$A` and `$Z` instead of `$a`, `$z`.
+
+Writing one-liners in AWK
++++++++++++++++++++++++++
+
+The above code orchestrates calling the above function in a BEGIN block, with the global `TEST` set to one:
+
+ #running
+ a = $(Run) -v Test=1 --source 'BEGIN {#
+ z = ; exit}'
+ 
+ #spying
+ A = $(Spy) -v Test=1  --source 'BEGIN {#
+ Z = ; exit}'
+
+Calling a demo function
+-----------------------
+
+Also, if your code contains a function whose name starts with `demo`, then you can orchestrate calling that
+code from a Makefile as follows:
+
+  make u=rss demo
+
+(XXXnote: currently broken)
+
+Seed control
+------------
+
+XXXL need notes on how to handle seeds.
+
+Author
+======
+
+Tim Menzies

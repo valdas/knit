@@ -1,0 +1,216 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Frequently Asked Questions
+
+What is an auk?
+===============
+
+<img src="``share``/img/auksAtSea.jpg" class=rthumb250>
+An auk
+is a bird of the family Alcidae in the
+order Charadriiformes. They are superficially similar to penguins
+but are not closely related 
+(this an example of moderate convergent
+evolution).
+
+In contrast to penguins, the modern auks are able to fly (with the
+exception of the recently extinct Great Auk- who doesn't seem to fly anywhere these days)
+They are good swimmers
+and divers, but their walking appears clumsy.
+
+Auks live on the open sea and 
+only go ashore for breeding.
+Auks are wing-propelled pursuit divers.
+Time depth recorders on auks have shown that they can dive as deep
+as 100 m in the case of Uria guillemots, 40 m for the Cepphus
+guillemots and between 30 m for the auklets.
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/d/dc/AlleAlle_2.jpg" class=rthumb250>
+Auklets are the smallest species of auk. They are
+the  most abundant seabird
+in North America, and one of the most abundant in the world, with a
+population of around nine million birds. They breed on the islands of
+Alaska and Siberia, and spend the winter close to the edge of the ice
+sheet. 
+
+<p>Auklets are vulnerable to oil spills and introduced species. The introduction of Arctic Foxes to many of the Aleutian Islands caused the species to be wiped out on many of those islands, and rats are also a problem on many islands. However, at present they are still a very common species.
+<br clear=all>
+
+What is AWK?
+============
+
+AWK is a simple and elegant pattern scanning/processing language.
+AWK is also the most portable scripting language in existence.
+
+AWK does not get in the way of generating solutions.  When
+you code in Awk, you are thinking about the problem, not the
+complexities of the language (because there aren't any: no
+continuations, no inheritance, no pointers, no unions, etc). So
+programming in Awk is a study of the essential essence of a problem
+(and not trivial and tedious implementation details of over-elaborated
+languages). 
+
+But why use AWK rather than Perl (or PHP or Ruby or...)?
+========================================================
+
+AWK only codes the support code for a set of tools. Using those tools, you can make an IDE
+for any language.
+
+But you can also use these tools to write AWK code. Which is nice since:
+
++ Awk is simpler (especially important if deciding which to learn first);
++ Awk syntax is far more regular (another advantage for the beginner, even without considering syntax-highlighting editors);
++ You may already know Awk well enough for the task at hand;
++ You may have only Awk installed;
++ Awk can be smaller, thus much quicker to execute for small programs.
+
+AWK is often used just for short one-line programs so it may surprise some people that, here, we are proposing
+tomake extensive use of it for longer programs. However,
+Henry Spencer [http://awk.info/?awksys wrote in 1991] that:
+
++  There is no fundamental reason why AWK programs have 
+   to be small "glue" programs.
++  Even the "old" AWK is a powerful programming language in its own right. 
++  Effective use of its data structures and its stream-oriented structure 
+   takes some adjustment for C programmers, but the results can be quite striking.
+
+To prove the point, he offers an AWK version of the [http://awk.info/?tools/awf Bell Labs NROFF tool].
+
+Other languages like Perl etc are  good programming language for
+writing self-contained programs, but pre-compilation and long
+start-up time are worth paying only if once the program has loaded
+it can do everything in one go. This contrasts sharply with the
+Operator-stream Paradigm, where operators are chained together in
+pipelines of two, three or more programs. The overhead associated
+with initializing (say) Perl at every stage of the pipeline makes
+pipelining inefficient. A better way of manipulating structured
+ASCII files is to use the AWK programming language, which is much
+smaller, more specialized for this task, and is very fast at startup.
+
+What is "KNIT"?
+===============
+
+KNIT is a language independent IDE that integrates the following tools:
+
+Writing tools:
+
++  KNIT files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) We also offer many examples of domain-specific languages, and their use in software development.
+
+Building tools:
+
++ KNIT files know their dependencies and this site offers automatic tools to package together dependent files.
+
+Reading tools:
+
++ KNIT  supports web-browsing of code files. For example, all the pages at this site were auto-generated from KNIT source files.
+
+Testing tools:
+
++ After building, the output from a KNIT file can be cached. Test suites and regressions suites are now simple to implement: just re-run the code and comparing the output to the cache. We automate much of this process.
+
+Storing tools:
+
++ Using on-line version control.
+
+What is a "WAK" file?
+=====================
+
+Everything in KNIT starts with .wak files.
+A ".wak" file is "words and kode", all mixed up. Based on Perl's POD files, WAK files let programmers mix up comments and code using a simple mark-up language (e.g. paragraphs starting with a space are code, everything else is a comment.) 
+
+For more (albeit useless) information on "WAK", see the bottom of this FAQ.
+
+What is a "MakeFile"?
+=====================
+
+WAK files live in a directory containing a Makefile. This file hooks
+the WAK source into KNIT and contains tools for building and testing
+the code.
+
+Each directory contains code from one language (so if you are coding PHP and PYTHON), place them in different directories.
+The Makefile defines what language is supported in the current directory.
+
+KNIT's Makefiles all begin with the same four parts, which must be defined in the following order: 
+
+ This    = quill# 1) define the app name
+ Version = 0.1#   2) define the version number
+ 
+ about:       #   3) Write an about line, with a copyright.
+	@echo "A test engine for QUILL function $(This), v$(Version)"
+	@echo "Copyright (c) GPL 3.0 2010 Tim Menzies, (tim at menzies dot us)"
+
+ include $(Knit)/lib/make/awk.mk # 4) include KNIT 
+
+Note the 4th part defines the language supported in this directory.
+
+What is "QUILL"?
+================
+
+QUILL is a library of useful AWK functions (must I explain this? Well, AWK sounds like "auk" which is a bird that has wings that use quills).
+
+What is "PENNY"?
+================
+
+Penny, short for "penny for your thoughts" is the web browsing tool integrated into KNIT. When used with KNIT, it can display ".wak" files.
+When used separately, it is  a simple way to display HTML files (which you can hand generate).
+
+What else does "WAK" mean?
+==========================
+
+KNIT  processes "wak" files and, depending on your taste, "wak" means different things.
+
+If you are an  AWK programmers, a wak is  "awk", all mixed up
+
+If you like bad puns,  "WAK" is 
+"words and kode" (code)
+
+If you have pretentions of street cred, then "WAK" means or super weird/awful/crazy/mad effed up
+(from [http://www.urbandictionary.com/define.php?term=wak the Urban Dictionary]).
+
+<img class=rthumb250 src="http://cardboardmonocle.com/blog/fxsuits/wak.jpg">If you a fan of  the actor Henry Alvarez or the film "Explorers" (1985), then
+"WAK" is an alien. According to
+[http://cardboardmonocle.com/blog/?page_id=747 Cardboard Monocle],
+at his core, Wak is a teenager. Though an alien, he has an annoying
+little sister, watches a ton of television, and had more angst than
+you can shake a latex eyeball on a stick at. Okay, so this is
+another goofy 80s movie, but it has Ethan Hawke, River Phoenix and
+a trash can spaceship. Plus, Wak has suction cup fingers.
+
+Finally, if you are about 4000 years old and come from north Africa,
+then "WAK" is  the
+[http://www.monamagick.com/resources_deities_african4.html creator
+god (in the mythology of southern Ethiopia, Uganda, and Somaliland)]
+who dwelled in the clouds. He was supreme and a benefactor god. He
+kept the heavens at a distance from the earth and ornamented it
+with stars. When the earth was flat, Wak asked man to build himself
+a coffin. Man did so and Wak shut him up in it and buried it. For
+seven years he made fire rain down. This is how the mountains were
+formed. Wak then danced upon the place where the coffin was buried
+and man sprang forth, alive. He was sure he had slept for a brief
+moment only and was shocked to find it had been so long and earth
+had changed so much; this is why man is awake for most of the day.
+Eventually man grew tired of living alone. Knowing of man's loneliness,
+Wak took some of his blood and after four days, the blood turning
+into a woman whom the man married. Man and woman had 30 children,
+but man was so ashamed at having had so many that he hid fifteen
+of them away. Wak was angry at this, and as a result, the children
+man hid away were turned into animals and demons.
+
+
+

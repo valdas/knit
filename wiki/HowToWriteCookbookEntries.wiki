@@ -1,0 +1,24 @@
+#summary So, you want to write cookbook entries...
+
+= Standard Sections =
+ * Synopsis
+ * Problem
+ * Solution
+ * Usage
+ * Discussion
+ * See Also
+ * Status
+    * TIN: Descriptive, 
+    * BRONZE: Sample outputs included in text
+    * SILVER: Sample programs in this repository
+    * GOLD: Test suite in this repository
+    * DIAMOND: Test suites, with expected outputs, in this repository
+ * Author
+
+= Markdown Syntax =
+
+Notes on the syntax used in the cookbook.
+
+= Sharing =
+
+Notes on the on-line repository for cookbook entries.

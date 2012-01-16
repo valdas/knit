@@ -1,0 +1,408 @@
+#12345####################################################################################
+
+template
+System 
+Slots: description keywords author images google-search home title logo  links seeAlso menu footer
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> 
+<head> 
+  <meta name="verify-v1" content="czgtCBrI0IbBXGX+tLjcvbmmhRavvmENf9guTixobQ4=" /> 
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" /> 
+  <meta name="description" content="``description``" />
+  <meta name="keywords" content="``keywords``" />
+  <meta name="author" content="``author``" />
+  <link rel="shortcut icon" type="image/x-icon" href=
+  "``home``/themes/wink/img/favicon.ico" />
+  <title>``title`` : ``Title``</title>
+<style>
+/* andreas03.css */
+.twitter_div {
+text-align:left;
+}
+body{
+margin:0;
+padding:30px 0;
+font-family:verdana,arial,lucida grande, tahoma,verdana,sans-serif;
+background-color: #003366;
+background-attachment: fixed;
+background-image: url(``home``/themes/andres03/img/bodybg.gif);
+background-repeat: repeat-x;
+color:#222;
+}
+#thetop{
+margin:0;
+}
+#container{
+width:720px;
+margin:0 auto;
+padding:20px 20px 0 20px;
+background:#fff url(``home``/themes/andres03/img/contbg.png) no-repeat;
+color:#222;
+}
+a{
+text-decoration:none;
+background-color:inherit;
+color:#26c;
+}
+a:hover{
+text-decoration:underline;
+}
+a img{
+border:0;
+}
+img.boxed {
+padding:4px;
+border:1px solid #446688;
+}
+img.mthumb {
+float: center
+width: 150px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.lthumb {
+float: left;
+width: 150px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.rthumb {
+float: right;
+width: 150px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.mthumb250 {
+float: center
+width: 250px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.mthumb250 {
+float: center
+width: 250px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.rthumb250 {
+float: right;
+width: 250px;
+margin-right: 5px;
+padding:4px;
+border:1px solid #446688;
+}
+img.rthumb250nb {
+float: right;
+width: 250px;
+margin-right: 5px;
+padding:4px;
+}
+p{
+margin:0 0 15px 0;
+xline-height:1.5em;
+}
+#main p,#sidebar p{
+padding:0 0 0 10px;
+}
+#logo{
+float:left;
+width:200px;
+margin:0 10px 0 0;
+padding:0 0 0 0;
+background:#eee;
+border:4px solid #dde;
+text-align:center;
+color:#555;
+}
+#logo h1{
+margin:50px 5px 1px 5px;
+letter-spacing:-3px;
+}
+#logo a{
+background-color:inherit;
+color:#26a;
+text-decoration:none;
+}
+#logo a:hover{
+background-color:inherit;
+color:#69e;
+}
+#tagline{
+text-align:center;
+font-size:1.2em;
+}
+body{ font-size: 11px; }
+#main{
+float:left;
+width:530px;
+margin-right:20px;
+padding:0;
+}
+.headerstyle{
+xdisplay:block;
+margin:0px 0 10px 0;
+padding:5px 0 5px 8px;
+background:#eee url(``home``/themes/andres03/img/gradient2.png) repeat-x;
+color:#222;
+border-top:1px solid #ddd;
+border-right:1px solid #bbb;
+border-bottom:1px solid #bbb;
+border-left:1px solid #ddd;
+text-decoration:none;
+font-weight: bold;
+}
+#sidebar{
+width:155px;
+float:right;
+margin-top:20px;
+}
+#right li {  margin-bottom: 3px; margin-left: -25px;	}
+.wide li  { margin-bottom: 7px; margin-bottom: 0px; margin-left: -25px;	}
+#left li   { margin-bottom: 3px; margin-left: -25px;	}
+.class1 { background-color: #DDD; }
+#right {
+width: 48%;
+float: right;
+position: relative;
+}
+#left {
+width: 48%;
+float: left;
+position: relative;
+}
+/* #sidebar p,li{ font-size: x-small; } */
+.sidelink{
+display:block;
+width:140px;
+margin:3px 10px 2px 0;
+padding:5px 0 5px 8px;
+font-weight:bold;
+text-align:left;
+background:#eee url(``home``/themes/andres03/img/gradient1.png) repeat-x;
+color:#26c;
+border-top:1px solid #ddd;
+border-right:1px solid #bbb;
+border-bottom:1px solid #bbb;
+border-left:1px solid #ddd;
+}
+.sidelink:hover,.menuheader{
+background:#fff url(``home``/themes/andres03/img/gradient2.png) repeat-x;
+color:#222;
+border-top:1px solid #ddd;
+border-right:1px solid #888;
+border-bottom:1px solid #888;
+border-left:1px solid #ddd;
+text-decoration:none;
+}
+#footer{
+margin:0 auto 20px auto;
+width:760px;
+background:#fff url(``home``/themes/andres03/img/footerbg.png) bottom left no-repeat;
+padding:0 0 5px 0;
+font-size:0.9em;
+color:#888;
+text-align:center;
+}
+h1,h2,h3,h4{
+margin:0 0 0px 0;
+font-weight:normal;
+}
+h1{
+font-size:2.8em;
+}
+h2{
+margin:0 0 4px 0;
+font-size:1.8em;
+}
+h3{
+margin:20px 0 8px 0;
+font-size:1.4em;
+}
+h4{
+margin:10px 0 5px 0;
+font-size:1.2em;
+}
+.clear{
+clear:both;
+margin:0;
+}
+.right{
+text-align:right;
+}
+.internallink{
+font-size:0.9em;
+text-align:center;
+}
+.block{
+padding:20px;
+background:#eee;
+color:#222;
+border:2px solid #ddd;
+}
+.credit{
+color:#888;
+background-color:inherit;
+}
+.hide{
+display:none;
+}
+dt.bio { font-style: italic;
+margin-top: 5px; border-top: solid #CCC 1px;
+}
+xhr {
+border: none 0;
+border-top: 1px solid #999;
+height: 1px;
+}
+.toc {
+padding: 5px;
+margin: 5px;
+background-color: #f0fff0;
+border: #d0ddd0 solid 1px;
+float: right;
+font-size: .9em;
+margin: 12px 0 5px 12px;
+width: 180px;
+}
+.toc h1 {font-size: 11pt; }
+.toc h2 {font-size: 10pt; }
+.toc ol {
+margin: 5px;
+padding-left: 30px;
+}
+.entry > .toc {
+margin-top: 0px;
+}
+#tabs10 {
+text-align:left;
+}
+#tabs10 a {
+float:left;
+xbackground:url(``home``/themes/andres03/img/tableft10.gif) no-repeat left top;
+margin:0;
+padding:0 0 0 4px;
+text-decoration:none;
+}
+#tabs10 a span {
+font-weight: bold;
+background:url(``home``/themes/andres03/img/tabright10.gif) no-repeat right top;
+padding:5px 7px 4px 5px;
+color:#FFF;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs10 a span {float:none;}
+/* End IE5-Mac hack */
+#tabs9 a:hover span {
+color:#FFF;
+}
+#tabs10 a:hover {
+background-position:0% -42px;
+}
+#tabs10 a:hover span {
+background-position:100% -42px;
+}
+pre.code { 
+background-color: #e7e7e7;
+border-style: dotted;
+border-color: blue;
+border-width: 0.1em;
+margin-left: 10px;
+margin-right: 10px;
+}
+p.tags {
+font-size: x-small;
+margin-top: 0px;
+margin-botton: 0px;
+text-align: right;
+color: #AAA;
+}
+/* Original open source design by Andreas Viklund - http://andreasviklund.com
+Released through OSWD.org */
+</style> 
+</head> 
+ 
+<body> 
+  ``syntax-highlighter``
+<div id="thetop"> 
+<a id="top"></a> 
+<p class="hide">Skip to: <a href="#sitemenu" accesskey="2">Site menu</a> | <a href="#maincontent" accesskey="3">Main content</a></p> 
+</div> 
+ 
+<div id="container"> 
+<div id="main"> 
+<div id="tabs10"> 
+	``menu``
+ </div> 
+ <div id="logo"> 
+<img width=200 src="``images``/``logo``"></div> 
+ 
+<div id="intro"> 
+<center> 
+&nbsp;<br> 
+&nbsp;<br> 
+&nbsp;<br> 
+<p> 
+<h1>``title``</h2>
+		
+		<h2>``description``</h2>
+		</p> 
+</center> 
+</div> 
+ 
+<div class="clear"></div> 
+<div> 
+<hr>
+``Content`` 
+
+ 
+</div></div> 
+<div id="sidebar"> 
+<center> 
+<!-- Google CSE Search Box Begins  --> 
+``google-search``
+<div class="cse-branding-" style="background-color:#;color:#"> 
+  <div class="cse-branding-form"> 
+ 
+							  </div> 
+											  </div> 
+											  <!-- Google CSE Search Box Ends --> 
+ 
+    
+ 
+ 
+<!-- Start of Flickr Badge --> 
+<div class="zg_div"> 
+<div class="zg_div_inner"> 
+<!-- a href="http://www.flickr.com">www.<strong style="color:#3993ff">flick<span style="color:#ff1c92">r</span></strong>.com</a --> 
+<br> 
+
+</div> 
+</center> 
+ 
+<h4><b>News..</b></h4> 
+<p>
+``seeAlso``
+ </p> 
+<hr><h4><b>Links</b></h4> 
+<p>``links``</p>
+
+</div> 
+<div class="clear">&nbsp;</div> 
+ 
+</div> 
+ 
+<div id="footer"> 
+``footer``
+   Design by <a href="http://andreasviklund.com" class="credit">Andreas Viklund</a>
+</div> 
+ 
+</body> 
+</html> 

@@ -1,0 +1,76 @@
+<h1>About "The the Art of Awk"</h1>
+
+<h2>Programming: What Matters Most?</h2> 
+ 
+<p>After 25 years (gasp) of coding in Prolog, Lisp, Smalltalk, Bash, Gawk, Perl, Python, Ruby, etc, etc 
+I've noticed no matter which  language I use, that I adopt  similar practices. Its the
+usual stuff
+(version control, make files, test-driven development, web-based literate programming, polymorphism)
+plus other, not-so-common, tricks (indirect functions,
+stochastic sampling, data mining).
+Note that 
+these tricks <em>sound</em> complex, but are actually very simple to apply.
+<p> 
+Anyway, this begs the question: where is the value-added in programming? 
+<ul> 
+<li> 
+Is it in a particular language? 
+<li> 
+Or is it the language independent principles applied by the programmer?
+</ul> 
+<img align=right width=300 src="http://menzies.us/img/bfast.jpg"> 
+<h2>An Experiment with Simplicity</h2> 
+<p> 
+Time to check. Over the course of this year (2010), I'm going to take one hour after breakfast
+to tackle
+tasks which, elsewhere, are handled by complex and elaborate tools:
+<ul> 
+<li>Content management systems;
+<li>Domain-specific languages;
+<li>Simulation systems;
+<li>Data miners;
+<li>Verification and validation tools;
+<li> Intelligent agents
+<li>etc
+</ul> 
+I'll build these using  sophisticated tools- but they'll be the ones in my head,
+not in my programming language.
+<p> 
+To ensure that, I'm going to use  a language without
+inheritance, continuations, pointers, structures, lambda bodies, etc, etc, etc.
+Here, I cook my programs using ye olde Awk
+(and a little UNIX shell scripting).
+For example, this Awk function
+uses the UNIX <em>sort</em> command to print an array:
+<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+function o(a, str,control,   i) {
+     if (control ~ /^[0-9]/) 
+         for(i=1;i<=control;i++)
+               print str "[ " i " ]\t=\t [ " a[i] " ]"
+     else
+         if (0 in a)      
+               o(a,str,a[0])
+     else {
+        com = control ? control : " -n -k 2"
+        # ensure com is unique 
+        com = "sort " com  " #" rand(); 
+        for(i in a)
+             print str "[ " i " ]\t=\t [ " a[i] " ]" | com;
+        close(com); }
+ }
+</script> 
+ 
+<h2>You be the Judge</h2> 
+<p> 
+So, now it is up to you.  Review this code and see what you think. 
+What gives you most productivity? Is it language-dependent tricks
+or general principles? And, given the tools available in the 21<sup>st</sup> century, are those 
+principles too hard to apply?
+ 
+<h2>And if You Don't Like Awk...</h2> 
+<p>... Then we can still be friends.
+ While I <em>use</em> Make,Awk,etc.
+I do not recommend them. Instead, I just <em>apply</em> them to show that how easy it is to support better programming practices. 
+If you want, you can think of my code as an executable specification which you can quickly port to
+OCaml, Erlang, Lua, or whatever you use in your next project.
+

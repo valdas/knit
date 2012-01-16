@@ -1,0 +1,68 @@
+<h1>cat</h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Example</a>
+<li> <a href="#3">Code</a>
+<ul>
+<li> <a href="#4">Demo</a>
+<li> <a href="#5">Uses</a>
+<li> <a href="#6">Main</a>
+</ul>
+<li> <a href="#7">Author</a>
+</ul>
+
+<a name="1"></a><h2>Synopsis</h2>
+<p>
+Split the contents of <em>file</em> into an  <em>array</em>, divided by a <em>seperator</em>.
+</p>
+<a name="2"></a><h2>Example</h2>
+<pre>
+  cat("config.txt",contents,"\n")
+</pre>
+<a name="3"></a><h2>Code</h2>
+
+<a name="4"></a><h3>Demo</h3>
+<p>
+(KNIT programmers can run this example using <em>cd quill; eg13</em>.)
+</p>
+<p>
+Input...
+</p>
+<pre>
+  N=cat("etc/tests/eg13.in",All);
+  o(All,"cat",N)
+</pre>
+<p>
+Output...
+</p>
+<pre>
+  cat[ 1 ]  = [ The Pyramid Texts are a collection of ancient Egyptian ]
+  cat[ 2 ]  = [ religious texts from the time of the Old Kingdom. ]
+  cat[ 3 ]  = [ Written in Old Egyptian, the pyramid texts were carved ]
+  cat[ 4 ]  = [ on the walls and sarcophagi of the pyramids at Saqqara ]
+  cat[ 5 ]  = [ during the 5th and 6th Dynasties of the Old Kingdom. ]
+  cat[ 6 ]  = [ The oldest of the texts date to between 2400-2300 BC. ]
+  cat[ 7 ]  = [  ]
+  cat[ 8 ]  = [ Example: ]
+  cat[ 9 ]  = [  ]
+  cat[ 10 ] = [  Oho! Oho! Rise up, O Teti! ]
+  cat[ 11 ] = [  Take your head, collect your bones, ]
+  cat[ 12 ] = [  Gather your limbs, shake the earth from your flesh! ]
+  cat[ 13 ] = [  Take your bread that rots not, your beer that sours not, ]
+  cat[ 14 ] = [  Stand at the gates that bar the common people! ]
+  cat[ 15 ] = [  ]
+</pre>
+<a name="5"></a><h3>Uses</h3>
+<p>
+<a href="?slurp">slurp</a> 
+</p>
+<a name="6"></a><h3>Main</h3>
+<pre>
+ function cat(file,all,sep) { 
+    return slurp("cat " file,all,sep) 
+ }
+</pre>
+<a name="7"></a><h2>Author</h2>
+<p>
+Tim Menzies

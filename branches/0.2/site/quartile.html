@@ -1,0 +1,72 @@
+<h1>Quartile</h1>
+
+<ul>
+<li> <a href="#1">Code</a>
+<ul>
+<li> <a href="#2">Uses</a>
+<li> <a href="#3">Main</a>
+</ul>
+<li> <a href="#4">Author</a>
+</ul>
+<p>
+Print a bar graph showing the 1st,2nd,3rd,4th quartile of some data.
+</p>
+<a name="1"></a><h2>Code</h2>
+
+<a name="2"></a><h3>Uses</h3>
+<p>
+<a href="?math">math</a> <a href="?s2a">s2a</a> 
+</p>
+<a name="3"></a><h3>Main</h3>
+<pre>
+ function quartile(data, opt) {
+     s2a("shrink,2,offC, ,medianC,|,onC,*,f,5.1f,"\
+         "truncate,0.2,outerp,1,numsp,0",
+         opt,",",1)
+     quartile1(data,opt)
+ } 
+ function quartile1(data,opt,  f,i,s,s1,n,min,q1,median,q3,max) {
+     n  = asort(data,s)
+     if (opt["truncate"]) {
+         lower = within(round(n*   opt["truncate"]),1,n)
+         upper = within(round(n*(1-opt["truncate"])),1,n)
+         n     = 0
+         for(i=lower;i&lt;=upper;i++)
+             s1[++n]= s[i]
+     } else 
+         for(i in s) s1[i]=s[i]
+     min   = s1[1];
+     q1    = s1[round(1*n/4)];
+     median= s1[round(2*n/4)];
+     q3    = s1[round(3*n/4)];
+     max   = s1[n];
+     if (opt["numsp"]) {
+         f=opt["f"]
+         printf("%"f",%"f",%"f",%"f",%"f",",min,q1,median,q3,max)
+     }
+     printf("[%s]\n",quartile2(min,q1,median,q3,max,opt))
+ }
+ function quartile2(min,q1,median,q3,max,opt,  width,r,i,l,str) {
+     width   = round(100 / opt["shrink"]); 
+     r       = max - min;
+     q1      = q100(q1,min,r,width)
+     median  = q100(median,min,r,width)
+     q3      = q100(q3,min,r,width)
+     max     = q100(max,min,r,width)
+     min     = q100(min,min,r,width)
+     for(i=1; i&lt;=width; i++) l[i]= opt["offC"]
+     if (opt["outerp"]) {
+            for(i=      min;    i&lt;=q1;  i++)  l[i]= opt["onC"];
+            for(i=       q3;    i&lt;=max; i++)  l[i]= opt["onC"]; }
+     else { for(i=       q1;    i&lt;=q3;  i++)  l[i]= opt["onC"]; }
+     l[round(median)] = opt["medianC"]
+     for(i=1; i&lt;=width; i++) str = str l[i];
+     return str
+ }
+ function q100(x,min,r,width) {
+     return round((x - min)/r * width)
+ }
+</pre>
+<a name="4"></a><h2>Author</h2>
+<p>
+Tim Menzies

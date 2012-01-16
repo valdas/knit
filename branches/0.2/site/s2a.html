@@ -1,0 +1,39 @@
+<h1>s2a: string to array</h1>
+
+<ul>
+<li> <a href="#1">Synopsis</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
+</ul>
+
+<a name="1"></a><h2>Synopsis</h2>
+<p>
+s2a(string, array <a href=",seperator,blankp">,seperator,blankp</a>)
+</p>
+<p>
+Divides the input <em>string</em> into the output <em>array</em>, seperated by
+<em>seperator</em> (default: ',').  Uses the odd numbered elements as the
+keys and the even numbered elements as the values.  If <em>blankp</em> is
+set, then the keys and values can contain leading and trailing blanks
+(otherwise, those blanks are deleted).
+</p>
+<p>
+Note that the <em>array</em> is completely reset by this function.
+</p>
+<a name="2"></a><h2>Code</h2>
+<pre>
+ function s2a(str,a,  sep,blankp,  tmp,n,i) {
+    sep= default(sep,",")
+    blankp = default(blankp,0)
+    n= split(str,tmp,sep)
+    for(i=1;i&lt;=n;i+=2) 
+        if (blankp)
+            a[tmp[i]]= tmp[i+1]
+        else
+            a[trim(tmp[i])]= trim(tmp[i+1]);
+    return n/2
+ }
+</pre>
+<a name="3"></a><h2>Author</h2>
+<p>
+Tim Menzies

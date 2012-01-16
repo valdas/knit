@@ -1,0 +1,47 @@
+<h1>math</h1>
+
+<ul>
+<li> <a href="#1">Examples</a>
+<li> <a href="#2">Code</a>
+<li> <a href="#3">Author</a>
+</ul>
+<p>
+Standard maths stuff.
+</p>
+<a name="1"></a><h2>Examples</h2>
+<p>
+(KNIT programmers can exercise these examples using <em>cd quill; make eg16</em>.)
+</p>
+<pre>
+    2,432,902,008,176,640,000
+</pre>
+<a name="2"></a><h2>Code</h2>
+<pre>
+ BEGIN { Pi   = 3.14159265
+         E    = 2.71828183
+         Inf  = 10^16
+         NInf = -1*Ninf
+       }
+
+
+ function oddp(x)  { return (x % 2) }
+ function evenp(x) { return (! oddp(x)) }
+ function abs(n)     { return n &lt; 0 ? -1*n : n }
+ function most(x,y)  { return x > y ? x    : y }
+ function least(x,y) { return x > y ? y    : x }
+ function round(x)   { return int( x&lt;0 ? x-0.5 : x+0.5) }
+ function mean(sum,n) {return sum/n}
+ function between(min,max) { 
+	if (max==min) 
+            return min 
+        return min+ ((max-min)*rand())
+ }
+ function within(n,min,max) {
+	if (n &lt; min) return min
+	if (n > max) return max
+    return n
+ }
+</pre>
+<a name="3"></a><h2>Author</h2>
+<p>
+Tim Menzies

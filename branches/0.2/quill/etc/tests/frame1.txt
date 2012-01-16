@@ -1,0 +1,11 @@
+Dear ``name``,
+   
+When the pizza arrives, I will call you on ``phone`` and send
+it around to ``office``.  
+  
+Bon Appetit!
+
+p.s. Fyi: here are the latest updates to our menu: ``rss;lawker.blogspot.com/feeds/posts/default?alt=rss;5``
+
+p.p.s. Never forget (``any;quotes;1``). Ok?
+

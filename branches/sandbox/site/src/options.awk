@@ -1,0 +1,91 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+#@uses copyleft barph s2a
+
+#options
+
+#Reads flags from the command line.
+
+#For a POSIX standard command-line options interpreter, please see
+#Arnold Robbins' excellent
+#[http://www.gnu.org/software/gawk/manual/html_node/Getopt-Function.html#Getopt-Function getopt] function.
+
+#Unlike that code, the following code is simple and uses  far new fewer
+#globals: just one, in fact.  This code stores options in the _Opt_
+#array. This means defaults for command line options can be set,
+#just by pre-initializing the index/values of _Opt_.
+
+#Another simplification, used below, is that flags can be any number
+#of characters (not just one, as with getopt]. Also, if  a flag that
+#starts with  an upper case letter it is assumed to have an argument.
+
+#Finally, to encurage uniformity between code, the flags "a,c,h" are
+#reserved for show help text:
+
+#+ "_-a_" calls _about()_ to describe the program.
+#+ "_-c_" calls _copyright()_ to print legal info;
+#+ "_-h_" calls _help()_ to print helpd text.
+
+#Code 
+#====
+
+#Uses
+#----
+
+#@uses barph s2a
+
+#This code also assumes that there exists a function, defined
+#elsewhere, called _help()_, _copyright()_ and _about()_.
+
+#Accessing an option
+#-------------------
+
+ function opt(x) {
+     if  (x in Opt) 
+		return Opt[x] 
+	else
+	 	barph(Opt["What"] " option ["x"] unknown")
+ }
+
+#Main driver
+#-----------
+
+#_Ok2go_ resets the contents of "_opt_" using the command-line
+#arguments.  The program either exits the program or returns 1. As
+#a side effect, any command-line argument information is removed
+#from _ARGV_ and _ARGC_.
+
+ function ok2go(opt,str) { # returns 0 if bad options
+     s2a("a=;c=;h=;" str,opt,"[=;]")
+     ARGC = ok2go1(opt,ARGV,ARGC)
+     if (opt("c")) exit copyleft();
+     if (opt("a")) exit about();    
+     if (opt("h")) exit help();
+     return 1
+ }
+ function ok2go1(opt,input,n,  key,i,j,k,tmp) {
+     for(i=1;i<=n;i++)  { # 1: explore argstill no more flags
+	 	key = input[i]
+	 if (sub(/^[-]+/,"",key))  { # 1a: we have a new flag
+	     if (key in opt)         # 1b: if legal flag, change its value
+		 	# 1c: if upper case flag grab value from command line 
+		 	opt[key] = (key ~ /^[A-Z]/) ? input[++i] : 1
+	     else 
+			barph("-"key" unknown. Try -h for help.")
+	 } else { 
+			i--; break 
+		}
+     }
+     for(j=i+1;j<=n;j++)  # 2: clear the flags from n, input 
+	 	tmp[j-i]=input[j]
+     split("",input,"")
+     for(k in tmp) 
+	 	input[k] = tmp[k]
+     n -= i
+     return n
+ }
+
+#Author
+#======
+
+#Tim Menzies
+

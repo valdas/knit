@@ -1,0 +1,118 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Welcome! 
+
+What do you see?
+================
+
+At  first glance, this site seems to be just some tools &amp; tricks for AWK programmers.
+
+
+But if that is all you see here, then you have not mastered the Art of AWK:
+<ul>
+<em>To reveal  simplicity, by stripping away the superfluous.</em>
+</ul>
+<img src="``share``/img/easterEgg.jpg" class="rthumb250">
+
+Programming in AWK is a study of the essential essence  of a problem (and 
+not trivial and tedious
+details of 
+[?onComplexit over-elaborated implementation tools]).	When you code in AWK, you are thinking  about the problem, 
+	not the complexities of the programming languages (because there aren't any:
+	no continuations, no inheritance, no pointers, no unions, etc). 
+
+AWK programs are very short to write and very quick to change.
+This brevity lets you rapdily build and evolve prototypes- which gives you the
+experience needed to uncover the correct design. 
+
+So AWK programming is a test of your understanding of a problem.
+When you really  understand it, then
+everything suddenly becomes clear and clean and simple.
+Hence: 
+<ul>
+<em><u>The first rule of AWK</u>: keep AWKing till the code gets simple.</em>
+</ul>
+
+Why AWK?
+========
+
+Traditionally, AWK is viewed as a language for writing very short programs. This is strange since as far back as 1991
+Henry Spencer<sup>1</sup> wrote that:
+
++ There is no fundamental reason why AWK programs have to be small "glue" programs.
++ Even the "old" AWK is a powerful programming language in its own right.
++ Effective use of its data structures and its stream-oriented structure takes some adjustment for C programmers, but the results can be quite striking.
+
+To prove the point, he offered an AWK version of the Bell Labs NROFF tool. 
+Since then,  apart from Spencer's work and a few others<sup>2</sup>, there are suprisingly few examples of large AWK programs.
+
+Since 2009, we've been the webmaster
+of the [http://awk.info AWK community  portal].
+Based on that experience, it is clear why there aren't many big AWK programs:
+certain key tools are missing from the AWK-verse. Specifically, there is:
+
+1. No standard for source code library management . Without a library of parts, you can't build larger assemblies;
+2.No standard for unit tests and regression tests. Without a way to exercise the code, you are reluctant to work as a team since you can't tell if someone else's latest change breaks your code. Worse, outsiders can't understands the code since you can't show off what it can do.
+3. No standard for documentation. Without documentation tools, no one outside the team can see what you've done
+
+Various tools addressed point (1), but there are no AWK tools that handle (1) and (2) and (3) in an integrated manner.
+So we wrote those tools,
+in AWK (of course!), with a little help from some Unix scripting tools. 
+
+Not Just AWK
+============
+
+A curious thing happened on the way to the IDE.
+We found  that our "AWK" support tools
+become tools for other languages, very easily.
+That is, starting with AWK, we ended up with 
+language-independent programmer support tools that work for
+LISP, SMALLTALK, PROLOG, PHP, PYTHON, etc. 
+Those support tools are shown here: a very small language independent programmer's 
+development environment, and numerous sample applications written using that environment.
+When you review this code, you might be surprised at how easy it is to code, and customize, these tools. 
+
+But note what happened- 
+AWK was a playpen
+within which we gained the experience required to generalize one solution to a whole set of solutions.
+We started out exploring an IDE for one scripting language and we ended up with tools
+for scripting languages. 
+That is AWK is a tool that lets you see through the tool in order to better understand the underlying task at hand.
+Other programming languages are research tasks unto themselves and it takes weeks/months/never to sort
+through the language issues in order to find the underlying problem. 
+<ul>
+<em><u>The second rule of AWK</u>: keep AWKing till the code vanishes and all that is left is the solution.</em>
+</ul>
+
+
+And Finally...
+===============
+
+Always remember: <em>perfection is when there is nothing left to throw away</em><sup>3</sup>.
+
+Notes
+=====
+
+<sup>1</sup> 
+Henry Spencer,
+<a href="http://lawker.googlecode.com/svn/fridge/share/pdf/aasl.pdf">Awk as A Major Systems Programming Language</a>,
+Proceedings of the Winter Usenix Conference (Dallas'91).<br>
+<sup>2</sup> See the <a href="http://awk.info/?awk100">AWK 100</a>.<br>
+<sup>3</sup> Antoine de Saint-Exupery
+

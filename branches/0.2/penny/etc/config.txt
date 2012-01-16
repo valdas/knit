@@ -1,0 +1,130 @@
+``title``           The Art of Awk
+``home``            http://awkcookbook.info
+``quote``           <b>"Because easy is not wrong."</b><br>- Ronald Loui
+``description``     The art of Awk: how to do more, with less
+``keywords``        Awk, design, less is more
+``author``          Tim Menzies 
+``favicon``         bracket.ico
+``css-main``        img/style.css
+``css-print``       img/print.css
+``theme``           http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF
+``tags``            http://knit.googlecode.com/svn/branches/0.2/penny/etc/tags.txt
+``menu``            <a href="1">aa</a> | <a href="1">bb</a> | <a href="1">ccc</a> | <a href="3">ddd</a>   
+``logo``            <center>
+                    <img  width="155"
+		          src="http://knit.googlecode.com/svn/branches/0.2/penny/etc/themes/EWnF/img/leaves_brown.jpg">
+                    The Art of <strike>Auk</strike> Awk: <br>how do more, with less.
+                    </center> 
+``footnote``         <p> 
+                     Courtesy of <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a> 
+                     &amp; <a href="http://www.best10webhosting.net/" target="_blank">Best 10 Web Hosting</a></p> 
+``google-vertify``  <meta name="google-site-verification" 
+                          content="xpIIfhn5E4bx2nT6xnaP0_zc1xJ8K3-02NCqsliLNbU" />
+``outbrain-verify`` <input type="hidden" name="OBKey" value="osmrOhG3GtMLBrR57TCKZA=="/> 
+                    <script LANGUAGE="JavaScript">var OBCTm=1263101123123; </script>
+                    <script LANGUAGE="JavaScript" src="http://widgets.outbrain.com/claim.js"> </script> 
+
+``search-box``      <form action="http://www.google.com/cse" id="cse-search-box"> 
+                         <p> 
+                         <input type="hidden" name="cx" value="15406670773682269893:09koyu6eeq4" /> 
+                         <input type="hidden" name="ie" value="UTF-8" /> 
+                         <input type="text" name="q" value=" " size="15" /> 
+                         <input type="submit" name="sa" value="Find" /> 
+                    </form> 
+``syntaxHighligher``
+    <link href='http://alexgorbatchev.com/pub/sh/current/styles/shCore.css' rel='stylesheet' type='text/css'/> 
+    <link href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/> 
+    <script src='http://alexgorbatchev.com/Pub/sh/current/scripts/shCore.js' type='text/javascript'></script> 
+    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js' type='text/javascript'></script> 
+    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js' type='text/javascript'></script> 
+    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js' type='text/javascript'></script> 
+    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPerl.js' type='text/javascript'></script> 
+    <!--- script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js' type='text/javascript'></script> 
+    <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushSql.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushVb.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushRuby.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJava.js' type='text/javascript'></script> 
+   <script src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCSharp.js' type='text/javascript'></script ---> 
+   <script language='javascript'> 
+       SyntaxHighlighter.config.bloggerMode = true;
+       SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+       SyntaxHighlighter.all();
+   </script> 
+
+``File``index.html
+``Content``
+<p class="title_blue">Programming: What Matters Most?</p> 
+ 
+<p>After 25 years (gasp) of coding in Prolog, Lisp, Smalltalk, Bash, Gawk, Perl, Python, Ruby, etc, etc 
+I've noticed no matter which  language I use, that I adopt  similar practices. Its the
+usual stuff
+(version control, make files, test-driven development, web-based literate programming, polymorphism)
+plus other, not-so-common, tricks (indirect functions,
+stochastic sampling, data mining).
+Note that 
+these tricks <em>sound</em> complex, but are actually very simple to apply.
+<p> 
+Anyway, this begs the question: where is the value-added in programming? 
+<ul> 
+<li> 
+Is it in a particular language? 
+<li> 
+Or is it the language independent principles applied by the programmer?
+</ul> 
+<img align=right width=300 src="http://menzies.us/img/bfast.jpg"> 
+<p class="title_blue">An Experiment with Simplicity</p> 
+<p> 
+Time to check. Over the course of this year (2010), I'm going to take one hour after breakfast
+to tackle
+tasks which, elsewhere, are handled by complex and elaborate tools:
+<ul> 
+<li>Content management systems;
+<li>Domain-specific languages;
+<li>Simulation systems;
+<li>Data miners;
+<li>Verification and validation tools;
+<li> Intelligent agents
+<li>etc
+</ul> 
+I'll build these using  sophisticated tools- but they'll be the ones in my head,
+not in my programming language.
+<p> 
+To ensure that, I'm going to use  a language without
+inheritance, continuations, pointers, structures, lambda bodies, etc, etc, etc.
+Here, I cook my programs using ye olde Awk
+(and a little UNIX shell scripting).
+For example, this Awk function
+uses the UNIX <em>sort</em> command to print an array:
+<script type="syntaxhighlighter" class="brush: cpp"><![CDATA[
+function o(a, str,control,   i) {
+     if (control ~ /^[0-9]/) 
+         for(i=1;i<=control;i++)
+               print str "[ " i " ]\t=\t [ " a[i] " ]"
+     else
+         if (0 in a)      
+               o(a,str,a[0])
+     else {
+        com = control ? control : " -n -k 2"
+        # ensure com is unique 
+        com = "sort " com  " #" rand(); 
+        for(i in a)
+             print str "[ " i " ]\t=\t [ " a[i] " ]" | com;
+        close(com); }
+ }
+</script> 
+ 
+<p class="title_blue">You be the Judge</p> 
+<p> 
+So, now it is up to you.  Review this code and see what you think. 
+What gives you most productivity? Is it language-dependent tricks
+or general principles? And, given the tools available in the 21<sup>st</sup> century, are those 
+principles too hard to apply?
+ 
+<p class="title_blue">And if You Don't Like Awk...</p> 
+<p>... Then we can still be friends.
+ While I <em>use</em> Make,Awk,etc.
+I do not recommend them. Instead, I just <em>apply</em> them to show that how easy it is to support better programming practices. 
+If you want, you can think of my code as an executable specification which you can quickly port to
+OCaml, Erlang, Lua, or whatever you use in your next project.

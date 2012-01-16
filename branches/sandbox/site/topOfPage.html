@@ -1,0 +1,21 @@
+<h1>topOfPage</h1>
+<p>
+Adds tag lists top of page.
+</p>
+<pre>
+ function topOfPage(file,files,titles,tags,sgat,     sep,i,n,out,q) {
+     n   = tags[file,0]
+     out = ""
+     q="\""
+     if (n) {
+         for(i=1;i&lt;=tags[file,0];i++) {
+             out = out sep "&lt;a href=" q "?" tags[file,i] q ">" tags[file,i] "&lt;/a>"
+             sep = ", " 
+         }
+         out = "&lt;p class="q"categories"q" >categories: "out"&lt;/p>"        
+     }
+     return out
+ }
+</pre>
+<p>
+by Tim Menzies

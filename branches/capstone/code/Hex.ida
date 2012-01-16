@@ -1,0 +1,40 @@
+java
+/* Zach Cowell - zcowell
+CS 110 LAB
+Sept 20, 2007
+Brandi Shafer
+Program: Hex.java
+*/
+
+
+
+ import java.util.Scanner;
+
+ public class Hex{
+  public static void main(String [] args){
+    Scanner in = new Scanner(System.in);
+    System.out.print("Input your 4 digit hex number: ");
+    String a,b,c,d,str = in.nextLine();
+    str = str.toLowerCase();
+    System.out.println();
+    
+    //str.equals("a");
+    a = str.substring(0,1);
+    b = str.substring(1,2);
+    c = str.substring(2,3);
+    d = str.substring(3,4);
+    //char aC = str.charAt(0);
+    HexCaller dig1 = new HexCaller(a);
+    HexCaller dig2 = new HexCaller(b);
+    HexCaller dig3 = new HexCaller(c);
+    HexCaller dig4 = new HexCaller(d);
+    
+    int d1 = dig1.converter(a);
+    int d2 = dig2.converter(b);
+    int d3 = dig3.converter(c);
+    int d4 = dig4.converter(d);
+    double ans = d1 * Math.pow(16,0) + d2 * Math.pow(16,1) + d3 * Math.pow(16,2) + d4 * Math.pow(16,3);
+    
+    System.out.println("The number converted is "+ans);
+  }
+ }

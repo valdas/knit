@@ -1,0 +1,345 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk : 
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+Inside KNIT
+
+KNIT divides into _core_ and _apps_  (application) directories.
+
++ _App_ directories have special sub-directories (`etc/tests`) that handle the KNIT test engine.  
++ While the _core_ handles the bookkeeping and details of building apps.
+
+This page describes those directories and files, focusing on what
+files need changing to achieve common tasks.
+
+Apps
+====
+
+Apps are built from parts (lots of `*.wak` files)
+
+Standard Structure
+------------------
+
+KNIT is used to build and share apps.  Each app lives in its own directory.
+Within that directory, there is a standard structure.
+
+ KNIT
+ `-- app
+     |-- Makefile
+     |-- app.wak
+     `-- etc
+         `-- tests
+	     |-- eg1
+	     |-- eg2
+		 ...
+
+app/Makefile
+++++++++++++
+
+This is the hook between an app and the rest of KNIT. For example, in the following
+example,the first eight lines define variables and rules assumed by KNIT. Then, line 9
+loads one of the KNIT's language binding files, thus declaring that this app
+is being build from a particular example (in this example, awk). 
+
+ #---------------------------------------------------------------------------
+ This    = helloworld#
+ Version = 0.1#
+ 
+ about: 
+        @echo "$(This) v$(Version): a very small demo KNIT program"
+        @echo "copyright (c) GPL 3.0 2010 Tim Menzies, (tim AT menzies DOT us)"
+ 
+ include $(Knit)/lib/make/awk.mk # must be after defining "This" and "about"
+ #---------------------------------------------------------------------------
+ 
+ eg0 : build 
+ eg1 : eg0
+        @$I; $(Run)
+ eg2 : eg0
+        $I; $(Spy); $(Dump) 
+ eg3 : build 
+        @$I; $(Run) -a
+
+This is followed by rules that define tests for this app. The use of these rules
+is discussed [?tdd elsewhere].
+
+app/app.wak
++++++++++++
+
+The main file for the source code. Contains `uses` commands to link it to its dependent code.
+
+app/etc/tests/egX
++++++++++++++++++
+
+Stores the expected output for the `egX` rule of `app/Makefile`. For hints and tips on how
+to create and use these `egX` files, see the page on [?tdd test-driven development].
+
+Standard Apps
+-------------
+
+Helloworld
++++++++++++
+
+_helloworld_ is a simple demonstrator for KNIT. To start a new app, copy an modify
+this directory.
+Discussed [?underconstruction elsewhere].
+
+Penny
++++++
+
+The web content management system used to generate this site from the current
+KNIT development branch.
+Discussed [?underconstruction elsewhere].
+
+Quill
++++++
+
+Not really an app, but lots of common functions used by other apps. 
+Discussed [?underconstruction elsewhere].
+
+Core Directories
+================
+
+The core directories are:
+
+ KNIT
+ |-- doc
+ |-- etc
+ |-- lib
+ |   |-- awk
+ |   `-- make
+ |-- share
+ |   |-- img
+ |   `-- pdf
+ |-- site
+     |-- etc
+     |   `-- themes
+     `-- src
+         `-- old
+
+KNIT
+----
+
+Makefile
+++++++++
+
+The root of the KNIT directories contains a Makefile that:
+
+1. Installs the whole system via `make install`. Note: this command needs only to be called once, when KNIT is first downloaded.
+2. Updates and commit the whole system via `make`. 
+3. Forces a rebuild of everything via `make -B` (warning, may be slow).
+
+Note: this Makefile knows very little about KNIT. For the most part,
+it just changes to different sub-directories can calls `make` there.
+Hence, you should update this file whenever you build a new app (so it
+knows how to build that app).
+
+head
+++++
+
+`Head` is a file containing a standard header/copyright notice to be included at the start of all KNIT files.
+
+doc
+---
+
+This is the KNIT documentation project. It contains
+files written in a [?literate shorthand for quick HTML markup].
+
+To update the documentation:
+
+1. Change to this directory.
+2. Write a new `.wak` file in this directory.
+3. Execute `make builds`.
+
+Note that this last step may ask you to update  file `../site/etc/tags.txt`. This file is discussed below.
+
+doc/faqs.html
++++++++++++++
+
+Update this file to update the faqs.
+
+etc
+---
+
+Stores various system config files.
+
+etc/copyrite.txt
+++++++++++++++++
+
+A standard header to be added on top of all build files.
+
+etc/dotemacs
+++++++++++++
+
+An EMACS configuration file to handle certain KNIT idioms (e.g. do not indent text with tabs: use spaces instead).
+
+ (load "/Users/timm/opt/knit/etc/dotemacs")
+
+etc/dotknitrc
++++++++++++++
+
+A BASH configuration file to set up important KNIT variables. Change
+this file if your Makefiles need new or different environment
+variables.  To use this file, add something like this line to
+`$HOME/.emacs` (making the appropriate pathname changes):
+
+ . $HOME/opt/knit/etc/dotknitrc $HOME/opt/knit/etc local
+
+Note that the keyword `local` at the end of the above
+command. Currently `etc/dotknitrc` has conditionals that may set
+special variables, if local conditions demand it.  Change those
+conditionals if we find site-specific KNIT install requirements.
+
+lib
+---
+
+Contains the core scripts of KNIT.
+
+lib/awk
++++++++
+
+Contains KNIT's housekeeping scripts.
+
+lib/awk/comment.awk     
+___________________
+
+Works out  what is code,
+and what is comment, and adds the comments chars accordingly.
+
+It  assumes that paragraphs containing code begin with one
+white space character (a tab or a space) and that all other lines
+must be commented on.
+
+Comment.awk also knows about verbatim explanatory text. This
+are paragraphs that begin with more than one white space 
+character (and these are commented on as well).
+
+lib/awk/markup.awk      
+__________________
+
+Generates HTML files using a [?literate convenient shorthand notation].
+
+
+lib/awk.uses.awk
+________________
+
+Used to find the pathnames of all files needed by the input file. Files to be used are marked with
+
+ @uses file1 file2
+
+The code recurses into all the `uses` files and prints out the used before the user.
+
+lib/make
++++++++++
+
+Contains the core scripts of KNIT. To build new language bindings 
+for KNIT, copy and modify (e.g.) `awk.mk` to create `newlanguage.mk`.
+
+lib/make/awk.mk
+_______________
+
+Language-specific processing for awk.
+
+lib/make/dirs.mk
+________________
+
+Defines the `$(Dirs)` variable that lists all the directories used by KNIT.
+
+lib/make/test.mk
+________________
+
+Defines the KNIT [?tdd test engine].
+
+lib/make/tricks.mk
+__________________
+
+Defines the language-independent processing.
+
+share
+-----
+
+Stores files common to all apps and the core.
+
+share/img 
++++++++++
+
+Stores graphic files.
+
+share/pdf
++++++++++
+
+Stores Acrobat files.
+
+site
+----
+
+Stores files relating to KNIT's web site [artofawk.net].
+
+site/x.html
+++++++++++++
+
+The HTML files to be displayed. Many of these are auto-generated by the `doc/*.wak` files.
+
+site/etc
+++++++++
+
+Configuration files.
+
+site/etc/config.txt
+___________________
+
+Defines the variables used around the site (e.g. the site name).
+
+Also defines the name of the theme used to display the site. Note: theme-related files are stored
+in `site/etc/theme/themeName/\*` (discussed below).
+
+site/etc/tags.txt
+___________________
+
+Defines the tags and short headers for each page. Note that the web site only displays files listed in this file.
+
+site/etc/themes
+_______________
+
+Defines the theme specific files (images, stylesheets, etc).
+
+site/etc/themes/themeName/index.html
+____________________________________
+
+Template for the web pages. Contains variables marked with \`\`back ticks \`\`. This reference variables
+define in `site/etc/config.txt`.
+
+site/src
+++++++++
+
+Contains source code, suitable for downloading.
+
+site/src/x
+___________
+
+Latest source code files generated from the`*.wak` files. 
+
++ If the file contains an extension, then it is just the original file with the comments commented out.
++ If the file has no extension, then it is the original source plus all its dependents (as discovered by `lib/awk/uses.awk`).
+
+site/src/old/x
+______________
+
+Source files (including all the dependents), with version numbers
+attached (so if the code updates to a new version you do not trust,
+you can find the older version here).
+

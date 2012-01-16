@@ -1,0 +1,150 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#myrss
+
+#Simple formatter of an RSS stream.
+
+#Synopsis
+#========
+
+#    myrss(url,N  [,between])
+
+#Returns the first _N_ items from an rss feed at _url_. 
+
+#The functional optionally accepts a between string that is printed
+#between each item. For example, the _demoRss_ function shown below
+#prints a "&lt;li>" between each RSS item; i.e. it converts a text
+#string into an HTML list.
+
+#The code includes a generic loop for reading the stream and a set of
+#_formatting functions_ that lets a programmer change the presentation
+#of the stream.
+
+#Tips
+#====
+
+#When formatting an RSS feed, it it useful to view its
+#structure. The following command will show that structure. 
+
+#  Url="somUrl";  wget -q -O - "http://$Url"  | tidy -xml -i 
+
+#Note that _myRss_ imports the above into an array _all_, split on ">"
+#(see the function _myRss1_).
+
+#Example
+#=======
+
+#(KNIT programmers can run this using _cd quill; make eg17_.)
+
+#Input...
+
+#   print "<ul>\n<li>"
+#   print myrss("knit.googlecode.com/svn/branches/0.2/quill/etc/tests/lawker.rss",
+#               5,
+#               "\n\n<li>")
+#   print "\n</ul>"
+
+#Output...
+
+#  <ul>
+#  <li><a href="http://awk.info/?tools/xmonthly">Mar 01</a>:
+#   Michael Sanders demos an X-windows GUI for AWK.
+
+#  <li><a href="http://awk.info/?awk100/patentMatrix">Mar 01</a>:
+#   Awk100#24: A. Lahm and E. de Rinaldis' patent search, in AWK
+
+#  <li><a href="http://awk.info/?news/cookbook">Feb 28</a>:
+#   Tim Menzies asks this community to write an AWK cookbook.
+
+#  <li><a href="http://awk.info/?news/debugger">Feb 28</a>:
+#   Arnold Robbins announces a new debugger for GAWK.
+
+#  <li><a href="http://awk.info/?awk100/023vitamina">Feb 28</a>:
+#   Awk100#23: Premysl Janouch offers a IRC bot, In AWK
+#  </ul>
+
+#Code
+#====
+
+#Uses 
+#----
+
+#@uses wget trim
+
+#Main 
+#----
+
+ function myrss(feed,max,between,              \
+                 date,url,author,link,txt,title,	\
+                n,all,sep,out,seen,x,i) {
+     n = wget(feed,all,">");
+     for(i=1;i<=n; i++) {
+	 x= all[i]= trim(all[i])
+         # parse the items
+	 if      (x ~ /^<pubDate/ )    date   = myDate(all,i)
+	 else if (x ~ /^<description/) txt    = myText(all,i)
+	 else if (x ~ /^<title/)       title  = myField(all,i)
+	 else if (x ~ /^<author/)      author = myField(all,i)
+	 else if (x ~ /^<link/)        link   = myField(all,i)
+	 else if (x ~ /^<enclosure/)   url    = myEnclosure(all,i);
+         # if we have everything, generate an output
+	 if (date && txt && title && author && link && url) {
+	     out = out sep myReport(url,date,title,author,link,txt);
+	     sep = between ? between : "\n";
+	     date = txt = title = author = link = url = ""
+	     if (++seen >= max) 
+		 return out;
+	 }}
+     return out;
+ }
+
+#Formatting
+#-----------
+
+#Modify the following formatting functions to change the appearance of
+#each field.
+
+#_MyField_ is the simplest formatter and will suffice for many fields.
+
+ function myField(all,i,    str) {
+     str = all[i+1] 
+     sub(/<.*/,"",str);    
+     return str 
+ }
+
+#The other formatters handle special kinds of fields.  Note that the
+#folowing code handles the fields seen in the feed I was processing
+#when I wrote this script.  You may need something else to handle the
+#quirks of the feeds you are processing.
+
+ function myDate(all,i, tmp) {
+    split(all[i+1],tmp," ");   
+    return trim(tmp[3]  " " tmp[2])
+ } 
+ function myText(all,i,    str) {
+     str = all[i+1] 
+     sub(/&lt;.*/,"",str); 
+     return trim(str) 
+ }
+ function myEnclosure(all,i,   tmp) {
+     split(all[i],tmp,/'/);
+     return trim(tmp[4])
+ }
+
+#Reporter
+#--------
+
+#Modify the following reporting function to change the final output of
+#the itenm. Note that every field found by _myrss1_ is passed to the function. 
+
+#Feel free to ignore all the arguments except the ones you want to display.
+
+ function myReport(url,date,title,author,link,txt) {
+     return "<a href=\"" url "\">" date "</a>:\n " txt
+ }
+
+#Author
+#======
+
+#Tim Menzies
+

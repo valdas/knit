@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for file in code/*.ida
+do
+language=$(head -1 $file)
+cp $file srcFile
+php 2src.php &>/dev/null
+mkdir sourceCD/$language/`basename $file .ida`
+mv rmv sourceCD/$language/`basename $file .ida`/`basename $file ida`$language
+rm srcFile
+done

@@ -1,0 +1,105 @@
+# -*- mode: Awk; -*-  vim: set filetype=awk :
+#
+# This file is part of KNIT; copyright (C) 2010 by Tim Menzies
+# tim@menzies.us.
+#
+# KNIT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# KNIT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KNIT.  If not, see <http://www.gnu.org/licenses/>.
+
+PHP
+
+About this document
+==================
+
+On this page you will see some example applications of php(with html)
+
+A Bubble Sort of an Array of size 6
+===================================
+
+This is an example of a bubble sort. The user inputs six numbers into an array, the program prints the array before the sort, and prints the array after the sort.
+        <?php
+
+        function printArray($nums, $max)
+        {
+                $count=0;
+                while ($count <= $max)
+                {
+                        echo $nums[$count] . " ";
+                        $count++;
+                }
+        }
+        function swp($nums, $count)
+        {
+                $hold=$nums[$count];
+                $nums[$count] = $nums[$count+1];
+                $nums[$count+1] = $hold;
+                return $nums;
+        }
+        function sortArray($nums, $max)
+        {
+                $swap=1;
+                while ($swap==1)
+                {
+                        $count=0;
+                        $swap=0;
+                        while ($count<$max)
+                        {
+                                if($nums[$count]>$nums[$count+1])
+                                {
+                                        $nums = swp($nums, $count);
+                                        $swap=1;
+                                }
+	                $count++;
+                        }
+
+                }
+        return $nums;
+
+        }
+	//$nums = array($_POST["in01"], $_POST["in02"], $_POST["in03"], $_post[$_POST["in04"], $_POST["in05"], $_POST["in06"]);
+        $nums[0] = $_POST["in01"];
+        $nums[1] = $_POST["in02"];
+        $nums[2] = $_POST["in03"];
+        $nums[3] = $_POST["in04"];
+        $nums[4] = $_POST["in05"];
+        $nums[5] = $_POST["in06"];
+        $max=5;
+
+        echo "the unsorted array is ";
+         printArray($nums, $max);
+
+
+        echo "<br>";
+        $sorted=sortArray($nums, $max);
+
+
+        echo "the sorted array is ";
+        printArray($sorted, $max);
+        ?>
+
+The html form for the above bubble sort
+=======================================
+
+        <html>
+        <body>
+        <form action="sort.php" method="post">
+        Index1: <input type="text" name="in01" /> <br>
+        Index2: <input type="text" name="in02" /> <br>
+        Index3: <input type="text" name="in03" /> <br>
+        Index4: <input type="text" name="in04" /> <br>
+        Index5: <input type="text" name="in05" /> <br>
+        Index6: <input type="text" name="in06" /> <br>
+        <input type="submit" />
+        </form>
+        </body>
+        </html>

@@ -1,0 +1,38 @@
+<h1>AWK Idioms</h1>
+
+<ul>
+<li> <a href="#1">1. Use a Lot of Functions</a>
+<li> <a href="#2">2. Use lower case for local variables.</a>
+<li> <a href="#3">3. Use Less Globals</a>
+<li> <a href="#4">4. Spaced locals</a>
+<li> <a href="#5">5.  Optional function arguments</a>
+</ul>
+<p>
+Here are some coding conventions for AWK coding in KINT
+</p>
+<a name="1"></a><h2>1. Use a Lot of Functions</h2>
+<p>
+Make extensive use of functions, rather than use AWK's top-level loop.
+This will make reusing it in other applications.
+</p>
+<a name="2"></a><h2>2. Use lower case for local variables.</h2>
+<p>
+Label all your global variables as MixedCase.
+</p>
+<p>
+Label all your locals with a leading lowerCase letter.
+</p>
+<p>
+This convention makes it easier to find escaped globals. 
+</p>
+<a name="3"></a><h2>3. Use Less Globals</h2>
+<p>
+Are evil. Sometimes, a necessary evil. But nevertheless, evil. Remember, N-1 globals is always better than N.
+</p>
+<a name="4"></a><h2>4. Spaced locals</h2>
+<p>
+When defining local variables, add white space in front of their definition.
+</p>
+<a name="5"></a><h2>5.  Optional function arguments</h2>
+<p>
+If some arguments  to a function are optional, the offer defaults

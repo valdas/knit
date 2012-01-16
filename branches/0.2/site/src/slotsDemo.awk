@@ -1,0 +1,38 @@
+## -*- mode: Awk; -*-  vim: set filetype=awk : 
+
+#slotsDemo
+
+#A small program to demonstrate _slots_.
+
+#Code
+#====
+
+#Uses
+#----
+
+#@uses slots  myrss anyStrings
+
+#Main
+#----
+
+ function demoSlots(     get, data,frame1, slots1) {
+    get    = "wget -q -O - "
+    data   = "http://knit.googlecode.com/svn/branches/0.2/quill/etc/tests/" 
+    frame1 = get data "frame1.txt"
+    slots1 = get data "slots1.txt"
+    slots(slots1,frame1)
+ }
+ function slotsPlugIns(string,values,      tmp) {   
+    split(string,tmp,";")
+    if (tmp[1]=="rss")
+       return myrss(tmp[2],tmp[3])
+    if (tmp[1]="any")
+        return anyStrings(values[tmp[2]],tmp[3],5)
+    barph("(" string ") ???") 
+ }
+
+#Author
+#======
+
+#by Tim Menzies
+
